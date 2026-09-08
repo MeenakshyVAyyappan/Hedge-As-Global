@@ -48,15 +48,15 @@ export default function Hero1() {
 	};
 
 	return (
-		<div className="page-title-home-1 hero-compact py-5 py-md-5 py-lg-5">
+		<div className="page-title-home-1 hero-compact" style={{ paddingTop: '75px', paddingBottom: '75px' }}>
 			<div className="container-fluid px-3 px-md-4 px-lg-5" style={{ maxWidth: '1600px' }}>
 				<div className="row align-items-center g-4">
 
 					{/* Left Side Copy */}
 					<div className="col-12 col-lg-6 mb-5 mb-lg-0">
 						<div className="hero-left-content pe-lg-4 wow fadeInLeft" data-wow-delay="0.1s">
-							<div className="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill bg-white bg-opacity-10 border border-white border-opacity-20 text-white fs-12 fw-7 uppercase tracking-wider mb-3">
-								<i className="icon-angles-right text-red" />
+							<div className="d-inline-flex align-items-center gap-2 rounded-pill bg-white bg-opacity-10 border border-white border-opacity-20 text-white fs-12 fw-7 uppercase tracking-wider mb-4" style={{ padding: '8px 20px' }}>
+								<i className="icon-angles-right moveLeftToRight text-red" />
 								<span>ACCOUNTING • AUDIT • TAX • ADVISORY</span>
 							</div>
 

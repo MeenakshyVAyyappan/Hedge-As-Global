@@ -1,76 +1,110 @@
-import Link from 'next/link';
+import Link from "next/link";
+import Image from "next/image";
 
 export default function Section9() {
-	return (
-		<section className="s-featured-corporate-tax py-5 bg-dark text-white">
-			<div className="tf-container">
-				<div className="row align-items-center">
-					<div className="col-lg-7">
-						<div className="pe-lg-4">
-							<span className="badge bg-red text-white fs-12 uppercase px-3 py-1 mb-3 rounded-pill fw-7">
-								Featured Service • UAE Corporate Tax
-							</span>
-							<h2 className="text-white font-main-2 fs-36 fw-7 mb-4">
-								Corporate Tax Compliance Requires More Than Filing.
-							</h2>
-							<p className="text-white-70 fs-16 leading-relaxed mb-4">
-								Under UAE Federal Decree-Law No. 47 of 2022, Corporate Tax applies to business profits exceeding AED 375,000 at a standard rate of 9%. Proper tax group structuring, Small Business Relief evaluation, and arm's length transfer pricing documentation are critical to preventing costly FTA penalties.
-							</p>
+  const taxPoints = [
+    {
+      num: "01",
+      title: "Tax Registration & TRN",
+      desc: "Official FTA Registration and Tax Registration Number obtainment for corporate entities."
+    },
+    {
+      num: "02",
+      title: "Tax Impact Assessment",
+      desc: "Deep financial review to identify taxable vs exempt revenue streams and Small Business Relief eligibility."
+    },
+    {
+      num: "03",
+      title: "Transfer Pricing Policy",
+      desc: "Arm’s length benchmarking and Master/Local file documentation for related party transactions."
+    },
+    {
+      num: "04",
+      title: "Annual Return Filing",
+      desc: "Timely tax return compilation, reconciliation, and submission to avoid non-compliance penalties."
+    }
+  ];
 
-							<div className="row g-3 mb-4">
-								<div className="col-md-6">
-									<div className="p-3 bg-secondary bg-opacity-25 rounded-3 border border-secondary border-opacity-50">
-										<h4 className="text-white fs-15 fw-7 mb-1"><i className="flaticon-check-mark text-red me-2"></i>Tax Registration & TRN</h4>
-										<p className="text-white-70 fs-13 mb-0">Official FTA Registration and Tax Registration Number obtainment.</p>
-									</div>
-								</div>
-								<div className="col-md-6">
-									<div className="p-3 bg-secondary bg-opacity-25 rounded-3 border border-secondary border-opacity-50">
-										<h4 className="text-white fs-15 fw-7 mb-1"><i className="flaticon-check-mark text-red me-2"></i>Tax Impact Assessment</h4>
-										<p className="text-white-70 fs-13 mb-0">Deep financial review to identify taxable vs exempt revenue streams.</p>
-									</div>
-								</div>
-								<div className="col-md-6">
-									<div className="p-3 bg-secondary bg-opacity-25 rounded-3 border border-secondary border-opacity-50">
-										<h4 className="text-white fs-15 fw-7 mb-1"><i className="flaticon-check-mark text-red me-2"></i>Transfer Pricing</h4>
-										<p className="text-white-70 fs-13 mb-0">Arm’s length benchmarking and Master/Local file documentation.</p>
-									</div>
-								</div>
-								<div className="col-md-6">
-									<div className="p-3 bg-secondary bg-opacity-25 rounded-3 border border-secondary border-opacity-50">
-										<h4 className="text-white fs-15 fw-7 mb-1"><i className="flaticon-check-mark text-red me-2"></i>Annual Return Filing</h4>
-										<p className="text-white-70 fs-13 mb-0">Timely tax return compilation and submission before deadlines.</p>
-									</div>
-								</div>
-							</div>
+  return (
+    <section style={{ backgroundColor: "#ffffff", paddingTop: "80px", paddingBottom: "48px" }}>
+      <div className="tf-container">
 
-							<div className="d-flex flex-wrap gap-3">
-								<Link href="/contact" className="tf-btn">
-									Speak With a Tax Expert
-									<i className="icon-chevron-right ms-2" />
-								</Link>
-								<Link href="/services/uae-corporate-tax" className="tf-btn secondary">
-									Explore Corporate Tax Guide
-									<i className="icon-chevron-right ms-2" />
-								</Link>
-							</div>
-						</div>
-					</div>
+        {/* Section Header */}
+        <div className="row justify-content-between align-items-end mb-5">
+          <div className="col-lg-6">
+            <p className="s-sub-title text-red mb-18">
+              <i className="icon-angles-right moveLeftToRight" />
+              FEATURED SERVICE • UAE CORPORATE TAX
+            </p>
 
-					<div className="col-lg-5 mt-4 mt-lg-0">
-						<div className="p-4 rounded-3 bg-secondary bg-opacity-10 border border-secondary border-opacity-25 text-center">
-							<i className="flaticon-calculator text-red fs-60 mb-3 d-inline-block" />
-							<h3 className="text-white fs-22 fw-7 mb-2">Pioneer Hedge Tax Advisory</h3>
-							<p className="text-white-70 fs-14 mb-4">
-								Our FTA-approved tax agents represent your business directly with the Federal Tax Authority.
-							</p>
-							<Link href="/services/uae-corporate-tax" className="tf-btn style-10 w-100 justify-content-center">
-								Book Tax Compliance Review
-							</Link>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-	);
+            <h2 style={{ fontSize: "clamp(26px, 3.5vw, 40px)", fontWeight: 800, color: "#0f172a", lineHeight: 1.25, letterSpacing: "-0.5px", margin: 0 }}>
+              Corporate Tax Compliance<br />
+              <span style={{ color: "#03214e" }}>Requires More Than Filing</span>
+            </h2>
+          </div>
+
+          <div className="col-lg-5 mt-3 mt-lg-0">
+            <p style={{ fontSize: "15px", color: "#64748b", lineHeight: 1.7, margin: 0 }}>
+              Under UAE Federal Decree-Law No. 47 of 2022, Corporate Tax applies at a standard rate of 9%. Proper tax group structuring, Small Business Relief evaluation, and transfer pricing compliance protect your business from audit risks.
+            </p>
+          </div>
+        </div>
+
+        {/* Main Content Grid: Left Banner + Right 4 Cards */}
+        <div className="row g-4 align-items-stretch">
+          
+          {/* Left Hero Image */}
+          <div className="col-lg-5">
+            <div style={{ position: "relative", width: "100%", height: "100%", minHeight: "380px", borderRadius: "24px", overflow: "hidden", boxShadow: "0 12px 30px rgba(15,23,42,0.08)" }}>
+              <Image
+                src="/images/section/corporatetaxcompilence.png"
+                alt="UAE Corporate Tax Compliance"
+                fill
+                style={{ objectFit: "cover", objectPosition: "center" }}
+              />
+            </div>
+          </div>
+
+          {/* Right 4 Cards Grid */}
+          <div className="col-lg-7">
+            <div className="row g-3">
+              {taxPoints.map((item, index) => (
+                <div key={index} className="col-md-6">
+                  <div className="saylo-benefit-card">
+                    <span className="saylo-benefit-number">{item.num}</span>
+                    <h3 className="saylo-benefit-title">{item.title}</h3>
+                    <p className="saylo-benefit-desc">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </div>
+
+        {/* Bottom CTA Row */}
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "20px", marginTop: "48px", paddingTop: "32px", borderTop: "1px solid #e2e8f0" }}>
+          <div style={{ fontSize: "15px", color: "#64748b" }}>
+            Pioneer Hedge Auditing & Tax Consulting is an <strong style={{ color: "#0f172a" }}>FTA-approved Tax Agency</strong>.
+          </div>
+
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "14px" }}>
+            <Link href="/contact" className="about-cta-btn">
+              Speak With a Tax Expert
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+              </svg>
+            </Link>
+            <Link href="/services/uae-corporate-tax" className="saylo-cta-btn">
+              Book Compliance Review
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+              </svg>
+            </Link>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  );
 }

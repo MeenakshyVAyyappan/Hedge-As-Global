@@ -33,11 +33,11 @@ export default function Footer1() {
 	const getDisplayStyle2 = (key) => (isDesktop ? 'block' : isAccordion2 === key ? 'block' : 'none');
 
 	return (
-		<footer className="tf-footer position-relative z-1 pt-80 pb-30" style={{ backgroundColor: '#0A111F' }}>
+		<footer className="tf-footer position-relative z-1 pt-80 pb-30" style={{ backgroundColor: '#03214e' }}>
 			<div className="container-fluid px-3 px-md-4 px-lg-5" style={{ maxWidth: '1400px' }}>
 				<div className="row">
 					<div className="col-lg-12">
-						<div className="footer-inner d-flex flex-wrap justify-content-between align-items-start gap-4 gap-lg-5">
+						<div className="footer-inner d-flex flex-wrap justify-content-between align-items-start gap-4 gap-lg-5" style={{ backgroundColor: 'transparent', padding: '0px' }}>
 							
 							{/* Column 1: Brand Info */}
 							<div className="inner-right mb-4" style={{ maxWidth: '360px' }}>
@@ -46,10 +46,10 @@ export default function Footer1() {
 										<Image
 											width={200}
 											height={60}
-											style={{ objectFit: 'contain', height: '48px', width: 'auto' }}
+											style={{ objectFit: 'contain', height: '54px', width: 'auto' }}
 											id="logo_footer"
-											src="/images/logo/hedgesecondlogo.png"
-											alt="Hedge Chartered Accountants Group"
+											src="/images/logo/hedgelogo.png"
+											alt="Hedge Chartered Accountants Group Logo"
 										/>
 									</Link>
 								</div>

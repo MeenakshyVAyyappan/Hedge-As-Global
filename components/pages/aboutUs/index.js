@@ -1,78 +1,80 @@
 'use client';
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import Section1 from './section1';
+import AccountingInfrastructure from '@/components/pages/home1/section6';
+import WorkingProcess from '@/components/pages/home1/section8';
 import ConsultationForm from '@/components/forms/ConsultationForm';
 import { locationsData } from '@/data/locations';
+import { faqsData } from '@/data/faqs';
 
 export default function AboutUs() {
+	const [activeFaq, setActiveFaq] = useState(1);
+
+	const toggleFaq = (id) => {
+		setActiveFaq(activeFaq === id ? null : id);
+	};
+
+	const col1Faqs = faqsData.slice(0, 4);
+	const col2Faqs = faqsData.slice(4, 8);
+
 	return (
 		<>
-			{/* Hero / Overview Banner */}
-			<section className="py-5 bg-dark text-white">
+			{/* Firm Overview Section */}
+			<Section1 />
+
+			{/* Accounting Infrastructure Section */}
+			<AccountingInfrastructure />
+
+			{/* Working Process Section */}
+			<WorkingProcess />
+
+			{/* Mission & Vision Saylo Style */}
+			<section className="py-5" id="mission">
 				<div className="tf-container">
-					<div className="row align-items-center">
-						<div className="col-lg-7">
-							<span className="badge bg-red text-white fs-12 uppercase px-3 py-1 mb-3 rounded-pill fw-7">
-								About Hedge Group
-							</span>
-							<h1 className="text-white font-main-2 fs-42 fw-7 mb-3">
-								Financial Expertise Built on Accuracy, Transparency & Trust
-							</h1>
-							<p className="text-white-70 fs-16 leading-relaxed mb-4">
-								Hedge Chartered Accountants Group is a premier corporate accounting, auditing, taxation, and financial advisory firm operating across Abu Dhabi, Dubai, Al Ain, Bahrain, and India.
-							</p>
-						</div>
-						<div className="col-lg-5 text-center">
-							<div className="bg-white p-4 rounded-4 shadow-lg d-inline-block">
-								<Image
-									width="240"
-									height="75"
-									style={{ objectFit: 'contain', height: '70px', width: 'auto' }}
-									src="/images/logo/hedgelogo.png"
-									alt="Hedge Chartered Accountants Group Logo"
-								/>
+					<div className="row g-4 align-items-stretch">
+						{/* Left Side: Mission & Vision */}
+						<div className="col-lg-6">
+							<div className="p-5 h-100 rounded-4" style={{ backgroundColor: '#f8f4f0' }}>
+								{/* Mission */}
+								<div className="mb-4 pb-2">
+									<div className="d-flex align-items-center mb-3">
+										<div className="bg-white rounded-3 d-flex align-items-center justify-content-center shadow-sm" style={{ width: '65px', height: '65px', marginRight: '20px' }}>
+											<i className="flaticon-rocket text-dark fs-30" />
+										</div>
+										<h3 className="fs-24 fw-6 text-dark mb-0">Company Mission</h3>
+									</div>
+									<p className="text-muted fs-15 leading-relaxed mb-0 mt-2">
+										To deliver audit-grade financial clarity, uncompromising tax compliance, and long-term strategic advisory that protects enterprise capital. We are committed to delivering exceptional service and personalized guidance.
+									</p>
+								</div>
+
+								<hr className="my-4 border-secondary opacity-10" />
+
+								{/* Vision */}
+								<div className="mt-4 pt-2">
+									<div className="d-flex align-items-center mb-3">
+										<div className="bg-white rounded-3 d-flex align-items-center justify-content-center shadow-sm" style={{ width: '65px', height: '65px', marginRight: '20px' }}>
+											<i className="flaticon-target text-dark fs-30" />
+										</div>
+										<h3 className="fs-24 fw-6 text-dark mb-0">Company Vision & Goals</h3>
+									</div>
+									<p className="text-muted fs-15 leading-relaxed mb-0 mt-2">
+										To be the most trusted chartered accounting and tax advisory group in the GCC, recognized for authority, innovation, and client success. We strive to set standard for excellence by continuously enhancing our solutions.
+									</p>
+								</div>
 							</div>
 						</div>
-					</div>
-				</div>
-			</section>
-
-			{/* Company Story & Mission/Vision */}
-			<section className="py-5 bg-light-slate">
-				<div className="tf-container">
-					<div className="row align-items-center mb-5">
-						<div className="col-lg-6 mb-4 mb-lg-0">
-							<h2 className="font-main-2 text-dark fs-32 fw-7 mb-3">
-								Empowering Enterprise Growth Through Precise Governance
-							</h2>
-							<p className="text-muted fs-15 leading-relaxed mb-3">
-								Founded to serve corporate entities, commercial groups, and high-growth SMEs, Hedge Chartered Accountants Group combines regional regulatory experience with international audit rigor. We provide boardrooms and executive management with clear financial insights required to navigate evolving tax landscapes.
-							</p>
-							<p className="text-muted fs-15 leading-relaxed">
-								From UAE Corporate Tax registration and statutory audit compliance to cloud accounting software integration, our dedicated teams adhere strictly to International Financial Reporting Standards (IFRS).
-							</p>
-						</div>
-
+						{/* Right Side: Image */}
 						<div className="col-lg-6">
-							<div className="row g-3">
-								<div className="col-md-6">
-									<div className="p-4 bg-white rounded-3 border shadow-sm h-100">
-										<i className="flaticon-target text-red fs-40 mb-3 d-inline-block" />
-										<h3 className="fs-18 fw-7 text-dark mb-2">Our Mission</h3>
-										<p className="fs-14 text-muted mb-0">
-											To deliver audit-grade financial clarity, uncompromising tax compliance, and long-term strategic advisory that protects enterprise capital.
-										</p>
-									</div>
-								</div>
-								<div className="col-md-6">
-									<div className="p-4 bg-white rounded-3 border shadow-sm h-100">
-										<i className="flaticon-rocket text-red fs-40 mb-3 d-inline-block" />
-										<h3 className="fs-18 fw-7 text-dark mb-2">Our Vision</h3>
-										<p className="fs-14 text-muted mb-0">
-											To be the most trusted chartered accounting and tax advisory group in the GCC, recognized for authority, innovation, and client success.
-										</p>
-									</div>
-								</div>
+							<div className="position-relative h-100 w-100 rounded-4 overflow-hidden" style={{ minHeight: '400px' }}>
+								<Image
+									src="/images/section/firmoverview.png"
+									alt="Hedge Group Mission and Vision"
+									fill
+									style={{ objectFit: 'cover' }}
+								/>
 							</div>
 						</div>
 					</div>
@@ -116,27 +118,146 @@ export default function AboutUs() {
 			</section>
 
 			{/* Regional Presence */}
-			<section className="py-5 bg-light-slate">
+			<section id="locations" className="s-regional-presence">
 				<div className="tf-container">
-					<div className="row text-center mb-4">
-						<div className="col-12">
-							<h2 className="font-main-2 text-dark fs-32 fw-7">Our Regional Footprint</h2>
-							<p className="text-muted fs-15">Serving clients locally through practice offices in the UAE, Bahrain, and India.</p>
+					<div className="row justify-content-center text-center mb-50">
+						<div className="col-lg-8">
+							<p className="s-sub-title text-red mb-18 justify-center">
+								<i className="icon-angles-right moveLeftToRight" />
+								REGIONAL FOOTPRINT
+							</p>
+							<h2 className="s-title font-main-2 text-dark fs-38 fw-7 mb-3">
+								Regional Expertise. Local Support.
+							</h2>
+							<p className="text-muted fs-16 max-w-650 mx-auto">
+								Hedge operates dedicated practice offices across key commercial hubs in the UAE, Bahrain, and India to support your regional expansion, audit, and tax compliance needs.
+							</p>
 						</div>
 					</div>
 
-					<div className="row g-4">
+					<div className="row g-4 justify-content-center">
 						{locationsData.map((office) => (
 							<div key={office.id} className="col-lg-4 col-md-6">
-								<div className="location-card bg-white p-4 rounded-3 border shadow-sm h-100">
-									<span className="location-badge mb-2">{office.badge}</span>
-									<h3 className="fs-18 fw-7 text-dark mb-2">{office.title}</h3>
-									<p className="fs-13 text-muted mb-2">{office.address}</p>
-									<p className="fs-13 text-dark fw-6 mb-0">Phone: {office.phone}</p>
+								<div className="corp-office-card">
+									<div>
+										<div className="office-city">{office.city}</div>
+										<span className="office-type">{office.badge}</span>
+										<p className="office-address">{office.address}</p>
+										<ul className="office-meta">
+											<li>
+												<span className="fw-6 text-dark me-1">Tel:</span>
+												<Link href={`tel:${office.phone.replace(/\s+/g, '')}`}>
+													{office.phone}
+												</Link>
+											</li>
+											<li>
+												<span className="fw-6 text-dark me-1">Email:</span>
+												<Link href={`mailto:${office.email}`}>
+													{office.email}
+												</Link>
+											</li>
+											<li>
+												<span className="fw-6 text-dark me-1">Hours:</span>
+												<span>{office.workingHours}</span>
+											</li>
+										</ul>
+									</div>
+
+									<Link href="/contact" className="office-link">
+										<span>Contact Office</span>
+										<i className="icon-arrow-right2 ms-1" />
+									</Link>
 								</div>
 							</div>
 						))}
 					</div>
+				</div>
+			</section>
+
+			{/* Frequently Asked Questions Section */}
+			<section id="faq" style={{ backgroundColor: '#ffffff', paddingTop: '96px', paddingBottom: '96px', borderTop: '1px solid #f1f5f9' }}>
+				<div className="tf-container">
+
+					{/* Section Header */}
+					<div className="row justify-content-center text-center mb-5">
+						<div className="col-lg-8">
+							<p className="s-sub-title text-red mb-18 justify-center">
+								<i className="icon-angles-right moveLeftToRight" />
+								FREQUENTLY ASKED QUESTIONS
+							</p>
+
+							<h2 style={{ fontSize: 'clamp(26px, 3.5vw, 40px)', fontWeight: 800, color: '#0f172a', lineHeight: 1.25, letterSpacing: '-0.5px', marginBottom: '14px' }}>
+								Common Questions About<br />
+								<span style={{ color: '#03214e' }}>Accounting, Tax & Audit</span>
+							</h2>
+
+							<p style={{ fontSize: '15px', color: '#64748b', lineHeight: 1.7, maxWidth: '560px', margin: '0 auto' }}>
+								Find quick answers to the most common queries regarding UAE tax regulations, statutory audits, and our professional financial services.
+							</p>
+						</div>
+					</div>
+
+					{/* 2 Columns x 4 FAQs Timeline Grid */}
+					<div className="row g-5">
+						
+						{/* Column 1 (FAQs 01 - 04) */}
+						<div className="col-lg-6">
+							<div className="saylo-timeline-faq-wrap">
+								<div className="saylo-timeline-line"></div>
+								{col1Faqs.map((faq, index) => {
+									const numStr = String(index + 1).padStart(2, '0');
+									const isActive = activeFaq === faq.id;
+									return (
+										<div key={faq.id} className={`saylo-timeline-faq-item ${isActive ? 'active' : ''}`}>
+											<span className="saylo-timeline-badge">{numStr}</span>
+											<button className="saylo-timeline-btn" onClick={() => toggleFaq(faq.id)}>
+												<h3 className="saylo-timeline-question">{faq.question}</h3>
+												<span className="saylo-timeline-toggle">
+													{isActive ? '−' : '+'}
+												</span>
+											</button>
+
+											{isActive && (
+												<div className="saylo-timeline-answer">
+													{faq.answer}
+												</div>
+											)}
+										</div>
+									);
+								})}
+							</div>
+						</div>
+
+						{/* Column 2 (FAQs 05 - 08) */}
+						<div className="col-lg-6">
+							<div className="saylo-timeline-faq-wrap">
+								<div className="saylo-timeline-line"></div>
+								{col2Faqs.map((faq, index) => {
+									const numStr = String(index + 5).padStart(2, '0');
+									const isActive = activeFaq === faq.id;
+									return (
+										<div key={faq.id} className={`saylo-timeline-faq-item ${isActive ? 'active' : ''}`}>
+											<span className="saylo-timeline-badge">{numStr}</span>
+											<button className="saylo-timeline-btn" onClick={() => toggleFaq(faq.id)}>
+												<h3 className="saylo-timeline-question">{faq.question}</h3>
+												<span className="saylo-timeline-toggle">
+													{isActive ? '−' : '+'}
+												</span>
+											</button>
+
+											{isActive && (
+												<div className="saylo-timeline-answer">
+													{faq.answer}
+												</div>
+											)}
+										</div>
+									);
+								})}
+							</div>
+						</div>
+
+					</div>
+
 				</div>
 			</section>
 

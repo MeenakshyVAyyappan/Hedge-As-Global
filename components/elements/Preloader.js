@@ -16,7 +16,7 @@ export default function Preloader() {
 									height="0"
 									sizes="100vw"
 									style={{ width: "100%", height: "auto" }}
-									src="/images/logo/logo3x.png" alt="" />
+									src="/images/logo/hedgelogo.png" alt="Hedge Chartered Accountants Group" />
 							</div>
 						</div>
 					</div>

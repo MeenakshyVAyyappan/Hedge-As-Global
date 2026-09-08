@@ -1,15 +1,26 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 export default function MobileMenu() {
 	const pathname = usePathname();
+	const router = useRouter();
 	const [activeDropdown, setActiveDropdown] = useState(null);
 
 	const toggleDropdown = (key) => {
 		setActiveDropdown(activeDropdown === key ? null : key);
+	};
+
+	const scrollToFaq = (e) => {
+		e.preventDefault();
+		const el = document.getElementById('faq');
+		if (el) {
+			el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+		} else {
+			router.push('/#faq');
+		}
 	};
 
 	return (
@@ -24,7 +35,7 @@ export default function MobileMenu() {
 
 			<li className={`item has-child ${activeDropdown === 'services' ? 'active' : ''}`}>
 				<div className="d-flex align-items-center justify-content-between">
-					<Link href="/services">Services</Link>
+					<Link href="/services">Our Services</Link>
 					<button
 						type="button"
 						className="btn-toggle-sub border-0 bg-transparent text-white p-2"
@@ -35,21 +46,31 @@ export default function MobileMenu() {
 					</button>
 				</div>
 				<ul className="sub-nav" style={{ display: activeDropdown === 'services' ? 'block' : 'none' }}>
-					<li><Link href="/services">All Services Overview</Link></li>
+					<li><Link href="/services"><strong className="text-red">All Services Overview</strong></Link></li>
+
+					<li className="fw-7 text-white mt-2 ps-2">Accounting</li>
 					<li><Link href="/services/accounting-services">Accounting Services</Link></li>
-					<li><Link href="/services/bookkeeping">Bookkeeping Services</Link></li>
-					<li><Link href="/services/audit-assurance">Audit & Assurance (Pioneer Hedge)</Link></li>
+					<li><Link href="/services/bookkeeping">Book Keeping</Link></li>
+
+					<li className="fw-7 text-white mt-2 ps-2">Auditing</li>
+					<li><Link href="/services/audit-assurance">Audit</Link></li>
+
+					<li className="fw-7 text-white mt-2 ps-2">Taxation</li>
 					<li><Link href="/services/uae-corporate-tax">UAE Corporate Tax</Link></li>
 					<li><Link href="/services/vat-uae">VAT UAE</Link></li>
 					<li><Link href="/services/vat-bahrain">VAT Bahrain</Link></li>
-					<li><Link href="/services/icv-certification">ICV Certification</Link></li>
-					<li><Link href="/services/e-invoicing">UAE E-Invoicing</Link></li>
-					<li><Link href="/services/business-advisory">Business Advisory</Link></li>
+
+					<li className="fw-7 text-white mt-2 ps-2">ICV Certificate</li>
+					<li><Link href="/services/icv-certification">ICV Certificate UAE</Link></li>
 				</ul>
 			</li>
 
 			<li className="item">
-				<Link href="/blog">Insights & Updates</Link>
+				<Link href="/blog">Insights &amp; Updates</Link>
+			</li>
+
+			<li className="item">
+				<a href="/#faq" onClick={scrollToFaq}>FAQs</a>
 			</li>
 
 			<li className="item">

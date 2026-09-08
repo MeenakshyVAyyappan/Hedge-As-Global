@@ -27,7 +27,7 @@ import Header4 from "./header/Header4"
 
 import FloatingWhatsApp from "../elements/FloatingWhatsApp"
 
-export default function Layout({ headerStyle, footerStyle, breadcrumbTitle, children, mainCls, breadcrumbAlt, hero }) {
+export default function Layout({ headerStyle, footerStyle, breadcrumbTitle, children, mainCls, breadcrumbAlt, hero, breadcrumbBg }) {
 	const [scroll, setScroll] = useState(0)
 	// MobilleMenu
 	const [isMobileMenu, setMobileMenu] = useState(false)
@@ -54,7 +54,27 @@ export default function Layout({ headerStyle, footerStyle, breadcrumbTitle, chil
 		}
 
 		window.addEventListener("scroll", onScroll)
-		return () => window.removeEventListener("scroll", onScroll)
+
+		// Handle hash-based anchor navigation (e.g. /#faq)
+		const handleHashScroll = () => {
+			const hash = window.location.hash;
+			if (hash) {
+				const id = hash.replace('#', '');
+				setTimeout(() => {
+					const el = document.getElementById(id);
+					if (el) {
+						el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+					}
+				}, 600);
+			}
+		};
+		handleHashScroll();
+		window.addEventListener('hashchange', handleHashScroll);
+
+		return () => {
+			window.removeEventListener("scroll", onScroll);
+			window.removeEventListener('hashchange', handleHashScroll);
+		}
 	}, [])
 	animateImgItem()
 	animateBoxVideo()
@@ -71,7 +91,7 @@ export default function Layout({ headerStyle, footerStyle, breadcrumbTitle, chil
 				{hero == 2 && <Hero2 />}
 				{hero == 3 && <Hero3 />}
 				{hero == 4 && <Hero4 />}
-				<Breadcrumb breadcrumbTitle={breadcrumbTitle} breadcrumbAlt={breadcrumbAlt} />
+				<Breadcrumb breadcrumbTitle={breadcrumbTitle} breadcrumbAlt={breadcrumbAlt} breadcrumbBg={breadcrumbBg} />
 				<div className={`main-content ${mainCls ? mainCls : ""}`}>
 					{children}
 				</div>

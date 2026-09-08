@@ -1,105 +1,122 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
+
 export default function Section1() {
 	return (
 		<>
+			{/* Marquee Ticker Title */}
+			<div className="tf-marquee slider-saylo mt-50 mb-40">
+				<div className="wrap-marquee">
+					<div className="marquee-item"><p className="font-main-2 text">Accounting &amp; Audit Services</p></div>
+					<div className="marquee-item"><p className="font-main-2 text">Accounting &amp; Audit Services</p></div>
+					<div className="marquee-item"><p className="font-main-2 text">Accounting &amp; Audit Services</p></div>
+					<div className="marquee-item"><p className="font-main-2 text">Accounting &amp; Audit Services</p></div>
+					<div className="marquee-item"><p className="font-main-2 text">Accounting &amp; Audit Services</p></div>
+					<div className="marquee-item"><p className="font-main-2 text">Accounting &amp; Audit Services</p></div>
+				</div>
+			</div>
 
-			<section className="s-we-do tf-spacing-3">
+			<section className="s-we-do tf-spacing-3 pt-0">
 				<div className="tf-container">
 					<div className="row">
 						<div className="col-lg-12">
 							<div className="heading mb-70">
 								<p className="s-sub-title mb-15 justify-center">
 									<i className="icon-angles-right moveLeftToRight" />
-									what we do
+									WHAT WE DO
 								</p>
-								<p className="s-title text-center text-anime-style-2">
+								<h2 className="s-title text-center text-anime-style-2" style={{ fontSize: 'clamp(28px, 3.8vw, 44px)', fontWeight: 800 }}>
 									Empowering Businesses with Expert <br />
-									Business
-									<span>
-										Consulting
-									</span>
-								</p>
+									Accounting &amp; <span>Financial Solutions</span>
+								</h2>
 							</div>
+
 							<div className="feature-group overflow-hidden">
-								<div className="box-icon style-8 ">
+								{/* Card 1: Accounting & Bookkeeping */}
+								<div className="box-icon style-8">
 									<div className="icon">
-										<i className="flaticon-workflow" />
+										<i className="flaticon-calculator" />
 									</div>
-									<Link href="/service-details" className="title">
-										Customized Strategic
-										Planning &amp; Ideas
+									<Link href="/services/accounting-bookkeeping" className="title fw-7">
+										Accounting &amp; Bookkeeping Services
 									</Link>
 									<span className="line mb-30" />
 									<p className="text">
-										We develop tailored strategies that align with your business addressing unique
-										challenges leveraging.
+										Complete ledger maintenance, bank reconciliation, financial statement preparation, and management reporting aligned with IFRS standards.
 									</p>
 									<div className="image">
-										<Link href="/service-details">
+										<Link href="/services/accounting-bookkeeping">
 											<Image
-												width="0"
-												height="0"
-												sizes="100vw"
-												style={{ width: "100%", height: "100%" }}
-												src="/images/section/feature.jpg" data-src="/images/section/feature.jpg" alt="" className="lazyload" />
+												width={500}
+												height={500}
+												style={{ width: "100%", height: "100%", objectFit: "cover" }}
+												src="/images/section/homeabout.jpg" 
+												alt="Accounting & Bookkeeping" 
+												className="lazyload" 
+											/>
 										</Link>
 									</div>
 								</div>
-								<div className="box-icon style-8 ">
+
+								{/* Card 2: Statutory & Internal Audit */}
+								<div className="box-icon style-8">
 									<div className="icon">
 										<i className="flaticon-workflow" />
 									</div>
-									<Link href="/service-details" className="title">
-										Customized Strategic
-										Planning &amp; Ideas
+									<Link href="/services/audit-assurance" className="title fw-7">
+										Statutory &amp; Internal Audit Services
 									</Link>
 									<span className="line mb-30" />
 									<p className="text">
-										We develop tailored strategies that align with your business addressing unique
-										challenges leveraging.
+										Independent statutory audits, internal financial controls review, and risk management assessments for UAE free zones and mainland entities.
 									</p>
 									<div className="image">
-										<Link href="/service-details">
+										<Link href="/services/audit-assurance">
 											<Image
-												width="0"
-												height="0"
-												sizes="100vw"
-												style={{ width: "100%", height: "100%" }}
-												src="/images/section/feature.jpg" data-src="/images/section/feature.jpg" alt="" className="lazyload" />
+												width={500}
+												height={500}
+												style={{ width: "100%", height: "100%", objectFit: "cover" }}
+												src="/images/section/firmoverview.png" 
+												alt="Statutory & Internal Audit" 
+												className="lazyload" 
+											/>
 										</Link>
 									</div>
 								</div>
-								<div className="box-icon style-8 ">
+
+								{/* Card 3: UAE Corporate Tax Advisory */}
+								<div className="box-icon style-8">
 									<div className="icon">
-										<i className="flaticon-team" />
+										<i className="flaticon-award" />
 									</div>
-									<Link href="/service-details" className="title">
-										Operational Efficiency Optimization
+									<Link href="/services/corporate-tax" className="title fw-7">
+										UAE Corporate Tax &amp; VAT Compliance
 									</Link>
 									<span className="line mb-30" />
 									<p className="text">
-										We analyze and refine business the processes to improve productivity to reduce
-										costs, and enhance overall.
+										Corporate tax registration, tax group structuring, transfer pricing documentation, and annual tax return filings with the Federal Tax Authority.
 									</p>
 									<div className="image">
-										<Link href="/service-details">
+										<Link href="/services/corporate-tax">
 											<Image
-												width="0"
-												height="0"
-												sizes="100vw"
-												style={{ width: "100%", height: "100%" }}
-												src="/images/section/feature.jpg" data-src="/images/section/feature.jpg" alt="" className="lazyload" />
+												width={500}
+												height={500}
+												style={{ width: "100%", height: "100%", objectFit: "cover" }}
+												src="/images/section/corporatetaxcompilence.png" 
+												alt="Corporate Tax Advisory" 
+												className="lazyload" 
+											/>
 										</Link>
 									</div>
 								</div>
 							</div>
+
 						</div>
 					</div>
 				</div>
 			</section>
-
 		</>
 	)
 }
+

@@ -1,40 +1,87 @@
-import { partnersData } from '@/data/partners';
+"use client";
+
+import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+
+// Swiper CSS
+import "swiper/css";
 
 export default function Section6() {
-	return (
-		<section className="s-partners py-5 bg-light-slate">
-			<div className="tf-container">
-				<div className="row justify-content-center text-center mb-5">
-					<div className="col-lg-8">
-						<p className="s-sub-title text-red mb-2">
-							<i className="icon-angles-right moveLeftToRight" />
-							Accounting Infrastructure
-						</p>
-						<h2 className="s-title font-main-2 text-dark fs-32 fw-7">
-							Technology Partnerships That Strengthen Your Finance Function
-						</h2>
-						<p className="text-muted fs-15 mt-2">
-							We seamlessly integrate your corporate accounting workflows with leading ERP and cloud bookkeeping platforms for real-time visibility and VAT/E-Invoicing compliance.
-						</p>
-					</div>
-				</div>
+  const partnerLogos = [
+    { id: "tally-1", name: "Tally Prime", logo: "/images/section/TallyPrime.png" },
+    { id: "odoo-1", name: "Odoo ERP", logo: "/images/section/odoo.png" },
+    { id: "zoho-1", name: "Zoho Books", logo: "/images/section/zohoo.png" },
+    { id: "tally-2", name: "Tally Prime", logo: "/images/section/TallyPrime.png" },
+    { id: "odoo-2", name: "Odoo ERP", logo: "/images/section/odoo.png" },
+    { id: "zoho-2", name: "Zoho Books", logo: "/images/section/zohoo.png" }
+  ];
 
-				<div className="row g-4 justify-content-center">
-					{partnersData.map((partner) => (
-						<div key={partner.id} className="col-lg-4 col-md-6">
-							<div className="bg-white p-4 rounded-3 border shadow-sm h-100 text-center d-flex flex-column align-items-center justify-content-center">
-								<div className="px-3 py-2 bg-light rounded-3 mb-3 border">
-									<h3 className="fw-7 text-dark fs-22 mb-0">{partner.name}</h3>
-									<span className="text-red fs-12 fw-6 uppercase tracking-wider">{partner.subtitle}</span>
-								</div>
-								<p className="text-muted fs-14 mb-0 leading-relaxed">
-									{partner.description}
-								</p>
-							</div>
-						</div>
-					))}
-				</div>
-			</div>
-		</section>
-	);
+  const swiperParams = {
+    modules: [Autoplay],
+    loop: true,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: true,
+    },
+    breakpoints: {
+      0: {
+        slidesPerView: 1.5,
+        spaceBetween: 16,
+      },
+      576: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      992: {
+        slidesPerView: 3,
+        spaceBetween: 24,
+      },
+      1200: {
+        slidesPerView: 4,
+        spaceBetween: 28,
+      }
+    }
+  };
+
+  return (
+    <section style={{ backgroundColor: "#ffffff", paddingTop: "80px", paddingBottom: "80px", borderTop: "1px solid #f1f5f9" }}>
+      <div className="tf-container">
+
+        {/* Section Header */}
+        <div className="row justify-content-center text-center mb-5">
+          <div className="col-lg-8">
+            <p className="s-sub-title text-red mb-18 justify-center">
+              <i className="icon-angles-right moveLeftToRight" />
+              ACCOUNTING INFRASTRUCTURE
+            </p>
+
+            <h2 style={{ fontSize: "clamp(26px, 3.5vw, 40px)", fontWeight: 800, color: "#0f172a", lineHeight: 1.25, letterSpacing: "-0.5px", margin: 0 }}>
+              Technology Partnerships That<br />
+              <span style={{ color: "#03214e" }}>Strengthen Your Finance Function</span>
+            </h2>
+          </div>
+        </div>
+
+        {/* Saylo Home-1 Partner Logo Swiper Auto Slider */}
+        <Swiper {...swiperParams} className="saylo-partner-swiper">
+          {partnerLogos.map((partner) => (
+            <SwiperSlide key={partner.id}>
+              <div className="saylo-home1-partner-box">
+                <Image
+                  src={partner.logo}
+                  alt={partner.name}
+                  width={240}
+                  height={100}
+                  className="saylo-home1-partner-img"
+                />
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
+      </div>
+    </section>
+  );
 }

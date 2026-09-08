@@ -65,8 +65,8 @@ export const metadata = {
 		images: ['/images/logo/hedgelogo.png'],
 	},
 	icons: {
-		icon: '/images/logo/hedgelogo.png',
-		shortcut: '/images/logo/hedgelogo.png',
+		icon: '/favicon.ico',
+		shortcut: '/favicon.ico',
 		apple: '/images/logo/hedgelogo.png',
 	},
 	alternates: {

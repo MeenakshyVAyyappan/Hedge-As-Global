@@ -1,77 +1,110 @@
-import Link from 'next/link';
+import Link from "next/link";
+import Image from "next/image";
 
 export default function Section10() {
-	const einvoicingFeatures = [
-		{
-			title: "Accounting System Review",
-			desc: "Audit existing software (Tally, Odoo, Zoho, SAP) to identify Peppol XML data schema gaps."
-		},
-		{
-			title: "Data Mapping & Formatting",
-			desc: "Structure customer Tax Registration Numbers, line-item VAT codes, and currency fields."
-		},
-		{
-			title: "ERP & Peppol Integration",
-			desc: "Connect your billing system directly to approved Accredited Service Providers (ASP)."
-		},
-		{
-			title: "Compliance & Audit Readiness",
-			desc: "Ensure structured real-time tax clearance and automated archiving compliant with FTA laws."
-		}
-	];
+  const einvoicingPoints = [
+    {
+      num: "01",
+      title: "Accounting System Review",
+      desc: "Audit existing software (Tally, Odoo, Zoho, SAP) to identify Peppol XML data schema gaps."
+    },
+    {
+      num: "02",
+      title: "Data Mapping & Formatting",
+      desc: "Structure customer Tax Registration Numbers, line-item VAT codes, and currency fields."
+    },
+    {
+      num: "03",
+      title: "ERP & Peppol Integration",
+      desc: "Connect your billing system directly to approved Accredited Service Providers (ASP)."
+    },
+    {
+      num: "04",
+      title: "Compliance & Audit Readiness",
+      desc: "Ensure structured real-time tax clearance and automated archiving compliant with FTA laws."
+    }
+  ];
 
-	return (
-		<section className="s-einvoicing py-5 bg-light-slate">
-			<div className="tf-container">
-				<div className="row align-items-center">
-					<div className="col-lg-6">
-						<span className="badge bg-red text-white fs-12 uppercase px-3 py-1 mb-3 rounded-pill fw-7">
-							UAE E-Invoicing Mandate
-						</span>
-						<h2 className="font-main-2 text-dark fs-36 fw-7 mb-3">
-							Is Your Accounting System Ready for UAE E-Invoicing?
-						</h2>
-						<p className="text-muted fs-16 leading-relaxed mb-4">
-							The UAE Ministry of Finance is implementing mandatory E-Invoicing using the Peppol network. Businesses must transition from legacy PDF invoices to structured real-time XML tax clearance.
-						</p>
+  return (
+    <section style={{ backgroundColor: "#ffffff", paddingTop: "48px", paddingBottom: "80px", borderTop: "1px solid #f1f5f9" }}>
+      <div className="tf-container">
 
-						<div className="row g-3 mb-4">
-							{einvoicingFeatures.map((item, index) => (
-								<div key={index} className="col-md-6">
-									<div className="p-3 bg-white rounded-3 border shadow-sm h-100">
-										<h4 className="fw-7 fs-15 text-dark mb-1"><i className="flaticon-check-mark text-red me-2"></i>{item.title}</h4>
-										<p className="fs-13 text-muted mb-0">{item.desc}</p>
-									</div>
-								</div>
-							))}
-						</div>
+        {/* Section Header */}
+        <div className="row justify-content-between align-items-end mb-5">
+          <div className="col-lg-6">
+            <p className="s-sub-title text-red mb-18">
+              <i className="icon-angles-right moveLeftToRight" />
+              MANDATORY COMPLIANCE • UAE E-INVOICING
+            </p>
 
-						<div className="d-flex flex-wrap gap-3">
-							<Link href="/contact" className="tf-btn">
-								Request E-Invoicing Review
-								<i className="icon-chevron-right ms-2" />
-							</Link>
-							<Link href="/services/e-invoicing" className="tf-btn secondary">
-								Learn More About E-Invoicing
-								<i className="icon-chevron-right ms-2" />
-							</Link>
-						</div>
-					</div>
+            <h2 style={{ fontSize: "clamp(26px, 3.5vw, 40px)", fontWeight: 800, color: "#0f172a", lineHeight: 1.25, letterSpacing: "-0.5px", margin: 0 }}>
+              Is Your Accounting System<br />
+              <span style={{ color: "#03214e" }}>Ready for UAE E-Invoicing?</span>
+            </h2>
+          </div>
 
-					<div className="col-lg-5 offset-lg-1 mt-4 mt-lg-0">
-						<div className="bg-dark text-white p-5 rounded-4 border border-secondary shadow-lg">
-							<i className="flaticon-digital-marketing text-red fs-60 mb-3 d-inline-block" />
-							<h3 className="text-white fs-24 fw-7 mb-3">E-Invoicing Health Check</h3>
-							<p className="text-white-70 fs-14 mb-4">
-								Avoid last-minute software disruptions. Our financial technology team evaluates your ERP readiness and maps your master data fields.
-							</p>
-							<Link href="/contact" className="tf-btn style-10 w-100 justify-content-center">
-								Book Technology Audit
-							</Link>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-	);
+          <div className="col-lg-5 mt-3 mt-lg-0">
+            <p style={{ fontSize: "15px", color: "#64748b", lineHeight: 1.7, margin: 0 }}>
+              The UAE Ministry of Finance is implementing mandatory E-Invoicing using the Peppol network. Businesses must transition from legacy PDF invoices to structured real-time XML tax clearance.
+            </p>
+          </div>
+        </div>
+
+        {/* Main Content Grid: Left 4 Cards + Right Banner */}
+        <div className="row g-4 align-items-stretch">
+          
+          {/* Left 4 Cards Grid */}
+          <div className="col-lg-7">
+            <div className="row g-3">
+              {einvoicingPoints.map((item, index) => (
+                <div key={index} className="col-md-6">
+                  <div className="saylo-benefit-card">
+                    <span className="saylo-benefit-number">{item.num}</span>
+                    <h3 className="saylo-benefit-title">{item.title}</h3>
+                    <p className="saylo-benefit-desc">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right Hero Image */}
+          <div className="col-lg-5">
+            <div style={{ position: "relative", width: "100%", height: "100%", minHeight: "380px", borderRadius: "24px", overflow: "hidden", boxShadow: "0 12px 30px rgba(15,23,42,0.08)" }}>
+              <Image
+                src="/images/section/e-invoicing.png"
+                alt="UAE E-Invoicing Readiness & Integration"
+                fill
+                style={{ objectFit: "cover", objectPosition: "center" }}
+              />
+            </div>
+          </div>
+
+        </div>
+
+        {/* Bottom CTA Row */}
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "20px", marginTop: "48px", paddingTop: "32px", borderTop: "1px solid #e2e8f0" }}>
+          <div style={{ fontSize: "15px", color: "#64748b" }}>
+            Avoid last-minute software disruptions with a <strong style={{ color: "#0f172a" }}>Peppol Health Check</strong>.
+          </div>
+
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "14px" }}>
+            <Link href="/contact" className="about-cta-btn">
+              Request E-Invoicing Review
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+              </svg>
+            </Link>
+            <Link href="/services/e-invoicing" className="saylo-cta-btn">
+              Explore E-Invoicing Guide
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+              </svg>
+            </Link>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  );
 }

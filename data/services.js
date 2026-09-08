@@ -3,18 +3,39 @@ export const servicesData = [
 		id: "accounting-services",
 		slug: "accounting-services",
 		category: "Accounting",
-		title: "Accounting & Bookkeeping Services",
-		shortTitle: "Accounting & Bookkeeping",
+		title: "Accounting Services in Abu Dhabi, UAE & Bahrain",
+		shortTitle: "Accounting Services",
 		icon: "flaticon-accounting",
-		tagline: "Accurate financial records, reporting, and professional accounting support.",
-		description: "Hedge Chartered Accountants Group delivers comprehensive accounting and bookkeeping solutions tailored to UAE, Bahrain, and regional business requirements. We help corporate entities, SMEs, and family businesses maintain immaculate financial records compliant with International Financial Reporting Standards (IFRS).",
+		tagline: "Accurate financial records, robust reporting, and professional accounting support tailored for GCC markets.",
+		description: "Hedge Chartered Accountants Group delivers comprehensive accounting and bookkeeping solutions tailored to UAE, Bahrain, and regional business requirements. We help corporate entities, SMEs, and family businesses maintain immaculate financial records compliant with International Financial Reporting Standards (IFRS) and local regulatory frameworks (FTA/NBR).",
+		extendedDescription: "In the rapidly evolving business landscapes of the UAE and Bahrain, maintaining robust financial records is not just about compliance—it is about strategic advantage. Our outsourced accounting services are designed to alleviate the administrative burden of in-house finance functions, providing you with a dedicated team of certified professionals. Whether you operate in a UAE Free Zone, Mainland UAE, or navigate the regulatory environment of Bahrain, Hedge provides a reliable, scalable, and secure financial backbone for your enterprise. We ensure you have real-time visibility into your financial position, enabling informed decision-making and sustainable growth.",
 		features: [
 			"Comprehensive General Ledger Maintenance",
 			"Accounts Payable & Receivable Management",
-			"Bank & Account Reconciliations",
+			"Bank, Credit Card & Account Reconciliations",
 			"Financial Statement Preparation (IFRS)",
 			"Management Reporting & MIS Dashboards",
-			"Payroll Processing & WPS Compliance"
+			"Payroll Processing & WPS Compliance",
+			"Fixed Assets Register Maintenance",
+			"Audit Assistance & Statutory Liaison"
+		],
+		benefits: [
+			{
+				title: "IFRS Compliant Reporting",
+				desc: "Ensure your financial statements meet global standards for transparency and comparability, crucial for investors, banks, and stakeholders."
+			},
+			{
+				title: "Cost Efficiency",
+				desc: "Significantly reduce overhead costs associated with hiring, training, and retaining an in-house finance department by leveraging our scalable outsourced expertise."
+			},
+			{
+				title: "Audit & Tax Readiness",
+				desc: "Maintain impeccable records that are consistently ready for independent statutory audits and fully aligned with UAE Corporate Tax, UAE VAT, and Bahrain VAT requirements."
+			},
+			{
+				title: "Strategic Financial Insights",
+				desc: "Gain access to timely, accurate MIS reports and visual dashboards that empower executive decision-making, budgeting, and cash flow optimization."
+			}
 		],
 		heroImage: "/images/section/accounting-hero.jpg"
 	},

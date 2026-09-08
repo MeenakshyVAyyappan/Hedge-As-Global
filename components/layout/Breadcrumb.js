@@ -1,7 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 
-export default function Breadcrumb({ breadcrumbTitle, breadcrumbAlt }) {
+export default function Breadcrumb({ breadcrumbTitle, breadcrumbAlt, breadcrumbBg }) {
 	const words = breadcrumbTitle?.split(" ")
 	const formattedTitle = words?.length > 1 ? (
 		<>
@@ -14,7 +14,7 @@ export default function Breadcrumb({ breadcrumbTitle, breadcrumbAlt }) {
 	return (
 		<>
 			{breadcrumbTitle &&
-				<div className="tf-page-title">
+				<div className="tf-page-title" style={{ paddingTop: 0 }}>
 					<div className="content-wrap">
 						<div className="bg-image">
 							<div className="rellax" data-rellax-speed={-10}>
@@ -24,7 +24,7 @@ export default function Breadcrumb({ breadcrumbTitle, breadcrumbAlt }) {
 									sizes="100vw"
 									style={{ width: "100%", height: "auto" }}
 
-									src="/images/page-title/page-title.jpg"
+									src={breadcrumbBg ? breadcrumbBg : "/images/page-title/page-title.jpg"}
 									alt={""}
 								/>
 							</div>
@@ -49,17 +49,7 @@ export default function Breadcrumb({ breadcrumbTitle, breadcrumbAlt }) {
 							</div>
 						</div>
 					</div>
-					<div className="tf-marquee slider-saylo mt-65">
-						<div className="wrap-marquee">
-							{Array(10)
-								.fill("Saylo Consulting")
-								.map((text, index) => (
-									<div className="marquee-item" key={index}>
-										<p className="font-main-2 text">{text}</p>
-									</div>
-								))}
-						</div>
-					</div>
+
 				</div>
 			}
 

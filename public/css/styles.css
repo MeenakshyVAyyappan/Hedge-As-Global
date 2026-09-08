@@ -2195,10 +2195,16 @@ a.hover-text-main-golden:hover {
 
 /*------------ footer ---------------- */
 .tf-footer {
-	padding-top: 100px;
-	background-color: var(--Main-black-3);
+	padding-top: 80px;
+	background-color: #03214e !important;
 	position: relative;
 	overflow: hidden;
+}
+
+.footer-inner {
+	background-color: transparent !important;
+	box-shadow: none !important;
+	border: none !important;
 }
 
 .tf-footer .logo-site img {
@@ -4204,7 +4210,7 @@ fieldset {
 	background-color: var(--Main-black);
 	position: relative;
 	z-index: 1;
-	padding-top: 60px;
+	padding-top: 0px;
 }
 
 .tf-page-title .content-wrap {
@@ -16243,8 +16249,8 @@ a.mapboxgl-ctrl-logo {
 }
 
 .tf-btn.secondary {
-	background-color: #0C1829;
-	border-color: #0C1829;
+	background-color: #03214e;
+	border-color: #03214e;
 	color: #ffffff !important;
 }
 
@@ -16255,7 +16261,7 @@ a.mapboxgl-ctrl-logo {
 
 /* Topbar Info Items */
 .tf-topbar {
-	background-color: #070F1E;
+	background-color: #071526;
 	border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -16327,7 +16333,7 @@ a.mapboxgl-ctrl-logo {
 
 /* Custom Consultation Form Styling */
 .hedge-consultation-form-wrap {
-	background: linear-gradient(145deg, #0C1829 0%, #15243B 100%);
+	background: linear-gradient(145deg, #03214e 0%, #063970 100%);
 	padding: 40px;
 	border-radius: 12px;
 	border: 1px solid rgba(255, 255, 255, 0.1);
@@ -16351,7 +16357,7 @@ a.mapboxgl-ctrl-logo {
 }
 
 .hedge-consultation-form select.custom-input option {
-	background-color: #0C1829;
+	background-color: #03214e;
 	color: #ffffff;
 }
 
@@ -16371,7 +16377,7 @@ a.mapboxgl-ctrl-logo {
 
 .location-card:hover {
 	transform: translateY(-5px);
-	box-shadow: 0 15px 35px rgba(12, 24, 41, 0.08);
+	box-shadow: 0 15px 35px rgba(12, 31, 51, 0.08);
 	border-color: var(--Main-red);
 }
 
@@ -16390,7 +16396,7 @@ a.mapboxgl-ctrl-logo {
 
 /* Pioneer Hedge Auditing Section Styling */
 .pioneer-hedge-box {
-	background: linear-gradient(135deg, #0C1829 0%, #0B3C5D 100%);
+	background: linear-gradient(135deg, #03214e 0%, #0B3C5D 100%);
 	border-radius: 16px;
 	padding: 50px;
 	color: #ffffff;
@@ -16457,7 +16463,7 @@ a.mapboxgl-ctrl-logo {
 
 /* Compact Premium Hero Section */
 .page-title-home-1.hero-compact {
-	background-image: linear-gradient(135deg, rgba(7, 15, 30, 0.65) 0%, rgba(12, 24, 41, 0.50) 50%, rgba(7, 15, 30, 0.68) 100%), url('/images/banner/banner100.png');
+	background-image: linear-gradient(135deg, rgba(7, 21, 38, 0.65) 0%, rgba(12, 31, 51, 0.50) 50%, rgba(7, 21, 38, 0.68) 100%), url('/images/banner/banner100.png');
 	background-size: cover;
 	background-position: center center;
 	background-repeat: no-repeat;
@@ -16478,7 +16484,7 @@ a.mapboxgl-ctrl-logo {
 
 /* Glassmorphism Quick Consultation Form */
 .glass-card {
-	background: rgba(12, 24, 41, 0.85);
+	background: rgba(12, 31, 51, 0.85);
 	backdrop-filter: blur(16px);
 	-webkit-backdrop-filter: blur(16px);
 	border: 1px solid rgba(255, 255, 255, 0.15);
@@ -16513,7 +16519,7 @@ a.mapboxgl-ctrl-logo {
 }
 
 .hero-quick-form select.hero-input option {
-	background-color: #0C1829;
+	background-color: #03214e;
 	color: #ffffff;
 }
 
@@ -16642,7 +16648,201 @@ a.mapboxgl-ctrl-logo {
 }
 
 .mobile-nav-wrap .inner-mobile-nav {
-	background: rgba(12, 24, 41, 0.95) !important;
+	background: rgba(12, 31, 51, 0.95) !important;
+	backdrop-filter: blur(20px);
+	-webkit-backdrop-filter: blur(20px);
+	border-left: 1px solid rgba(255, 255, 255, 0.1);
+	box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+	padding: 30px 20px;
+}
+
+.mobile-nav-wrap .top {
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+}
+
+.mobile-nav-wrap .mobile-nav-close i {
+	color: #ffffff !important;
+	font-size: 24px;
+	transition: all 0.3s ease;
+}
+
+.mobile-nav-wrap .mobile-nav-close:hover i {
+	color: var(--Main-red) !important;
+	transform: rotate(90deg);
+}
+
+.mobile-nav-wrap .mobile-nav-list > li {
+	border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+	padding: 12px 0;
+}
+
+.mobile-nav-wrap .mobile-nav-list > li > a,
+.mobile-nav-wrap .mobile-nav-list > li > div > a {
+	color: #ffffff !important;
+	font-size: 18px;
+	font-weight: 600;
+	text-transform: none;
+	transition: all 0.3s ease;
+}
+
+.mobile-nav-wrap .mobile-nav-list > li:hover > a,
+.mobile-nav-wrap .mobile-nav-list > li:hover > div > a {
+	color: var(--Main-red) !important;
+	padding-left: 5px;
+}
+
+.mobile-nav-wrap .sub-nav {
+	background: rgba(0, 0, 0, 0.2);
+	border-radius: 8px;
+	padding: 10px 15px !important;
+	margin-top: 10px;
+}
+
+.mobile-nav-wrap .sub-nav li a {
+	color: rgba(255, 255, 255, 0.7) !important;
+	font-size: 15px;
+	padding: 8px 0;
+	transition: all 0.3s ease;
+}
+
+.mobile-nav-wrap .sub-nav li:hover a {
+	color: #ffffff !important;
+}
+
+.mobile-nav-wrap .bottom .title {
+	color: #ffffff !important;
+	font-size: 18px;
+	font-weight: 700;
+	margin-bottom: 15px;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	padding-bottom: 10px;
+}
+
+.mobile-nav-wrap .contact-list li p {
+	color: rgba(255, 255, 255, 0.7) !important;
+	font-size: 14px;
+	margin-bottom: 12px;
+}
+
+.mobile-nav-wrap .contact-list li p a {
+	color: #ffffff !important;
+	font-weight: 500;
+}
+
+.box-icon.default:hover {
+	transform: translateY(-5px);
+	border-color: var(--Main-red) !important;
+	box-shadow: 0 15px 35px rgba(217, 35, 42, 0.12) !important;
+}
+
+.box-icon.default:hover .icon i {
+	transform: scale(1.08);
+	transition: transform 0.3s ease;
+}
+
+/* Responsive Polish */
+@media (max-width: 1199px) {
+	.text-fs-52 {
+		font-size: 42px !important;
+	}
+}
+
+@media (max-width: 991px) {
+	.logo-site {
+		padding-left: 0;
+	}
+
+	.header-inner {
+		padding-left: 15px !important;
+		padding-right: 15px !important;
+	}
+
+	.text-fs-52 {
+		font-size: 36px !important;
+	}
+	
+	.page-title-home-1.hero-compact {
+		padding-top: 3rem !important;
+		padding-bottom: 3rem !important;
+	}
+}
+
+@media (max-width: 767px) {
+	.text-fs-52 {
+		font-size: 32px !important;
+	}
+	
+	.slider-saylo p {
+		font-size: 28px !important;
+	}
+	
+	.hero-left-content {
+		text-align: center;
+		padding-right: 0 !important;
+	}
+	
+	.hero-left-content .d-flex {
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+	
+	.hero-left-content p.text {
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+@media (max-width: 575px) {
+	.text-fs-52 {
+		font-size: 28px !important;
+	}
+
+	.slider-saylo p {
+		font-size: 24px !important;
+	}
+	
+	.glass-card {
+		padding: 24px !important;
+	}
+}
+
+/* Modern Premium Mobile Menu */
+.glass-card {
+	background: rgba(255, 255, 255, 0.03);
+	backdrop-filter: blur(16px);
+	-webkit-backdrop-filter: blur(16px);
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	transition: all 0.4s ease;
+}
+
+.glass-card:hover {
+	background: rgba(255, 255, 255, 0.06);
+	border-color: rgba(255, 255, 255, 0.15);
+}
+
+.hover-translate {
+	transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.hover-translate:hover {
+	transform: translateY(-8px);
+	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.premium-tilt-image {
+	transform: rotate(2deg);
+	transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.5s ease;
+}
+
+.premium-tilt-image:hover {
+	transform: rotate(0deg) translateY(-5px);
+	box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15) !important;
+}
+
+.mobile-nav-wrap .inner-mobile-nav {
+	background: rgba(12, 31, 51, 0.95) !important;
 	backdrop-filter: blur(20px);
 	-webkit-backdrop-filter: blur(20px);
 	border-left: 1px solid rgba(255, 255, 255, 0.1);
@@ -16727,4 +16927,1158 @@ a.mapboxgl-ctrl-logo {
 
 .mobile-nav-wrap .contact-list li p a:hover {
 	color: var(--Main-red) !important;
+}
+
+/* Regional Location Cards - Authentic Corporate Standard */
+.s-regional-presence {
+	background-color: #ffffff;
+	padding: 90px 0;
+	border-top: 1px solid #f1f5f9;
+}
+
+.corp-sub-title {
+	font-size: 13px;
+	font-weight: 700;
+	color: #d9232a;
+	text-transform: uppercase;
+	letter-spacing: 1.5px;
+	margin-bottom: 12px;
+	display: block;
+}
+
+.corp-office-card {
+	background: #ffffff;
+	border: 1px solid #e5e7eb;
+	border-radius: 12px;
+	padding: 32px 28px;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.corp-office-card:hover {
+	border-color: #94a3b8;
+	box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+	transform: translateY(-4px);
+}
+
+.corp-office-card .office-city {
+	font-size: 22px;
+	font-weight: 700;
+	color: #0f172a;
+	font-family: var(--font-main-2), sans-serif;
+	margin-bottom: 4px;
+}
+
+.corp-office-card .office-type {
+	font-size: 12px;
+	font-weight: 600;
+	color: #64748b;
+	text-transform: uppercase;
+	letter-spacing: 0.8px;
+	margin-bottom: 18px;
+	display: block;
+}
+
+.corp-office-card .office-address {
+	font-size: 14px;
+	color: #334155;
+	line-height: 1.6;
+	margin-bottom: 20px;
+}
+
+.corp-office-card .office-meta {
+	list-style: none;
+	padding: 0;
+	margin: 0 0 24px 0;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	font-size: 14px;
+	color: #475569;
+}
+
+.corp-office-card .office-meta li {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.corp-office-card .office-meta a {
+	color: #0f172a;
+	font-weight: 500;
+	text-decoration: none;
+	transition: color 0.2s ease;
+}
+
+.corp-office-card .office-meta a:hover {
+	color: #d9232a;
+	text-decoration: underline;
+}
+
+.corp-office-card .office-link {
+	font-size: 14px;
+	font-weight: 600;
+	color: #03214e;
+	text-decoration: none;
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	transition: gap 0.2s ease, color 0.2s ease;
+	margin-top: auto;
+	padding-top: 16px;
+	border-top: 1px solid #f1f5f9;
+}
+
+.corp-office-card .office-link:hover {
+	color: #d9232a;
+	gap: 10px;
+}
+
+/* ===== Expertise Section (Home Section 3) ===== */
+.expertise-card {
+	background: #ffffff;
+	border: 1px solid #eaecf0;
+	border-radius: 16px;
+	padding: 32px 28px 28px;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	overflow: hidden;
+	transition: transform 0.32s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.32s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.32s ease;
+}
+
+/* Hedge Services Multi-Level Dropdown Styling */
+.nav-list .item.has-child {
+	position: relative;
+}
+
+.nav-list .item.has-child:hover > .sub-nav {
+	visibility: visible !important;
+	opacity: 1 !important;
+	pointer-events: auto !important;
+	transform: translateY(0) !important;
+}
+
+.sub-nav.hedge-services-dropdown {
+	position: absolute !important;
+	top: 100% !important;
+	left: 0 !important;
+	width: 210px !important;
+	background: #ffffff !important;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12) !important;
+	border-radius: 8px !important;
+	padding: 8px 0 !important;
+	margin: 0 !important;
+	list-style: none !important;
+	z-index: 9999 !important;
+	overflow: visible !important;
+}
+
+.hedge-has-flyout {
+	position: relative !important;
+	list-style: none !important;
+}
+
+.hedge-has-flyout > a {
+	display: flex !important;
+	align-items: center !important;
+	justify-content: space-between !important;
+	padding: 11px 18px !important;
+	font-size: 14.5px !important;
+	color: #2b2b2b !important;
+	text-decoration: none !important;
+	transition: all 0.2s ease !important;
+}
+
+.hedge-has-flyout:hover > a {
+	background-color: #f8fafc !important;
+	color: #03214e !important;
+	font-weight: 600 !important;
+}
+
+.hedge-has-flyout:hover > a i {
+	color: #03214e !important;
+}
+
+/* Flyout Submenu (Level 2) */
+.hedge-flyout-menu {
+	position: absolute !important;
+	top: 0 !important;
+	left: 100% !important;
+	min-width: 200px !important;
+	background-color: #ffffff !important;
+	border-radius: 8px !important;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12) !important;
+	padding: 8px 0 !important;
+	list-style: none !important;
+	margin: 0 !important;
+	visibility: hidden !important;
+	opacity: 0 !important;
+	transform: translateX(10px) !important;
+	transition: all 0.2s ease !important;
+	z-index: 10000 !important;
+}
+
+.hedge-has-flyout:hover > .hedge-flyout-menu {
+	visibility: visible !important;
+	opacity: 1 !important;
+	display: block !important;
+	transform: translateX(0) !important;
+}
+
+.hedge-flyout-menu li a {
+	display: block !important;
+	padding: 10px 18px !important;
+	font-size: 14px !important;
+	color: #334155 !important;
+	text-decoration: none !important;
+	white-space: nowrap !important;
+	transition: all 0.2s ease !important;
+}
+
+.hedge-flyout-menu li a:hover {
+	background-color: #f8fafc !important;
+	color: #03214e !important;
+	font-weight: 600 !important;
+}
+.expertise-card::before {
+	content: "";
+	position: absolute;
+	top: 0; left: 0; right: 0;
+	height: 3px;
+	background: #C8102E;
+	transform: scaleX(0);
+	transform-origin: left;
+	transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	border-radius: 16px 16px 0 0;
+}
+.expertise-card:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(12, 31, 51, 0.10); border-color: transparent; }
+.expertise-card:hover::before { transform: scaleX(1); }
+.expertise-card:hover .card-icon-wrap { transform: scale(1.08); }
+.card-icon-wrap { width: 54px; height: 54px; border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; transition: transform 0.3s ease; flex-shrink: 0; }
+.card-icon-wrap.icon-red { background: rgba(200, 16, 46, 0.08); color: #C8102E; }
+.card-icon-wrap.icon-navy { background: rgba(12, 31, 51, 0.07); color: #0C1F33; }
+.expertise-card.card-accent-red::before { background: #C8102E; }
+.expertise-card.card-accent-navy::before { background: #03214e; }
+.expertise-card.card-accent-red .card-label { color: #C8102E; }
+.expertise-card.card-accent-navy .card-label { color: #0C1F33; }
+.expertise-card .card-label { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #C8102E; margin-bottom: 8px; opacity: 0.85; }
+.expertise-card .card-title { font-size: 17px; font-weight: 700; color: #0C1F33; line-height: 1.35; margin-bottom: 10px; }
+.expertise-card .card-text { font-size: 14px; color: #6b7280; line-height: 1.7; margin-bottom: 0; flex: 1; }
+.card-cta { display: inline-flex; align-items: center; gap: 5px; font-size: 13px; font-weight: 600; color: #0C1F33; margin-top: 20px; text-decoration: none; border-top: 1px solid #f0f1f3; padding-top: 16px; transition: color 0.2s ease, gap 0.2s ease; }
+.card-cta:hover { color: #C8102E; gap: 8px; }
+.expertise-section-label { display: inline-flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #C8102E; margin-bottom: 14px; }
+.expertise-section-label .label-line { display: inline-block; width: 28px; height: 2px; background: #C8102E; border-radius: 2px; flex-shrink: 0; }
+.explore-expertise-btn { display: inline-flex; align-items: center; gap: 8px; background: #03214e; color: #ffffff !important; font-size: 14px; font-weight: 600; padding: 13px 28px; border-radius: 50px; text-decoration: none !important; transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease; letter-spacing: 0.01em; }
+.explore-expertise-btn:hover { background: #C8102E; color: #ffffff !important; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200, 16, 46, 0.25); }
+.explore-expertise-btn i { font-size: 13px; transition: transform 0.2s ease; }
+.explore-expertise-btn:hover i { transform: translateX(3px); }
+
+
+
+/* ===== About Section CTA Button (Section2) ===== */
+.about-cta-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 9px;
+	background: #03214e;
+	color: #ffffff !important;
+	font-size: 13.5px;
+	font-weight: 700;
+	padding: 13px 26px;
+	border-radius: 4px;
+	text-decoration: none !important;
+	letter-spacing: 0.03em;
+	transition: background 0.25s ease, transform 0.2s ease;
+}
+.about-cta-btn:hover {
+	background: #C8102E;
+	color: #ffffff !important;
+	transform: translateY(-1px);
+}
+
+/* ===== Technology Partner Cards (Section6) ===== */
+.tech-partner-card:hover {
+	transform: translateY(-6px);
+	box-shadow: 0 20px 48px rgba(3, 33, 78, 0.09);
+	border-color: transparent !important;
+}
+
+/* ===== AI-Style Tech Partner Cards (Section6) ===== */
+.ai-partner-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
+  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.ai-partner-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(3, 33, 78, 0.35);
+  box-shadow: 0 20px 40px -10px rgba(3, 33, 78, 0.14), 0 0 25px 0 rgba(200, 16, 46, 0.08);
+}
+
+.ai-card-image-wrap {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  background: #0f172a;
+  overflow: hidden;
+}
+
+.ai-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.ai-partner-card:hover .ai-card-img {
+  transform: scale(1.06);
+}
+
+.ai-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.02) 0%, rgba(15, 23, 42, 0.25) 100%);
+  pointer-events: none;
+}
+
+.ai-tag-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 30px;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  z-index: 2;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.ai-tag-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+}
+
+.ai-card-content {
+  padding: 28px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background: #ffffff;
+}
+
+.ai-partner-subtitle {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #C8102E;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.ai-partner-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 12px;
+  line-height: 1.3;
+  letter-spacing: -0.2px;
+}
+
+.ai-partner-desc {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.7;
+  margin: 0;
+  flex: 1;
+}
+
+.ai-card-accent-line {
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(90deg, #03214e 0%, #C8102E 100%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.ai-partner-card:hover .ai-card-accent-line {
+  opacity: 1;
+}
+
+/* ===== Why Choose Hedge Section (Section7) ===== */
+.why-hedge-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 32px 28px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.why-hedge-card:hover {
+  transform: translateY(-6px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(200, 16, 46, 0.5);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35), 0 0 20px rgba(200, 16, 46, 0.1);
+}
+
+.why-hedge-number {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  font-size: 13px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.2);
+  letter-spacing: 0.1em;
+  transition: color 0.3s ease;
+}
+
+.why-hedge-card:hover .why-hedge-number {
+  color: #C8102E;
+}
+
+.why-hedge-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(200, 16, 46, 0.12);
+  border: 1px solid rgba(200, 16, 46, 0.3);
+  color: #C8102E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 22px;
+  transition: all 0.3s ease;
+}
+
+.why-hedge-card:hover .why-hedge-icon-box {
+  background: #C8102E;
+  color: #ffffff;
+  border-color: #C8102E;
+  transform: scale(1.06);
+}
+
+/* ===== Saylo-Inspired Consulting Services Section (Section3) ===== */
+.saylo-service-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 28px 26px;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 18px -2px rgba(15, 23, 42, 0.04);
+  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.saylo-service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: #C8102E;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.saylo-service-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(3, 33, 78, 0.25);
+  box-shadow: 0 16px 36px -8px rgba(3, 33, 78, 0.12);
+}
+
+.saylo-service-card:hover::before {
+  opacity: 1;
+}
+
+.saylo-card-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(3, 33, 78, 0.06);
+  color: #03214e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.saylo-service-card:hover .saylo-card-icon {
+  background: #C8102E;
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+.saylo-card-body {
+  flex: 1;
+}
+
+.saylo-card-title {
+  font-size: 18.5px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.saylo-card-text {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.65;
+  margin-bottom: 12px;
+}
+
+.saylo-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #03214e;
+  text-decoration: none;
+  transition: color 0.25s ease, gap 0.25s ease;
+}
+
+.saylo-card-link:hover {
+  color: #C8102E;
+  gap: 10px;
+}
+
+.saylo-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: #03214e;
+  color: #ffffff !important;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 14px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(3, 33, 78, 0.2);
+}
+
+.saylo-cta-btn:hover {
+  background: #C8102E;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(200, 16, 46, 0.3);
+}
+
+/* ===== Saylo-Inspired Methodology Cards (Section8) ===== */
+.methodology-saylo-card {
+  position: relative;
+  height: 420px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #0f172a;
+  cursor: pointer;
+  box-shadow: 0 8px 30px -4px rgba(15, 23, 42, 0.12);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.methodology-saylo-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px -8px rgba(3, 33, 78, 0.25);
+}
+
+.methodology-card-img-wrap {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.methodology-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.methodology-saylo-card:hover .methodology-card-img {
+  transform: scale(1.08);
+}
+
+.methodology-step-badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 6px 14px;
+  border-radius: 30px;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  z-index: 2;
+  transition: opacity 0.3s ease;
+}
+
+.methodology-hover-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(3, 33, 78, 0.15) 0%, rgba(3, 33, 78, 0.88) 50%, rgba(3, 33, 78, 0.98) 100%);
+  opacity: 0;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  z-index: 3;
+  transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.methodology-saylo-card:hover .methodology-hover-overlay {
+  opacity: 1;
+}
+
+.methodology-hover-content {
+  padding-right: 48px;
+}
+
+.methodology-hover-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 10px;
+  line-height: 1.25;
+  transform: translateY(20px);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.methodology-hover-desc {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.65;
+  margin: 0;
+  transform: translateY(20px);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.05s;
+}
+
+.methodology-saylo-card:hover .methodology-hover-title,
+.methodology-saylo-card:hover .methodology-hover-desc {
+  transform: translateY(0);
+}
+
+.methodology-arrow-btn {
+  position: absolute;
+  bottom: 28px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #ffc107;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 4;
+  transform: scale(0.7) translateY(10px);
+  opacity: 0;
+  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+.methodology-saylo-card:hover .methodology-arrow-btn {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+/* ===== Updated Saylo Auto-Slider Methodology Styles ===== */
+.methodology-saylo-card {
+  position: relative;
+  height: 480px;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #0f172a;
+  cursor: pointer;
+  box-shadow: 0 12px 36px -6px rgba(15, 23, 42, 0.12);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@media (max-width: 768px) {
+  .methodology-saylo-card {
+    height: 380px;
+    border-radius: 18px;
+  }
+}
+
+.methodology-swiper-pagination .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background: #cbd5e1;
+  opacity: 1;
+  margin: 0 6px !important;
+  transition: all 0.3s ease;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.methodology-swiper-pagination .swiper-pagination-bullet-active {
+  background: #03214e;
+  width: 30px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(3, 33, 78, 0.3);
+}
+
+/* ===== Saylo Home-2 Inspired Hero Feature Cards (Section1) ===== */
+.saylo-home2-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 36px 28px 32px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04);
+  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.saylo-home2-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(3, 33, 78, 0.25);
+  box-shadow: 0 20px 40px -8px rgba(3, 33, 78, 0.12);
+}
+
+.saylo-home2-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.saylo-home2-desc {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  flex: 1;
+}
+
+.saylo-home2-img-wrap {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 24px;
+  border: 4px solid #f8fafc;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+  flex-shrink: 0;
+  transition: transform 0.4s ease;
+}
+
+.saylo-home2-card:hover .saylo-home2-img-wrap {
+  transform: scale(1.05);
+  border-color: rgba(200, 16, 46, 0.2);
+}
+
+.saylo-home2-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.saylo-home2-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+  text-decoration: none;
+  transition: color 0.25s ease, gap 0.25s ease;
+}
+
+.saylo-home2-card:hover .saylo-home2-link {
+  color: #C8102E;
+  gap: 10px;
+}
+
+/* ===== Saylo Home-2 Inspired Benefit Cards (Section9 & Section10) ===== */
+.saylo-benefit-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 32px 24px 28px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.saylo-benefit-card:hover {
+  transform: translateY(-6px);
+  background: #ffffff;
+  border-color: rgba(3, 33, 78, 0.25);
+  box-shadow: 0 18px 36px -6px rgba(3, 33, 78, 0.12);
+}
+
+.saylo-benefit-number {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid #cbd5e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: #64748b;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+  background: #ffffff;
+}
+
+.saylo-benefit-card:hover .saylo-benefit-number {
+  background: #03214e;
+  color: #ffffff;
+  border-color: #03214e;
+}
+
+.saylo-benefit-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.saylo-benefit-desc {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.65;
+  margin: 0;
+  flex: 1;
+}
+
+/* ===== Saylo Home-4 Inspired Timeline FAQ Accordion (Section12) ===== */
+.saylo-faq-container {
+  position: relative;
+  padding-left: 20px;
+}
+
+.saylo-faq-timeline-line {
+  position: absolute;
+  top: 30px;
+  bottom: 30px;
+  left: 39px;
+  width: 2px;
+  background: #e2e8f0;
+  z-index: 1;
+}
+
+.saylo-faq-item {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 20px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px -2px rgba(15, 23, 42, 0.04);
+  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.saylo-faq-item.active {
+  border-color: rgba(3, 33, 78, 0.25);
+  box-shadow: 0 16px 36px -6px rgba(3, 33, 78, 0.1);
+  transform: translateY(-2px);
+}
+
+.saylo-faq-button {
+  width: 100%;
+  padding: 22px 20px;
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+
+.saylo-faq-num-badge {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  color: #0f172a;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+}
+
+.saylo-faq-item.active .saylo-faq-num-badge {
+  background: #03214e;
+  color: #ffffff;
+  border-color: #03214e;
+  box-shadow: 0 4px 14px rgba(3, 33, 78, 0.25);
+}
+
+.saylo-faq-question {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+  flex: 1;
+  line-height: 1.35;
+  transition: color 0.3s ease;
+}
+
+.saylo-faq-item.active .saylo-faq-question {
+  color: #C8102E;
+}
+
+.saylo-faq-toggle-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(3, 33, 78, 0.06);
+  color: #03214e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.saylo-faq-item.active .saylo-faq-toggle-icon {
+  background: #C8102E;
+  color: #ffffff;
+}
+
+.saylo-faq-body {
+  padding: 0 20px 22px 76px;
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.65;
+}
+
+/* ===== Clean Saylo Home-4 Timeline Accordion (Section12) ===== */
+.saylo-timeline-faq-wrap {
+  position: relative;
+  padding-left: 56px;
+}
+
+.saylo-timeline-line {
+  position: absolute;
+  top: 20px;
+  bottom: 20px;
+  left: 20px;
+  width: 1px;
+  background: #e2e8f0;
+  z-index: 1;
+}
+
+.saylo-timeline-faq-item {
+  position: relative;
+  padding-bottom: 28px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid #f1f5f9;
+  transition: all 0.3s ease;
+}
+
+.saylo-timeline-faq-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.saylo-timeline-badge {
+  position: absolute;
+  top: 0;
+  left: -56px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  color: #0f172a;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+}
+
+.saylo-timeline-faq-item.active .saylo-timeline-badge {
+  background: #03214e;
+  color: #ffffff;
+  border-color: #03214e;
+  box-shadow: 0 4px 14px rgba(3, 33, 78, 0.25);
+}
+
+.saylo-timeline-btn {
+  width: 100%;
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  text-align: left;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+}
+
+.saylo-timeline-question {
+  font-size: 17px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+  line-height: 1.4;
+  flex: 1;
+  transition: color 0.25s ease;
+}
+
+.saylo-timeline-faq-item:hover .saylo-timeline-question {
+  color: #03214e;
+}
+
+.saylo-timeline-toggle {
+  font-size: 22px;
+  font-weight: 400;
+  color: #64748b;
+  line-height: 1;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.saylo-timeline-faq-item.active .saylo-timeline-toggle {
+  color: #0f172a;
+}
+
+.saylo-timeline-answer {
+  padding-top: 14px;
+  font-size: 14.5px;
+  color: #64748b;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ===== Saylo-Style Partner Logo Carousel (Section6) ===== */
+.saylo-partner-logo-box {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 32px;
+  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.03);
+}
+
+.saylo-partner-logo-box:hover {
+  transform: translateY(-4px);
+  border-color: #03214e;
+  box-shadow: 0 14px 28px -4px rgba(3, 33, 78, 0.1);
+}
+
+.saylo-partner-logo-img {
+  max-width: 85%;
+  max-height: 55px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.saylo-partner-logo-box:hover .saylo-partner-logo-img {
+  transform: scale(1.06);
+}
+
+/* ===== Exact Saylo Home-1 Partner Logo Ticker (Section6) ===== */
+.saylo-home1-partner-box {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 36px;
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: none;
+}
+
+.saylo-home1-partner-box:hover {
+  border-color: #0f172a;
+  z-index: 2;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+}
+
+.saylo-home1-partner-img {
+  max-width: 85%;
+  max-height: 95px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.saylo-home1-partner-box:hover .saylo-home1-partner-img {
+  transform: scale(1.08);
 }

@@ -10,14 +10,14 @@ export default function Section4() {
 	return (
 		<>
 
-			<section className="s-working tf-spacing-1">
+			<section id="process" className="s-working tf-spacing-1">
 				<div className="tf-container">
 					<div className="row">
 						<div className="col-lg-12">
 							<div className="content">
-								<p className="s-sub-title mb-18 justify-center">
+								<p className="s-sub-title text-red mb-18 justify-center">
 									<i className="icon-angles-right moveLeftToRight" />
-									working process
+									WORKING PROCESS
 								</p>
 								<p className="s-title mb-70 text-center text-anime-wave">
 									From Concept to Execution <br />

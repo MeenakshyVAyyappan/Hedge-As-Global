@@ -4,6 +4,7 @@ export const partnersData = [
 		name: "Tally Prime",
 		subtitle: "Certified ERP & Accounting Partner",
 		logo: "/images/partner/partner-1.png",
+		image: "/images/section/TallyPrime.png",
 		description: "Seamless implementation and reporting support for Tally Prime accounting software."
 	},
 	{
@@ -11,6 +12,7 @@ export const partnersData = [
 		name: "Odoo ERP",
 		subtitle: "Enterprise ERP Accounting",
 		logo: "/images/partner/partner-2.png",
+		image: "/images/section/OdooERP.png",
 		description: "Full chart-of-accounts and VAT module integration for Odoo business suites."
 	},
 	{
@@ -18,6 +20,7 @@ export const partnersData = [
 		name: "Zoho Books",
 		subtitle: "Cloud Accounting Integration",
 		logo: "/images/partner/partner-3.png",
+		image: "/images/section/ZohoBooks.png",
 		description: "Authorized cloud bookkeeping setup and automated compliance reporting."
 	}
 ];
