@@ -48,22 +48,77 @@ export default function Hero1() {
 	};
 
 	return (
-		<div className="page-title-home-1 hero-compact" style={{ paddingTop: '75px', paddingBottom: '75px' }}>
+		<div className="page-title-home-1 hero-compact" style={{ paddingTop: '60px', paddingBottom: '60px' }}>
 			<div className="container-fluid px-3 px-md-4 px-lg-5" style={{ maxWidth: '1600px' }}>
 				<div className="row align-items-center g-4">
 
 					{/* Left Side Copy */}
 					<div className="col-12 col-lg-6 mb-5 mb-lg-0">
 						<div className="hero-left-content pe-lg-4 wow fadeInLeft" data-wow-delay="0.1s">
-							<div className="d-inline-flex align-items-center gap-2 rounded-pill bg-white bg-opacity-10 border border-white border-opacity-20 text-white fs-12 fw-7 uppercase tracking-wider mb-4" style={{ padding: '8px 20px' }}>
-								<i className="icon-angles-right moveLeftToRight text-red" />
-								<span>ACCOUNTING • AUDIT • TAX • ADVISORY</span>
-							</div>
+							<div className="d-flex flex-column flex-xl-row align-items-xl-start justify-content-between gap-3 mb-3">
+								<div className="flex-grow-1" style={{ maxWidth: '430px' }}>
+									<div className="d-inline-flex align-items-center gap-2 rounded-pill bg-white bg-opacity-10 border border-white border-opacity-20 text-white fs-12 fw-7 uppercase tracking-wider mb-3" style={{ padding: '8px 20px' }}>
+										<i className="icon-angles-right moveLeftToRight text-red" />
+										<span>ACCOUNTING • AUDIT • TAX • ADVISORY</span>
+									</div>
 
-							<h1 className="s-title text-white mb-3 text-fs-52 font-main-2 fw-7 leading-tight">
-								Financial Clarity for <br />
-								<span className="text-red">Confident</span> Business Decisions.
-							</h1>
+									<h1 className="s-title text-white mb-0 font-main-2 fw-7 leading-tight" style={{ fontSize: 'clamp(28px, 3.6vw, 42px)' }}>
+										Financial Clarity for <br />
+										Confident <span className="fw-7">Business</span> <br />
+										Decisions.
+									</h1>
+								</div>
+
+								{/* Transparent Glass Badge - Right Side of Headline */}
+								<div
+									className="google-reviews-badge glass-card p-3 text-center d-inline-flex flex-column align-items-center transition-all hover-lift flex-shrink-0 mt-3 mt-xl-0"
+									style={{
+										borderRadius: '18px',
+										background: 'rgba(255, 255, 255, 0.08)',
+										backdropFilter: 'blur(16px)',
+										WebkitBackdropFilter: 'blur(16px)',
+										border: '1px solid rgba(255, 255, 255, 0.22)',
+										boxShadow: '0 20px 40px rgba(0, 0, 0, 0.35)',
+										minWidth: '180px',
+										padding: '12px 16px'
+									}}
+								>
+									<div className="d-flex align-items-center justify-content-center gap-2 mb-1">
+										<svg width="22" height="22" viewBox="0 0 24 24">
+											<path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+											<path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+											<path fill="#FBBC05" d="M5.84 14.1c-.22-.66-.35-1.36-.35-2.1s.13-1.44.35-2.1V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.62z"/>
+											<path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+										</svg>
+										<div className="text-start" style={{ lineHeight: '1.1' }}>
+											<span className="d-block fw-7 text-white fs-12">Google Verified</span>
+											<span className="d-block fw-7 text-white fs-10">Reviews & Rating</span>
+										</div>
+									</div>
+
+									<div className="d-flex align-items-center justify-content-center gap-1 my-1">
+										<svg width="15" height="15" viewBox="0 0 24 24" fill="none">
+											<circle cx="12" cy="12" r="10" fill="#22c55e"/>
+											<path d="M8.5 12.5L10.5 14.5L15.5 9.5" stroke="white" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"/>
+										</svg>
+										<div style={{ color: '#FFD700', fontSize: '15px', letterSpacing: '1px', lineHeight: '1' }}>
+											★★★★★
+										</div>
+									</div>
+
+									<div className="fw-8 my-1 text-white" style={{ fontSize: '30px', lineHeight: '1', fontFamily: 'sans-serif', textShadow: '0 2px 10px rgba(0,0,0,0.4)' }}>
+										4.9
+									</div>
+
+									<div className="fw-7 fs-12 mb-1" style={{ color: '#ff6b6b' }}>
+										500+ Corporate Clients
+									</div>
+
+									<div className="text-white fs-10 fw-5">
+										Trusted CA Firm in UAE
+									</div>
+								</div>
+							</div>
 
 							<p className="text font-main-2 fw-5 mb-4 text-white-70 fs-16 leading-relaxed" style={{ maxWidth: '520px' }}>
 								Professional accounting, audit, tax and compliance solutions for businesses across the UAE, Bahrain and India.

@@ -2,6 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import Menu from "../Menu"
 import MobileMenu from "../MobileMenu"
+import SocialLinks from "@/components/elements/SocialLinks"
 
 export default function Header1({ scroll, isMobileMenu, handleMobileMenu, handleWelcomeBox, isWelcomeBox }) {
 	return (
@@ -60,11 +61,11 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, handle
 									<div className="logo-site">
 										<Link href="/">
 											<Image
-												width="180"
-												height="52"
-												style={{ objectFit: "contain", height: "52px", width: "auto" }}
+												width="280"
+												height="85"
+												style={{ objectFit: "contain", height: "85px", width: "auto", maxWidth: "280px" }}
 												id="logo_header" 
-												src="/images/logo/hedgelogo.png" 
+												src="/images/logo/logoclear21.png" 
 												alt="Hedge Chartered Accountants Group Logo" 
 											/>
 										</Link>
@@ -75,11 +76,10 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, handle
 										<Menu />
 									</nav>
 								</div>
-								<div className="header-right">
-									<Link href="/contact" className="tf-btn">
-										Get Free Consultation
-										<i className="icon-chevron-right" />
-									</Link>
+								<div className="header-right d-flex align-items-center gap-3">
+									<div className="header-social-wrap d-none d-md-block">
+										<SocialLinks />
+									</div>
 									<div className="union mobile-button" onClick={handleMobileMenu}>
 										<span className="dot" />
 										<span className="dot" />
@@ -99,12 +99,12 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, handle
 										<div className="logo">
 											<Link href="/" rel="home" className="main-logo">
 												<Image
-													width="160"
-													height="48"
-													style={{ objectFit: "contain", height: "48px", width: "auto" }}
+													width="220"
+													height="65"
+													style={{ objectFit: "contain", height: "65px", width: "auto", maxWidth: "220px" }}
 													id="mobile-logo_header" 
 													alt="Hedge Chartered Accountants Group" 
-													src="/images/logo/hedgesecondlogo.png" 
+													src="/images/logo/logoclear21.png" 
 												/>
 											</Link>
 											<div className="mobile-nav-close" onClick={handleMobileMenu}>
@@ -138,6 +138,8 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, handle
 												</li>
 											</ul>
 											<div className="mt-20">
+												<p className="title mb-10 fs-15 text-white">Connect With Us</p>
+												<SocialLinks className="mb-20" />
 												<Link href="/contact" className="tf-btn w-100 justify-content-center" onClick={handleMobileMenu}>
 													Request Consultation
 												</Link>

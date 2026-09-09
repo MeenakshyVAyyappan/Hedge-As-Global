@@ -56,7 +56,7 @@ export default function ConsultationForm({ title = "Request a Free Consultation"
 	return (
 		<div className={`hedge-consultation-form-wrap ${className}`}>
 			{title && <h3 className="form-heading text-white mb-20">{title}</h3>}
-			<p className="form-subheading text-white-70 mb-30">
+			<p style={{ color: "rgba(255,255,255,0.75)", fontSize: "14px", lineHeight: "1.6", marginBottom: "24px" }}>
 				Speak with our senior chartered accountants and tax experts across Abu Dhabi, Dubai, Bahrain, or India.
 			</p>
 

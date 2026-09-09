@@ -26,11 +26,11 @@ export default function Section9() {
   ];
 
   return (
-    <section style={{ backgroundColor: "#ffffff", paddingTop: "80px", paddingBottom: "48px" }}>
+    <section style={{ backgroundColor: "#ffffff", paddingTop: "56px", paddingBottom: "36px" }}>
       <div className="tf-container">
 
         {/* Section Header */}
-        <div className="row justify-content-between align-items-end mb-5">
+        <div className="row justify-content-between align-items-end mb-4">
           <div className="col-lg-6">
             <p className="s-sub-title text-red mb-18">
               <i className="icon-angles-right moveLeftToRight" />
@@ -95,7 +95,7 @@ export default function Section9() {
                 <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
               </svg>
             </Link>
-            <Link href="/services/uae-corporate-tax" className="saylo-cta-btn">
+            <Link href="/contact" className="saylo-cta-btn">
               Book Compliance Review
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />

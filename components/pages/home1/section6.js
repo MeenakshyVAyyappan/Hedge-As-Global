@@ -27,8 +27,8 @@ export default function Section6() {
     },
     breakpoints: {
       0: {
-        slidesPerView: 1.5,
-        spaceBetween: 16,
+        slidesPerView: 2,
+        spaceBetween: 14,
       },
       576: {
         slidesPerView: 2,
@@ -46,21 +46,30 @@ export default function Section6() {
   };
 
   return (
-    <section style={{ backgroundColor: "#ffffff", paddingTop: "80px", paddingBottom: "80px", borderTop: "1px solid #f1f5f9" }}>
+    <section style={{ backgroundColor: "#ffffff", paddingTop: "56px", paddingBottom: "56px", borderTop: "1px solid #f1f5f9" }}>
       <div className="tf-container">
 
         {/* Section Header */}
-        <div className="row justify-content-center text-center mb-5">
+        <div className="row justify-content-center text-center mb-4">
           <div className="col-lg-8">
             <p className="s-sub-title text-red mb-18 justify-center">
               <i className="icon-angles-right moveLeftToRight" />
               ACCOUNTING INFRASTRUCTURE
             </p>
 
-            <h2 style={{ fontSize: "clamp(26px, 3.5vw, 40px)", fontWeight: 800, color: "#0f172a", lineHeight: 1.25, letterSpacing: "-0.5px", margin: 0 }}>
-              Technology Partnerships That<br />
-              <span style={{ color: "#03214e" }}>Strengthen Your Finance Function</span>
-            </h2>
+            <h2
+  style={{
+    fontSize: "clamp(26px, 3.5vw, 40px)",
+    fontWeight: 800,
+    color: "#0f172a",
+    lineHeight: 1.25,
+    letterSpacing: "-0.5px",
+    margin: 0,
+    whiteSpace: "nowrap",
+  }}
+>
+  Our Authorized <span style={{ color: "#03214e" }}>Technology Partners</span>
+</h2>
           </div>
         </div>
 

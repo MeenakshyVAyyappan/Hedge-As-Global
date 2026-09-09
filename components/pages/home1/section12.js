@@ -22,11 +22,11 @@ export default function Section12() {
   return (
     <>
       {/* SECTION 12 — FAQ (Clean Saylo Home-4 Timeline Accordion) */}
-      <section id="faq" style={{ backgroundColor: '#ffffff', paddingTop: '96px', paddingBottom: '96px', borderTop: '1px solid #f1f5f9' }}>
+      <section id="faq" style={{ backgroundColor: '#ffffff', paddingTop: '60px', paddingBottom: '60px', borderTop: '1px solid #f1f5f9' }}>
         <div className="tf-container">
 
           {/* Section Header */}
-          <div className="row justify-content-center text-center mb-5">
+          <div className="row justify-content-center text-center mb-4">
             <div className="col-lg-8">
               <p className="s-sub-title text-red mb-18 justify-center">
                 <i className="icon-angles-right moveLeftToRight" />
@@ -34,7 +34,7 @@ export default function Section12() {
               </p>
 
               <h2 style={{ fontSize: 'clamp(26px, 3.5vw, 40px)', fontWeight: 800, color: '#0f172a', lineHeight: 1.25, letterSpacing: '-0.5px', marginBottom: '14px' }}>
-                Common Questions About<br />
+                Common Questions About <br />
                 <span style={{ color: '#03214e' }}>Accounting, Tax & Audit</span>
               </h2>
 
@@ -109,9 +109,9 @@ export default function Section12() {
       </section>
 
       {/* SECTION 13 — INSIGHTS & UPDATES (Home 2 Style-4 Swiper Slider) */}
-      <section id="insights" className="s-new-blog-2" style={{ backgroundColor: '#ffffff', borderTop: '1px solid #f1f5f9', paddingTop: '96px', paddingBottom: '96px' }}>
+      <section id="insights" className="s-new-blog-2" style={{ backgroundColor: '#ffffff', borderTop: '1px solid #f1f5f9', paddingTop: '60px', paddingBottom: '60px' }}>
         <div className="tf-container">
-          <div className="row align-items-end justify-content-between mb-50">
+          <div className="row align-items-end justify-content-between mb-36">
             <div className="col-lg-8">
               <p className="s-sub-title text-red mb-18">
                 <i className="icon-angles-right moveLeftToRight" />
@@ -179,7 +179,7 @@ export default function Section12() {
       </section>
 
       {/* SECTION 14 — CONVERSION CTA & CONSULTATION FORM */}
-      <section className="s-conversion-cta py-5 bg-dark text-white">
+      <section className="s-conversion-cta py-4 bg-dark text-white">
         <div className="tf-container">
           <div className="row align-items-center">
             <div className="col-lg-5 mb-4 mb-lg-0">

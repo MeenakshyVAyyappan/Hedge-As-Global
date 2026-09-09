@@ -43,7 +43,7 @@ export default function Section3() {
   ].filter(Boolean);
 
   return (
-    <section id="expertise" style={{ background: "#f8fafc", paddingTop: "96px", paddingBottom: "96px" }}>
+    <section id="expertise" style={{ background: "#f8fafc", paddingTop: "60px", paddingBottom: "60px" }}>
       <div className="tf-container">
         <div className="row g-5 align-items-center">
 

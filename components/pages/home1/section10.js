@@ -26,11 +26,11 @@ export default function Section10() {
   ];
 
   return (
-    <section style={{ backgroundColor: "#ffffff", paddingTop: "48px", paddingBottom: "80px", borderTop: "1px solid #f1f5f9" }}>
+    <section style={{ backgroundColor: "#ffffff", paddingTop: "36px", paddingBottom: "56px", borderTop: "1px solid #f1f5f9" }}>
       <div className="tf-container">
 
         {/* Section Header */}
-        <div className="row justify-content-between align-items-end mb-5">
+        <div className="row justify-content-between align-items-end mb-4">
           <div className="col-lg-6">
             <p className="s-sub-title text-red mb-18">
               <i className="icon-angles-right moveLeftToRight" />

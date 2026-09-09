@@ -22,17 +22,17 @@ export default function BlogPage() {
 						<div className="row mb-5">
 							<div className="col-12">
 								<div className="card-blog-featured bg-white rounded-4 border shadow-sm overflow-hidden d-flex flex-column flex-lg-row">
-									<div className="image-wrap position-relative w-100 w-lg-50" style={{ minHeight: "300px" }}>
+									<div className="image-wrap position-relative w-100 w-lg-50" style={{ minHeight: "clamp(220px, 30vw, 360px)" }}>
 										<div className="bg-image w-100 h-100 position-absolute" style={{ backgroundImage: `url(${blogsData[0].image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
 									</div>
-									<div className="content p-5 w-100 w-lg-50 d-flex flex-column justify-content-center">
-										<div className="d-flex align-items-center gap-2 mb-3">
+									<div className="content p-4 p-md-5 w-100 w-lg-50 d-flex flex-column justify-content-center">
+										<div className="d-flex align-items-center gap-2 mb-3 flex-wrap">
 											<span className="badge bg-red text-white fs-12 fw-7 uppercase px-3 py-1 rounded">
 												{blogsData[0].category}
 											</span>
 											<span className="text-muted fs-14 fw-6">{blogsData[0].date}</span>
 										</div>
-										<h2 className="fs-32 fw-8 mb-3 font-main-2">
+										<h2 className="mb-3 font-main-2" style={{ fontSize: "clamp(22px, 3vw, 32px)", fontWeight: 800, lineHeight: 1.25 }}>
 											<Link href={`/blog/${blogsData[0].slug}`} className="text-dark hover-text-red">
 												{blogsData[0].title}
 											</Link>
@@ -40,7 +40,7 @@ export default function BlogPage() {
 										<p className="text-muted fs-16 mb-4 leading-relaxed">
 											{blogsData[0].excerpt}
 										</p>
-										<div className="d-flex align-items-center justify-content-between mt-auto">
+										<div className="d-flex align-items-center justify-content-between flex-wrap gap-3 mt-auto pt-2 border-top border-light">
 											<span className="fw-7 text-dark fs-14"><i className="icon-user me-2 text-red"></i>{blogsData[0].author}</span>
 											<Link href={`/blog/${blogsData[0].slug}`} className="tf-btn secondary small">
 												Read Full Insight
@@ -54,7 +54,7 @@ export default function BlogPage() {
 					)}
 
 					{/* Rest of the articles */}
-					<div className="row g-4">
+					<div className="row g-4 g-lg-4">
 						{blogsData.slice(1).map((article) => (
 							<div key={article.id} className="col-lg-4 col-md-6">
 								<div className="card-blog-item bg-white rounded-4 border shadow-sm h-100 d-flex flex-column overflow-hidden hover-up transition-all">
@@ -62,7 +62,7 @@ export default function BlogPage() {
 										<img src={article.image} alt={article.title} className="w-100 h-100" style={{ objectFit: "cover" }} />
 									</div>
 									<div className="content p-4 d-flex flex-column flex-grow-1">
-										<div className="d-flex align-items-center justify-content-between mb-3">
+										<div className="d-flex align-items-center justify-content-between mb-3 flex-wrap gap-1">
 											<span className="text-red fs-12 fw-7 uppercase">
 												{article.category}
 											</span>

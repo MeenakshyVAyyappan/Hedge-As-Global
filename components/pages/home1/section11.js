@@ -3,9 +3,9 @@ import { locationsData } from '@/data/locations';
 
 export default function Section11() {
 	return (
-		<section id="locations" className="s-regional-presence">
+		<section id="locations" className="s-regional-presence" style={{ backgroundColor: "#ffffff", paddingTop: "56px", paddingBottom: "56px", borderTop: "1px solid #f1f5f9" }}>
 			<div className="tf-container">
-				<div className="row justify-content-center text-center mb-50">
+				<div className="row justify-content-center text-center mb-36">
 					<div className="col-lg-8">
 						<p className="s-sub-title text-red mb-18 justify-center">
 							<i className="icon-angles-right moveLeftToRight" />

@@ -49,7 +49,7 @@ export const metadata = {
 		siteName: 'Hedge Chartered Accountants Group',
 		images: [
 			{
-				url: '/images/logo/hedgelogo.png',
+				url: '/images/logo/logoclear.jpeg',
 				width: 800,
 				height: 600,
 				alt: 'Hedge Chartered Accountants Group Logo',
@@ -62,12 +62,12 @@ export const metadata = {
 		card: 'summary_large_image',
 		title: 'Hedge Chartered Accountants Group',
 		description: 'Accounting, Audit, Tax & Financial Advisory in UAE, Bahrain, India.',
-		images: ['/images/logo/hedgelogo.png'],
+		images: ['/images/logo/logoclear.jpeg'],
 	},
 	icons: {
 		icon: '/favicon.ico',
 		shortcut: '/favicon.ico',
-		apple: '/images/logo/hedgelogo.png',
+		apple: '/images/logo/logoclear.jpeg',
 	},
 	alternates: {
 		canonical: 'https://hedgeasglobal.com',
@@ -78,7 +78,7 @@ const jsonLd = {
 	'@context': 'https://schema.org',
 	'@type': 'AccountingService',
 	'name': 'Hedge Chartered Accountants Group',
-	'image': 'https://hedgeasglobal.com/images/logo/hedgelogo.png',
+	'image': 'https://hedgeasglobal.com/images/logo/logoclear.jpeg',
 	'@id': 'https://hedgeasglobal.com',
 	'url': 'https://hedgeasglobal.com',
 	'telephone': '+971 50 225 3373',

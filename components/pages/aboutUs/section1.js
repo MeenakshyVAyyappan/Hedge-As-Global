@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export default function Section1() {
 	return (
-		<section className="py-5 my-md-3" style={{ background: '#ffffff' }}>
+		<section style={{ background: '#ffffff', paddingTop: '60px', paddingBottom: '60px' }}>
 			<div className="tf-container">
 				<div className="row align-items-center g-5">
 					

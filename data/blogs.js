@@ -100,7 +100,7 @@ export const blogsData = [
 		category: "VAT",
 		date: "June 10, 2026",
 		author: "Pioneer Hedge Tax Team",
-		image: "/images/blog/blog1.png",
+		image: "/images/blog/blog4.png",
 		excerpt: "Common VAT return discrepancies, input tax recovery pitfalls, and how independent health checks protect your bottom line.",
 		content: `
 			<p>With the UAE Federal Tax Authority (FTA) intensifying its audit processes, even minor, unintentional errors in quarterly VAT filings can trigger comprehensive audit queries, severe administrative penalties, or severely delayed input tax refunds. Conducting periodic, independent health checks ensures unassailable compliance consistency across your sales ledger and tax invoices.</p>

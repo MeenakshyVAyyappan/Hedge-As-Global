@@ -18082,3 +18082,536 @@ a.mapboxgl-ctrl-logo {
 .saylo-home1-partner-box:hover .saylo-home1-partner-img {
   transform: scale(1.08);
 }
+
+/* Larger Header and Footer Logo Overrides */
+.header-inner .logo-site img,
+#logo_header {
+  max-width: 280px !important;
+  max-height: 85px !important;
+  height: 85px !important;
+  width: auto !important;
+}
+
+.tf-footer .logo-site img,
+#logo_footer {
+  max-width: 280px !important;
+  max-height: 95px !important;
+  height: 95px !important;
+  width: auto !important;
+}
+
+.mobile-nav-wrap .inner-mobile-nav .logo img,
+#mobile-logo_header {
+  max-width: 220px !important;
+  max-height: 65px !important;
+  height: 65px !important;
+  width: auto !important;
+}
+
+/* Home Section 1 Card Image Fit & Centering */
+.saylo-home2-img-wrap {
+  background-color: #ffffff !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.saylo-home2-img {
+  object-fit: contain !important;
+  padding: 2px !important;
+  border-radius: 50% !important;
+}
+
+/* Google Verified Reviews Badge Styling */
+.google-reviews-badge {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+.google-reviews-badge:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25), 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Mobile & Tablet Responsiveness Enhancements */
+@media (max-width: 767px) {
+  .hero-compact {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+
+  .google-reviews-badge {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    max-width: 240px !important;
+    min-width: unset !important;
+    width: 100% !important;
+  }
+
+  .saylo-timeline-faq-wrap {
+    padding-left: 42px !important;
+  }
+
+  .saylo-timeline-badge {
+    left: -42px !important;
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 11px !important;
+  }
+
+  .saylo-timeline-line {
+    left: 15px !important;
+  }
+}
+
+@media (max-width: 575px) {
+  .cta-dock-btn {
+    padding: 10px !important;
+    border-radius: 50% !important;
+    width: 44px !important;
+    height: 44px !important;
+    justify-content: center !important;
+  }
+
+  .tf-container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .hero-form-card {
+    padding: 22px 16px !important;
+  }
+}
+
+/* =============================================
+   COMPREHENSIVE MOBILE RESPONSIVENESS FIXES
+   All sections - Standard Premium Look
+   ============================================= */
+
+/* --- S-SUB-TITLE (Arrow + Sub-heading) Mobile Fix --- */
+@media (max-width: 991px) {
+  .s-sub-title {
+    letter-spacing: 0.2em !important;
+    font-size: 12px !important;
+    line-height: 1.5 !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    gap: 6px !important;
+    white-space: nowrap !important;
+    overflow: visible !important;
+  }
+
+  .s-sub-title i {
+    font-size: 10px !important;
+    padding-right: 2px !important;
+    flex-shrink: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    margin-top: 0 !important;
+    position: relative !important;
+    top: 0 !important;
+  }
+
+  /* Centered sub-titles (sections with justify-center or text-center) */
+  .text-center .s-sub-title,
+  .justify-content-center .s-sub-title {
+    justify-content: center !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .s-sub-title {
+    letter-spacing: 0.15em !important;
+    font-size: 11px !important;
+    line-height: 1.4 !important;
+    margin-bottom: 12px !important;
+    gap: 5px !important;
+  }
+
+  .s-sub-title i {
+    font-size: 9px !important;
+    padding-right: 2px !important;
+    flex-shrink: 0 !important;
+    line-height: 1 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    position: static !important;
+    margin: 0 !important;
+  }
+
+  /* Arrow animation stays smooth on mobile */
+  .s-sub-title i.moveLeftToRight {
+    animation: moveLeftToRight 1.5s ease-in-out infinite !important;
+  }
+
+  /* Section headings scale properly */
+  .s-title,
+  h1.s-title,
+  h2.s-title {
+    font-size: clamp(24px, 7vw, 38px) !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.3px !important;
+  }
+
+  /* Section paddings - tighter on mobile */
+  section {
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+  }
+
+  /* Hero banner section */
+  .page-title-home-1.hero-compact {
+    padding-top: 32px !important;
+    padding-bottom: 32px !important;
+  }
+
+  /* Hero left content */
+  .hero-left-content {
+    padding-right: 0 !important;
+    text-align: center !important;
+  }
+
+  .hero-left-content .s-sub-title {
+    justify-content: center !important;
+  }
+
+  .hero-left-content p {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .hero-left-content .d-flex {
+    justify-content: center !important;
+  }
+
+  /* Hero flex row with badge - stack vertically on mobile */
+  .d-flex.flex-column.flex-xl-row {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .d-flex.flex-column.flex-xl-row .flex-grow-1 {
+    max-width: 100% !important;
+    text-align: center !important;
+  }
+
+  .d-flex.flex-column.flex-xl-row .flex-grow-1 .s-sub-title {
+    justify-content: center !important;
+  }
+
+  /* Badge centered on mobile */
+  .google-reviews-badge {
+    align-self: center !important;
+    margin: 0 auto !important;
+  }
+
+  /* About section */
+  .s-about-company {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+
+  /* Stats row - smaller gap */
+  .s-about-company .row.align-items-center {
+    gap: 24px !important;
+  }
+
+  /* Pioneer Hedge section */
+  .s-pioneer-hedge {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+
+  .pioneer-hedge-box {
+    padding: 28px 20px !important;
+    text-align: center !important;
+  }
+
+  .pioneer-hedge-box .row {
+    text-align: center !important;
+  }
+
+  .fta-badge {
+    justify-content: center !important;
+    margin: 0 auto 16px !important;
+  }
+
+  /* Service cards */
+  .saylo-service-card {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+
+  /* Why Hedge cards */
+  .why-hedge-card {
+    padding: 20px 16px !important;
+  }
+
+  /* Methodology section */
+  .methodology-saylo-card {
+    height: 260px !important;
+    border-radius: 16px !important;
+  }
+
+  /* Footer mobile */
+  .footer .widget {
+    margin-bottom: 28px !important;
+  }
+}
+
+/* --- Small phones (≤ 480px) --- */
+@media (max-width: 480px) {
+  .s-sub-title {
+    letter-spacing: 0.1em !important;
+    font-size: 10.5px !important;
+  }
+
+  .s-sub-title i {
+    font-size: 9px !important;
+  }
+
+  /* Hero heading */
+  .hero-left-content h1.s-title {
+    font-size: clamp(22px, 8vw, 34px) !important;
+  }
+
+  /* Stat numbers in about section */
+  .s-about-company h2,
+  .s-about-company [style*="font-size: 32px"] {
+    font-size: 26px !important;
+  }
+
+  /* Section 2 stat row */
+  .s-about-company [style*="gap: 36px"] {
+    gap: 20px !important;
+  }
+
+  /* CTA buttons */
+  .tf-btn,
+  .about-cta-btn,
+  .saylo-cta-btn {
+    padding: 11px 20px !important;
+    font-size: 13px !important;
+  }
+
+  /* Floating dock buttons */
+  .cta-dock-btn span {
+    display: none !important;
+  }
+
+  .cta-dock-btn {
+    width: 42px !important;
+    height: 42px !important;
+    padding: 10px !important;
+    border-radius: 50% !important;
+  }
+
+  /* Hero form */
+  .hero-quick-form .row.g-3 {
+    gap: 10px !important;
+  }
+
+  .hero-input {
+    font-size: 13px !important;
+    padding: 10px 12px !important;
+  }
+}
+
+/* --- Tablet (768px – 991px) --- */
+@media (min-width: 768px) and (max-width: 991px) {
+  .s-sub-title {
+    letter-spacing: 0.25em !important;
+    font-size: 12px !important;
+  }
+
+  .s-sub-title i {
+    font-size: 10px !important;
+    flex-shrink: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    position: static !important;
+    margin: 0 !important;
+  }
+
+  /* Hero */
+  .page-title-home-1.hero-compact {
+    padding-top: 50px !important;
+    padding-bottom: 50px !important;
+  }
+
+  .hero-left-content {
+    padding-right: 0 !important;
+  }
+
+  /* Sections */
+  section {
+    padding-top: 56px !important;
+    padding-bottom: 56px !important;
+  }
+
+  /* Why Hedge - 2 column on tablet is fine via col-md-6 */
+  .why-hedge-card {
+    padding: 22px 18px !important;
+  }
+
+  /* Methodology card */
+  .methodology-saylo-card {
+    height: 300px !important;
+  }
+}
+
+/* --- Ensure accordion button arrow doesn't float weirdly on mobile --- */
+@media (max-width: 767px) {
+  .tf-accordion-type-3 .accordion-button {
+    font-size: 14px !important;
+    padding: 14px 16px !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+
+  .tf-accordion-type-3 .accordion-button .step {
+    font-size: 11px !important;
+    min-width: 48px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .tf-accordion-type-3 .accordion-button::after {
+    margin-left: auto !important;
+    flex-shrink: 0 !important;
+  }
+
+  .tf-accordion-type-3 .accordion-body {
+    padding: 16px !important;
+  }
+
+  /* Working process section */
+  .s-working .content .s-sub-title {
+    justify-content: center !important;
+  }
+}
+
+/* --- Section 9 Corporate Tax CTA row - stack on mobile --- */
+@media (max-width: 767px) {
+  [style*="justify-content: space-between"][style*="flex-wrap: wrap"] {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+  }
+
+  /* Section 9 image min-height fix */
+  [style*="min-height: 380px"] {
+    min-height: 240px !important;
+    height: 240px !important;
+  }
+}
+
+/* --- Partner logo swiper mobile --- */
+@media (max-width: 575px) {
+  .saylo-partner-swiper .saylo-home1-partner-box {
+    padding: 12px !important;
+    height: 72px !important;
+  }
+
+  .saylo-home1-partner-img {
+    max-height: 44px !important;
+  }
+}
+
+/* --- Marquee strip mobile --- */
+@media (max-width: 575px) {
+  .tf-marquee.slider-saylo {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+  }
+
+  .tf-marquee .marquee-item p {
+    font-size: 12px !important;
+  }
+}
+
+/* --- Article Content Responsive Styles --- */
+.article-content img {
+  max-width: 100% !important;
+  height: auto !important;
+  border-radius: 12px;
+  margin: 20px 0;
+}
+
+.article-content table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.article-content iframe,
+.article-content video {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+.article-content h1,
+.article-content h2,
+.article-content h3,
+.article-content h4 {
+  font-size: clamp(18px, 3.2vw, 26px) !important;
+  line-height: 1.35 !important;
+  margin-top: 24px !important;
+  margin-bottom: 12px !important;
+  word-break: break-word;
+  color: #0a0a0a;
+}
+
+.article-content p,
+.article-content li {
+  word-break: break-word;
+  overflow-wrap: break-word;
+  font-size: 15.5px;
+  line-height: 1.75;
+}
+
+.article-content blockquote {
+  padding: 18px 20px !important;
+  margin: 24px 0 !important;
+  background-color: #f8fafc !important;
+  border-left: 4px solid #C8102E !important;
+  border-radius: 8px !important;
+}
+
+.article-content blockquote p {
+  font-size: clamp(14px, 2.5vw, 16.5px) !important;
+  line-height: 1.6 !important;
+}
+
+.article-content .list-group-item {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  word-break: break-word;
+}
+
+.article-content .card {
+  border: 1px solid #f1f5f9 !important;
+  background-color: #ffffff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.article-content .card-body {
+  padding: 1.25rem !important;
+}
+
+@media (max-width: 767px) {
+  .article-content .row {
+    --bs-gutter-x: 1rem;
+    --bs-gutter-y: 1rem;
+  }
+
+  .article-content ul,
+  .article-content ol {
+    padding-left: 1.2rem !important;
+  }
+}
+
+

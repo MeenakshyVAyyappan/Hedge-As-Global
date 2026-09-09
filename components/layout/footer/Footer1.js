@@ -1,7 +1,8 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import SocialLinks from '@/components/elements/SocialLinks';
 
 export default function Footer1() {
 	const [isAccordion1, setIsAccordion1] = useState(0);
@@ -44,11 +45,11 @@ export default function Footer1() {
 								<div className="logo-site mb-4">
 									<Link href="/">
 										<Image
-											width={200}
-											height={60}
-											style={{ objectFit: 'contain', height: '54px', width: 'auto' }}
+											width={280}
+											height={95}
+											style={{ objectFit: 'contain', height: '95px', width: 'auto', maxWidth: '280px' }}
 											id="logo_footer"
-											src="/images/logo/hedgelogo.png"
+											src="/images/logo/logoclear21.png"
 											alt="Hedge Chartered Accountants Group Logo"
 										/>
 									</Link>
@@ -56,9 +57,15 @@ export default function Footer1() {
 								<p className="text-white-50 fs-15 leading-relaxed mb-4">
 									Hedge Chartered Accountants Group delivers professional accounting, statutory audit, UAE Corporate Tax, VAT, ICV certification, and E-Invoicing solutions built on accuracy, transparency, and trust.
 								</p>
-								<div className="d-inline-flex align-items-center">
-									<i className="flaticon-award text-red me-2 fs-20"></i>
-									<span className="text-white fw-6 fs-15">FTA-Approved Tax Agency</span>
+								<div className="d-flex flex-column gap-3 mt-4">
+									<div className="d-inline-flex align-items-center">
+										<i className="flaticon-award text-red me-2 fs-20"></i>
+										<span className="text-white fw-6 fs-15">FTA-Approved Tax Agency</span>
+									</div>
+									<div className="mt-2">
+										<p className="text-white-50 fs-13 mb-2 text-uppercase fw-6 tracking-wide">Connect With Us</p>
+										<SocialLinks />
+									</div>
 								</div>
 							</div>
 
@@ -135,13 +142,14 @@ export default function Footer1() {
 
 			<div className="container-fluid px-3 px-md-4 px-lg-5 mt-5 pt-4 border-top border-white border-opacity-10" style={{ maxWidth: '1400px' }}>
 				<div className="row align-items-center">
-					<div className="col-md-8 text-center text-md-start">
+					<div className="col-md-6 text-center text-md-start">
 						<p className="no-copy style-2 text-white-50 mb-0 fs-14">
 							© {new Date().getFullYear()} <span className="text-white fw-5">Hedge Chartered Accountants Group</span>. All Rights Reserved.
 						</p>
 					</div>
-					<div className="col-md-4 text-center text-md-end mt-3 mt-md-0">
-						<Link href="/#top" className="text-white-50 hover-text-white fs-14 me-3 text-decoration-none fw-6 d-inline-flex align-items-center transition-all">
+					<div className="col-md-6 text-center text-md-end mt-3 mt-md-0 d-flex align-items-center justify-content-center justify-content-md-end gap-3">
+						<SocialLinks />
+						<Link href="/#top" className="text-white-50 hover-text-white fs-14 ms-2 text-decoration-none fw-6 d-inline-flex align-items-center transition-all">
 							Back to Top 
 							<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ms-2"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
 						</Link>

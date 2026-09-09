@@ -78,11 +78,11 @@ export default function Section7() {
   ];
 
   return (
-    <section id="why-us" style={{ background: "#03214e", paddingTop: "88px", paddingBottom: "88px" }}>
+    <section id="why-us" style={{ background: "#03214e", paddingTop: "60px", paddingBottom: "60px" }}>
       <div className="tf-container">
 
         {/* Section Header */}
-        <div className="row justify-content-center text-center mb-5">
+        <div className="row justify-content-center text-center mb-4">
           <div className="col-lg-8">
             <p className="s-sub-title text-red mb-18 justify-center">
               <i className="icon-angles-right moveLeftToRight" />

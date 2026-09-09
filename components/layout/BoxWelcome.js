@@ -1,5 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
+import SocialLinks from "@/components/elements/SocialLinks"
 
 export default function BoxWelcome({ handleWelcomeBox, isWelcomeBox }) {
 	return (
@@ -16,7 +17,7 @@ export default function BoxWelcome({ handleWelcomeBox, isWelcomeBox }) {
 								width="160"
 								height="48"
 								style={{ objectFit: "contain", height: "48px", width: "auto" }}
-								src="/images/logo/hedgelogo.png"
+								src="/images/logo/logoclear20.png"
 								alt="Hedge Chartered Accountants Group"
 							/>
 						</div>
@@ -50,6 +51,10 @@ export default function BoxWelcome({ handleWelcomeBox, isWelcomeBox }) {
 								</p>
 							</li>
 						</ul>
+						<div className="mb-4">
+							<p className="title mb-2 fs-15 text-white">Connect With Us</p>
+							<SocialLinks />
+						</div>
 						<div className="mt-3">
 							<Link href="/contact" className="tf-btn w-100 justify-content-center" onClick={handleWelcomeBox}>
 								Schedule Free Consultation

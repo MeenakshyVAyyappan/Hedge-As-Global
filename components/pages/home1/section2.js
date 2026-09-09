@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Section2() {
   return (
-    <section id="about" className="s-about-company tf-spacing-2" style={{ paddingTop: "80px", paddingBottom: "80px", background: "#ffffff" }}>
+    <section id="about" className="s-about-company tf-spacing-2" style={{ paddingTop: "56px", paddingBottom: "56px", background: "#ffffff" }}>
       <div className="tf-container">
         <div className="row align-items-center">
 

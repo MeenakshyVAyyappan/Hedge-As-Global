@@ -7,7 +7,6 @@ import animateText from "@/utils/animateText"
 import { useCircularTextEffect } from "@/utils/applyCircularText "
 import { useEffect, useState } from "react"
 import AddClassBody from "../elements/AddClassBody"
-import BackToTop from '../elements/BackToTop'
 import Hero1 from "../pages/home1/hero1"
 import Hero2 from "../pages/home2/hero2"
 import Hero3 from "../pages/home3/hero3"
@@ -25,7 +24,7 @@ import Header4 from "./header/Header4"
 // import { hoverTextAnimate } from "@/utils/hoverTextAnimate"
 // import { hoverTextAnimate } from "@/utils/hoverTextAnimate"
 
-import FloatingWhatsApp from "../elements/FloatingWhatsApp"
+import FloatingCTADock from "../elements/FloatingCTADock"
 
 export default function Layout({ headerStyle, footerStyle, breadcrumbTitle, children, mainCls, breadcrumbAlt, hero, breadcrumbBg }) {
 	const [scroll, setScroll] = useState(0)
@@ -98,8 +97,7 @@ export default function Layout({ headerStyle, footerStyle, breadcrumbTitle, chil
 
 				<Footer1 />
 
-				<BackToTop target="#top" />
-				<FloatingWhatsApp />
+				<FloatingCTADock />
 			</div>
 		</>
 	)

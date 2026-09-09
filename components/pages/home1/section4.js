@@ -10,7 +10,7 @@ export default function Section4() {
 	return (
 		<>
 
-			<section id="process" className="s-working tf-spacing-1">
+			<section id="process" className="s-working" style={{ paddingTop: "60px", paddingBottom: "60px" }}>
 				<div className="tf-container">
 					<div className="row">
 						<div className="col-lg-12">
@@ -19,7 +19,7 @@ export default function Section4() {
 									<i className="icon-angles-right moveLeftToRight" />
 									WORKING PROCESS
 								</p>
-								<p className="s-title mb-70 text-center text-anime-wave">
+								<p className="s-title mb-40 text-center text-anime-wave">
 									From Concept to Execution <br />
 									Our Consulting
 									<span>
