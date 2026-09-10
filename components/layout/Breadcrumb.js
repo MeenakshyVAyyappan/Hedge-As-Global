@@ -14,8 +14,25 @@ export default function Breadcrumb({ breadcrumbTitle, breadcrumbAlt, breadcrumbB
 	return (
 		<>
 			{breadcrumbTitle &&
-				<div className="tf-page-title" style={{ paddingTop: 0 }}>
-					<div className="content-wrap">
+				<div className="tf-page-title" style={{ paddingTop: 0, border: 'none', borderBottom: 'none' }}>
+					<style jsx global>{`
+						.tf-page-title,
+						.tf-page-title .content-wrap,
+						.tf-page-title .tf-overlay {
+							border-bottom: none !important;
+							border: none !important;
+							box-shadow: none !important;
+						}
+						.tf-page-title::after,
+						.tf-page-title::before,
+						.tf-page-title .content-wrap::after,
+						.tf-page-title .content-wrap::before {
+							display: none !important;
+							content: none !important;
+							border: none !important;
+						}
+					`}</style>
+					<div className="content-wrap" style={{ border: 'none', borderBottom: 'none' }}>
 						<div className="bg-image">
 							<div className="rellax" data-rellax-speed={-10}>
 								<Image

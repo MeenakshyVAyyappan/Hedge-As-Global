@@ -48,7 +48,7 @@ export default function Contact() {
 	return (
 		<>
 			{/* Quick Contact Stats Banner */}
-			<section className="py-3 py-md-4 bg-dark text-white" style={{ borderBottom: "3px solid #c8102e" }}>
+			<section className="py-3 py-md-4 bg-dark text-white">
 				<div className="tf-container">
 					<div className="row g-3 justify-content-center">
 						<div className="col-lg-4 col-md-4 col-12">

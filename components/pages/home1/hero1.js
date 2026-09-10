@@ -269,6 +269,52 @@ export default function Hero1() {
 					))}
 				</div>
 			</div>
+
+			{/* Mobile responsive styling matching exact screenshot layout */}
+			<style jsx>{`
+				@media (max-width: 768px) {
+					.page-title-home-1 {
+						padding-top: 24px !important;
+						padding-bottom: 40px !important;
+					}
+
+					.hero-left-content {
+						margin-bottom: 20px !important;
+					}
+
+					.hero-form-card {
+						padding: 20px 16px !important;
+						margin-top: 10px !important;
+						margin-bottom: 24px !important;
+					}
+
+					.hero-input {
+						padding: 10px 14px !important;
+						font-size: 14px !important;
+					}
+
+					.slider-saylo {
+						padding-top: 10px !important;
+						padding-bottom: 12px !important;
+						margin-top: 20px !important;
+						background-color: #181d24 !important;
+						border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+						border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+					}
+
+					.slider-saylo p {
+						font-size: 13px !important;
+						font-weight: 700 !important;
+						letter-spacing: 0.5px !important;
+					}
+
+					.wrap-marquee {
+                       margin-top: -51px;
+                    margin-bottom: -51px;
+                    }
+				}
+					
+			`}</style>
 		</div>
 	);
 }

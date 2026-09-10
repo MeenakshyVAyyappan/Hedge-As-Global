@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Section1 from './section1';
+import ClientLogosSection from '@/components/sections/ClientLogosSection';
 import AccountingInfrastructure from '@/components/pages/home1/section6';
 import WorkingProcess from '@/components/pages/home1/section8';
 import ConsultationForm from '@/components/forms/ConsultationForm';
@@ -68,6 +69,9 @@ export default function AboutUs() {
 					</div>
 				</div>
 			</section>
+
+			{/* Our Clients & Free Zone Partners */}
+			<ClientLogosSection bg="#ffffff" />
 
 			{/* 3. OUR METHODOLOGY */}
 			<WorkingProcess />

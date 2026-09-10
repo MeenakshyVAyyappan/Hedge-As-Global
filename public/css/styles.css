@@ -767,7 +767,7 @@ a.hover-text-main-golden:hover {
 /* Extra classes
 -------------------------------------------------------------- */
 #wrapper {
-	width: 100vw;
+	width: 100%;
 }
 
 .hidden {
@@ -18614,4 +18614,99 @@ a.mapboxgl-ctrl-logo {
   }
 }
 
+/* ==========================================================================
+   MOBILE-ONLY HORIZONTAL OVERFLOW PREVENTION (DESKTOP REMAINS CLEAN & UNTOUCHED)
+   ========================================================================== */
+
+/* Desktop Reset: Ensure zero internal scrollbars on header, topbar, sections, and rows */
+@media (min-width: 992px) {
+  html,
+  body,
+  #wrapper,
+  .main-content,
+  main,
+  section,
+  .tf-section,
+  .header-wrap,
+  .header-wrap-2,
+  .tf-footer,
+  .tf-topbar,
+  .page-title-home-1,
+  .page-title-home-2,
+  .page-title-home-3,
+  .page-title-home-4,
+  .tf-container,
+  .row {
+    overflow: visible !important;
+    max-width: none !important;
+  }
+
+  .tf-container {
+    max-width: 1320px !important;
+  }
+
+  .tf-container.w-1780 {
+    max-width: 1810px !important;
+  }
+
+  .tf-container .row {
+    margin-left: -15px !important;
+    margin-right: -15px !important;
+  }
+}
+
+/* Mobile & Tablet Only: Protect viewport from horizontal dragging with smooth momentum scrolling */
+@media (max-width: 991px) {
+  html {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    overflow-y: scroll !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  body {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    position: relative !important;
+    touch-action: pan-y !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  #wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    position: relative !important;
+    touch-action: pan-y !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .inner-mobile-nav {
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+  }
+
+  .popular-wrap {
+    max-width: calc(100vw - 32px) !important;
+    box-sizing: border-box !important;
+  }
+
+  .mobile-button {
+    display: flex !important;
+    cursor: pointer !important;
+    position: relative !important;
+    z-index: 10 !important;
+    pointer-events: auto !important;
+    touch-action: manipulation !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .policy-card-container {
+    padding: 24px 18px !important;
+  }
+}
 

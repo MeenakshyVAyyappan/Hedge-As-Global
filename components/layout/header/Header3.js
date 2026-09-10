@@ -40,7 +40,7 @@ export default function Header3({ scroll, isMobileMenu, handleMobileMenu, handle
 											Get In Touch
 											<i className="icon-chevron-right" />
 										</Link>
-										<div className="union style-3 mobile-button" onClick={handleMobileMenu}>
+										<div className="union style-3 mobile-button" onClick={handleMobileMenu} style={{ cursor: 'pointer', zIndex: 10, pointerEvents: 'auto', touchAction: 'manipulation' }}>
 											<span className="dot" />
 											<span className="dot" />
 											<span className="dot" />
@@ -68,7 +68,7 @@ export default function Header3({ scroll, isMobileMenu, handleMobileMenu, handle
 												</div>
 											</div>
 											<nav id="mobile-main-nav" className="mobile-main-nav">
-												<MobileMenu />
+												<MobileMenu handleMobileMenu={handleMobileMenu} />
 											</nav>
 										</div>
 										<div className="bottom">

@@ -103,7 +103,9 @@ export default function Footer1() {
 										{ name: 'All Services', path: '/services' },
 										{ name: 'Insights & Tax Updates', path: '/blog' },
 										{ name: 'Frequently Asked Questions', path: '/faqs' },
-										{ name: 'Contact Offices', path: '/contact' }
+										{ name: 'Contact Offices', path: '/contact' },
+										{ name: 'Privacy Policy', path: '/privacy-policy' },
+										{ name: 'Terms & Conditions', path: '/terms-conditions' }
 									].map((item, index) => (
 										<li key={index} className="mb-3 d-flex align-items-center">
 											<Link href={item.path} className="text-white-50 hover-text-white fs-15 text-decoration-none" style={{ transition: 'color 0.3s ease' }}>{item.name}</Link>
@@ -147,7 +149,10 @@ export default function Footer1() {
 							© {new Date().getFullYear()} <span className="text-white fw-5">Hedge Chartered Accountants Group</span>. All Rights Reserved.
 						</p>
 					</div>
-					<div className="col-md-6 text-center text-md-end mt-3 mt-md-0 d-flex align-items-center justify-content-center justify-content-md-end gap-3">
+					<div className="col-md-6 text-center text-md-end mt-3 mt-md-0 d-flex flex-wrap align-items-center justify-content-center justify-content-md-end gap-3">
+						<Link href="/privacy-policy" className="text-white-50 hover-text-white fs-13 text-decoration-none me-2">Privacy Policy</Link>
+						<span className="text-white-50 fs-13">•</span>
+						<Link href="/terms-conditions" className="text-white-50 hover-text-white fs-13 text-decoration-none me-2">Terms &amp; Conditions</Link>
 						<SocialLinks />
 						<Link href="/#top" className="text-white-50 hover-text-white fs-14 ms-2 text-decoration-none fw-6 d-inline-flex align-items-center transition-all">
 							Back to Top 

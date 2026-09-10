@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { servicesData } from "@/data/services";
 import ConsultationForm from "@/components/forms/ConsultationForm";
+import ServiceFaqSection from "@/components/elements/ServiceFaqSection";
 
 export async function generateMetadata({ params }) {
 	const service = servicesData.find((s) => s.slug === params.slug);
@@ -38,7 +39,7 @@ export default function ServiceDetailPage({ params }) {
 				<div className="tf-container">
 					<div className="row g-4">
 						<div className="col-lg-8">
-							<div className="bg-white p-5 rounded-4 border shadow-sm mb-4">
+							<div className="bg-white p-4 p-md-5 rounded-4 border shadow-sm mb-4">
 								<h2 className="font-main-2 text-dark fs-28 fw-7 mb-3">Service Overview</h2>
 								<p className="text-muted fs-15 leading-relaxed mb-4">
 									{service.description}
@@ -88,7 +89,7 @@ export default function ServiceDetailPage({ params }) {
 								)}
 
 								<h3 className="font-main-2 text-dark fs-22 fw-7 mb-3">Why Partner With Hedge</h3>
-								<p className="text-muted fs-15 leading-relaxed">
+								<p className="text-muted fs-15 leading-relaxed mb-0">
 									Our chartered accountants and tax experts bring deep market knowledge of GCC laws, Federal Tax Authority regulations, and IFRS standards. We ensure your financial records remain accurate, audit-ready, and optimized for tax efficiency.
 								</p>
 							</div>
@@ -120,6 +121,11 @@ export default function ServiceDetailPage({ params }) {
 					</div>
 				</div>
 			</section>
+
+			{/* Standalone Full-Width 2-Column FAQs Section (5 FAQs per column) */}
+			{service.faqs && service.faqs.length > 0 && (
+				<ServiceFaqSection faqs={service.faqs} serviceTitle={service.shortTitle} />
+			)}
 
 			{/* Consultation Form CTA Section */}
 			<section id="consultation-form" className="py-5 bg-dark text-white">

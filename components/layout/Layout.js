@@ -1,4 +1,3 @@
-
 'use client'
 import DataBg from "@/utils/DataBg"
 import animateBoxVideo from "@/utils/animateBoxVideo"
@@ -6,6 +5,7 @@ import animateImgItem from "@/utils/animateImgItem"
 import animateText from "@/utils/animateText"
 import { useCircularTextEffect } from "@/utils/applyCircularText "
 import { useEffect, useState } from "react"
+import { usePathname } from 'next/navigation'
 import AddClassBody from "../elements/AddClassBody"
 import Hero1 from "../pages/home1/hero1"
 import Hero2 from "../pages/home2/hero2"
@@ -21,25 +21,32 @@ import Header1 from "./header/Header1"
 import Header2 from './header/Header2'
 import Header3 from "./header/Header3"
 import Header4 from "./header/Header4"
-// import { hoverTextAnimate } from "@/utils/hoverTextAnimate"
-// import { hoverTextAnimate } from "@/utils/hoverTextAnimate"
 
 import FloatingCTADock from "../elements/FloatingCTADock"
 
 export default function Layout({ headerStyle, footerStyle, breadcrumbTitle, children, mainCls, breadcrumbAlt, hero, breadcrumbBg }) {
 	const [scroll, setScroll] = useState(0)
-	// MobilleMenu
+	// MobileMenu
 	const [isMobileMenu, setMobileMenu] = useState(false)
 	const handleMobileMenu = () => {
 		setMobileMenu(!isMobileMenu)
-		!isMobileMenu ? document.body.classList.add("no-scroll") : document.body.classList.remove("no-scroll");
+		!isMobileMenu ? document.body.classList.add("no-scroll") : document.body.classList.remove("no-scroll")
 	}
 	// WelcomeBox
 	const [isWelcomeBox, setWelcomeBox] = useState(false)
 	const handleWelcomeBox = () => {
 		setWelcomeBox(!isWelcomeBox)
-		!isWelcomeBox ? document.body.classList.add("no-scroll") : document.body.classList.remove("no-scroll");
+		!isWelcomeBox ? document.body.classList.add("no-scroll") : document.body.classList.remove("no-scroll")
 	}
+	const pathname = usePathname()
+
+	useEffect(() => {
+		setMobileMenu(false)
+		setWelcomeBox(false)
+		if (typeof document !== 'undefined') {
+			document.body.classList.remove("no-scroll")
+		}
+	}, [pathname])
 
 	useEffect(() => {
 		const WOW = require('wowjs')
@@ -56,32 +63,35 @@ export default function Layout({ headerStyle, footerStyle, breadcrumbTitle, chil
 
 		// Handle hash-based anchor navigation (e.g. /#faq)
 		const handleHashScroll = () => {
-			const hash = window.location.hash;
+			const hash = window.location.hash
 			if (hash) {
-				const id = hash.replace('#', '');
+				const id = hash.replace('#', '')
 				setTimeout(() => {
-					const el = document.getElementById(id);
+					const el = document.getElementById(id)
 					if (el) {
-						el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+						el.scrollIntoView({ behavior: 'smooth', block: 'start' })
 					}
-				}, 600);
+				}, 600)
 			}
-		};
-		handleHashScroll();
-		window.addEventListener('hashchange', handleHashScroll);
+		}
+		handleHashScroll()
+		window.addEventListener('hashchange', handleHashScroll)
 
 		return () => {
-			window.removeEventListener("scroll", onScroll);
-			window.removeEventListener('hashchange', handleHashScroll);
+			window.removeEventListener("scroll", onScroll)
+			window.removeEventListener('hashchange', handleHashScroll)
 		}
 	}, [])
+
 	animateImgItem()
 	animateBoxVideo()
 	animateText()
 	DataBg()
 	useCircularTextEffect()
+
 	return (
-		<><div id="top" />
+		<>
+			<div id="top" />
 			<AddClassBody />
 			<div id="wrapper">
 				<Header1 scroll={scroll} isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} isWelcomeBox={isWelcomeBox} handleWelcomeBox={handleWelcomeBox} />

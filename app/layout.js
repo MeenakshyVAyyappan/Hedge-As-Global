@@ -49,9 +49,9 @@ export const metadata = {
 		siteName: 'Hedge Chartered Accountants Group',
 		images: [
 			{
-				url: '/images/logo/logoclear.jpeg',
+				url: '/images/logo/logoclear21.png',
 				width: 800,
-				height: 600,
+				height: 800,
 				alt: 'Hedge Chartered Accountants Group Logo',
 			},
 		],
@@ -62,12 +62,12 @@ export const metadata = {
 		card: 'summary_large_image',
 		title: 'Hedge Chartered Accountants Group',
 		description: 'Accounting, Audit, Tax & Financial Advisory in UAE, Bahrain, India.',
-		images: ['/images/logo/logoclear.jpeg'],
+		images: ['/images/logo/logoclear21.png'],
 	},
 	icons: {
-		icon: '/favicon.ico',
-		shortcut: '/favicon.ico',
-		apple: '/images/logo/logoclear.jpeg',
+		icon: '/images/logo/logoclear21.png',
+		shortcut: '/images/logo/logoclear21.png',
+		apple: '/images/logo/logoclear21.png',
 	},
 	alternates: {
 		canonical: 'https://hedgeasglobal.com',

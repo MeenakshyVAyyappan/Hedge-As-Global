@@ -80,7 +80,7 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, handle
 									<div className="header-social-wrap d-none d-md-block">
 										<SocialLinks />
 									</div>
-									<div className="union mobile-button" onClick={handleMobileMenu}>
+									<div className="union mobile-button" onClick={handleMobileMenu} style={{ cursor: 'pointer', zIndex: 10, pointerEvents: 'auto', touchAction: 'manipulation' }}>
 										<span className="dot" />
 										<span className="dot" />
 										<span className="dot" />
@@ -112,7 +112,7 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, handle
 											</div>
 										</div>
 										<nav id="mobile-main-nav" className="mobile-main-nav">
-											<MobileMenu />
+											<MobileMenu handleMobileMenu={handleMobileMenu} />
 										</nav>
 									</div>
 									<div className="bottom">

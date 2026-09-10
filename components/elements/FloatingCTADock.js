@@ -141,7 +141,7 @@ export default function FloatingCTADock() {
         <div
           className="position-fixed bottom-0 end-0 mb-4 me-3 me-md-4 rounded-4 overflow-hidden border-0"
           style={{
-            width: '92vw',
+            width: 'calc(100vw - 32px)',
             maxWidth: '410px',
             height: '560px',
             display: 'flex',
@@ -149,7 +149,8 @@ export default function FloatingCTADock() {
             zIndex: 99999,
             boxShadow: '0 24px 60px rgba(3, 33, 78, 0.30)',
             fontFamily: 'inherit',
-            backgroundColor: '#ffffff'
+            backgroundColor: '#ffffff',
+            pointerEvents: 'auto'
           }}
         >
           {/* Header */}
@@ -303,7 +304,7 @@ export default function FloatingCTADock() {
       {/* ── FLOATING ACTION DOCK (BOTTOM RIGHT) ── */}
       <div
         className="position-fixed bottom-0 end-0 mb-4 me-3 me-md-4 z-999 d-flex flex-column gap-2 align-items-end"
-        style={{ zIndex: 99990 }}
+        style={{ zIndex: 99990, pointerEvents: 'none' }}
       >
         {/* Phone Calling Icon Button */}
         <a
@@ -314,7 +315,8 @@ export default function FloatingCTADock() {
             color: '#ffffff',
             padding: '10px 16px',
             boxShadow: '0 6px 20px rgba(200, 16, 46, 0.4)',
-            transition: 'all 0.3s ease'
+            transition: 'all 0.3s ease',
+            pointerEvents: 'auto'
           }}
           title="Call Hedge Group: +971 50 225 3373"
         >
@@ -337,7 +339,8 @@ export default function FloatingCTADock() {
             color: '#ffffff',
             padding: '10px 16px',
             boxShadow: '0 6px 20px rgba(37, 211, 102, 0.4)',
-            transition: 'all 0.3s ease'
+            transition: 'all 0.3s ease',
+            pointerEvents: 'auto'
           }}
           title="Chat on WhatsApp"
         >
@@ -359,7 +362,8 @@ export default function FloatingCTADock() {
             padding: '10px 16px',
             boxShadow: '0 6px 20px rgba(3, 33, 78, 0.4)',
             transition: 'all 0.3s ease',
-            cursor: 'pointer'
+            cursor: 'pointer',
+            pointerEvents: 'auto'
           }}
           title="Hedge AI Advisory Bot"
         >

@@ -180,10 +180,10 @@ export default function Footer3() {
 								<div className="policy-list">
 									<ul className="list">
 										<li>
-											<Link href="/faqs"> Privacy Policy </Link>
+											<Link href="/privacy-policy"> Privacy Policy </Link>
 										</li>
 										<li>
-											<Link href="/faqs"> Terms and Conditions </Link>
+											<Link href="/terms-conditions"> Terms and Conditions </Link>
 										</li>
 										<li>
 											<Link href="/faqs"> Support </Link>
