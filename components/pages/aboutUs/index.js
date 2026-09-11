@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Section1 from './section1';
+import Section3 from './section3';
 import ClientLogosSection from '@/components/sections/ClientLogosSection';
 import AccountingInfrastructure from '@/components/pages/home1/section6';
 import WorkingProcess from '@/components/pages/home1/section8';
@@ -112,7 +113,10 @@ export default function AboutUs() {
 				</div>
 			</section>
 
-			{/* 5. ACCOUNTING INFRASTRUCTURE */}
+			{/* 5. OUR EXPERT TEAM */}
+			<Section3 />
+
+			{/* 6. ACCOUNTING INFRASTRUCTURE */}
 			<AccountingInfrastructure />
 
 			{/* 6. REGIONAL FOOTPRINT */}

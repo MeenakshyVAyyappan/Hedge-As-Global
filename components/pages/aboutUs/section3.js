@@ -3,65 +3,51 @@ import { sliderTeam } from "@/utils/swiperOptions"
 import Image from 'next/image'
 import Link from 'next/link'
 import { Swiper, SwiperSlide } from "swiper/react"
+
+const teamMembers = [
+	{
+		id: 1,
+		name: "Daniel L. Braddock",
+		duty: "Senior Audit Partner",
+		image: "/images/avatar/defaultteam21.png"
+	},
+	{
+		id: 2,
+		name: "Michael B. Reader",
+		duty: "Head of Tax Advisory",
+		image: "/images/avatar/defaultteam21.png"
+	},
+	{
+		id: 3,
+		name: "Robert M. Carlson",
+		duty: "Corporate Finance Director",
+		image: "/images/avatar/defaultteam21.png"
+	},
+	{
+		id: 4,
+		name: "William C. Bowens",
+		duty: "Senior Chartered Accountant",
+		image: "/images/avatar/defaultteam21.png"
+	},
+	{
+		id: 5,
+		name: "Robert B. Thompson",
+		duty: "Risk & Compliance Manager",
+		image: "/images/avatar/defaultteam21.png"
+	},
+	{
+		id: 6,
+		name: "Samuel D. Fletcher",
+		duty: "Transfer Pricing Lead",
+		image: "/images/avatar/defaultteam21.png"
+	}
+]
+
 export default function Section3() {
 	return (
 		<>
-
-			<section className="s-team">
-				<div className="tf-marquee slider-saylo style-2 mb-50">
-					<div className="wrap-marquee">
-						<div className="marquee-item">
-							<p className="font-main-2 text">
-								meet our Expert team
-							</p>
-						</div>
-						<div className="marquee-item">
-							<p className="font-main-2 text">
-								meet our Expert team
-							</p>
-						</div>
-						<div className="marquee-item">
-							<p className="font-main-2 text">
-								meet our Expert team
-							</p>
-						</div>
-						<div className="marquee-item">
-							<p className="font-main-2 text">
-								meet our Expert team
-							</p>
-						</div>
-						<div className="marquee-item">
-							<p className="font-main-2 text">
-								meet our Expert team
-							</p>
-						</div>
-						<div className="marquee-item">
-							<p className="font-main-2 text">
-								meet our Expert team
-							</p>
-						</div>
-						<div className="marquee-item">
-							<p className="font-main-2 text">
-								meet our Expert team
-							</p>
-						</div>
-						<div className="marquee-item">
-							<p className="font-main-2 text">
-								meet our Expert team
-							</p>
-						</div>
-						<div className="marquee-item">
-							<p className="font-main-2 text">
-								meet our Expert team
-							</p>
-						</div>
-						<div className="marquee-item">
-							<p className="font-main-2 text">
-								meet our Expert team
-							</p>
-						</div>
-					</div>
-				</div>
+			<section className="s-team py-5">
+			
 				<div className="tf-container">
 					<div className="row">
 						<div className="col-lg-12">
@@ -69,179 +55,70 @@ export default function Section3() {
 								<div className="content">
 									<p className="s-sub-title">
 										<i className="icon-angles-right moveLeftToRight" />
-										Meet out team
+										Meet Our Team
 									</p>
 									<p className="s-title letter-space-0 text-anime-wave">
-										Expert Team <span> Member </span>
+										Expert Team <span>Members</span>
 									</p>
 								</div>
 								<Link href="/team-member" className="tf-btn style-3 text-anime-style-1">
-									Explore All Member
+									Explore All Members
 									<i className="icon-chevron-right" />
 								</Link>
 							</div>
 						</div>
 					</div>
 				</div>
-				<Swiper {...sliderTeam} className="swiper-container slider-team">
+				<Swiper {...sliderTeam} loop={true} className="swiper-container slider-team">
 					<div className="swiper-wrapper">
-						<SwiperSlide>
-							<div className="card-member first tf-hover">
-								<div className="image hover-14 hover-1">
-									<Image
-										width="0"
-										height="0"
-										sizes="100vw"
-										style={{ width: "100%", height: "auto" }}
-										src="/images/avatar/team-member-1.jpg" data-src="/images/avatar/team-member-1.jpg" alt="" className="lazyload" />
+						{teamMembers.map((item, index) => (
+							<SwiperSlide key={item.id}>
+								<div className={`card-member ${index === 0 ? 'first' : index === teamMembers.length - 1 ? 'last' : ''} tf-hover`}>
+									<div className="image hover-14 hover-1">
+										<Image
+											width={370}
+											height={420}
+											unoptimized
+											sizes="(max-width: 768px) 100vw, 370px"
+											style={{ width: "100%", height: "auto" }}
+											src={item.image}
+											alt={item.name}
+										/>
+									</div>
+									<div className="content">
+										<Link href="/team-details" className="name">{item.name}</Link>
+										<p className="duty">{item.duty}</p>
+										<ul className="social-list style-5 style-4">
+											<li>
+												<Link href="/#">
+													<i className="icon-facebook" />
+												</Link>
+											</li>
+											<li>
+												<Link href="/#">
+													<i className="icon-twitter" />
+												</Link>
+											</li>
+											<li>
+												<Link href="/#">
+													<i className="icon-linkedin" />
+												</Link>
+											</li>
+											<li>
+												<Link href="/#">
+													<i className="icon-youtube" />
+												</Link>
+											</li>
+										</ul>
+									</div>
 								</div>
-								<div className="content">
-									<Link href="/team-details" className="name"> Daniel L. Braddock </Link>
-									<p className="duty">Business Consultant</p>
-									<ul className="social-list style-5 style-4">
-										<li>
-											<Link href="/#">
-												<i className="icon-facebook" />
-											</Link>
-										</li>
-										<li>
-											<Link href="/#">
-												<i className="icon-twitter" />
-											</Link>
-										</li>
-										<li>
-											<Link href="/#">
-												<i className="icon-linkedin" />
-											</Link>
-										</li>
-										<li>
-											<Link href="/#">
-												<i className="icon-youtube" />
-											</Link>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</SwiperSlide>
-						<SwiperSlide>
-							<div className="card-member  tf-hover">
-								<div className="image hover-14 hover-1">
-									<Image
-										width="0"
-										height="0"
-										sizes="100vw"
-										style={{ width: "100%", height: "auto" }}
-										src="/images/avatar/team-member-2.jpg" data-src="/images/avatar/team-member-2.jpg" alt="" className="lazyload" />
-								</div>
-								<div className="content">
-									<Link href="/team-details" className="name"> Michael B. Reader </Link>
-									<p className="duty">Business Consultant</p>
-									<ul className="social-list style-5 style-4">
-										<li>
-											<Link href="/#">
-												<i className="icon-facebook" />
-											</Link>
-										</li>
-										<li>
-											<Link href="/#">
-												<i className="icon-twitter" />
-											</Link>
-										</li>
-										<li>
-											<Link href="/#">
-												<i className="icon-linkedin" />
-											</Link>
-										</li>
-										<li>
-											<Link href="/#">
-												<i className="icon-youtube" />
-											</Link>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</SwiperSlide>
-						<SwiperSlide>
-							<div className="card-member  tf-hover">
-								<div className="image hover-14 hover-1">
-									<Image
-										width="0"
-										height="0"
-										sizes="100vw"
-										style={{ width: "100%", height: "auto" }}
-										src="/images/avatar/team-member-3.jpg" data-src="/images/avatar/team-member-3.jpg" alt="" className="lazyload" />
-								</div>
-								<div className="content">
-									<Link href="/team-details" className="name"> Robert M. Carlson </Link>
-									<p className="duty">Business Consultant</p>
-									<ul className="social-list style-5 style-4">
-										<li>
-											<Link href="/#">
-												<i className="icon-facebook" />
-											</Link>
-										</li>
-										<li>
-											<Link href="/#">
-												<i className="icon-twitter" />
-											</Link>
-										</li>
-										<li>
-											<Link href="/#">
-												<i className="icon-linkedin" />
-											</Link>
-										</li>
-										<li>
-											<Link href="/#">
-												<i className="icon-youtube" />
-											</Link>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</SwiperSlide>
-						<SwiperSlide>
-							<div className="card-member last tf-hover">
-								<div className="image hover-14 hover-1">
-									<Image
-										width="0"
-										height="0"
-										sizes="100vw"
-										style={{ width: "100%", height: "auto" }}
-										src="/images/avatar/team-member-4.jpg" data-src="/images/avatar/team-member-4.jpg" alt="" className="lazyload" />
-								</div>
-								<div className="content">
-									<Link href="/team-details" className="name"> Jonathon D. Foutch </Link>
-									<p className="duty">Business Consultant</p>
-									<ul className="social-list style-5 style-4">
-										<li>
-											<Link href="/#">
-												<i className="icon-facebook" />
-											</Link>
-										</li>
-										<li>
-											<Link href="/#">
-												<i className="icon-twitter" />
-											</Link>
-										</li>
-										<li>
-											<Link href="/#">
-												<i className="icon-linkedin" />
-											</Link>
-										</li>
-										<li>
-											<Link href="/#">
-												<i className="icon-youtube" />
-											</Link>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</SwiperSlide>
+							</SwiperSlide>
+						))}
 					</div>
 					<div className="tf-overlay" />
 				</Swiper>
 			</section>
-
 		</>
 	)
 }
+
