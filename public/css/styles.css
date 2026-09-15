@@ -16242,8 +16242,8 @@ a.mapboxgl-ctrl-logo {
 }
 
 .tf-btn:hover {
-	background-color: var(--Main-red-hover);
-	border-color: var(--Main-red-hover);
+	background-color: #B81B21;
+	border-color: #B81B21;
 	color: #ffffff !important;
 	box-shadow: 0 8px 20px rgba(217, 35, 42, 0.25);
 }
@@ -16255,8 +16255,8 @@ a.mapboxgl-ctrl-logo {
 }
 
 .tf-btn.secondary:hover {
-	background-color: var(--Main-red);
-	border-color: var(--Main-red);
+	background-color: #D9232A;
+	border-color: #D9232A;
 }
 
 /* Topbar Info Items */

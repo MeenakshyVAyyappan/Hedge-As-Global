@@ -111,7 +111,7 @@ export default function Section12() {
       {/* SECTION 13 — INSIGHTS & UPDATES (Home 2 Style-4 Swiper Slider) */}
       <section id="insights" className="s-new-blog-2" style={{ backgroundColor: '#ffffff', borderTop: '1px solid #f1f5f9', paddingTop: '60px', paddingBottom: '60px' }}>
         <div className="tf-container">
-          <div className="row align-items-end justify-content-between mb-36">
+          <div className="row align-items-end justify-content-between mb-5" style={{ marginBottom: '50px' }}>
             <div className="col-lg-8">
               <p className="s-sub-title text-red mb-18">
                 <i className="icon-angles-right moveLeftToRight" />
