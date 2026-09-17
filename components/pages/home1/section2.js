@@ -35,7 +35,7 @@ export default function Section2() {
             <div style={{ display: "flex", gap: "36px", marginBottom: "40px", paddingBottom: "36px", borderBottom: "1px solid #e8e8e8" }}>
               <div>
                 <div style={{ fontSize: "32px", fontWeight: 800, color: "#03214e", lineHeight: 1 }}>10<span style={{ color: "#C8102E" }}>+</span></div>
-                <div style={{ fontSize: "12px", color: "#71717a", marginTop: "6px", letterSpacing: "0.04em", textTransform: "uppercase", fontWeight: 600 }}>Years Active</div>
+                <div style={{ fontSize: "12px", color: "#71717a", marginTop: "6px", letterSpacing: "0.04em", textTransform: "uppercase", fontWeight: 600 }}>Years</div>
               </div>
               <div style={{ width: "1px", background: "#e8e8e8", flexShrink: 0 }}></div>
               <div>

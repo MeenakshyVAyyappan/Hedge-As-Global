@@ -18053,26 +18053,27 @@ a.mapboxgl-ctrl-logo {
 .saylo-home1-partner-box {
   background: #ffffff;
   border: 1px solid #e2e8f0;
-  border-radius: 4px;
-  height: 180px;
+  border-radius: 12px;
+  aspect-ratio: 1 / 1;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 28px 36px;
+  padding: 24px;
   position: relative;
   transition: all 0.3s ease;
-  box-shadow: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
 }
 
 .saylo-home1-partner-box:hover {
-  border-color: #0f172a;
+  border-color: #03214e;
   z-index: 2;
-  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+  box-shadow: 0 10px 25px rgba(3, 33, 78, 0.12);
 }
 
 .saylo-home1-partner-img {
-  max-width: 85%;
-  max-height: 95px;
+  max-width: 90%;
+  max-height: 85px;
   width: auto;
   height: auto;
   object-fit: contain;
@@ -18510,12 +18511,16 @@ a.mapboxgl-ctrl-logo {
 /* --- Partner logo swiper mobile --- */
 @media (max-width: 575px) {
   .saylo-partner-swiper .saylo-home1-partner-box {
-    padding: 12px !important;
-    height: 72px !important;
+    padding: 16px !important;
+    height: auto !important;
+    aspect-ratio: 1 / 1 !important;
+    min-height: 135px !important;
+    border-radius: 12px !important;
   }
 
   .saylo-home1-partner-img {
-    max-height: 44px !important;
+    max-height: 130px !important;
+    max-width: 88% !important;
   }
 }
 
@@ -18702,6 +18707,37 @@ a.mapboxgl-ctrl-logo {
     pointer-events: auto !important;
     touch-action: manipulation !important;
   }
+
+  /* Header Topbar Yellow Background in Mobile View */
+  .tf-topbar,
+  .tf-topbar.style-2,
+  .tf-topbar.style-3,
+  .tf-topbar.style-4 {
+    background-color: var(--Main-yellow, #ffcd4c) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12) !important;
+  }
+
+  .tf-topbar,
+  .tf-topbar p,
+  .tf-topbar span,
+  .tf-topbar a,
+  .tf-topbar i,
+  .tf-topbar .icon i,
+  .tf-topbar .infor-list a,
+  .tf-topbar .infor-list p,
+  .tf-topbar .topbar-left p,
+  .tf-topbar .topbar-right p,
+  .tf-topbar .topbar-inner {
+    color: #1b1e23 !important;
+  }
+
+  .tf-topbar .topbar-inner {
+    border-bottom-color: rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .tf-topbar a:hover {
+    color: #000000 !important;
+  }
 }
 
 @media (max-width: 767px) {
@@ -18709,4 +18745,5 @@ a.mapboxgl-ctrl-logo {
     padding: 24px 18px !important;
   }
 }
+
 

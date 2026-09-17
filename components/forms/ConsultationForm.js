@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import PhoneInput from '@/components/elements/PhoneInput';
 
 export default function ConsultationForm({ title = "Request a Free Consultation", className = "" }) {
 	const [formData, setFormData] = useState({
@@ -38,19 +39,30 @@ export default function ConsultationForm({ title = "Request a Free Consultation"
 
 		setStatus({ loading: true, submitted: false, error: null });
 
-		// Simulate server submission
-		setTimeout(() => {
-			setStatus({ loading: false, submitted: true, error: null });
-			setFormData({
-				fullName: '',
-				companyName: '',
-				email: '',
-				phone: '',
-				service: 'Accounting & Bookkeeping',
-				message: '',
-				websiteHp: ''
+		try {
+			const res = await fetch('/api/contact', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(formData),
 			});
-		}, 1200);
+			const data = await res.json();
+			if (data.success) {
+				setStatus({ loading: false, submitted: true, error: null });
+				setFormData({
+					fullName: '',
+					companyName: '',
+					email: '',
+					phone: '',
+					service: 'Accounting & Bookkeeping',
+					message: '',
+					websiteHp: ''
+				});
+			} else {
+				setStatus({ loading: false, submitted: false, error: data.error || 'Failed to submit form.' });
+			}
+		} catch (err) {
+			setStatus({ loading: false, submitted: false, error: 'Network error. Please try again.' });
+		}
 	};
 
 	return (
@@ -128,15 +140,14 @@ export default function ConsultationForm({ title = "Request a Free Consultation"
 
 						<div className="col-md-6 mb-20">
 							<label htmlFor="phone" className="form-label text-white fs-14 fw-6">Phone Number *</label>
-							<input
-								type="tel"
+							<PhoneInput
 								id="phone"
 								name="phone"
 								required
 								value={formData.phone}
 								onChange={handleChange}
-								placeholder="+971 50 123 4567"
-								className="form-control custom-input"
+								placeholder="50 123 4567"
+								theme="dark"
 							/>
 						</div>
 

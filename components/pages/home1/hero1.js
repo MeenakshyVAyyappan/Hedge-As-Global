@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import Link from 'next/link';
+import PhoneInput from '@/components/elements/PhoneInput';
 
 export default function Hero1() {
 	const [formData, setFormData] = useState({
@@ -23,7 +24,7 @@ export default function Hero1() {
 		setFormData((prev) => ({ ...prev, [name]: value }));
 	};
 
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
 		if (formData.websiteHp) return;
 
@@ -34,17 +35,29 @@ export default function Hero1() {
 
 		setStatus({ loading: true, submitted: false, error: null });
 
-		setTimeout(() => {
-			setStatus({ loading: false, submitted: true, error: null });
-			setFormData({
-				fullName: '',
-				phone: '',
-				email: '',
-				service: 'Accounting & Bookkeeping',
-				message: '',
-				websiteHp: ''
+		try {
+			const res = await fetch('/api/contact', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(formData),
 			});
-		}, 1000);
+			const data = await res.json();
+			if (data.success) {
+				setStatus({ loading: false, submitted: true, error: null });
+				setFormData({
+					fullName: '',
+					phone: '',
+					email: '',
+					service: 'Accounting & Bookkeeping',
+					message: '',
+					websiteHp: ''
+				});
+			} else {
+				setStatus({ loading: false, submitted: false, error: data.error || 'Failed to submit form.' });
+			}
+		} catch (err) {
+			setStatus({ loading: false, submitted: false, error: 'Network error. Please try again.' });
+		}
 	};
 
 	return (
@@ -186,14 +199,14 @@ export default function Hero1() {
 										</div>
 
 										<div className="col-12 col-md-6">
-											<input
-												type="tel"
+											<PhoneInput
 												name="phone"
+												id="hero-phone"
 												required
 												value={formData.phone}
 												onChange={handleChange}
 												placeholder="Phone Number *"
-												className="form-control hero-input"
+												theme="hero"
 											/>
 										</div>
 

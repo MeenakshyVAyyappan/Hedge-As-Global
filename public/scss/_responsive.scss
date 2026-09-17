@@ -799,6 +799,22 @@
     }
 }
 @media (max-width: 991px) {
+    .tf-topbar,
+    .tf-topbar.style-2,
+    .tf-topbar.style-3,
+    .tf-topbar.style-4 {
+        background-color: var(--Main-yellow, #ffcd4c) !important;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.12) !important;
+        p, span, a, i, .icon i, .infor-list a, .infor-list p, .topbar-left p, .topbar-right p, .topbar-inner {
+            color: #1b1e23 !important;
+        }
+        .topbar-inner {
+            border-bottom-color: rgba(0, 0, 0, 0.1) !important;
+        }
+        a:hover {
+            color: #000000 !important;
+        }
+    }
     .carousel-pagination,
     .service-pagination {
         height: 21px;

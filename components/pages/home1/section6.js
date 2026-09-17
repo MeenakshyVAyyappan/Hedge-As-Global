@@ -58,18 +58,17 @@ export default function Section6() {
             </p>
 
             <h2
-  style={{
-    fontSize: "clamp(26px, 3.5vw, 40px)",
-    fontWeight: 800,
-    color: "#0f172a",
-    lineHeight: 1.25,
-    letterSpacing: "-0.5px",
-    margin: 0,
-    whiteSpace: "nowrap",
-  }}
->
-  Our Authorized <span style={{ color: "#03214e" }}>Technology Partners</span>
-</h2>
+              style={{
+                fontSize: "clamp(24px, 5vw, 40px)",
+                fontWeight: 800,
+                color: "#0f172a",
+                lineHeight: 1.25,
+                letterSpacing: "-0.5px",
+                margin: 0,
+              }}
+            >
+              Our Authorized <span style={{ color: "#03214e" }}>Technology Partners</span>
+            </h2>
           </div>
         </div>
 

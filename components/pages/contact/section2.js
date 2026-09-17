@@ -1,5 +1,43 @@
+'use client';
+import { useState } from 'react';
+import PhoneInput from '@/components/elements/PhoneInput';
 
 export default function Section2() {
+	const [formData, setFormData] = useState({
+		name: '',
+		phone: '',
+		email: '',
+		subject: '',
+		message: '',
+	});
+	const [status, setStatus] = useState({ loading: false, submitted: false, error: null });
+
+	const handleChange = (e) => {
+		const { name, value } = e.target;
+		setFormData((prev) => ({ ...prev, [name]: value }));
+	};
+
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		setStatus({ loading: true, submitted: false, error: null });
+		try {
+			const res = await fetch('/api/contact', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(formData),
+			});
+			const data = await res.json();
+			if (data.success) {
+				setStatus({ loading: false, submitted: true, error: null });
+				setFormData({ name: '', phone: '', email: '', subject: '', message: '' });
+			} else {
+				setStatus({ loading: false, submitted: false, error: data.error || 'Submission failed.' });
+			}
+		} catch (err) {
+			setStatus({ loading: false, submitted: false, error: 'Network error.' });
+		}
+	};
+
 	return (
 		<>
 
@@ -18,46 +56,76 @@ export default function Section2() {
 											Send Us Message
 										</h3>
 										<p className="note mb-40">
-											Your email address will not be published. Required fields are marked *
+											Required fields are marked *
 										</p>
-										<form action="#" className="form-comment style-3">
-											<div className="cols mb-20">
-												<fieldset>
-													<input type="text" placeholder="Name" required />
-												</fieldset>
-												<fieldset>
-													<input type="number" placeholder="Phone" required />
-												</fieldset>
+										{status.submitted ? (
+											<div className="alert alert-success p-3 rounded mb-4">
+												Thank you! Your message has been sent to hedgeenquiries@gmail.com. Our team will contact you shortly.
 											</div>
-											<div className="cols mb-20">
-												<fieldset>
-													<input type="email" placeholder="Email" required />
-												</fieldset>
-												<fieldset>
-													<input type="text" placeholder="Subject" required />
-												</fieldset>
-											</div>
-											<div className="cols mb-20">
-												<fieldset>
-													<textarea placeholder="Message" />
-												</fieldset>
-											</div>
-											<div className="checkbox-item mb-30">
-												<label>
-													<span className="text">Save my name, email, and website in this browser
-														for
-														the next time I comment.</span>
-													<input type="checkbox" className="checkbox-item" defaultChecked />
-													<span className="btn-checkbox" />
-												</label>
-											</div>
-											<div className="bot">
-												<button type="submit" className="tf-btn text-anime-style-1">
-													Send Message Us
-													<i className="icon-chevron-right" />
-												</button>
-											</div>
-										</form>
+										) : (
+											<form onSubmit={handleSubmit} className="form-comment style-3">
+												{status.error && <div className="alert alert-danger p-2 fs-13 mb-3">{status.error}</div>}
+												<div className="cols mb-20">
+													<fieldset>
+														<input
+															type="text"
+															name="name"
+															placeholder="Name *"
+															required
+															value={formData.name}
+															onChange={handleChange}
+														/>
+													</fieldset>
+													<fieldset>
+														<PhoneInput
+															name="phone"
+															placeholder="Phone *"
+															required
+															value={formData.phone}
+															onChange={handleChange}
+														/>
+													</fieldset>
+												</div>
+												<div className="cols mb-20">
+													<fieldset>
+														<input
+															type="email"
+															name="email"
+															placeholder="Email *"
+															required
+															value={formData.email}
+															onChange={handleChange}
+														/>
+													</fieldset>
+													<fieldset>
+														<input
+															type="text"
+															name="subject"
+															placeholder="Subject *"
+															required
+															value={formData.subject}
+															onChange={handleChange}
+														/>
+													</fieldset>
+												</div>
+												<div className="cols mb-20">
+													<fieldset>
+														<textarea
+															name="message"
+															placeholder="Message"
+															value={formData.message}
+															onChange={handleChange}
+														/>
+													</fieldset>
+												</div>
+												<div className="bot">
+													<button type="submit" className="tf-btn text-anime-style-1" disabled={status.loading}>
+														{status.loading ? 'Sending...' : 'Send Message Us'}
+														<i className="icon-chevron-right" />
+													</button>
+												</div>
+											</form>
+										)}
 									</div>
 								</div>
 							</div>
