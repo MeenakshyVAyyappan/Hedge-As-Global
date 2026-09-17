@@ -18053,13 +18053,13 @@ a.mapboxgl-ctrl-logo {
 .saylo-home1-partner-box {
   background: #ffffff;
   border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  aspect-ratio: 1 / 1;
+  border-radius: 10px;
+  height: 115px;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 24px;
+  padding: 18px 24px;
   position: relative;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
@@ -18072,8 +18072,8 @@ a.mapboxgl-ctrl-logo {
 }
 
 .saylo-home1-partner-img {
-  max-width: 90%;
-  max-height: 85px;
+  max-width: 80%;
+  max-height: 68px;
   width: auto;
   height: auto;
   object-fit: contain;
