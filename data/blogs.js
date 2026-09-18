@@ -145,3 +145,36 @@ export const blogsData = [
 		`
 	}
 ];
+
+export async function fetchBlogsFromApi() {
+	try {
+		const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+		const res = await fetch(`${apiUrl}/api/blogs`, { cache: 'no-store' });
+		if (res.ok) {
+			const json = await res.json();
+			if (json.success && Array.isArray(json.data) && json.data.length > 0) {
+				return json.data;
+			}
+		}
+	} catch (err) {
+		console.warn('API fetch Blogs fallback to static data:', err.message);
+	}
+	return blogsData;
+}
+
+export async function fetchBlogBySlugFromApi(slug) {
+	try {
+		const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+		const res = await fetch(`${apiUrl}/api/blogs/${slug}`, { cache: 'no-store' });
+		if (res.ok) {
+			const json = await res.json();
+			if (json.success && json.data) {
+				return json.data;
+			}
+		}
+	} catch (err) {
+		console.warn('API fetch Blog by slug fallback:', err.message);
+	}
+	return blogsData.find((b) => b.slug === slug);
+}
+

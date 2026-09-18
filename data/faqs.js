@@ -40,3 +40,20 @@ export const faqsData = [
 		answer: "Yes, Hedge operates branch offices in Dubai, Al Ain, Bahrain, and India, serving corporate clients, commercial groups, and SMEs across the GCC and internationally."
 	}
 ];
+
+export async function fetchFaqsFromApi() {
+	try {
+		const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+		const res = await fetch(`${apiUrl}/api/faqs`, { cache: 'no-store' });
+		if (res.ok) {
+			const json = await res.json();
+			if (json.success && Array.isArray(json.data) && json.data.length > 0) {
+				return json.data;
+			}
+		}
+	} catch (err) {
+		console.warn('API fetch FAQs fallback to static data:', err.message);
+	}
+	return faqsData;
+}
+

@@ -1,25 +1,43 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { sliderBlog } from '@/utils/swiperOptions';
-import { faqsData } from '@/data/faqs';
-import { blogsData } from '@/data/blogs';
+import { faqsData, fetchFaqsFromApi } from '@/data/faqs';
+import { blogsData, fetchBlogsFromApi } from '@/data/blogs';
 import ConsultationForm from '@/components/forms/ConsultationForm';
 
 export default function Section12() {
+  const [faqs, setFaqs] = useState(faqsData);
+  const [blogs, setBlogs] = useState(blogsData);
   const [activeFaq, setActiveFaq] = useState(1);
+
+  useEffect(() => {
+    async function loadDynamicData() {
+      const apiFaqs = await fetchFaqsFromApi();
+      if (apiFaqs && apiFaqs.length > 0) {
+        setFaqs(apiFaqs);
+      }
+      const apiBlogs = await fetchBlogsFromApi();
+      if (apiBlogs && apiBlogs.length > 0) {
+        setBlogs(apiBlogs);
+      }
+    }
+    loadDynamicData();
+  }, []);
 
   const toggleFaq = (id) => {
     setActiveFaq(activeFaq === id ? null : id);
   };
 
-  const col1Faqs = faqsData.slice(0, 4);
-  const col2Faqs = faqsData.slice(4, 8);
+  const halfLength = Math.ceil(faqs.length / 2);
+  const col1Faqs = faqs.slice(0, halfLength);
+  const col2Faqs = faqs.slice(halfLength);
 
   return (
+
     <>
       {/* SECTION 12 — FAQ (Clean Saylo Home-4 Timeline Accordion) */}
       <section id="faq" style={{ backgroundColor: '#ffffff', paddingTop: '60px', paddingBottom: '60px', borderTop: '1px solid #f1f5f9' }}>
@@ -132,7 +150,7 @@ export default function Section12() {
           <div className="row">
             <div className="col-lg-12">
               <Swiper {...sliderBlog} className="swiper-container slider-blog overflow-hidden pb-4">
-                {blogsData.map((blog) => (
+                {blogs.map((blog) => (
                   <SwiperSlide key={blog.id}>
                     <div className="card-blog-item style-4 tf-hover h-100">
                       <Link href={`/blog/${blog.slug}`}>

@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Section1 from './section1';
@@ -9,19 +9,32 @@ import AccountingInfrastructure from '@/components/pages/home1/section6';
 import WorkingProcess from '@/components/pages/home1/section8';
 import ConsultationForm from '@/components/forms/ConsultationForm';
 import { locationsData } from '@/data/locations';
-import { faqsData } from '@/data/faqs';
+import { faqsData, fetchFaqsFromApi } from '@/data/faqs';
 
 export default function AboutUs() {
+	const [faqs, setFaqs] = useState(faqsData);
 	const [activeFaq, setActiveFaq] = useState(1);
+
+	useEffect(() => {
+		async function loadFaqs() {
+			const apiFaqs = await fetchFaqsFromApi();
+			if (apiFaqs && apiFaqs.length > 0) {
+				setFaqs(apiFaqs);
+			}
+		}
+		loadFaqs();
+	}, []);
 
 	const toggleFaq = (id) => {
 		setActiveFaq(activeFaq === id ? null : id);
 	};
 
-	const col1Faqs = faqsData.slice(0, 4);
-	const col2Faqs = faqsData.slice(4, 8);
+	const halfLength = Math.ceil(faqs.length / 2);
+	const col1Faqs = faqs.slice(0, halfLength);
+	const col2Faqs = faqs.slice(halfLength);
 
 	return (
+
 		<>
 			{/* 1. Firm Overview Section */}
 			<Section1 />

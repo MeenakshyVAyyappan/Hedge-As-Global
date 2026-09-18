@@ -1,11 +1,11 @@
 import Layout from "@/components/layout/Layout";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { blogsData } from "@/data/blogs";
+import { blogsData, fetchBlogsFromApi, fetchBlogBySlugFromApi } from "@/data/blogs";
 import ConsultationForm from "@/components/forms/ConsultationForm";
 
 export async function generateMetadata({ params }) {
-	const article = blogsData.find((b) => b.slug === params.slug);
+	const article = await fetchBlogBySlugFromApi(params.slug) || blogsData.find((b) => b.slug === params.slug);
 	if (!article) return { title: "Article Not Found" };
 
 	return {
@@ -23,13 +23,15 @@ export async function generateStaticParams() {
 	}));
 }
 
-export default function BlogDetailPage({ params }) {
-	const article = blogsData.find((b) => b.slug === params.slug);
+export default async function BlogDetailPage({ params }) {
+	const article = await fetchBlogBySlugFromApi(params.slug) || blogsData.find((b) => b.slug === params.slug);
 	if (!article) {
 		notFound();
 	}
 
-	const relatedArticles = blogsData.filter((b) => b.slug !== params.slug).slice(0, 3);
+	const allBlogs = await fetchBlogsFromApi();
+	const relatedArticles = (allBlogs || blogsData).filter((b) => b.slug !== params.slug).slice(0, 3);
+
 
 	return (
 		<Layout breadcrumbTitle={article.title} mainCls="padding-0" breadcrumbBg="/images/bredcrumb/bredcrumb1.jpeg">
