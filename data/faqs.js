@@ -43,7 +43,7 @@ export const faqsData = [
 
 export async function fetchFaqsFromApi() {
 	try {
-		const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+		const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://hedgeasglobal.ezyplus.in';
 		const res = await fetch(`${apiUrl}/api/faqs`, { cache: 'no-store' });
 		if (res.ok) {
 			const json = await res.json();

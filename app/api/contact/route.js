@@ -29,7 +29,7 @@ export async function POST(req) {
     const leadMessage = message || 'No extra message provided.';
     const leadCompany = companyName || 'N/A';
 
-    const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+    const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'https://hedgeasglobal.ezyplus.in';
 
     // 1. Post submission to Laravel API (stores in SQL database & sends admin email)
     try {

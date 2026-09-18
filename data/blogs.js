@@ -148,7 +148,7 @@ export const blogsData = [
 
 export async function fetchBlogsFromApi() {
 	try {
-		const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+		const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://hedgeasglobal.ezyplus.in';
 		const res = await fetch(`${apiUrl}/api/blogs`, { cache: 'no-store' });
 		if (res.ok) {
 			const json = await res.json();
@@ -164,7 +164,7 @@ export async function fetchBlogsFromApi() {
 
 export async function fetchBlogBySlugFromApi(slug) {
 	try {
-		const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+		const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://hedgeasglobal.ezyplus.in';
 		const res = await fetch(`${apiUrl}/api/blogs/${slug}`, { cache: 'no-store' });
 		if (res.ok) {
 			const json = await res.json();
