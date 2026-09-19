@@ -78,7 +78,7 @@ export default function Section6() {
 									</p>
 									{status.submitted ? (
 										<div className="alert alert-success p-3 rounded mb-4">
-											Thank you! Your consultation request has been sent to hedgeenquiries@gmail.com. Our team will contact you shortly.
+											Thank you! Your consultation request has been sent. Our team will contact you shortly.
 										</div>
 									) : (
 										<form onSubmit={handleSubmit} className="form-contact style-3">

@@ -31,7 +31,8 @@ export async function POST(req) {
 
     const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'https://hedgeasglobal.ezyplus.in';
 
-    // 1. Post submission to Laravel API (stores in SQL database & sends admin email)
+    // 1. Post submission to Laravel API (stores in SQL database for admin panel)
+    let dbStored = false;
     try {
       const laravelRes = await fetch(`${backendUrl}/api/enquiries`, {
         method: 'POST',
@@ -48,19 +49,16 @@ export async function POST(req) {
       });
 
       if (laravelRes.ok) {
-        const laravelData = await laravelRes.json();
-        return NextResponse.json({
-          success: true,
-          message: 'Inquiry stored in database and email dispatched successfully',
-          data: laravelData,
-        });
+        dbStored = true;
       }
     } catch (apiError) {
       console.warn('Laravel API backend connection warning:', apiError.message);
     }
 
     const smtpUser = process.env.SMTP_USER || 'hedgeenquiries@gmail.com';
-    const smtpPass = process.env.SMTP_PASS;
+    const rawPass = process.env.SMTP_PASS || 'ohpexwtrkzqkupnj';
+    const smtpPass = rawPass ? rawPass.replace(/['"\s]/g, '') : '';
+    const adminEmail = (process.env.ADMIN_EMAIL && process.env.ADMIN_EMAIL !== 'your_client_email@gmail.com') ? process.env.ADMIN_EMAIL : smtpUser;
 
     if (!smtpPass) {
       return NextResponse.json({
@@ -83,7 +81,7 @@ export async function POST(req) {
     // Email Body for Hedge Advisory Team
     const adminMailOptions = {
       from: `"Hedge Website Forms" <${smtpUser}>`,
-      to: 'hedgeenquiries@gmail.com',
+      to: adminEmail,
       replyTo: leadEmail !== 'Not provided' ? leadEmail : smtpUser,
       subject: `[New Lead] ${leadSubject} - ${leadName}`,
       html: `
@@ -141,7 +139,7 @@ export async function POST(req) {
 
     return NextResponse.json({
       success: true,
-      message: 'Inquiry sent successfully to hedgeenquiries@gmail.com',
+      message: 'Inquiry sent successfully',
     });
   } catch (error) {
     console.error('Contact Form SMTP Error:', error);
