@@ -1201,10 +1201,15 @@ a.hover-text-main-golden:hover {
 }
 
 .tf-header {
-	background-color: var(--Main-black);
+	background: rgba(7, 26, 52, 0.94);
+	backdrop-filter: blur(20px);
+	-webkit-backdrop-filter: blur(20px);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+	box-shadow: 0 10px 30px rgba(0, 10, 25, 0.25);
 	top: 0;
 	position: sticky;
 	z-index: 999;
+	transition: all 0.3s ease;
 }
 
 .tf-header.style-2 {
@@ -1937,64 +1942,64 @@ a.hover-text-main-golden:hover {
 }
 
 .mobile-nav-wrap {
-	position: fixed;
-	left: 0;
-	top: 0;
-	bottom: 0;
-	width: 100%;
-	z-index: 9999999;
-	opacity: 0;
-	visibility: hidden;
-	-webkit-transition: all 0.3s ease;
-	-moz-transition: all 0.3s ease;
-	-ms-transition: all 0.3s ease;
-	-o-transition: all 0.3s ease;
-	transition: all 0.3s ease;
+	position: fixed !important;
+	top: 0 !important;
+	left: 0 !important;
+	right: 0 !important;
+	bottom: 0 !important;
+	width: 100vw !important;
+	height: 100vh !important;
+	z-index: 9999999 !important;
+	opacity: 0 !important;
+	visibility: hidden !important;
+	pointer-events: none !important;
+	transition: opacity 0.3s ease, visibility 0.3s ease !important;
 }
 
 .mobile-nav-wrap.active {
-	opacity: 1;
-	visibility: visible;
-}
-
-.mobile-nav-wrap.active .inner-mobile-nav {
-	left: 0 !important;
-}
-
-.mobile-nav-wrap .mobile-main-nav {
-	border-bottom: 1px solid var(--Text-2);
+	opacity: 1 !important;
+	visibility: visible !important;
+	pointer-events: auto !important;
 }
 
 .mobile-nav-wrap .overlay-mobile-nav {
-	z-index: 300;
-	content: "";
-	position: fixed;
-	left: 0;
-	top: 0;
-	background: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.8) 100%);
-	width: 100%;
-	height: 100%;
-	z-index: 1000;
+	position: fixed !important;
+	top: 0 !important;
+	left: 0 !important;
+	width: 100vw !important;
+	height: 100vh !important;
+	background: rgba(4, 18, 36, 0.7) !important;
+	backdrop-filter: blur(6px) !important;
+	-webkit-backdrop-filter: blur(6px) !important;
+	z-index: 1000 !important;
 }
 
 .mobile-nav-wrap .inner-mobile-nav {
-	z-index: 300;
-	position: fixed;
-	padding: 15px;
-	z-index: 1001;
-	height: 100%;
-	width: 320px;
-	background-color: var(--White);
-	left: -320px;
-	-webkit-transition: all 0.3s ease;
-	-moz-transition: all 0.3s ease;
-	-ms-transition: all 0.3s ease;
-	-o-transition: all 0.3s ease;
-	transition: all 0.3s ease;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	gap: 30px;
+	position: fixed !important;
+	top: 0 !important;
+	left: 0 !important;
+	bottom: 0 !important;
+	width: 320px !important;
+	max-width: 85vw !important;
+	height: 100vh !important;
+	background: #071e3d !important;
+	background: linear-gradient(180deg, #071e3d 0%, #041224 100%) !important;
+	border-right: 1px solid rgba(255, 255, 255, 0.15) !important;
+	box-shadow: 10px 0 40px rgba(0, 0, 0, 0.6) !important;
+	z-index: 1001 !important;
+	padding: 24px 20px !important;
+	overflow-y: auto !important;
+	transform: translateX(-100%) !important;
+	transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+	display: flex !important;
+	flex-direction: column !important;
+	justify-content: space-between !important;
+	gap: 24px !important;
+}
+
+.mobile-nav-wrap.active .inner-mobile-nav {
+	transform: translateX(0) !important;
+	left: 0 !important;
 }
 
 .mobile-nav-wrap .inner-mobile-nav .logo {
@@ -16463,7 +16468,7 @@ a.mapboxgl-ctrl-logo {
 
 /* Compact Premium Hero Section */
 .page-title-home-1.hero-compact {
-	background-image: linear-gradient(135deg, rgba(7, 21, 38, 0.65) 0%, rgba(12, 31, 51, 0.50) 50%, rgba(7, 21, 38, 0.68) 100%), url('/images/banner/banner100.png');
+	background-image: linear-gradient(135deg, rgba(8, 30, 60, 0.78) 0%, rgba(13, 50, 96, 0.68) 50%, rgba(8, 30, 60, 0.82) 100%), url('/images/banner/uae_financial_hero.jpg');
 	background-size: cover;
 	background-position: center center;
 	background-repeat: no-repeat;
@@ -16474,11 +16479,11 @@ a.mapboxgl-ctrl-logo {
 .page-title-home-1.hero-compact::before {
 	content: "";
 	position: absolute;
-	top: -20%;
-	left: -10%;
-	width: 500px;
-	height: 500px;
-	background: radial-gradient(circle, rgba(217, 35, 42, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+	top: -15%;
+	left: -5%;
+	width: 550px;
+	height: 550px;
+	background: radial-gradient(circle, rgba(245, 158, 11, 0.18) 0%, rgba(200, 16, 46, 0.08) 40%, rgba(0, 0, 0, 0) 70%);
 	pointer-events: none;
 }
 
@@ -18262,49 +18267,19 @@ a.mapboxgl-ctrl-logo {
 
   /* Hero banner section */
   .page-title-home-1.hero-compact {
-    padding-top: 32px !important;
-    padding-bottom: 32px !important;
+    padding-top: 24px !important;
+    padding-bottom: 24px !important;
   }
 
   /* Hero left content */
   .hero-left-content {
     padding-right: 0 !important;
-    text-align: center !important;
-  }
-
-  .hero-left-content .s-sub-title {
-    justify-content: center !important;
+    text-align: left !important;
   }
 
   .hero-left-content p {
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-
-  .hero-left-content .d-flex {
-    justify-content: center !important;
-  }
-
-  /* Hero flex row with badge - stack vertically on mobile */
-  .d-flex.flex-column.flex-xl-row {
-    flex-direction: column !important;
-    align-items: center !important;
-    text-align: center !important;
-  }
-
-  .d-flex.flex-column.flex-xl-row .flex-grow-1 {
-    max-width: 100% !important;
-    text-align: center !important;
-  }
-
-  .d-flex.flex-column.flex-xl-row .flex-grow-1 .s-sub-title {
-    justify-content: center !important;
-  }
-
-  /* Badge centered on mobile */
-  .google-reviews-badge {
-    align-self: center !important;
-    margin: 0 auto !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
 
   /* About section */
@@ -18708,35 +18683,38 @@ a.mapboxgl-ctrl-logo {
     touch-action: manipulation !important;
   }
 
-  /* Header Topbar Yellow Background in Mobile View */
+  /* Header Topbar Luxury Executive Background in Mobile View */
   .tf-topbar,
   .tf-topbar.style-2,
   .tf-topbar.style-3,
   .tf-topbar.style-4 {
-    background-color: var(--Main-yellow, #ffcd4c) !important;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.12) !important;
+    background-color: #041224 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
   }
 
   .tf-topbar,
   .tf-topbar p,
   .tf-topbar span,
   .tf-topbar a,
-  .tf-topbar i,
-  .tf-topbar .icon i,
   .tf-topbar .infor-list a,
   .tf-topbar .infor-list p,
   .tf-topbar .topbar-left p,
   .tf-topbar .topbar-right p,
   .tf-topbar .topbar-inner {
-    color: #1b1e23 !important;
+    color: #e2e8f0 !important;
+  }
+
+  .tf-topbar i,
+  .tf-topbar .icon i {
+    color: #ffd166 !important;
   }
 
   .tf-topbar .topbar-inner {
-    border-bottom-color: rgba(0, 0, 0, 0.1) !important;
+    border-bottom-color: rgba(255, 255, 255, 0.08) !important;
   }
 
   .tf-topbar a:hover {
-    color: #000000 !important;
+    color: #ffd166 !important;
   }
 }
 

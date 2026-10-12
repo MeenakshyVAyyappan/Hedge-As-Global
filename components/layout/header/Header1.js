@@ -92,66 +92,68 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, handle
 									</div>
 								</div>
 							</div>
-							<div className={isMobileMenu ? "mobile-nav-wrap active" : "mobile-nav-wrap"}>
-								<div className="overlay-mobile-nav" onClick={handleMobileMenu} />
-								<div className="inner-mobile-nav overflow-y-auto">
-									<div className="top">
-										<div className="logo">
-											<Link href="/" rel="home" className="main-logo">
-												<Image
-													width="220"
-													height="65"
-													style={{ objectFit: "contain", height: "65px", width: "auto", maxWidth: "220px" }}
-													id="mobile-logo_header" 
-													alt="Hedge Chartered Accountants Group" 
-													src="/images/logo/logoclear21.png" 
-												/>
-											</Link>
-											<div className="mobile-nav-close" onClick={handleMobileMenu}>
-												<i className="icon-xmark" />
-											</div>
-										</div>
-										<nav id="mobile-main-nav" className="mobile-main-nav">
-											<MobileMenu handleMobileMenu={handleMobileMenu} />
-										</nav>
-									</div>
-									<div className="bottom">
-										<div className="wrap">
-											<p className="title">
-												Contact Head Office
-											</p>
-											<ul className="contact-list mb-20">
-												<li>
-													<p>
-														Address: <span className="text-white">Al Ghaith Tower, Hamdan St, Abu Dhabi, UAE</span>
-													</p>
-												</li>
-												<li>
-													<p>
-														Email: <Link href="mailto:info@hedgeasglobal.com">info@hedgeasglobal.com</Link>
-													</p>
-												</li>
-												<li>
-													<p>
-														Phone: <Link href="tel:+971502253373">+971 50 225 3373</Link>
-													</p>
-												</li>
-											</ul>
-											<div className="mt-20">
-												<p className="title mb-10 fs-15 text-white">Connect With Us</p>
-												<SocialLinks className="mb-20" />
-												<Link href="/contact" className="tf-btn w-100 justify-content-center" onClick={handleMobileMenu}>
-													Request Consultation
-												</Link>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
 						</div>
 					</div>
 				</div>
 			</header>
+
+			{/* Mobile Navigation Drawer - placed outside header to escape backdrop-filter containing block */}
+			<div className={isMobileMenu ? "mobile-nav-wrap active" : "mobile-nav-wrap"}>
+				<div className="overlay-mobile-nav" onClick={handleMobileMenu} />
+				<div className="inner-mobile-nav overflow-y-auto">
+					<div className="top">
+						<div className="logo d-flex align-items-center justify-content-between mb-4">
+							<Link href="/" rel="home" className="main-logo" onClick={handleMobileMenu}>
+								<Image
+									width="220"
+									height="65"
+									style={{ objectFit: "contain", height: "55px", width: "auto", maxWidth: "200px" }}
+									id="mobile-logo_header" 
+									alt="Hedge Chartered Accountants Group" 
+									src="/images/logo/logoclear21.png" 
+								/>
+							</Link>
+							<div className="mobile-nav-close" onClick={handleMobileMenu}>
+								<i className="icon-xmark" />
+							</div>
+						</div>
+						<nav id="mobile-main-nav" className="mobile-main-nav">
+							<MobileMenu handleMobileMenu={handleMobileMenu} />
+						</nav>
+					</div>
+					<div className="bottom mt-4 pt-3 border-top border-white border-opacity-10">
+						<div className="wrap">
+							<p className="title text-white fs-16 fw-7 mb-3">
+								Contact Head Office
+							</p>
+							<ul className="contact-list mb-20 list-unstyled">
+								<li className="mb-2">
+									<p className="fs-13 text-white-70 mb-0">
+										Address: <span className="text-white">Al Ghaith Tower, Hamdan St, Abu Dhabi, UAE</span>
+									</p>
+								</li>
+								<li className="mb-2">
+									<p className="fs-13 text-white-70 mb-0">
+										Email: <Link href="mailto:info@hedgeasglobal.com" className="text-white text-decoration-none">info@hedgeasglobal.com</Link>
+									</p>
+								</li>
+								<li className="mb-3">
+									<p className="fs-13 text-white-70 mb-0">
+										Phone: <Link href="tel:+971502253373" className="text-white text-decoration-none">+971 50 225 3373</Link>
+									</p>
+								</li>
+							</ul>
+							<div className="mt-3">
+								<p className="title mb-2 fs-14 text-white fw-6">Connect With Us</p>
+								<SocialLinks className="mb-3" />
+								<Link href="/contact" className="tf-btn w-100 justify-content-center py-2 fs-14" onClick={handleMobileMenu}>
+									Request Consultation
+								</Link>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 
 		</>
 	)
