@@ -126,9 +126,13 @@ export default function Footer1() {
 										<i className="flaticon-phone-call text-white fs-16"></i>
 										<Link href="tel:+971502253373" className="text-white fs-16 fw-6 text-decoration-none hover-text-red">+971 50 225 3373</Link>
 									</li>
-									<li className="mb-4 d-flex align-items-center gap-3">
+									<li className="mb-3 d-flex align-items-center gap-3">
 										<i className="flaticon-open-mail text-white fs-16"></i>
 										<Link href="mailto:info@hedgeasglobal.com" className="text-white fs-15 fw-6 text-decoration-none hover-text-red">info@hedgeasglobal.com</Link>
+									</li>
+									<li className="mb-4 d-flex align-items-start gap-3">
+										<i className="flaticon-time text-white fs-16 mt-1"></i>
+										<span className="leading-relaxed text-white-50 fs-14">Mon – Sat: 09:00 AM – 06:00 PM <br /><span className="text-white-30 fs-12">(Sunday: Closed)</span></span>
 									</li>
 									<li className="mt-4 pt-3 border-top border-white border-opacity-10">
 										<p className="text-white-50 fs-13 mb-0 uppercase fw-6 tracking-wide">Regional Presence</p>

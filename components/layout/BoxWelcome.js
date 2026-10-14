@@ -29,30 +29,38 @@ export default function BoxWelcome({ handleWelcomeBox, isWelcomeBox }) {
 						<p className="title">
 							Head Office (Abu Dhabi)
 						</p>
-						<ul className="contact-list mb-20">
-							<li>
-								<p>
-									Address: <span className="text-white">Al Ghaith Tower, Hamdan Bin Mohammed St, P.O. Box 41477, Abu Dhabi, UAE</span>
+						<ul className="contact-list mb-20 list-unstyled">
+							<li className="mb-2">
+								<p className="mb-0" style={{ color: "#334155", fontSize: "14px", lineHeight: "1.6" }}>
+									<strong style={{ color: "#0f172a" }}>Address:</strong>{" "}
+									Office 702, Al Ghaith Tower, Hamdan Bin Mohammed St, P.O. Box 41477, Abu Dhabi, UAE
 								</p>
 							</li>
-							<li>
-								<p>
-									Email: <Link href="mailto:info@hedgeasglobal.com">info@hedgeasglobal.com</Link>
+							<li className="mb-2">
+								<p className="mb-0" style={{ color: "#334155", fontSize: "14px", lineHeight: "1.6" }}>
+									<strong style={{ color: "#0f172a" }}>Email:</strong>{" "}
+									<Link href="mailto:info@hedgeasglobal.com" style={{ color: "#c8102e", fontWeight: "600", textDecoration: "none" }}>
+										info@hedgeasglobal.com
+									</Link>
 								</p>
 							</li>
-							<li>
-								<p>
-									Phone: <Link href="tel:+971502253373">+971 50 225 3373</Link>
+							<li className="mb-2">
+								<p className="mb-0" style={{ color: "#334155", fontSize: "14px", lineHeight: "1.6" }}>
+									<strong style={{ color: "#0f172a" }}>Phone:</strong>{" "}
+									<Link href="tel:+971502253373" style={{ color: "#0f172a", fontWeight: "600", textDecoration: "none" }}>
+										+971 50 225 3373
+									</Link>
 								</p>
 							</li>
-							<li>
-								<p>
-									Office Hours: <span className="text-white">MON – SAT | 09:00 AM – 06:00 PM</span>
+							<li className="mb-2">
+								<p className="mb-0" style={{ color: "#334155", fontSize: "14px", lineHeight: "1.6" }}>
+									<strong style={{ color: "#0f172a" }}>Office Hours:</strong>{" "}
+									<span>Mon – Sat: 09:00 AM – 06:00 PM (Sunday: Closed)</span>
 								</p>
 							</li>
 						</ul>
 						<div className="mb-4">
-							<p className="title mb-2 fs-15 text-white">Connect With Us</p>
+							<p className="title mb-3 fs-16">Connect With Us</p>
 							<SocialLinks />
 						</div>
 						<div className="mt-3">

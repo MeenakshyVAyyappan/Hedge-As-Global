@@ -90,9 +90,19 @@ export default function FloatingCTADock() {
     }
   }, [messages, isChatOpen]);
 
+  const handleResetChat = () => {
+    setMessages([
+      {
+        role: 'assistant',
+        content: 'Hello! I am **Hedge AI**, your virtual advisory assistant for Hedge Chartered Accountants Group.\n\nHow may I assist you today with **Accounting, Statutory Audit, UAE Corporate Tax, VAT, ICV Certification, or E-Invoicing**?'
+      }
+    ]);
+    setInputMessage('');
+  };
+
   const handleSendMessage = async (customText = null) => {
-    const textToSend = customText || inputMessage.trim();
-    if (!textToSend) return;
+    const textToSend = (customText || inputMessage).trim();
+    if (!textToSend || isTyping) return;
 
     const userMessage = { role: 'user', content: textToSend };
     const updatedMessages = [...messages, userMessage];
@@ -109,14 +119,14 @@ export default function FloatingCTADock() {
       });
 
       const data = await response.json();
-      if (data.reply) {
+      if (data && data.reply) {
         setMessages((prev) => [...prev, { role: 'assistant', content: data.reply }]);
       } else {
         setMessages((prev) => [
           ...prev,
           {
             role: 'assistant',
-            content: 'Thank you for your message. For immediate assistance, please call our senior advisors directly at **+971 50 225 3373**.'
+            content: 'Thank you for your inquiry. For immediate assistance with this matter, our senior advisors are directly reachable at **+971 50 225 3373** or **info@hedgeasglobal.com**.'
           }
         ]);
       }
@@ -126,7 +136,7 @@ export default function FloatingCTADock() {
         ...prev,
         {
           role: 'assistant',
-          content: 'You can reach Hedge Chartered Accountants directly via Phone or WhatsApp at **+971 50 225 3373** or email **info@hedgeasglobal.com**.'
+          content: 'I encountered a brief connection issue. Please feel free to reach our advisors directly via Phone or WhatsApp at **+971 50 225 3373**.'
         }
       ]);
     } finally {
@@ -179,13 +189,27 @@ export default function FloatingCTADock() {
                 </div>
               </div>
             </div>
-            <button
-              onClick={() => setIsChatOpen(false)}
-              className="btn text-white p-1 opacity-80 hover-opacity-100 border-0 bg-transparent"
-              aria-label="Close Chat"
-            >
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-            </button>
+            <div className="d-flex align-items-center gap-1">
+              <button
+                onClick={handleResetChat}
+                className="btn text-white p-1 opacity-80 hover-opacity-100 border-0 bg-transparent"
+                title="Restart Chat"
+                aria-label="Restart Chat"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+                  <path d="M3 3v5h5"/>
+                </svg>
+              </button>
+              <button
+                onClick={() => setIsChatOpen(false)}
+                className="btn text-white p-1 opacity-80 hover-opacity-100 border-0 bg-transparent"
+                title="Close Chat"
+                aria-label="Close Chat"
+              >
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              </button>
+            </div>
           </div>
 
           {/* Quick Preset Buttons (Hidden Scrollbars) */}
@@ -283,15 +307,25 @@ export default function FloatingCTADock() {
               <input
                 type="text"
                 className="form-control rounded-pill px-3 py-2 fs-14 border-secondary border-opacity-25"
-                placeholder="Ask Hedge AI about Tax, Audit, VAT..."
+                placeholder={isTyping ? "Hedge AI is preparing your answer..." : "Ask Hedge AI about Tax, Audit, VAT..."}
                 value={inputMessage}
                 onChange={(e) => setInputMessage(e.target.value)}
+                disabled={isTyping}
                 style={{ backgroundColor: '#f8fafc', boxShadow: 'none' }}
               />
               <button
                 type="submit"
+                disabled={isTyping || !inputMessage.trim()}
                 className="btn rounded-circle p-0 d-flex align-items-center justify-content-center flex-shrink-0"
-                style={{ width: '40px', height: '40px', backgroundColor: '#c8102e', color: '#ffffff', boxShadow: '0 4px 12px rgba(200,16,46,0.3)', border: 'none' }}
+                style={{
+                  width: '40px',
+                  height: '40px',
+                  backgroundColor: isTyping || !inputMessage.trim() ? '#94a3b8' : '#c8102e',
+                  color: '#ffffff',
+                  boxShadow: isTyping || !inputMessage.trim() ? 'none' : '0 4px 12px rgba(200,16,46,0.3)',
+                  border: 'none',
+                  cursor: isTyping || !inputMessage.trim() ? 'not-allowed' : 'pointer'
+                }}
                 aria-label="Send Message"
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>

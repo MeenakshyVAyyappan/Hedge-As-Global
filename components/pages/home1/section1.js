@@ -15,7 +15,7 @@ export default function Section1() {
     {
       title: "Chartered Accountants",
       desc: "Senior team of qualified auditors, financial analysts, and corporate tax specialists dedicated to precision and governance.",
-      image: "/images/section/ca_clean.png"
+      image: "/images/section/ca_new.png"
     },
     {
       title: "IFRS Global Compliance",

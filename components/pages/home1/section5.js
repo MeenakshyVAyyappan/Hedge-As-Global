@@ -15,7 +15,7 @@ export default function Section5() {
 											width={280}
 											height={240}
 											style={{ objectFit: 'contain', height: 'auto', maxHeight: '200px', width: '100%', maxWidth: '260px' }}
-											src="/images/logo/hedgesecondlogo.png"
+											src="/images/logo/pioneer_hedge_logo.png"
 											alt="Pioneer Hedge Auditing & Tax Consulting Logo"
 										/>
 									</div>

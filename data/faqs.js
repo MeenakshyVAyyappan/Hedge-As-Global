@@ -32,7 +32,7 @@ export const faqsData = [
 	{
 		id: 7,
 		question: "Is Pioneer Hedge an official FTA-Approved Tax Agency?",
-		answer: "Yes, Pioneer Hedge Auditing & Tax Consulting is the registered auditing division of Hedge Chartered Accountants Group and operates as an FTA-approved Tax Agency (TRN Registered), authorized to represent clients before the Federal Tax Authority."
+		answer: "Yes, Pioneer Hedge Auditing & Tax Consulting is the registered auditing division of Hedge Chartered Accountants Group and operates as an FTA-approved Tax Agency (TAAN Registered), authorized to represent clients before the Federal Tax Authority."
 	},
 	{
 		id: 8,

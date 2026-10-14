@@ -112,7 +112,7 @@ export default function ServiceDetailPage({ params }) {
 
 							<div className="bg-dark text-white p-4 rounded-4 shadow-sm text-center">
 								<h4 className="text-white fs-18 fw-7 mb-2">Pioneer Hedge Division</h4>
-								<p className="text-white-70 fs-13 mb-3">FTA-Approved Tax Agency (TRN Registered)</p>
+								<p className="text-white-70 fs-13 mb-3">FTA-Approved Tax Agency (TAAN Registered)</p>
 								<Link href="/contact" className="tf-btn style-10 w-100 justify-content-center">
 									Contact Tax Agency
 								</Link>

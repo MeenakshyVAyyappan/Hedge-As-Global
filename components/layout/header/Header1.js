@@ -137,9 +137,14 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, handle
 										Email: <Link href="mailto:info@hedgeasglobal.com" className="text-white text-decoration-none">info@hedgeasglobal.com</Link>
 									</p>
 								</li>
-								<li className="mb-3">
+								<li className="mb-2">
 									<p className="fs-13 text-white-70 mb-0">
 										Phone: <Link href="tel:+971502253373" className="text-white text-decoration-none">+971 50 225 3373</Link>
+									</p>
+								</li>
+								<li className="mb-3">
+									<p className="fs-13 text-white-70 mb-0">
+										Hours: <span className="text-white">Mon – Sat: 09:00 AM – 06:00 PM</span>
 									</p>
 								</li>
 							</ul>
