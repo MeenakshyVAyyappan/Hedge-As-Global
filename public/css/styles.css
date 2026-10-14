@@ -18170,6 +18170,32 @@ a.mapboxgl-ctrl-logo {
   }
 }
 
+/* --- Floating Action Buttons (Left & Right) & Scroll to Top --- */
+.cta-dock-btn {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease !important;
+}
+
+.cta-dock-btn:hover {
+  transform: translateY(-3px) scale(1.03) !important;
+}
+
+.scroll-top-btn {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 50% !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.scroll-top-btn:hover {
+  transform: translateY(-4px) scale(1.08) !important;
+  background: linear-gradient(135deg, #c8102e 0%, #9e0c23 100%) !important;
+  box-shadow: 0 8px 22px rgba(200, 16, 46, 0.45) !important;
+}
+
 @media (max-width: 575px) {
   .cta-dock-btn {
     padding: 10px !important;

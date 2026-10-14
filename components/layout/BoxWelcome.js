@@ -33,7 +33,7 @@ export default function BoxWelcome({ handleWelcomeBox, isWelcomeBox }) {
 							<li className="mb-2">
 								<p className="mb-0" style={{ color: "#334155", fontSize: "14px", lineHeight: "1.6" }}>
 									<strong style={{ color: "#0f172a" }}>Address:</strong>{" "}
-									Office 702, Al Ghaith Tower, Hamdan Bin Mohammed St, P.O. Box 41477, Abu Dhabi, UAE
+									P-2337, Building No:30, Al Qurashi Buildings, Corniche, Abu Dhabi, UAE
 								</p>
 							</li>
 							<li className="mb-2">

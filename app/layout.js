@@ -85,10 +85,9 @@ const jsonLd = {
 	'priceRange': '$$$',
 	'address': {
 		'@type': 'PostalAddress',
-		'streetAddress': 'Office 702, Al Ghaith Tower, Hamdan Bin Mohammed Street',
+		'streetAddress': 'P-2337, Building No:30, Al Qurashi Buildings, Corniche',
 		'addressLocality': 'Abu Dhabi',
 		'addressRegion': 'Abu Dhabi',
-		'postalCode': '41477',
 		'addressCountry': 'AE'
 	},
 	'geo': {

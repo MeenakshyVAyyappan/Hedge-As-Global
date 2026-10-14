@@ -4,34 +4,52 @@ export const locationsData = [
 		city: "Abu Dhabi",
 		title: "Abu Dhabi - Head Office",
 		isHeadOffice: true,
-		address: "Office 702, Al Ghaith Tower, Hamdan Bin Mohammed Street, P.O. Box 41477, Abu Dhabi, UAE",
-		phone: "+971 2 626 5500",
-		mobile: "+971 50 225 3373",
+		address: "P-2337, Building No:30, Al Qurashi Buildings, Corniche, Abu Dhabi, UAE",
+		addressLines: [
+			"P-2337, Building No:30",
+			"Al Qurashi Buildings",
+			"Corniche, Abu Dhabi, UAE"
+		],
+		phone: "+971 2 57 55580",
+		mobile: "+971 52 443 3904",
+		phones: ["+971 2 57 55580", "+971 52 443 3904", "+971 50 225 3373"],
 		email: "info@hedgeasglobal.com",
 		workingHours: "Mon - Sat: 09:00 AM - 06:00 PM",
 		badge: "Headquarters"
-	},
-	{
-		id: "dubai",
-		city: "Dubai",
-		title: "Dubai Office",
-		isHeadOffice: false,
-		address: "Office 1403, Prime Tower, Business Bay, Dubai, UAE",
-		phone: "+971 4 344 8812",
-		mobile: "+971 50 225 3373",
-		email: "dubai@hedgeasglobal.com",
-		workingHours: "Mon - Sat: 09:00 AM - 06:00 PM",
-		badge: "Branch Office"
 	},
 	{
 		id: "al-ain",
 		city: "Al Ain",
 		title: "Al Ain Office",
 		isHeadOffice: false,
-		address: "Office 304, Sheikh Khalifa Complex, Main Street, Al Ain, UAE",
-		phone: "+971 3 766 4410",
+		address: "Al Otaiba Building, Room No: 20B, Street No: 7, Near Nissan Signal, Sanayya, Al Ain, UAE",
+		addressLines: [
+			"Al Otaiba Building,",
+			"Room No: 20B, Street No: 7",
+			"Near Nissan Signal",
+			"Sanayya, Al Ain, UAE"
+		],
+		phone: "+971 2 57 55580",
+		mobile: "+971 52 651 2301",
+		phones: ["+971 2 57 55580", "+971 52 651 2301", "+971 50 225 3373"],
+		email: "info@hedgeasglobal.com",
+		workingHours: "Mon - Sat: 09:00 AM - 06:00 PM",
+		badge: "Branch Office"
+	},
+	{
+		id: "dubai",
+		city: "Dubai",
+		title: "Dubai Office",
+		isHeadOffice: false,
+		address: "3rd Floor, Office No: 14, FNC Building, Al Raffa, Burdubai",
+		addressLines: [
+			"3rd Floor, Office No: 14",
+			"FNC Building, Al Raffa, Burdubai"
+		],
+		phone: "+971 52 651 2301",
 		mobile: "+971 50 225 3373",
-		email: "alain@hedgeasglobal.com",
+		phones: ["+971 52 651 2301", "+971 50 225 3373"],
+		email: "info.dxb@hedgeasglobal.com",
 		workingHours: "Mon - Sat: 09:00 AM - 06:00 PM",
 		badge: "Branch Office"
 	},
@@ -40,10 +58,16 @@ export const locationsData = [
 		city: "Bahrain",
 		title: "Bahrain Office",
 		isHeadOffice: false,
-		address: "Building 456, Road 3815, Block 338, Adliya, Manama, Kingdom of Bahrain",
-		phone: "+973 17 298 900",
-		mobile: "+971 50 225 3373",
-		email: "bahrain@hedgeasglobal.com",
+		address: "Flat No:11, Building 2446, Road 364, Block 203, Muharraq, Bahrain",
+		addressLines: [
+			"Flat No:11, Building 2446, Road 364",
+			"Block 203, Muharraq",
+			"Bahrain"
+		],
+		phone: "+973 3412 7571",
+		mobile: "+973 3398 2369",
+		phones: ["+973 3412 7571", "+973 3398 2369"],
+		email: "info.bh@hedgeasglobal.com",
 		workingHours: "Sun - Thu: 08:30 AM - 05:30 PM",
 		badge: "GCC Office"
 	},
@@ -51,12 +75,21 @@ export const locationsData = [
 		id: "india",
 		city: "India",
 		title: "India Office",
+		companyName: "ANJITH R & ASSOCIATES",
 		isHeadOffice: false,
-		address: "4th Floor, Hedge Tower, M.G. Road, Kochi, Kerala, India",
-		phone: "+91 484 405 9900",
-		mobile: "+91 984 601 2345",
-		email: "india@hedgeasglobal.com",
+		address: "ANJITH R & ASSOCIATES, Sathrathil Building, Opp. SNDP Mandiram, Murikkumood, Kayamkulam, Kerala",
+		addressLines: [
+			"ANJITH R & ASSOCIATES",
+			"Sathrathil Building",
+			"Opp. SNDP Mandiram",
+			"Murikkumood",
+			"Kayamkulam, Kerala"
+		],
+		phone: "+91 95447 55327",
+		mobile: "+91 94004 38697",
+		phones: ["+91 95447 55327", "+91 94004 38697"],
+		email: "info.in@hedgeasglobal.com",
 		workingHours: "Mon - Sat: 09:30 AM - 06:00 PM",
-		badge: "International Office"
+		badge: "Associate Firm"
 	}
 ];

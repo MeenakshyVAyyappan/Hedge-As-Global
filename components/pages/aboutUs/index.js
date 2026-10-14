@@ -156,13 +156,19 @@ export default function AboutUs() {
 									<div>
 										<div className="office-city">{office.city}</div>
 										<span className="office-type">{office.badge}</span>
-										<p className="office-address">{office.address}</p>
+										<p className="office-address" style={{ whiteSpace: "pre-line", minHeight: "84px" }}>
+											{office.addressLines ? office.addressLines.join('\n') : office.address}
+										</p>
 										<ul className="office-meta">
-											<li>
-												<span className="fw-6 text-dark me-1">Tel:</span>
-												<Link href={`tel:${office.phone.replace(/\s+/g, '')}`}>
-													{office.phone}
-												</Link>
+											<li className="d-flex align-items-start">
+												<span className="fw-6 text-dark me-2 flex-shrink-0">Phone:</span>
+												<div className="d-flex flex-column gap-1">
+													{(office.phones || [office.phone]).map((num, i) => (
+														<Link key={i} href={`tel:${num.replace(/\s+/g, '')}`}>
+															{num}
+														</Link>
+													))}
+												</div>
 											</li>
 											<li>
 												<span className="fw-6 text-dark me-1">Email:</span>

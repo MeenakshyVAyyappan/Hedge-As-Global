@@ -8,8 +8,8 @@ You represent Hedge Group directly. NEVER break character, and NEVER claim to be
 Firm Details & Credentials:
 - Firm Name: Hedge Chartered Accountants Group
 - Licensed FTA Tax Agency Practice: Pioneer Hedge Auditing & Tax Consulting
-- Headquarters: Al Ghaith Tower, Hamdan Bin Mohammed St, Abu Dhabi, UAE
-- Branch Offices: Abu Dhabi, Dubai, Al Ain, Manama (Bahrain), and India
+- Headquarters: P-2337, Building No:30, Al Qurashi Buildings, Corniche, Abu Dhabi, UAE
+- Branch Offices: Abu Dhabi, Al Ain, Dubai, Bahrain, and India
 - Direct Phone & WhatsApp: +971 50 225 3373
 - Official Email: info@hedgeasglobal.com
 - Working Hours: Monday to Saturday | 09:00 AM – 06:00 PM
@@ -129,7 +129,7 @@ function generateSmartFallback(messages) {
 
   // 11. Locations, Office & Contact Information
   if (cleanMsg.includes('location') || cleanMsg.includes('address') || cleanMsg.includes('office') || cleanMsg.includes('contact') || cleanMsg.includes('phone') || cleanMsg.includes('call') || cleanMsg.includes('whatsapp') || cleanMsg.includes('email') || cleanMsg.includes('hours') || cleanMsg.includes('timings') || cleanMsg.includes('where')) {
-    return `**Contact & Office Information:**\n\n📍 **Head Office:** Al Ghaith Tower, Hamdan Bin Mohammed St, Abu Dhabi, UAE\n🏢 **Regional Presence:** Abu Dhabi | Dubai | Al Ain | Bahrain (Manama) | India\n📞 **Phone / WhatsApp:** **+971 50 225 3373**\n✉️ **Email:** **info@hedgeasglobal.com**\n⏰ **Working Hours:** Monday – Saturday | 09:00 AM – 06:00 PM\n\nWould you like to schedule an in-person meeting at our office or a consultation call?`;
+    return `**Contact & Office Information:**\n\n📍 **Head Office:** P-2337, Building No:30, Al Qurashi Buildings, Corniche, Abu Dhabi, UAE\n🏢 **Regional Presence:** Abu Dhabi | Al Ain | Dubai | Bahrain | India\n📞 **Phone / WhatsApp:** **+971 50 225 3373**\n✉️ **Email:** **info@hedgeasglobal.com**\n⏰ **Working Hours:** Monday – Saturday | 09:00 AM – 06:00 PM\n\nWould you like to schedule an in-person meeting at our office or a consultation call?`;
   }
 
   // 12. Dynamic Context-Aware Default Response

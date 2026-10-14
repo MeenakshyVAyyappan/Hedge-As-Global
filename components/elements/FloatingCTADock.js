@@ -73,6 +73,8 @@ export default function FloatingCTADock() {
   const [inputMessage, setInputMessage] = useState('');
   const [isTyping, setIsTyping] = useState(false);
 
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
   const messagesEndRef = useRef(null);
 
   const phoneNumber = "971502253373";
@@ -89,6 +91,22 @@ export default function FloatingCTADock() {
       scrollToBottom();
     }
   }, [messages, isChatOpen]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 150);
+    };
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
 
   const handleResetChat = () => {
     setMessages([
@@ -149,7 +167,7 @@ export default function FloatingCTADock() {
       {/* ── PREMIUM AI CHATBOT MODAL BOX ── */}
       {isChatOpen && (
         <div
-          className="position-fixed bottom-0 end-0 mb-4 me-3 me-md-4 rounded-4 overflow-hidden border-0"
+          className="position-fixed bottom-0 start-0 mb-4 ms-3 ms-md-4 rounded-4 overflow-hidden border-0"
           style={{
             width: 'calc(100vw - 32px)',
             maxWidth: '410px',
@@ -335,9 +353,9 @@ export default function FloatingCTADock() {
         </div>
       )}
 
-      {/* ── FLOATING ACTION DOCK (BOTTOM RIGHT) ── */}
+      {/* ── LEFT FLOATING DOCK (CALL, WHATSAPP & AI CHATBOT) ── */}
       <div
-        className="position-fixed bottom-0 end-0 mb-4 me-3 me-md-4 z-999 d-flex flex-column gap-2 align-items-end"
+        className="position-fixed bottom-0 start-0 mb-4 ms-3 ms-md-4 d-flex flex-column gap-2 align-items-start"
         style={{ zIndex: 99990, pointerEvents: 'none' }}
       >
         {/* Phone Calling Icon Button */}
@@ -409,6 +427,36 @@ export default function FloatingCTADock() {
           </div>
           <span className="fw-7 fs-13 d-none d-sm-inline">AI Chat Bot</span>
         </button>
+      </div>
+
+      {/* ── RIGHT FLOATING DOCK (SCROLL TO TOP BUTTON) ── */}
+      <div
+        className="position-fixed bottom-0 end-0 mb-4 me-3 me-md-4 d-flex flex-column gap-2 align-items-end"
+        style={{ zIndex: 99990, pointerEvents: 'none' }}
+      >
+        {/* Scroll to Top Button */}
+        {showScrollTop && (
+          <button
+            onClick={scrollToTop}
+            className="cta-dock-btn scroll-top-btn d-flex align-items-center justify-content-center border-0 shadow-lg rounded-circle"
+            style={{
+              width: '44px',
+              height: '44px',
+              background: 'linear-gradient(135deg, #03214e 0%, #0f172a 100%)',
+              color: '#ffffff',
+              boxShadow: '0 6px 18px rgba(3, 33, 78, 0.35)',
+              transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
+              cursor: 'pointer',
+              pointerEvents: 'auto'
+            }}
+            title="Scroll to top"
+            aria-label="Scroll to top"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="18 15 12 9 6 15" />
+            </svg>
+          </button>
+        )}
       </div>
     </>
   );

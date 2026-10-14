@@ -162,7 +162,9 @@ export default function Contact() {
 									</div>
 									<div style={{ paddingTop: "2px" }}>
 										<span style={{ display: "block", fontSize: "11px", fontWeight: 700, color: "#c8102e", letterSpacing: "1px", textTransform: "uppercase", marginBottom: "4px" }}>Office Address</span>
-										<span style={{ fontSize: "13.5px", color: "#374151", lineHeight: "1.65", fontWeight: 400 }}>{headOffice.address}</span>
+										<span style={{ fontSize: "13.5px", color: "#374151", lineHeight: "1.65", fontWeight: 400, whiteSpace: "pre-line", display: "block" }}>
+											{headOffice.addressLines ? headOffice.addressLines.join('\n') : headOffice.address}
+										</span>
 									</div>
 								</div>
 
@@ -178,8 +180,11 @@ export default function Contact() {
 									</div>
 									<div style={{ paddingTop: "2px" }}>
 										<span style={{ display: "block", fontSize: "11px", fontWeight: 700, color: "#c8102e", letterSpacing: "1px", textTransform: "uppercase", marginBottom: "4px" }}>Telephone &amp; Mobile</span>
-										<Link href={`tel:${headOffice.phone.replace(/\s+/g, '')}`} className="d-block hover-text-red" style={{ fontSize: "13.5px", color: "#374151", fontWeight: 500, textDecoration: "none", marginBottom: "2px" }}>{headOffice.phone}</Link>
-										<Link href={`tel:${headOffice.mobile.replace(/\s+/g, '')}`} className="hover-text-red" style={{ fontSize: "13.5px", color: "#374151", fontWeight: 500, textDecoration: "none" }}>{headOffice.mobile}</Link>
+										<div className="d-flex flex-column gap-1">
+											{(headOffice.phones || [headOffice.phone, headOffice.mobile]).map((p, idx) => (
+												<Link key={idx} href={`tel:${p.replace(/\s+/g, '')}`} className="d-block hover-text-red" style={{ fontSize: "13.5px", color: "#374151", fontWeight: 500, textDecoration: "none" }}>{p}</Link>
+											))}
+										</div>
 									</div>
 								</div>
 
@@ -311,28 +316,33 @@ export default function Contact() {
 														</svg>
 													</div>
 													<div style={{ paddingTop: "2px" }}>
-														<span style={{ fontSize: "13px", color: "#4a5568", lineHeight: "1.6", fontWeight: 400, display: "block" }}>
-															{office.address}
+														<span style={{ fontSize: "13px", color: "#4a5568", lineHeight: "1.6", fontWeight: 400, display: "block", whiteSpace: "pre-line", minHeight: "84px" }}>
+															{office.addressLines ? office.addressLines.join('\n') : office.address}
 														</span>
 													</div>
 												</li>
 												{/* Phone */}
-												<li className="mb-3 d-flex gap-3 align-items-center">
+												<li className="mb-3 d-flex gap-3 align-items-start">
 													<div
-														className="d-flex align-items-center justify-content-center rounded-circle flex-shrink-0"
+														className="d-flex align-items-center justify-content-center rounded-circle flex-shrink-0 mt-1"
 														style={{ width: "32px", height: "32px", background: `${badgeStyle.bg}14` }}
 													>
 														<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke={badgeStyle.bg} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
 															<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.35 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
 														</svg>
 													</div>
-													<Link
-														href={`tel:${office.phone.replace(/\s+/g, '')}`}
-														className="hover-text-red"
-														style={{ fontSize: "13.5px", color: "#1a202c", fontWeight: 600, textDecoration: "none" }}
-													>
-														{office.phone}
-													</Link>
+													<div className="d-flex flex-column gap-1">
+														{(office.phones || [office.phone, office.mobile].filter(Boolean)).map((p, idx) => (
+															<Link
+																key={idx}
+																href={`tel:${p.replace(/\s+/g, '')}`}
+																className="hover-text-red"
+																style={{ fontSize: "13.5px", color: "#1a202c", fontWeight: 600, textDecoration: "none" }}
+															>
+																{p}
+															</Link>
+														))}
+													</div>
 												</li>
 												{/* Email */}
 												<li className="mb-3 d-flex gap-3 align-items-center">

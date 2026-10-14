@@ -249,7 +249,7 @@ export default function TermsConditions() {
 										Hedge Chartered Accountants Group — Legal &amp; Client Relations
 									</p>
 									<p style={{ marginBottom: '6px', fontSize: '14px', color: '#475569' }}>
-										<strong style={{ color: '#03214e' }}>Address:</strong> Office 702, Al Ghaith Tower, Hamdan St, Abu Dhabi, UAE
+										<strong style={{ color: '#03214e' }}>Address:</strong> P-2337, Building No:30, Al Qurashi Buildings, Corniche, Abu Dhabi, UAE
 									</p>
 									<p style={{ marginBottom: '6px', fontSize: '14px', color: '#475569' }}>
 										<strong style={{ color: '#03214e' }}>Email:</strong> <Link href="mailto:info@hedgeasglobal.com" style={{ color: '#c8102e', fontWeight: '600', textDecoration: 'none' }}>info@hedgeasglobal.com</Link>

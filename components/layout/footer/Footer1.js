@@ -120,7 +120,7 @@ export default function Footer1() {
 								<ul className="contact-info-list text-white-50 fs-15 list-unstyled">
 									<li className="mb-3 d-flex align-items-start gap-3">
 										<i className="flaticon-pin text-white fs-16 mt-1"></i>
-										<span className="leading-relaxed">Al Ghaith Tower, Hamdan St, <br/>Abu Dhabi, UAE</span>
+										<span className="leading-relaxed">P-2337, Building No:30, Al Qurashi Buildings, <br/>Corniche, Abu Dhabi, UAE</span>
 									</li>
 									<li className="mb-3 d-flex align-items-center gap-3">
 										<i className="flaticon-phone-call text-white fs-16"></i>

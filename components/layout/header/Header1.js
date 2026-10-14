@@ -129,7 +129,7 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, handle
 							<ul className="contact-list mb-20 list-unstyled">
 								<li className="mb-2">
 									<p className="fs-13 text-white-70 mb-0">
-										Address: <span className="text-white">Al Ghaith Tower, Hamdan St, Abu Dhabi, UAE</span>
+										Address: <span className="text-white">P-2337, Building No:30, Al Qurashi Buildings, Corniche, Abu Dhabi, UAE</span>
 									</p>
 								</li>
 								<li className="mb-2">
