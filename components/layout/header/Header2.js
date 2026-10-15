@@ -38,7 +38,7 @@ export default function Header2({ scroll, isMobileMenu, handleMobileMenu, handle
 											<div className="icon">
 												<i className="flaticon-clock" />
 											</div>
-											<Link href="/#"> Working Hours : 08am - 05pm </Link>
+											<Link href="/#"> Working Hours : 09:00 AM - 06:00 PM </Link>
 										</li>
 									</ul>
 								</div>

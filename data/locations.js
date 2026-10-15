@@ -14,7 +14,7 @@ export const locationsData = [
 		mobile: "+971 52 443 3904",
 		phones: ["+971 2 57 55580", "+971 52 443 3904", "+971 50 225 3373"],
 		email: "info@hedgeasglobal.com",
-		workingHours: "Mon - Sat: 09:00 AM - 06:00 PM",
+		workingHours: "Mon - Sat: 09:00 AM - 06:00 PM (Sunday: Closed)",
 		badge: "Headquarters"
 	},
 	{
@@ -33,7 +33,7 @@ export const locationsData = [
 		mobile: "+971 52 651 2301",
 		phones: ["+971 2 57 55580", "+971 52 651 2301", "+971 50 225 3373"],
 		email: "info@hedgeasglobal.com",
-		workingHours: "Mon - Sat: 09:00 AM - 06:00 PM",
+		workingHours: "Mon - Sat: 09:00 AM - 06:00 PM (Sunday: Closed)",
 		badge: "Branch Office"
 	},
 	{
@@ -50,7 +50,7 @@ export const locationsData = [
 		mobile: "+971 50 225 3373",
 		phones: ["+971 52 651 2301", "+971 50 225 3373"],
 		email: "info.dxb@hedgeasglobal.com",
-		workingHours: "Mon - Sat: 09:00 AM - 06:00 PM",
+		workingHours: "Mon - Sat: 09:00 AM - 06:00 PM (Sunday: Closed)",
 		badge: "Branch Office"
 	},
 	{
@@ -68,7 +68,7 @@ export const locationsData = [
 		mobile: "+973 3398 2369",
 		phones: ["+973 3412 7571", "+973 3398 2369"],
 		email: "info.bh@hedgeasglobal.com",
-		workingHours: "Sun - Thu: 08:30 AM - 05:30 PM",
+		workingHours: "Sat - Thu: 08:00 AM - 05:00 PM (Friday: Closed)",
 		badge: "GCC Office"
 	},
 	{
@@ -89,7 +89,7 @@ export const locationsData = [
 		mobile: "+91 94004 38697",
 		phones: ["+91 95447 55327", "+91 94004 38697"],
 		email: "info.in@hedgeasglobal.com",
-		workingHours: "Mon - Sat: 09:30 AM - 06:00 PM",
+		workingHours: "Mon - Sat: 09:30 AM - 06:00 PM (Sunday: Closed)",
 		badge: "Associate Firm"
 	}
 ];

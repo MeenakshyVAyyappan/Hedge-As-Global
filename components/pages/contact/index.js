@@ -82,7 +82,7 @@ export default function Contact() {
 								</div>
 								<div className="text-start">
 									<span className="d-block text-white-70 fs-11 uppercase fw-7" style={{ letterSpacing: "0.8px" }}>Working Hours</span>
-									<span className="text-white fw-7 fs-14">Mon – Sat | 09:00 AM – 06:00 PM</span>
+									<span className="text-white fw-7 fs-14">Mon – Sat | 09:00 AM – 06:00 PM (Sun: Closed)</span>
 								</div>
 							</div>
 						</div>

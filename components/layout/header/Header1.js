@@ -41,7 +41,7 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, handle
 												<i className="flaticon-clock" />
 											</div>
 											<a>
-												MON – SAT | 09:00 AM – 06:00 PM
+												MON – SAT | 09:00 AM – 06:00 PM (SUN: CLOSED)
 											</a>
 										</li>
 									</ul>
@@ -144,7 +144,7 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, handle
 								</li>
 								<li className="mb-3">
 									<p className="fs-13 text-white-70 mb-0">
-										Hours: <span className="text-white">Mon – Sat: 09:00 AM – 06:00 PM</span>
+										Hours: <span className="text-white">Mon – Sat: 09:00 AM – 06:00 PM (Sunday: Closed)</span>
 									</p>
 								</li>
 							</ul>
