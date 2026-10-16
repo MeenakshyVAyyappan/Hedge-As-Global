@@ -89,7 +89,7 @@ export const locationsData = [
 		mobile: "+91 94004 38697",
 		phones: ["+91 95447 55327", "+91 94004 38697"],
 		email: "info.in@hedgeasglobal.com",
-		workingHours: "Mon - Sat: 09:30 AM - 06:00 PM (Sunday: Closed)",
+		workingHours: "Mon - Sat: 10:00 AM - 07:00 PM (Sunday: Closed)",
 		badge: "Associate Firm"
 	}
 ];

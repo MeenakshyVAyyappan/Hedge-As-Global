@@ -12,7 +12,7 @@ Firm Details & Credentials:
 - Branch Offices: Abu Dhabi, Al Ain, Dubai, Bahrain, and India
 - Direct Phone & WhatsApp: +971 50 225 3373
 - Official Email: info@hedgeasglobal.com
-- Working Hours: UAE Offices (Abu Dhabi, Dubai, Al Ain): Monday to Saturday | 09:00 AM – 06:00 PM (Sunday: Closed); Bahrain Office: Saturday to Thursday | 08:00 AM – 05:00 PM (Friday: Closed); India: Monday to Saturday | 09:30 AM – 06:00 PM (Sunday: Closed)
+- Working Hours: UAE Offices (Abu Dhabi, Dubai, Al Ain): Monday to Saturday | 09:00 AM – 06:00 PM (Sunday: Closed); Bahrain Office: Saturday to Thursday | 08:00 AM – 05:00 PM (Friday: Closed); India: Monday to Saturday | 10:00 AM – 07:00 PM (Sunday: Closed)
 
 Key Advisory Practice Areas:
 1. Statutory Audit & Assurance: External audit, IFRS compliance, bank-approved audit reports, Free Zone authority audits (ADGM, DMCC, DAFZA, JAFZA, etc.).
@@ -129,7 +129,7 @@ function generateSmartFallback(messages) {
 
   // 11. Locations, Office & Contact Information
   if (cleanMsg.includes('location') || cleanMsg.includes('address') || cleanMsg.includes('office') || cleanMsg.includes('contact') || cleanMsg.includes('phone') || cleanMsg.includes('call') || cleanMsg.includes('whatsapp') || cleanMsg.includes('email') || cleanMsg.includes('hours') || cleanMsg.includes('timings') || cleanMsg.includes('where')) {
-    return `**Contact & Office Information:**\n\n📍 **Head Office:** P-2337, Building No:30, Al Qurashi Buildings, Corniche, Abu Dhabi, UAE\n🏢 **Regional Presence:** Abu Dhabi | Al Ain | Dubai | Bahrain | India\n📞 **Phone / WhatsApp:** **+971 50 225 3373**\n✉️ **Email:** **info@hedgeasglobal.com**\n⏰ **Working Hours:**\n- **UAE Offices (Abu Dhabi, Dubai, Al Ain):** Monday – Saturday | 09:00 AM – 06:00 PM *(Sunday: Closed)*\n- **Bahrain Office:** Saturday – Thursday | 08:00 AM – 05:00 PM *(Friday: Closed)*\n- **India Office:** Monday – Saturday | 09:30 AM – 06:00 PM *(Sunday: Closed)*\n\nWould you like to schedule an in-person meeting at our office or a consultation call?`;
+    return `**Contact & Office Information:**\n\n📍 **Head Office:** P-2337, Building No:30, Al Qurashi Buildings, Corniche, Abu Dhabi, UAE\n🏢 **Regional Presence:** Abu Dhabi | Al Ain | Dubai | Bahrain | India\n📞 **Phone / WhatsApp:** **+971 50 225 3373**\n✉️ **Email:** **info@hedgeasglobal.com**\n⏰ **Working Hours:**\n- **UAE Offices (Abu Dhabi, Dubai, Al Ain):** Monday – Saturday | 09:00 AM – 06:00 PM *(Sunday: Closed)*\n- **Bahrain Office:** Saturday – Thursday | 08:00 AM – 05:00 PM *(Friday: Closed)*\n- **India Office:** Monday – Saturday | 10:00 AM – 07:00 PM *(Sunday: Closed)*\n\nWould you like to schedule an in-person meeting at our office or a consultation call?`;
   }
 
   // 12. Dynamic Context-Aware Default Response
