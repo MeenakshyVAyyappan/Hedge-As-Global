@@ -57,11 +57,10 @@ export default function Header2({ scroll, isMobileMenu, handleMobileMenu, handle
 									<div className="logo-site">
 										<Link href="/">
 											<Image
-												width="139"
-												height="39"
-												// sizes="100vw"
-												// style={{ width: "100%", height: "auto" }}
-												id="logo_header" src="/images/logo/logo-2.png" data-retina="./images/logo/logo-2@2x.png" alt="" />
+												width="220"
+												height="65"
+												style={{ objectFit: "contain", height: "55px", width: "auto" }}
+												id="logo_header" src="/images/logo/logoclear21.png" alt="Hedge Chartered Accountants Group" />
 										</Link>
 									</div>
 								</div>
@@ -94,11 +93,10 @@ export default function Header2({ scroll, isMobileMenu, handleMobileMenu, handle
 										<div className="logo">
 											<Link href="/" rel="home" className="main-logo">
 												<Image
-													width="139"
-													height="39"
-													// sizes="100vw"
-													// style={{ width: "100%", height: "auto" }}
-													id="mobile-logo_header" alt="" src="/images/logo/logo-4.png" />
+													width="200"
+													height="55"
+													style={{ objectFit: "contain", height: "45px", width: "auto" }}
+													id="mobile-logo_header" alt="Hedge Chartered Accountants Group" src="/images/logo/logoclear21.png" />
 											</Link>
 											<div className="mobile-nav-close" onClick={handleMobileMenu}>
 												<i className="icon-xmark" />

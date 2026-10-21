@@ -16,9 +16,10 @@ export default function Header3({ scroll, isMobileMenu, handleMobileMenu, handle
 										<div className="logo-site">
 											<Link href="/">
 												<Image
-													width="139"
-													height="39"
-													id="logo_header" data-retina="./images/logo/logo-3@2x.png" src="/images/logo/logo-3.png" alt="" />
+													width="220"
+													height="65"
+													style={{ objectFit: "contain", height: "55px", width: "auto" }}
+													id="logo_header" src="/images/logo/logoclear21.png" alt="Hedge Chartered Accountants Group" />
 											</Link>
 										</div>
 										<nav className="main-nav">
@@ -59,9 +60,10 @@ export default function Header3({ scroll, isMobileMenu, handleMobileMenu, handle
 											<div className="logo">
 												<Link href="/" rel="home" className="main-logo">
 													<Image
-														width="139"
-														height="39"
-														id="mobile-logo_header" alt="" src="/images/logo/logo-4.png" />
+														width="200"
+														height="55"
+														style={{ objectFit: "contain", height: "45px", width: "auto" }}
+														id="mobile-logo_header" alt="Hedge Chartered Accountants Group" src="/images/logo/logoclear21.png" />
 												</Link>
 												<div className="mobile-nav-close" onClick={handleMobileMenu}>
 													<i className="icon-xmark" />

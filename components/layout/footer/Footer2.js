@@ -56,11 +56,13 @@ export default function Footer2() {
 									<div className="logo-site">
 										<Link href="/">
 											<Image
-												width="0"
-												height="0"
-												sizes="100vw"
-												style={{ width: "100%", height: "auto" }}
-												id="logo_footer" data-retina="./images/logo/logo@2x.png" src="/images/logo/logo.png" alt="" />
+												width={220}
+												height={75}
+												style={{ objectFit: 'contain', height: '75px', width: 'auto', maxWidth: '220px' }}
+												id="logo_footer"
+												src="/images/logo/logoclear21.png"
+												alt="Hedge Chartered Accountants Group Logo"
+											/>
 										</Link>
 									</div>
 									<p className="text mb-70">

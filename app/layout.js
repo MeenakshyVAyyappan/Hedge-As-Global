@@ -65,9 +65,14 @@ export const metadata = {
 		images: ['/images/logo/logoclear21.png'],
 	},
 	icons: {
-		icon: '/images/logo/logoclear21.png',
-		shortcut: '/images/logo/logoclear21.png',
-		apple: '/images/logo/logoclear21.png',
+		icon: [
+			{ url: '/favicon.ico' },
+			{ url: '/images/logo/logoclear21.png', type: 'image/png' },
+		],
+		shortcut: '/favicon.ico',
+		apple: [
+			{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+		],
 	},
 	alternates: {
 		canonical: 'https://hedgeasglobal.com',
