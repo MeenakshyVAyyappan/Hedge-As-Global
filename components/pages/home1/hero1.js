@@ -1,128 +1,205 @@
 'use client';
-import { useState } from 'react';
+
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import PhoneInput from '@/components/elements/PhoneInput';
+import Image from 'next/image';
+
+const slides = [
+	{
+		id: 1,
+		image: '/images/banner/hero_slide_1_dubai.jpg',
+		tag: 'UAE • BAHRAIN • INDIA',
+		titleLead: 'Financial Clarity for',
+		titleHighlight: 'Confident Business',
+		titleEnd: 'Decisions.',
+		subtitle: 'Senior Chartered Accountants and registered tax advisors delivering statutory audit, UAE Corporate Tax filing, VAT compliance, and corporate advisory with executive precision.',
+		locationBadge: 'Dubai & Abu Dhabi Financial Hubs',
+		accentColor: '#c59b27'
+	},
+	{
+		id: 2,
+		image: '/images/banner/hero_slide_2_boardroom.jpg',
+		tag: 'FTA REGISTERED TAX AGENCY (TAN 20042456)',
+		titleLead: 'Strategic Tax Advisory &',
+		titleHighlight: 'IFRS Statutory Audit',
+		titleEnd: 'Excellence.',
+		subtitle: 'Safeguard your corporate compliance with FTA-approved tax representation, audited financial statements, and end-to-end corporate governance trusted by 500+ enterprises.',
+		locationBadge: 'Executive Boardroom & Audit Practice',
+		accentColor: '#0a2540'
+	},
+	{
+		id: 3,
+		image: '/images/banner/hero_slide_3_financial_center.jpg',
+		tag: 'MANDATORY COMPLIANCE',
+		titleLead: 'Seamless Readiness for',
+		titleHighlight: 'UAE Corporate Tax &',
+		titleEnd: 'E-Invoicing.',
+		subtitle: 'Navigate the 9% UAE Corporate Tax regime, Qualifying Free Zone exemptions, and Peppol E-Invoicing mandates with seasoned chartered accountants.',
+		locationBadge: 'Corporate Tax & ERP Compliance',
+		accentColor: '#c59b27'
+	},
+	{
+		id: 4,
+		image: '/images/banner/hero_slide_4_office_daylight.jpg',
+		tag: 'PARTNER-LED ENGAGEMENT',
+		titleLead: 'Bespoke Advisory for',
+		titleHighlight: 'Sustainable Corporate',
+		titleEnd: 'Growth.',
+		subtitle: 'From ICV certification and bookkeeping to cross-border structuring, we provide the institutional rigor and local insight your business demands.',
+		locationBadge: 'Private Client & Corporate Advisory',
+		accentColor: '#0a2540'
+	}
+];
 
 export default function Hero1() {
-	const [formData, setFormData] = useState({
-		fullName: '',
-		phone: '',
-		email: '',
-		service: 'Accounting & Bookkeeping',
-		message: '',
-		websiteHp: ''
-	});
+	const [activeSlide, setActiveSlide] = useState(0);
+	const [isPaused, setIsPaused] = useState(false);
+	const slideTimerRef = useRef(null);
 
-	const [status, setStatus] = useState({
-		loading: false,
-		submitted: false,
-		error: null
-	});
+	// Autoplay slider (6 seconds per slide)
+	useEffect(() => {
+		if (isPaused) return;
 
-	const handleChange = (e) => {
-		const { name, value } = e.target;
-		setFormData((prev) => ({ ...prev, [name]: value }));
+		slideTimerRef.current = setInterval(() => {
+			setActiveSlide((prev) => (prev + 1) % slides.length);
+		}, 6000);
+
+		return () => {
+			if (slideTimerRef.current) clearInterval(slideTimerRef.current);
+		};
+	}, [isPaused, activeSlide]);
+
+	const nextSlide = () => {
+		setActiveSlide((prev) => (prev + 1) % slides.length);
 	};
 
-	const handleSubmit = async (e) => {
+	const prevSlide = () => {
+		setActiveSlide((prev) => (prev - 1 + slides.length) % slides.length);
+	};
+
+	const goToSlide = (idx) => {
+		setActiveSlide(idx);
+	};
+
+	const scrollToConsultation = (e) => {
 		e.preventDefault();
-		if (formData.websiteHp) return;
-
-		if (!formData.fullName || !formData.phone || !formData.email) {
-			setStatus({ loading: false, submitted: false, error: 'Please complete all required fields.' });
-			return;
-		}
-
-		setStatus({ loading: true, submitted: false, error: null });
-
-		try {
-			const res = await fetch('/api/contact', {
-				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify(formData),
-			});
-			const data = await res.json();
-			if (data.success) {
-				setStatus({ loading: false, submitted: true, error: null });
-				setFormData({
-					fullName: '',
-					phone: '',
-					email: '',
-					service: 'Accounting & Bookkeeping',
-					message: '',
-					websiteHp: ''
-				});
-			} else {
-				setStatus({ loading: false, submitted: false, error: data.error || 'Failed to submit form.' });
-			}
-		} catch (err) {
-			setStatus({ loading: false, submitted: false, error: 'Network error. Please try again.' });
-		}
-	};
-
-	const scrollToForm = () => {
-		const el = document.getElementById('hero-consultation-form');
+		const el = document.getElementById('consultation-section');
 		if (el) {
 			el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+		} else {
+			window.location.href = '/contact';
 		}
 	};
 
+	const current = slides[activeSlide];
+
 	return (
-		<div className="page-title-home-1 hero-compact">
-			{/* Ambient Glowing Highlights */}
-			<div className="hero-ambient-glow-gold" />
-			<div className="hero-ambient-glow-blue" />
+		<section 
+			className="hero-luxury-light"
+			onMouseEnter={() => setIsPaused(true)}
+			onMouseLeave={() => setIsPaused(false)}
+			aria-label="Hedge Chartered Accountants Hero Banner"
+		>
+			{/* ── Background Slides with Ken Burns Effect ── */}
+			<div className="hero-slider-bg-wrap">
+				{slides.map((slide, idx) => (
+					<div
+						key={slide.id}
+						className={`hero-slide-layer ${idx === activeSlide ? 'active' : ''}`}
+						aria-hidden={idx !== activeSlide}
+					>
+						<Image
+							src={slide.image}
+							alt={slide.titleHighlight}
+							fill
+							priority={idx === 0}
+							sizes="100vw"
+							className="hero-slide-img"
+						/>
+					</div>
+				))}
 
-			<div className="container-fluid px-3 px-md-4 px-lg-5 hero-main-container">
-				<div className="row align-items-center g-4 g-xl-5">
+				{/* Ultra-Sophisticated Light Gradient Overlay */}
+				<div className="hero-light-gradient-overlay" />
+				<div className="hero-specular-ambient" />
+			</div>
 
-					{/* ── Left Side: Ultra-Premium Copy & Authority ── */}
-					<div className="col-12 col-lg-7 col-xl-6">
-						<div className="hero-left-content">
-							
-							{/* Authority Eyebrow Pill */}
-							<div className="hero-authority-pill mb-3">
-								<span className="live-pulse-container">
-									<span className="pulse-dot"></span>
-									<span className="pulse-ring"></span>
+			{/* ── Main Hero Content Grid ── */}
+			<div className="container-fluid px-3 px-md-4 px-lg-5 hero-inner-container">
+				<div className="row align-items-center g-4 g-xl-5 min-vh-hero">
+
+					{/* ── Left Column: Editorial Luxury Headline & Authority ── */}
+					<div className="col-12 col-lg-7 col-xl-7">
+						<div className="hero-left-editorial">
+
+							{/* Authority Badge */}
+							<div className="hero-prestige-badge">
+								<span className="live-status-dot">
+									<span className="dot-core" />
+									<span className="dot-ripple" />
 								</span>
-								<span className="pill-text">FTA-APPROVED TAX AGENCY • UAE • BAHRAIN • INDIA</span>
+								<span className="prestige-text">
+									FTA-APPROVED TAX AGENCY • TAN 20042456 • UAE • BAHRAIN • INDIA
+								</span>
 							</div>
 
-							{/* Hero Heading */}
-							<h1 className="hero-title font-main-2">
-								Financial Clarity for <br />
-								<span className="hero-gold-glow">Confident Business</span> <br className="d-none d-md-block" />
-								Decisions.
+							{/* Dynamic Slide Heading */}
+							<h1 className="hero-editorial-title font-main-2">
+								{current.titleLead} <br />
+								<span className="hero-title-gradient">
+									{current.titleHighlight}
+								</span>{' '}
+								<br className="d-none d-md-block" />
+								{current.titleEnd}
 							</h1>
 
 							{/* High-Legibility Subtitle */}
-							<p className="hero-desc font-main-2">
-								Senior Chartered Accountants and registered tax advisors delivering statutory audit, UAE Corporate Tax filing, VAT compliance, and corporate advisory with executive precision.
+							<p className="hero-editorial-desc font-main-2">
+								{current.subtitle}
 							</p>
 
-							{/* Mobile & Desktop Action Row */}
-							<div className="hero-actions-row d-flex align-items-center gap-2 gap-sm-3 mb-4">
-								<button 
-									type="button" 
-									onClick={scrollToForm} 
-									className="hero-btn-primary"
+							{/* Call to Action Row (Form removed -> High-Impact CTA Button) */}
+							<div className="hero-cta-action-row d-flex align-items-center flex-wrap gap-3 mb-4">
+								<button
+									type="button"
+									onClick={scrollToConsultation}
+									className="hero-btn-luxury-primary"
 								>
-									<span>Request Consultation</span>
-									<i className="icon-chevron-right ms-2" />
+									<span className="btn-text">Schedule Executive Consultation</span>
+									<span className="btn-icon-circle">
+										<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+											<line x1="5" y1="12" x2="19" y2="12" />
+											<polyline points="12 5 19 12 12 19" />
+										</svg>
+									</span>
 								</button>
-								<Link href="/our-service" className="hero-btn-secondary">
-									<span>Explore Services</span>
+
+								<Link href="/our-service" className="hero-btn-luxury-secondary">
+									<span>Explore Practice Areas</span>
 									<i className="icon-angles-right ms-2 fs-12" />
 								</Link>
 							</div>
 
-							{/* Authority & Reviews Strip */}
-							<div className="hero-trust-bar">
-								{/* Google Review Box */}
-								<div className="hero-google-badge">
+							{/* Direct Hotline Badge */}
+							<div className="hero-helpline-strip mb-4">
+								<div className="d-flex align-items-center gap-2">
+									<span className="helpline-icon">
+										<i className="flaticon-phone-call" />
+									</span>
+									<span className="helpline-label">Direct Executive Hotline:</span>
+									<Link href="tel:+971502253373" className="helpline-number">
+										+971 50 225 3373
+									</Link>
+									<span className="helpline-badge">Mon–Sat • 9AM–6PM</span>
+								</div>
+							</div>
+
+							{/* Authority & Trust Pillars */}
+							<div className="hero-trust-matrix">
+								{/* Google Rating Card */}
+								<div className="trust-rating-box">
 									<div className="d-flex align-items-center gap-2">
-										<svg width="24" height="24" viewBox="0 0 24 24" className="flex-shrink-0">
+										<svg width="22" height="22" viewBox="0 0 24 24" className="flex-shrink-0">
 											<path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
 											<path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
 											<path fill="#FBBC05" d="M5.84 14.1c-.22-.66-.35-1.36-.35-2.1s.13-1.44.35-2.1V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.62z"/>
@@ -133,31 +210,27 @@ export default function Hero1() {
 												<span className="stars-gold">★★★★★</span>
 												<span className="rating-score">4.9</span>
 											</div>
-											<span className="rating-label">Google Verified Rating</span>
+											<span className="rating-tag">500+ Corporate Clients</span>
 										</div>
-									</div>
-									<div className="rating-clients-tag">
-										500+ Corporate Clients in UAE
 									</div>
 								</div>
 
-								{/* Divider */}
-								<div className="trust-divider d-none d-sm-block"></div>
+								<div className="matrix-divider d-none d-sm-block" />
 
-								{/* Trust Pillars */}
-								<div className="hero-trust-pillars">
-									<div className="pillar-item">
-										<span className="pillar-check">✓</span>
-										<div className="pillar-text-wrap">
-											<span className="pillar-title">FTA Registered Tax Agency</span>
-											<span className="pillar-sub">Pioneer Hedge (TAN 20042456)</span>
+								{/* Core Governance Pillars */}
+								<div className="trust-pillar-items">
+									<div className="pillar-cell">
+										<span className="pillar-icon-check">✓</span>
+										<div className="pillar-cell-text">
+											<span className="cell-title">FTA Registered Tax Agency</span>
+											<span className="cell-sub">Pioneer Hedge (TAN 20042456)</span>
 										</div>
 									</div>
-									<div className="pillar-item">
-										<span className="pillar-check">✓</span>
-										<div className="pillar-text-wrap">
-											<span className="pillar-title">IFRS Global Audit Standards</span>
-											<span className="pillar-sub">Chartered Accountants & Advisors</span>
+									<div className="pillar-cell">
+										<span className="pillar-icon-check">✓</span>
+										<div className="pillar-cell-text">
+											<span className="cell-title">IFRS Statutory Audits</span>
+											<span className="cell-sub">Chartered Accountants & Advisors</span>
 										</div>
 									</div>
 								</div>
@@ -166,258 +239,321 @@ export default function Hero1() {
 						</div>
 					</div>
 
-					{/* ── Right Side: Ultra-Luxury Glassmorphic Consultation Suite ── */}
-					<div className="col-12 col-lg-5 col-xl-6" id="hero-consultation-form">
-						<div className="hero-glass-card">
-							
-							{/* Specular Edge Glow */}
-							<div className="glass-top-edge"></div>
+					{/* ── Right Column: Exclusive Advisory Showcase Suite (Replaces Form) ── */}
+					<div className="col-12 col-lg-5 col-xl-5">
+						<div className="hero-luxury-showcase-card">
 
-							<div className="card-header-wrap">
-								<div className="d-flex align-items-center justify-content-between mb-2 flex-wrap gap-2">
-									<span className="glass-senior-badge">
-										<span className="live-emerald-dot"></span> Senior Partner Advisory
+							{/* Shimmer Top Accent Border */}
+							<div className="showcase-gold-accent-line" />
+
+							{/* Header of Showcase Card */}
+							<div className="showcase-header">
+								<div className="d-flex align-items-center justify-content-between mb-2">
+									<span className="executive-badge">
+										<span className="badge-live-pulse" /> Senior Partner Advisory
 									</span>
-									<span className="glass-response-tag">
-										<span className="gold-sparkle">⚡</span> Response within 2 hrs
+									<span className="showcase-speed-tag">
+										<span className="lightning-icon">⚡</span> 2-Hour Response
 									</span>
 								</div>
-								<h2 className="glass-card-title font-main-2">
-									Talk to Our Experts
-								</h2>
-								<p className="glass-card-subtitle">
-									Confidential 30-min strategy session with an FTA-approved tax advisor.
+								<h3 className="showcase-title font-main-2">
+									Institutional Financial Governance
+								</h3>
+								<p className="showcase-subtitle">
+									Tailored for UAE Free Zone & Mainland enterprises requiring impeccable statutory compliance.
 								</p>
 							</div>
 
-							{status.submitted ? (
-								<div className="glass-success-box text-center p-4">
-									<div className="glass-success-icon mb-2">✓</div>
-									<h4 className="fw-7 mb-2 fs-18 text-white">Consultation Requested!</h4>
-									<p className="mb-0 fs-14 text-white-70">
-										Thank you. A senior Hedge Chartered Accountant will reach out to you within 2 business hours.
-									</p>
+							{/* Practice Capabilities Grid */}
+							<div className="showcase-features-grid">
+								<div className="feature-tile">
+									<div className="tile-icon-box">
+										<i className="flaticon-award" />
+									</div>
+									<div className="tile-content">
+										<h4 className="tile-title">UAE Corporate Tax</h4>
+										<p className="tile-desc">9% Corporate Tax registration, returns, transfer pricing, & Free Zone exemptions.</p>
+									</div>
 								</div>
-							) : (
-								<form onSubmit={handleSubmit} className="hero-consult-form">
-									<input
-										type="text"
-										name="websiteHp"
-										value={formData.websiteHp}
-										onChange={handleChange}
-										style={{ display: 'none' }}
-										tabIndex={-1}
-										autoComplete="off"
-									/>
 
-									{status.error && (
-										<div className="alert-glass-error mb-3 py-2 px-3 fs-13 rounded-3">
-											{status.error}
-										</div>
-									)}
-
-									<div className="row g-2 g-md-3">
-										<div className="col-12 col-md-6">
-											<label className="glass-input-label">Full Name *</label>
-											<input
-												type="text"
-												name="fullName"
-												required
-												value={formData.fullName}
-												onChange={handleChange}
-												placeholder="e.g. John Doe"
-												className="form-control glass-input"
-											/>
-										</div>
-
-										<div className="col-12 col-md-6">
-											<label className="glass-input-label">Phone Number *</label>
-											<PhoneInput
-												name="phone"
-												id="hero-phone"
-												required
-												value={formData.phone}
-												onChange={handleChange}
-												placeholder="Phone Number *"
-												theme="hero"
-												className="glass-phone-wrapper"
-											/>
-										</div>
-
-										<div className="col-12 col-md-6">
-											<label className="glass-input-label">Corporate Email *</label>
-											<input
-												type="email"
-												name="email"
-												required
-												value={formData.email}
-												onChange={handleChange}
-												placeholder="e.g. john@company.com"
-												className="form-control glass-input"
-											/>
-										</div>
-
-										<div className="col-12 col-md-6">
-											<label className="glass-input-label">Service Required</label>
-											<select
-												name="service"
-												value={formData.service}
-												onChange={handleChange}
-												className="form-select glass-input glass-select"
-											>
-												<option value="Accounting & Bookkeeping">Accounting & Bookkeeping</option>
-												<option value="Audit & Assurance">Audit & Assurance (Pioneer Hedge)</option>
-												<option value="Corporate Tax">UAE Corporate Tax</option>
-												<option value="VAT UAE">VAT UAE</option>
-												<option value="VAT Bahrain">VAT Bahrain</option>
-												<option value="ICV Certification">ICV Certification</option>
-												<option value="E-Invoicing">UAE E-Invoicing</option>
-												<option value="Business Advisory">Business Advisory</option>
-											</select>
-										</div>
-
-										<div className="col-12">
-											<label className="glass-input-label">Message / Requirement (Optional)</label>
-											<textarea
-												name="message"
-												rows={2}
-												value={formData.message}
-												onChange={handleChange}
-												placeholder="Brief overview of your business requirement..."
-												className="form-control glass-input"
-											></textarea>
-										</div>
-
-										<div className="col-12 mt-2">
-											<button
-												type="submit"
-												disabled={status.loading}
-												className="glass-submit-btn w-100"
-											>
-												<span>{status.loading ? 'Submitting Details...' : 'Request Free Consultation'}</span>
-												{!status.loading && <i className="icon-chevron-right ms-2" />}
-											</button>
-										</div>
+								<div className="feature-tile">
+									<div className="tile-icon-box">
+										<i className="flaticon-target" />
 									</div>
-
-									{/* Privacy & Reassurance Footnote */}
-									<div className="glass-reassurance d-flex align-items-center justify-content-center gap-2 mt-3">
-										<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ffd166" strokeWidth="2.2">
-											<rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-											<path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-										</svg>
-										<span>100% Confidential • FTA-Registered Agency • No Obligation</span>
+									<div className="tile-content">
+										<h4 className="tile-title">Statutory Audit & Assurance</h4>
+										<p className="tile-desc">Approved audit reporting for UAE banks, free zones, and mainland authorities.</p>
 									</div>
-								</form>
-							)}
+								</div>
+
+								<div className="feature-tile">
+									<div className="tile-icon-box">
+										<i className="flaticon-pie-chart" />
+									</div>
+									<div className="tile-content">
+										<h4 className="tile-title">VAT & FTA Representation</h4>
+										<p className="tile-desc">Zero-error VAT return filing, voluntary disclosures, and audit defence.</p>
+									</div>
+								</div>
+
+								<div className="feature-tile">
+									<div className="tile-icon-box">
+										<i className="flaticon-check" />
+									</div>
+									<div className="tile-content">
+										<h4 className="tile-title">ICV & UAE E-Invoicing</h4>
+										<p className="tile-desc">MoIAT In-Country Value score maximization and Peppol XML integration.</p>
+									</div>
+								</div>
+							</div>
+
+							{/* Showcase CTA Trigger */}
+							<div className="showcase-action-box">
+								<button
+									type="button"
+									onClick={scrollToConsultation}
+									className="showcase-action-btn"
+								>
+									<span>Book 30-Min Confidential Strategy Call</span>
+									<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+										<line x1="5" y1="12" x2="19" y2="12" />
+										<polyline points="12 5 19 12 12 19" />
+									</svg>
+								</button>
+								<div className="showcase-security-note">
+									<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#b8860b" strokeWidth="2.2">
+										<rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+										<path d="M7 11V7a5 5 0 0 1 10 0v4" />
+									</svg>
+									<span>100% Confidential • Direct Senior Chartered Accountant Review</span>
+								</div>
+							</div>
+
 						</div>
 					</div>
 
 				</div>
 
-				{/* ── Executive Metrics Strip ── */}
-				<div className="hero-metrics-ticker">
-					<div className="metric-box">
-						<span className="metric-num">10<span className="metric-plus">+</span></span>
-						<span className="metric-label">Years GCC Excellence</span>
+				{/* ── Slider Interactive Controls & Progress Indicators ── */}
+				<div className="hero-slider-controls-bar">
+					<div className="row align-items-center g-3">
+						
+						{/* Slide Tabs with Animated Progress */}
+						<div className="col-12 col-md-8">
+							<div className="hero-slide-nav-pills">
+								{slides.map((s, idx) => (
+									<button
+										key={s.id}
+										type="button"
+										onClick={() => goToSlide(idx)}
+										className={`slide-nav-pill ${idx === activeSlide ? 'active' : ''}`}
+										aria-label={`Go to slide ${idx + 1}`}
+									>
+										<div className="pill-number">0{idx + 1}</div>
+										<div className="pill-text-wrap">
+											<span className="pill-label">{s.locationBadge}</span>
+											<div className="pill-progress-track">
+												<div className={`pill-progress-fill ${idx === activeSlide && !isPaused ? 'animating' : ''}`} />
+											</div>
+										</div>
+									</button>
+								))}
+							</div>
+						</div>
+
+						{/* Next / Prev Luxury Arrows */}
+						<div className="col-12 col-md-4 text-md-end">
+							<div className="slider-arrow-controls d-inline-flex align-items-center gap-2">
+								<button
+									type="button"
+									onClick={prevSlide}
+									className="slider-nav-btn"
+									aria-label="Previous slide"
+								>
+									<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
+										<polyline points="15 18 9 12 15 6" />
+									</svg>
+								</button>
+								<span className="slider-counter">
+									<strong className="current-num">0{activeSlide + 1}</strong>
+									<span className="slash">/</span>
+									<span className="total-num">0{slides.length}</span>
+								</span>
+								<button
+									type="button"
+									onClick={nextSlide}
+									className="slider-nav-btn"
+									aria-label="Next slide"
+								>
+									<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
+										<polyline points="9 18 15 12 9 6" />
+									</svg>
+								</button>
+							</div>
+						</div>
+
 					</div>
-					<div className="metric-sep"></div>
-					<div className="metric-box">
-						<span className="metric-num">500<span className="metric-plus">+</span></span>
-						<span className="metric-label">Corporate Clients</span>
+				</div>
+
+				{/* ── Executive Metrics Ticker ── */}
+				<div className="hero-light-metrics-bar">
+					<div className="metric-cell">
+						<div className="metric-figure">10<span className="metric-plus">+</span></div>
+						<div className="metric-title">Years GCC Leadership</div>
+						<div className="metric-desc">Established across UAE, Bahrain & India</div>
 					</div>
-					<div className="metric-sep"></div>
-					<div className="metric-box">
-						<span className="metric-num">100<span className="metric-plus">%</span></span>
-						<span className="metric-label">FTA Compliance Rate</span>
+					<div className="metric-divider" />
+					<div className="metric-cell">
+						<div className="metric-figure">500<span className="metric-plus">+</span></div>
+						<div className="metric-title">Corporate Clients</div>
+						<div className="metric-desc">Multinationals, SMEs & Family Offices</div>
 					</div>
-					<div className="metric-sep"></div>
-					<div className="metric-box">
-						<span className="metric-num">3<span className="metric-plus">+</span></span>
-						<span className="metric-label">GCC & Global Hubs</span>
+					<div className="metric-divider" />
+					<div className="metric-cell">
+						<div className="metric-figure">100<span className="metric-plus">%</span></div>
+						<div className="metric-title">FTA Audit Compliance</div>
+						<div className="metric-desc">Statutory precision & governance</div>
+					</div>
+					<div className="metric-divider" />
+					<div className="metric-cell">
+						<div className="metric-figure">3<span className="metric-plus">+</span></div>
+						<div className="metric-title">GCC & Global Hubs</div>
+						<div className="metric-desc">Abu Dhabi, Dubai & Manama</div>
 					</div>
 				</div>
 
 			</div>
 
-			{/* ── Luminous Marquee Ribbon ── */}
-			<div className="tf-marquee hero-marquee-ribbon">
-				<div className="wrap-marquee">
+			{/* ── Sophisticated Luxury Light Marquee ── */}
+			<div className="hero-luxury-light-marquee">
+				<div className="marquee-content-track">
 					{[...Array(6)].map((_, i) => (
-						<div key={i} className="marquee-item px-4">
-							<p className="font-main-2 text-white fs-14 fw-7 tracking-wide mb-0 d-flex align-items-center gap-2">
-								<span className="gold-star">★</span> 
-								<span>HEDGE CHARTERED ACCOUNTANTS GROUP</span>
-								<span className="bullet-sep">•</span>
-								<span className="text-gold-light">FTA REGISTERED TAX AGENCY</span>
-								<span className="bullet-sep">•</span>
-								<span>STATUTORY AUDIT & ASSURANCE</span>
-								<span className="bullet-sep">•</span>
-								<span className="text-gold-light">UAE CORPORATE TAX EXPERTS</span>
-							</p>
+						<div key={i} className="marquee-segment">
+							<span className="gold-star">✦</span>
+							<span className="marquee-brand">HEDGE CHARTERED ACCOUNTANTS GROUP</span>
+							<span className="marquee-dot">•</span>
+							<span className="marquee-highlight">FTA APPROVED TAX AGENCY (TAN 20042456)</span>
+							<span className="marquee-dot">•</span>
+							<span>STATUTORY AUDIT & ASSURANCE</span>
+							<span className="marquee-dot">•</span>
+							<span className="marquee-highlight">UAE CORPORATE TAX</span>
+							<span className="marquee-dot">•</span>
+							<span>ICV CERTIFICATION & E-INVOICING</span>
 						</div>
 					))}
 				</div>
 			</div>
 
-			{/* ── Scoped Luxury Styles ── */}
+			{/* ── Scoped Ultra-Luxury Light Styles ── */}
 			<style jsx>{`
-				.page-title-home-1.hero-compact {
+				.hero-luxury-light {
 					position: relative;
 					overflow: hidden;
-					padding-top: 55px;
-					padding-bottom: 35px;
-					background: linear-gradient(135deg, rgba(8, 30, 60, 0.78) 0%, rgba(13, 50, 96, 0.68) 50%, rgba(8, 30, 60, 0.82) 100%), 
-								url('/images/banner/uae_financial_hero.jpg');
-					background-size: cover;
-					background-position: center center;
-					background-repeat: no-repeat;
+					background-color: #f8fafc;
+					color: #0f172a;
+					padding-top: 40px;
+					padding-bottom: 20px;
+					min-height: 820px;
 				}
 
-				/* Ambient Radiance Overlays */
-				.hero-ambient-glow-gold {
+				/* ── Background Slideshow & Layers ── */
+				.hero-slider-bg-wrap {
 					position: absolute;
-					top: -5%;
-					left: 5%;
-					width: 550px;
-					height: 550px;
-					background: radial-gradient(circle, rgba(245, 158, 11, 0.20) 0%, rgba(200, 16, 46, 0.08) 40%, transparent 70%);
-					pointer-events: none;
+					top: 0;
+					left: 0;
+					right: 0;
+					bottom: 0;
+					overflow: hidden;
 					z-index: 1;
 				}
 
-				.hero-ambient-glow-blue {
+				.hero-slide-layer {
 					position: absolute;
-					bottom: -5%;
-					right: 5%;
+					inset: 0;
+					opacity: 0;
+					transform: scale(1.04);
+					transition: opacity 1.4s cubic-bezier(0.4, 0, 0.2, 1), transform 8s cubic-bezier(0.25, 1, 0.5, 1);
+					pointer-events: none;
+				}
+
+				.hero-slide-layer.active {
+					opacity: 1;
+					transform: scale(1);
+				}
+
+				:global(.hero-slide-img) {
+					object-fit: cover !important;
+					object-position: center center !important;
+				}
+
+				/* Sophisticated Light Theme Wash */
+				.hero-light-gradient-overlay {
+					position: absolute;
+					inset: 0;
+					background: linear-gradient(
+						105deg,
+						rgba(255, 255, 255, 0.96) 0%,
+						rgba(255, 255, 255, 0.92) 38%,
+						rgba(255, 255, 255, 0.82) 58%,
+						rgba(255, 255, 255, 0.65) 100%
+					);
+					z-index: 2;
+				}
+
+				@media (max-width: 991px) {
+					.hero-light-gradient-overlay {
+						background: linear-gradient(
+							180deg,
+							rgba(255, 255, 255, 0.97) 0%,
+							rgba(255, 255, 255, 0.94) 70%,
+							rgba(255, 255, 255, 0.88) 100%
+						);
+					}
+				}
+
+				.hero-specular-ambient {
+					position: absolute;
+					top: -150px;
+					right: 10%;
 					width: 600px;
 					height: 600px;
-					background: radial-gradient(circle, rgba(56, 189, 248, 0.22) 0%, transparent 65%);
+					background: radial-gradient(circle, rgba(197, 155, 39, 0.12) 0%, rgba(3, 33, 78, 0.04) 50%, transparent 70%);
 					pointer-events: none;
-					z-index: 1;
-				}
-
-				.hero-main-container {
-					position: relative;
 					z-index: 2;
-					max-width: 1600px;
 				}
 
-				/* Authority Pill */
-				.hero-authority-pill {
+				/* ── Content Grid ── */
+				.hero-inner-container {
+					position: relative;
+					z-index: 3;
+					max-width: 1540px;
+				}
+
+				.min-vh-hero {
+					min-height: 560px;
+				}
+
+				/* ── Left Editorial Column ── */
+				.hero-left-editorial {
+					padding-right: 15px;
+				}
+
+				/* Prestige Eyebrow Pill */
+				.hero-prestige-badge {
 					display: inline-flex;
 					align-items: center;
 					gap: 10px;
-					padding: 7px 18px;
-					background: rgba(255, 255, 255, 0.12);
-					backdrop-filter: blur(12px);
-					-webkit-backdrop-filter: blur(12px);
-					border: 1px solid rgba(255, 255, 255, 0.28);
+					padding: 8px 18px;
+					background: rgba(255, 255, 255, 0.88);
+					border: 1px solid rgba(197, 155, 39, 0.35);
 					border-radius: 999px;
-					box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+					box-shadow: 0 4px 18px rgba(10, 37, 64, 0.05);
+					backdrop-filter: blur(10px);
+					-webkit-backdrop-filter: blur(10px);
+					margin-bottom: 22px;
 				}
 
-				.live-pulse-container {
+				.live-status-dot {
 					position: relative;
 					width: 10px;
 					height: 10px;
@@ -426,644 +562,655 @@ export default function Hero1() {
 					justify-content: center;
 				}
 
-				.pulse-dot {
+				.dot-core {
 					width: 8px;
 					height: 8px;
-					background-color: #22c55e;
+					background-color: #10b981;
 					border-radius: 50%;
 					z-index: 2;
 				}
 
-				.pulse-ring {
+				.dot-ripple {
 					position: absolute;
 					width: 16px;
 					height: 16px;
-					background-color: rgba(34, 197, 94, 0.45);
+					background-color: rgba(16, 185, 129, 0.4);
 					border-radius: 50%;
-					animation: ringPulse 2s infinite ease-out;
+					animation: pulseRipple 2s infinite ease-out;
 				}
 
-				@keyframes ringPulse {
+				@keyframes pulseRipple {
 					0% { transform: scale(0.6); opacity: 1; }
 					100% { transform: scale(1.6); opacity: 0; }
 				}
 
-				.pill-text {
-					color: #ffffff;
+				.prestige-text {
 					font-size: 11.5px;
 					font-weight: 700;
-					letter-spacing: 0.08em;
+					letter-spacing: 0.8px;
+					color: #03214e;
 					text-transform: uppercase;
 				}
 
-				/* Headline */
-				.hero-title {
-					color: #ffffff;
-					font-size: clamp(30px, 3.8vw, 48px);
+				/* Editorial Title */
+				.hero-editorial-title {
+					font-size: clamp(34px, 4.4vw, 56px);
 					font-weight: 800;
 					line-height: 1.15;
-					letter-spacing: -0.5px;
-					margin-bottom: 16px;
-					text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+					letter-spacing: -0.8px;
+					color: #0f172a;
+					margin-bottom: 18px;
 				}
 
-				.hero-gold-glow {
-					background: linear-gradient(135deg, #FFF0CA 0%, #FFD166 40%, #F59E0B 100%);
+				.hero-title-gradient {
+					background: linear-gradient(135deg, #03214e 0%, #b8860b 60%, #996515 100%);
 					-webkit-background-clip: text;
 					-webkit-text-fill-color: transparent;
-					display: inline-block;
-					position: relative;
-					text-shadow: none;
+					display: inline;
 				}
 
 				/* Subtitle */
-				.hero-desc {
-					color: #e2e8f0;
-					font-size: 16px;
-					font-weight: 450;
+				.hero-editorial-desc {
+					font-size: 16.5px;
 					line-height: 1.7;
-					max-width: 540px;
-					margin-bottom: 24px;
-					text-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+					color: #475569;
+					max-width: 620px;
+					margin-bottom: 28px;
 				}
 
-				/* Dual CTA Buttons */
-				.hero-btn-primary {
-					background: linear-gradient(135deg, #C8102E 0%, #9e0c24 100%);
-					color: #ffffff !important;
-					padding: 13px 26px;
-					font-size: 15px;
-					font-weight: 700;
-					border-radius: 10px;
-					border: 1px solid rgba(255, 255, 255, 0.2);
-					box-shadow: 0 10px 25px rgba(200, 16, 46, 0.38);
-					cursor: pointer;
+				/* Call to Action Buttons */
+				.hero-btn-luxury-primary {
 					display: inline-flex;
 					align-items: center;
-					text-decoration: none;
-					transition: all 0.25s ease;
+					gap: 12px;
+					padding: 15px 30px;
+					background: linear-gradient(135deg, #03214e 0%, #0a2540 100%);
+					color: #ffffff;
+					font-size: 15px;
+					font-weight: 700;
+					border-radius: 12px;
+					border: 1px solid rgba(197, 155, 39, 0.4);
+					box-shadow: 0 10px 25px -5px rgba(3, 33, 78, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+					transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+					cursor: pointer;
 				}
 
-				.hero-btn-primary:hover {
+				.hero-btn-luxury-primary:hover {
 					transform: translateY(-2px);
-					box-shadow: 0 14px 30px rgba(200, 16, 46, 0.5);
-					background: linear-gradient(135deg, #d91c38 0%, #b3102c 100%);
+					background: linear-gradient(135deg, #b8860b 0%, #03214e 100%);
+					box-shadow: 0 16px 32px -6px rgba(184, 134, 11, 0.35);
+					color: #ffffff;
 				}
 
-				.hero-btn-secondary,
-				:global(a.hero-btn-secondary) {
-					background: rgba(255, 255, 255, 0.14) !important;
-					color: #ffffff !important;
-					backdrop-filter: blur(12px) !important;
-					-webkit-backdrop-filter: blur(12px) !important;
-					border: 1px solid rgba(255, 255, 255, 0.32) !important;
-					padding: 13px 24px !important;
-					font-size: 15px !important;
-					font-weight: 600 !important;
-					border-radius: 10px !important;
-					display: inline-flex !important;
-					align-items: center !important;
-					text-decoration: none !important;
-					transition: all 0.25s ease !important;
+				.btn-icon-circle {
+					display: inline-flex;
+					align-items: center;
+					justify-content: center;
+					width: 28px;
+					height: 28px;
+					border-radius: 50%;
+					background: rgba(255, 255, 255, 0.15);
+					color: #ffffff;
+					transition: transform 0.3s ease;
 				}
 
-				.hero-btn-secondary:hover,
-				:global(a.hero-btn-secondary:hover) {
-					background: rgba(255, 255, 255, 0.25) !important;
-					border-color: #ffffff !important;
-					color: #ffffff !important;
-					transform: translateY(-2px) !important;
+				.hero-btn-luxury-primary:hover .btn-icon-circle {
+					transform: translateX(3px);
+					background: rgba(255, 255, 255, 0.25);
 				}
 
-				/* Trust Bar */
-				.hero-trust-bar {
+				.hero-btn-luxury-secondary {
+					display: inline-flex;
+					align-items: center;
+					padding: 15px 26px;
+					background: #ffffff;
+					color: #03214e;
+					font-size: 15px;
+					font-weight: 700;
+					border-radius: 12px;
+					border: 1px solid #e2e8f0;
+					box-shadow: 0 4px 15px rgba(15, 23, 42, 0.04);
+					transition: all 0.3s ease;
+				}
+
+				.hero-btn-luxury-secondary:hover {
+					background: #f8fafc;
+					border-color: #cbd5e1;
+					color: #b8860b;
+					transform: translateY(-2px);
+				}
+
+				/* Helpline Strip */
+				.hero-helpline-strip {
+					display: inline-block;
+					padding: 6px 14px;
+					background: rgba(255, 255, 255, 0.7);
+					border: 1px dashed rgba(3, 33, 78, 0.2);
+					border-radius: 8px;
+					font-size: 13px;
+				}
+
+				.helpline-icon {
+					color: #c59b27;
+					font-size: 15px;
+				}
+
+				.helpline-label {
+					color: #64748b;
+					font-weight: 500;
+				}
+
+				.helpline-number {
+					color: #03214e;
+					font-weight: 700;
+					text-decoration: underline;
+					text-decoration-color: rgba(197, 155, 39, 0.4);
+					transition: color 0.2s;
+				}
+
+				.helpline-number:hover {
+					color: #b8860b;
+				}
+
+				.helpline-badge {
+					font-size: 11px;
+					color: #475569;
+					background: #e2e8f0;
+					padding: 2px 7px;
+					border-radius: 4px;
+					margin-left: 6px;
+				}
+
+				/* Trust Matrix */
+				.hero-trust-matrix {
 					display: flex;
 					align-items: center;
+					flex-wrap: wrap;
 					gap: 20px;
-					padding: 14px 20px;
-					background: rgba(255, 255, 255, 0.08);
-					backdrop-filter: blur(16px);
-					-webkit-backdrop-filter: blur(16px);
-					border: 1px solid rgba(255, 255, 255, 0.18);
+					padding: 16px 22px;
+					background: rgba(255, 255, 255, 0.85);
+					border: 1px solid rgba(226, 232, 240, 0.9);
 					border-radius: 16px;
-					box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-					max-width: 560px;
-				}
-
-				.hero-google-badge {
-					flex-shrink: 0;
+					box-shadow: 0 10px 30px rgba(10, 37, 64, 0.04);
+					backdrop-filter: blur(8px);
 				}
 
 				.stars-gold {
-					color: #FFD700;
+					color: #f59e0b;
 					font-size: 14px;
-					letter-spacing: 1px;
-					line-height: 1;
+					letter-spacing: 2px;
 				}
 
 				.rating-score {
-					color: #ffffff;
-					font-size: 15px;
+					font-size: 14px;
 					font-weight: 800;
-					margin-left: 2px;
+					color: #0f172a;
 				}
 
-				.rating-label {
+				.rating-tag {
+					font-size: 11px;
+					color: #64748b;
 					display: block;
-					color: rgba(255, 255, 255, 0.85);
-					font-size: 11px;
 					font-weight: 600;
-					line-height: 1.2;
 				}
 
-				.rating-clients-tag {
-					font-size: 11px;
-					color: #ffd166;
-					font-weight: 700;
-					margin-top: 3px;
-				}
-
-				.trust-divider {
+				.matrix-divider {
 					width: 1px;
 					height: 38px;
-					background: rgba(255, 255, 255, 0.2);
-					flex-shrink: 0;
+					background: #e2e8f0;
 				}
 
-				.hero-trust-pillars {
+				.trust-pillar-items {
 					display: flex;
-					flex-direction: column;
-					gap: 6px;
+					align-items: center;
+					gap: 20px;
+					flex-wrap: wrap;
 				}
 
-				.pillar-item {
+				.pillar-cell {
 					display: flex;
 					align-items: center;
 					gap: 8px;
 				}
 
-				.pillar-check {
+				.pillar-icon-check {
 					display: inline-flex;
 					align-items: center;
 					justify-content: center;
-					width: 16px;
-					height: 16px;
-					border-radius: 50%;
-					background: rgba(34, 197, 94, 0.2);
-					color: #22c55e;
-					font-size: 10px;
+					width: 18px;
+					height: 18px;
+					background: rgba(16, 185, 129, 0.15);
+					color: #059669;
+					font-size: 11px;
 					font-weight: 800;
-					flex-shrink: 0;
+					border-radius: 50%;
 				}
 
-				.pillar-text-wrap {
+				.cell-title {
+					font-size: 12px;
+					font-weight: 700;
+					color: #0f172a;
+					display: block;
 					line-height: 1.2;
 				}
 
-				.pillar-title {
+				.cell-sub {
+					font-size: 11px;
+					color: #64748b;
 					display: block;
-					color: #ffffff;
-					font-size: 11.5px;
-					font-weight: 700;
 				}
 
-				.pillar-sub {
-					display: block;
-					color: rgba(255, 255, 255, 0.7);
-					font-size: 10px;
-				}
-
-				/* ── Ultra-Luxury Glassmorphism Consultation Suite ── */
-				.hero-glass-card {
-					background: linear-gradient(145deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.09) 100%);
-					backdrop-filter: blur(28px) saturate(180%);
-					-webkit-backdrop-filter: blur(28px) saturate(180%);
-					border: 1px solid rgba(255, 255, 255, 0.24);
-					box-shadow: 0 30px 70px -15px rgba(0, 8, 24, 0.55), 
-								0 0 0 1px rgba(255, 255, 255, 0.18) inset, 
-								0 1px 0 rgba(255, 255, 255, 0.4) inset;
-					border-radius: 22px;
-					padding: 30px 28px;
+				/* ── Right Column: Luxury Showcase Card (Replaces Form) ── */
+				.hero-luxury-showcase-card {
 					position: relative;
-					overflow: hidden;
+					background: #ffffff;
+					border: 1px solid rgba(226, 232, 240, 0.9);
+					border-radius: 24px;
+					padding: 32px 30px;
+					box-shadow: 0 20px 45px -10px rgba(10, 37, 64, 0.08), 0 1px 3px rgba(0, 0, 0, 0.02);
+					transition: transform 0.3s ease, box-shadow 0.3s ease;
 				}
 
-				.glass-top-edge {
+				.hero-luxury-showcase-card:hover {
+					box-shadow: 0 25px 55px -10px rgba(10, 37, 64, 0.12);
+					transform: translateY(-2px);
+				}
+
+				.showcase-gold-accent-line {
 					position: absolute;
 					top: 0;
-					left: 0;
-					right: 0;
+					left: 40px;
+					right: 40px;
 					height: 3px;
-					background: linear-gradient(90deg, rgba(255, 209, 102, 0) 0%, #ffd166 25%, #C8102E 75%, rgba(200, 16, 46, 0) 100%);
+					background: linear-gradient(90deg, transparent, #c59b27, transparent);
+					border-radius: 0 0 4px 4px;
 				}
 
-				.glass-senior-badge {
+				.executive-badge {
 					display: inline-flex;
 					align-items: center;
 					gap: 6px;
-					padding: 4px 12px;
-					background: rgba(34, 197, 94, 0.12);
-					border: 1px solid rgba(34, 197, 94, 0.35);
-					backdrop-filter: blur(8px);
-					border-radius: 999px;
-					color: #4ade80;
 					font-size: 11px;
 					font-weight: 700;
-					letter-spacing: 0.03em;
+					text-transform: uppercase;
+					letter-spacing: 0.5px;
+					color: #03214e;
+					background: rgba(3, 33, 78, 0.06);
+					padding: 4px 10px;
+					border-radius: 6px;
 				}
 
-				.live-emerald-dot {
+				.badge-live-pulse {
 					width: 6px;
 					height: 6px;
+					background-color: #10b981;
 					border-radius: 50%;
-					background: #22c55e;
-					box-shadow: 0 0 8px #22c55e;
+					display: inline-block;
 				}
 
-				.glass-response-tag {
+				.showcase-speed-tag {
 					font-size: 11.5px;
 					font-weight: 600;
-					color: rgba(255, 255, 255, 0.85);
-					display: inline-flex;
-					align-items: center;
-					gap: 4px;
+					color: #b8860b;
 				}
 
-				.gold-sparkle {
-					color: #ffd166;
-				}
-
-				.glass-card-title {
-					font-size: 24px;
+				.showcase-title {
+					font-size: 21px;
 					font-weight: 800;
-					color: #ffffff;
-					margin-bottom: 4px;
-					line-height: 1.2;
-					text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+					color: #0f172a;
+					margin-bottom: 6px;
+					letter-spacing: -0.3px;
 				}
 
-				.glass-card-subtitle {
-					font-size: 13px;
-					color: rgba(255, 255, 255, 0.8);
-					margin-bottom: 18px;
-					line-height: 1.45;
+				.showcase-subtitle {
+					font-size: 13.5px;
+					line-height: 1.6;
+					color: #64748b;
+					margin-bottom: 22px;
 				}
 
-				.glass-input-label {
-					font-size: 11.5px;
-					font-weight: 600;
-					color: rgba(255, 255, 255, 0.9);
-					margin-bottom: 5px;
-					display: block;
-					letter-spacing: 0.02em;
+				/* Capabilities Grid */
+				.showcase-features-grid {
+					display: grid;
+					grid-template-columns: 1fr;
+					gap: 12px;
+					margin-bottom: 24px;
 				}
 
-				:global(.glass-input) {
-					background: rgba(255, 255, 255, 0.08) !important;
-					border: 1px solid rgba(255, 255, 255, 0.22) !important;
-					backdrop-filter: blur(12px) !important;
-					-webkit-backdrop-filter: blur(12px) !important;
-					color: #ffffff !important;
-					font-size: 14px !important;
-					font-weight: 500 !important;
-					padding: 11px 15px !important;
-					border-radius: 10px !important;
-					transition: all 0.25s ease !important;
-					box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) inset !important;
+				.feature-tile {
+					display: flex;
+					align-items: flex-start;
+					gap: 14px;
+					padding: 12px 14px;
+					background: #f8fafc;
+					border: 1px solid #f1f5f9;
+					border-radius: 12px;
+					transition: all 0.2s ease;
 				}
 
-				:global(.glass-input::placeholder) {
-					color: rgba(255, 255, 255, 0.52) !important;
-					font-size: 13.5px !important;
+				.feature-tile:hover {
+					background: #ffffff;
+					border-color: #e2e8f0;
+					box-shadow: 0 4px 12px rgba(10, 37, 64, 0.05);
+					transform: translateX(3px);
 				}
 
-				:global(.glass-input:focus) {
-					background: rgba(255, 255, 255, 0.14) !important;
-					border-color: #ffd166 !important;
-					box-shadow: 0 0 0 3px rgba(255, 209, 102, 0.25), 0 4px 15px rgba(0, 0, 0, 0.2) !important;
-					color: #ffffff !important;
-				}
-
-				:global(.glass-select option) {
-					background-color: #071e3d !important;
-					color: #ffffff !important;
-				}
-
-				:global(.glass-phone-wrapper) {
-					border-radius: 10px !important;
-					backdrop-filter: blur(12px) !important;
-					-webkit-backdrop-filter: blur(12px) !important;
-					background: rgba(255, 255, 255, 0.08) !important;
-					border: 1px solid rgba(255, 255, 255, 0.22) !important;
-				}
-
-				:global(.glass-phone-wrapper input) {
-					color: #ffffff !important;
-				}
-
-				:global(.glass-phone-wrapper input::placeholder) {
-					color: rgba(255, 255, 255, 0.52) !important;
-				}
-
-				:global(.glass-phone-wrapper:focus-within) {
-					border-color: #ffd166 !important;
-					box-shadow: 0 0 0 3px rgba(255, 209, 102, 0.25), 0 4px 15px rgba(0, 0, 0, 0.2) !important;
-					background: rgba(255, 255, 255, 0.14) !important;
-				}
-
-				.glass-submit-btn {
-					background: linear-gradient(135deg, #C8102E 0%, #e02644 50%, #9e0c24 100%);
-					border: 1px solid rgba(255, 255, 255, 0.3);
-					color: #ffffff;
-					font-size: 15px;
-					font-weight: 700;
+				.tile-icon-box {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					width: 38px;
+					height: 38px;
 					border-radius: 10px;
-					padding: 13px 20px;
-					cursor: pointer;
+					background: linear-gradient(135deg, rgba(3, 33, 78, 0.08) 0%, rgba(197, 155, 39, 0.12) 100%);
+					color: #03214e;
+					font-size: 18px;
+					flex-shrink: 0;
+				}
+
+				.tile-title {
+					font-size: 13.5px;
+					font-weight: 700;
+					color: #0f172a;
+					margin-bottom: 2px;
+				}
+
+				.tile-desc {
+					font-size: 12px;
+					color: #64748b;
+					line-height: 1.5;
+					margin: 0;
+				}
+
+				/* Action Box */
+				.showcase-action-btn {
+					width: 100%;
 					display: flex;
 					align-items: center;
 					justify-content: center;
-					transition: all 0.25s ease;
-					box-shadow: 0 10px 25px rgba(200, 16, 46, 0.42), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
-				}
-
-				.glass-submit-btn:hover {
-					background: linear-gradient(135deg, #d91c38 0%, #f03352 50%, #b3102c 100%);
-					transform: translateY(-2px);
-					box-shadow: 0 14px 32px rgba(200, 16, 46, 0.55);
-				}
-
-				.glass-reassurance {
-					font-size: 11px;
-					font-weight: 500;
-					color: rgba(255, 255, 255, 0.78);
-				}
-
-				.glass-success-box {
-					background: rgba(34, 197, 94, 0.12);
-					border: 1px solid rgba(34, 197, 94, 0.35);
-					backdrop-filter: blur(16px);
-					border-radius: 14px;
-				}
-
-				.glass-success-icon {
-					width: 44px;
-					height: 44px;
-					border-radius: 50%;
-					background: #22c55e;
+					gap: 10px;
+					padding: 14px 20px;
+					background: linear-gradient(135deg, #c59b27 0%, #b8860b 100%);
 					color: #ffffff;
-					font-size: 22px;
+					font-size: 14px;
+					font-weight: 700;
+					border: none;
+					border-radius: 12px;
+					box-shadow: 0 8px 20px rgba(184, 134, 11, 0.25);
+					transition: all 0.3s ease;
+					cursor: pointer;
+				}
+
+				.showcase-action-btn:hover {
+					background: linear-gradient(135deg, #03214e 0%, #0a2540 100%);
+					box-shadow: 0 10px 25px rgba(3, 33, 78, 0.3);
+					transform: translateY(-2px);
+				}
+
+				.showcase-security-note {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					gap: 6px;
+					font-size: 11px;
+					color: #64748b;
+					margin-top: 10px;
+				}
+
+				/* ── Slider Interactive Controls Bar ── */
+				.hero-slider-controls-bar {
+					margin-top: 36px;
+					padding-top: 24px;
+					border-top: 1px solid rgba(226, 232, 240, 0.8);
+				}
+
+				.hero-slide-nav-pills {
+					display: flex;
+					align-items: center;
+					gap: 12px;
+					flex-wrap: wrap;
+				}
+
+				.slide-nav-pill {
+					display: flex;
+					align-items: center;
+					gap: 10px;
+					padding: 8px 14px;
+					background: rgba(255, 255, 255, 0.8);
+					border: 1px solid #e2e8f0;
+					border-radius: 10px;
+					cursor: pointer;
+					transition: all 0.25s ease;
+					text-align: left;
+				}
+
+				.slide-nav-pill:hover {
+					background: #ffffff;
+					border-color: #cbd5e1;
+				}
+
+				.slide-nav-pill.active {
+					background: #ffffff;
+					border-color: #c59b27;
+					box-shadow: 0 4px 15px rgba(197, 155, 39, 0.15);
+				}
+
+				.pill-number {
+					font-size: 12px;
 					font-weight: 800;
+					color: #94a3b8;
+				}
+
+				.slide-nav-pill.active .pill-number {
+					color: #c59b27;
+				}
+
+				.pill-label {
+					font-size: 12px;
+					font-weight: 600;
+					color: #475569;
+					display: block;
+					line-height: 1.2;
+				}
+
+				.slide-nav-pill.active .pill-label {
+					color: #0f172a;
+					font-weight: 700;
+				}
+
+				.pill-progress-track {
+					width: 100%;
+					height: 2px;
+					background: #f1f5f9;
+					margin-top: 5px;
+					border-radius: 2px;
+					overflow: hidden;
+				}
+
+				.pill-progress-fill {
+					width: 0%;
+					height: 100%;
+					background: #c59b27;
+				}
+
+				.pill-progress-fill.animating {
+					animation: progressFill 6s linear forwards;
+				}
+
+				@keyframes progressFill {
+					0% { width: 0%; }
+					100% { width: 100%; }
+				}
+
+				/* Slider Arrow Buttons */
+				.slider-nav-btn {
+					width: 38px;
+					height: 38px;
+					border-radius: 10px;
+					background: #ffffff;
+					border: 1px solid #e2e8f0;
+					color: #03214e;
 					display: inline-flex;
 					align-items: center;
 					justify-content: center;
-					box-shadow: 0 0 15px rgba(34, 197, 94, 0.4);
+					cursor: pointer;
+					transition: all 0.25s ease;
+					box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
 				}
 
-				.alert-glass-error {
-					background: rgba(220, 38, 38, 0.15);
-					border: 1px solid rgba(220, 38, 38, 0.4);
-					color: #fca5a5;
+				.slider-nav-btn:hover {
+					background: #03214e;
+					color: #ffffff;
+					border-color: #03214e;
+					transform: translateY(-1px);
 				}
 
-				/* ── Metrics Ticker ── */
-				.hero-metrics-ticker {
-					display: flex;
-					align-items: center;
-					justify-content: space-around;
-					background: rgba(255, 255, 255, 0.10);
-					backdrop-filter: blur(14px);
-					-webkit-backdrop-filter: blur(14px);
-					border: 1px solid rgba(255, 255, 255, 0.22);
-					border-radius: 16px;
-					padding: 18px 24px;
-					margin-top: 36px;
-					box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+				.slider-counter {
+					font-size: 13px;
+					font-weight: 600;
+					color: #64748b;
+					padding: 0 4px;
 				}
 
-				.metric-box {
-					text-align: center;
+				.current-num {
+					color: #0f172a;
+					font-weight: 800;
 				}
 
-				.metric-num {
-					display: block;
+				.slash {
+					margin: 0 3px;
+					color: #cbd5e1;
+				}
+
+				/* ── Executive Metrics Bar ── */
+				.hero-light-metrics-bar {
+					display: grid;
+					grid-template-columns: repeat(4, 1fr);
+					gap: 20px;
+					margin-top: 28px;
+					padding: 22px 30px;
+					background: #ffffff;
+					border: 1px solid #e2e8f0;
+					border-radius: 18px;
+					box-shadow: 0 8px 30px rgba(10, 37, 64, 0.04);
+				}
+
+				.metric-cell {
+					text-align: left;
+				}
+
+				.metric-figure {
 					font-size: 28px;
 					font-weight: 800;
-					color: #ffffff;
+					color: #03214e;
 					line-height: 1;
+					margin-bottom: 4px;
 				}
 
 				.metric-plus {
-					color: #ffd166;
-					margin-left: 2px;
+					color: #c59b27;
+					font-weight: 700;
+					margin-left: 1px;
 				}
 
-				.metric-label {
+				.metric-title {
+					font-size: 13px;
+					font-weight: 700;
+					color: #0f172a;
+					margin-bottom: 2px;
+				}
+
+				.metric-desc {
 					font-size: 11.5px;
-					font-weight: 600;
-					color: rgba(255, 255, 255, 0.85);
-					text-transform: uppercase;
-					letter-spacing: 0.04em;
-					margin-top: 4px;
-					display: block;
+					color: #64748b;
 				}
 
-				.metric-sep {
-					width: 1px;
-					height: 36px;
-					background: rgba(255, 255, 255, 0.18);
+				.metric-divider {
+					display: none;
 				}
 
-				/* ── Marquee Ribbon ── */
-				.hero-marquee-ribbon {
-					margin-top: 32px;
+				@media (min-width: 768px) {
+					.metric-cell:not(:last-child) {
+						border-right: 1px solid #f1f5f9;
+						padding-right: 15px;
+					}
+				}
+
+				@media (max-width: 767px) {
+					.hero-light-metrics-bar {
+						grid-template-columns: repeat(2, 1fr);
+						gap: 16px;
+						padding: 18px;
+					}
+				}
+
+				/* ── Luxury Light Marquee ── */
+				.hero-luxury-light-marquee {
+					margin-top: 26px;
 					padding: 12px 0;
-					background: linear-gradient(90deg, #071e3d 0%, #0d3b6f 50%, #071e3d 100%);
-					border-top: 1px solid rgba(255, 255, 255, 0.16);
-					border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+					background: #ffffff;
+					border-top: 1px solid #f1f5f9;
+					border-bottom: 1px solid #e2e8f0;
 					overflow: hidden;
-					width: 100%;
+					white-space: nowrap;
 				}
 
-				.hero-marquee-ribbon :global(.wrap-marquee) {
-					display: flex !important;
-					flex-direction: row !important;
-					white-space: nowrap !important;
-					width: max-content !important;
+				.marquee-content-track {
+					display: inline-flex;
+					animation: luxuryMarquee 38s linear infinite;
 				}
 
-				.hero-marquee-ribbon :global(.marquee-item) {
-					flex-shrink: 0 !important;
-					white-space: nowrap !important;
-					display: inline-flex !important;
-					align-items: center !important;
+				.marquee-content-track:hover {
+					animation-play-state: paused;
 				}
 
-				.hero-marquee-ribbon :global(p) {
-					white-space: nowrap !important;
-					margin-bottom: 0 !important;
+				@keyframes luxuryMarquee {
+					0% { transform: translateX(0); }
+					100% { transform: translateX(-50%); }
+				}
+
+				.marquee-segment {
+					display: inline-flex;
+					align-items: center;
+					gap: 14px;
+					padding: 0 25px;
+					font-size: 12px;
+					font-weight: 700;
+					letter-spacing: 0.6px;
+					color: #475569;
 				}
 
 				.gold-star {
-					color: #ffd166;
-					font-size: 14px;
+					color: #c59b27;
+					font-size: 12px;
 				}
 
-				.bullet-sep {
-					color: rgba(255, 255, 255, 0.4);
-					margin: 0 6px;
+				.marquee-brand {
+					color: #03214e;
+					font-weight: 800;
 				}
 
-				.text-gold-light {
-					color: #ffd166;
+				.marquee-highlight {
+					color: #b8860b;
 				}
 
-				/* ── MOBILE OPTIMIZATIONS (Max Width: 991px) ── */
+				.marquee-dot {
+					color: #cbd5e1;
+				}
+
+				/* Responsive Adjustments */
 				@media (max-width: 991px) {
-					.page-title-home-1.hero-compact {
-						padding-top: 24px !important;
-						padding-bottom: 24px !important;
-						background-image: linear-gradient(180deg, rgba(7, 26, 52, 0.74) 0%, rgba(11, 42, 80, 0.65) 45%, rgba(6, 21, 42, 0.88) 100%), 
-										  url('/images/banner/uae_financial_hero_mobile.jpg') !important;
-						background-position: center top !important;
+					.hero-editorial-title {
+						font-size: 32px;
 					}
-
-					.hero-ambient-glow-gold {
-						width: 320px;
-						height: 320px;
-						top: -10px;
-						left: -20px;
+					.hero-left-editorial {
+						padding-right: 0;
 					}
-
-					.hero-ambient-glow-blue {
-						width: 320px;
-						height: 320px;
-						bottom: 0;
-						right: -20px;
-					}
-
-					.hero-left-content {
-						text-align: left !important;
-						margin-bottom: 24px;
-					}
-
-					.hero-authority-pill {
-						padding: 6px 14px;
-						margin-bottom: 14px !important;
-					}
-
-					.pill-text {
-						font-size: 10px;
-						letter-spacing: 0.05em;
-					}
-
-					.hero-title {
-						font-size: clamp(26px, 7.5vw, 36px) !important;
-						line-height: 1.18 !important;
-						margin-bottom: 12px;
-					}
-
-					.hero-desc {
-						font-size: 14px !important;
-						line-height: 1.6 !important;
-						color: #e2e8f0 !important;
-						margin-bottom: 18px;
-					}
-
-					.hero-actions-row {
-						display: flex !important;
-						gap: 10px !important;
-						width: 100% !important;
-						margin-bottom: 20px !important;
-					}
-
-					.hero-btn-primary {
-						padding: 12px 14px !important;
-						font-size: 13.5px !important;
-						flex: 1.2 !important;
-						justify-content: center !important;
-						white-space: nowrap !important;
-					}
-
-					.hero-btn-secondary,
-					:global(a.hero-btn-secondary) {
-						padding: 12px 14px !important;
-						font-size: 13.5px !important;
-						flex: 1 !important;
-						justify-content: center !important;
-						white-space: nowrap !important;
-					}
-
-					.hero-trust-bar {
-						flex-direction: column;
-						align-items: flex-start;
-						padding: 14px 16px;
-						gap: 12px;
-						width: 100%;
-						max-width: 100%;
-					}
-
-					.hero-trust-pillars {
-						gap: 8px;
-						border-top: 1px solid rgba(255, 255, 255, 0.15);
-						padding-top: 10px;
-						width: 100%;
-					}
-
-					.pillar-title {
-						font-size: 11px;
-					}
-
-					.pillar-sub {
-						font-size: 9.5px;
-					}
-
-					.hero-glass-card {
-						padding: 22px 16px !important;
-						border-radius: 18px !important;
-						margin-top: 8px;
-					}
-
-					.glass-card-title {
-						font-size: 21px !important;
-					}
-
-					.glass-card-subtitle {
-						font-size: 12px !important;
-						margin-bottom: 14px;
-					}
-
-					.glass-submit-btn {
-						padding: 12px 16px !important;
-						font-size: 14.5px !important;
-					}
-
-					.hero-metrics-ticker {
-						display: grid !important;
-						grid-template-columns: 1fr 1fr;
-						gap: 14px;
-						padding: 16px 12px !important;
-						margin-top: 24px !important;
-					}
-
-					.metric-sep {
-						display: none !important;
-					}
-
-					.metric-num {
-						font-size: 24px !important;
-					}
-
-					.metric-label {
-						font-size: 10.5px !important;
-					}
-
-					.hero-marquee-ribbon {
-						margin-top: 20px !important;
-						padding: 9px 0 !important;
+					.hero-luxury-showcase-card {
+						margin-top: 10px;
 					}
 				}
 			`}</style>
-		</div>
+		</section>
 	);
 }
