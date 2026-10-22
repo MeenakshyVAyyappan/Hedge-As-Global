@@ -18750,4 +18750,25 @@ a.mapboxgl-ctrl-logo {
   }
 }
 
+/* ── Hero Section Immediate Pure White Styling (Eliminates Initial FOUC / Black Text Flash) ── */
+.hero-headline,
+h1.hero-headline {
+  color: #ffffff !important;
+  font-family: "Manrope", sans-serif !important;
+}
+
+.hero-description,
+p.hero-description {
+  color: #f1f5f9 !important;
+}
+
+.hero-authority-pill .pill-text {
+  color: #ffffff !important;
+}
+
+.hero-metrics-strip .metric-num {
+  color: #ffffff !important;
+}
+
+
 

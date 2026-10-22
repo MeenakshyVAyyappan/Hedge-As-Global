@@ -64,7 +64,7 @@ export default function Section12() {
 
           {/* 2 Columns x 4 FAQs Clean Timeline Grid */}
           <div className="row g-5">
-            
+
             {/* Column 1 (FAQs 01 - 04) */}
             <div className="col-lg-6">
               <div className="saylo-timeline-faq-wrap">

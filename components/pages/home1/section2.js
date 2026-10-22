@@ -13,7 +13,7 @@ export default function Section2() {
             {/* Eyebrow */}
             <p className="s-sub-title text-red mb-18">
               <i className="icon-angles-right moveLeftToRight" />
-              About Hedge
+              Hedge Chartered Accountants
             </p>
 
             {/* Heading */}
@@ -44,7 +44,7 @@ export default function Section2() {
               </div>
               <div style={{ width: "1px", background: "#e8e8e8", flexShrink: 0 }}></div>
               <div>
-                <div style={{ fontSize: "32px", fontWeight: 800, color: "#03214e", lineHeight: 1 }}>500<span style={{ color: "#C8102E" }}>+</span></div>
+                <div style={{ fontSize: "32px", fontWeight: 800, color: "#03214e", lineHeight: 1 }}>2000<span style={{ color: "#C8102E" }}>+</span></div>
                 <div style={{ fontSize: "12px", color: "#71717a", marginTop: "6px", letterSpacing: "0.04em", textTransform: "uppercase", fontWeight: 600 }}>Clients Served</div>
               </div>
             </div>

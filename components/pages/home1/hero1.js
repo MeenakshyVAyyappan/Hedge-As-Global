@@ -1,976 +1,1117 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import PhoneInput from '@/components/elements/PhoneInput';
 
-const slides = [
+const HERO_SLIDES = [
 	{
 		id: 1,
-		image: '/images/banner/hero_slide_1_dubai.jpg',
-		badge: 'FTA-APPROVED TAX AGENCY • TAN 20042456 • UAE • BAHRAIN • INDIA',
-		tag: 'Dubai & Abu Dhabi Financial Hubs',
-		titleLead: 'Financial Clarity for',
-		titleHighlight: 'Confident Business',
-		titleEnd: 'Decisions.',
-		subtitle: 'Senior Chartered Accountants and registered tax advisors delivering statutory audit, UAE Corporate Tax compliance, VAT filing, and corporate advisory with executive precision.',
-		statsLabel: 'UAE Commercial Leadership'
+		image: '/images/banner/banner1.png',
+		title: 'Executive Advisory',
+		caption: 'Chartered Accountants & Tax Advisors'
 	},
 	{
 		id: 2,
-		image: '/images/banner/hero_slide_2_boardroom.jpg',
-		badge: 'INSTITUTIONAL FINANCIAL GOVERNANCE',
-		tag: 'Executive Boardroom & Audit Practice',
-		titleLead: 'Strategic Tax Advisory &',
-		titleHighlight: 'IFRS Statutory Audit',
-		titleEnd: 'Excellence.',
-		subtitle: 'Safeguard your corporate compliance with FTA-approved tax representation, audited financial statements, and end-to-end corporate governance trusted by 500+ enterprises.',
-		statsLabel: 'Statutory Assurance & Trust'
-	},
-	{
-		id: 3,
-		image: '/images/banner/hero_slide_3_financial_center.jpg',
-		badge: 'MANDATORY COMPLIANCE EXPERTS',
-		tag: 'Corporate Tax & ERP Compliance',
-		titleLead: 'Seamless Readiness for',
-		titleHighlight: 'UAE Corporate Tax &',
-		titleEnd: 'E-Invoicing.',
-		subtitle: 'Navigate the 9% UAE Corporate Tax regime, Qualifying Free Zone exemptions, and Peppol E-Invoicing mandates with seasoned chartered accountants.',
-		statsLabel: 'FTA & Peppol Compliance'
-	},
-	{
-		id: 4,
-		image: '/images/banner/hero_slide_4_office_daylight.jpg',
-		badge: 'PARTNER-LED STRATEGY',
-		tag: 'Private Client & Corporate Advisory',
-		titleLead: 'Bespoke Advisory for',
-		titleHighlight: 'Sustainable Corporate',
-		titleEnd: 'Growth.',
-		subtitle: 'From ICV certification and bookkeeping to cross-border structuring, we provide the institutional rigor and local insight your business demands.',
-		statsLabel: 'Cross-Border GCC Expansion'
+		image: '/images/banner/banner2.png',
+		title: 'Global Financial Hub',
+		caption: 'Corporate Advisory & Audit Standards'
 	}
 ];
 
+const SLIDE_DURATION = 6000; // 6 seconds per slide
+
 export default function Hero1() {
 	const [activeSlide, setActiveSlide] = useState(0);
-	const [isPaused, setIsPaused] = useState(false);
 	const timerRef = useRef(null);
 
-	// Autoplay slider (6.5s per slide)
-	useEffect(() => {
-		if (isPaused) return;
+	// Consultation Popup Modal States
+	const [isModalOpen, setIsModalOpen] = useState(false);
+	const [formData, setFormData] = useState({
+		fullName: '',
+		phone: '',
+		email: '',
+		service: 'Accounting & Bookkeeping',
+		message: '',
+		websiteHp: '',
+	});
+	const [status, setStatus] = useState({ loading: false, submitted: false, error: null });
 
+	const nextSlide = useCallback(() => {
+		setActiveSlide((prev) => (prev + 1) % HERO_SLIDES.length);
+	}, []);
+
+	// Smooth Automatic Background Slideshow
+	useEffect(() => {
 		timerRef.current = setInterval(() => {
-			setActiveSlide((prev) => (prev + 1) % slides.length);
-		}, 6500);
+			nextSlide();
+		}, SLIDE_DURATION);
 
 		return () => {
 			if (timerRef.current) clearInterval(timerRef.current);
 		};
-	}, [isPaused, activeSlide]);
+	}, [nextSlide]);
 
-	const nextSlide = () => {
-		setActiveSlide((prev) => (prev + 1) % slides.length);
-	};
+	// Modal keyboard & scroll lock handling
+	useEffect(() => {
+		const handleKeyDown = (e) => {
+			if (e.key === 'Escape' && isModalOpen) {
+				setIsModalOpen(false);
+			}
+		};
 
-	const prevSlide = () => {
-		setActiveSlide((prev) => (prev - 1 + slides.length) % slides.length);
-	};
-
-	const goToSlide = (idx) => {
-		setActiveSlide(idx);
-	};
-
-	const scrollToConsultation = (e) => {
-		e.preventDefault();
-		const el = document.getElementById('consultation-section');
-		if (el) {
-			el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+		if (isModalOpen) {
+			document.body.style.overflow = 'hidden';
+			window.addEventListener('keydown', handleKeyDown);
 		} else {
-			window.location.href = '/contact';
+			document.body.style.overflow = '';
+		}
+
+		return () => {
+			document.body.style.overflow = '';
+			window.removeEventListener('keydown', handleKeyDown);
+		};
+	}, [isModalOpen]);
+
+	const handleChange = (e) => {
+		const { name, value } = e.target;
+		setFormData((prev) => ({ ...prev, [name]: value }));
+	};
+
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		if (formData.websiteHp) return;
+
+		if (!formData.fullName || !formData.phone || !formData.email) {
+			setStatus({ loading: false, submitted: false, error: 'Please fill in all required fields.' });
+			return;
+		}
+
+		setStatus({ loading: true, submitted: false, error: null });
+
+		try {
+			const res = await fetch('/api/contact', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(formData),
+			});
+			const data = await res.json();
+			if (data.success) {
+				setStatus({ loading: false, submitted: true, error: null });
+				setFormData({
+					fullName: '',
+					phone: '',
+					email: '',
+					service: 'Accounting & Bookkeeping',
+					message: '',
+					websiteHp: ''
+				});
+			} else {
+				setStatus({ loading: false, submitted: false, error: data.error || 'Failed to submit form.' });
+			}
+		} catch (err) {
+			setStatus({ loading: false, submitted: false, error: 'Network error. Please try again.' });
 		}
 	};
 
-	const current = slides[activeSlide];
-
 	return (
-		<section
-			className="hero-fullscreen-luxury"
-			onMouseEnter={() => setIsPaused(true)}
-			onMouseLeave={() => setIsPaused(false)}
-			aria-label="Hedge Chartered Accountants Group Ultra-Premium Hero"
+		<section 
+			className="hero-section-wrapper position-relative overflow-hidden"
+			aria-label="Hedge Chartered Accountants Global Hero Section"
 		>
-			{/* ── Full-Width Photorealistic Carousel Slides ── */}
-			<div className="hero-carousel-canvas">
-				{slides.map((slide, idx) => (
-					<div
-						key={slide.id}
-						className={`carousel-slide-layer ${idx === activeSlide ? 'is-active' : ''}`}
-						aria-hidden={idx !== activeSlide}
-					>
-						<Image
-							src={slide.image}
-							alt={slide.titleHighlight}
-							fill
-							priority={idx === 0}
-							sizes="100vw"
-							className="carousel-bg-image"
-						/>
-					</div>
-				))}
-
-				{/* Luminous Light Luxury Overlay for Maximum Clarity */}
-				<div className="carousel-light-vignette" />
-				<div className="carousel-ambient-glow-center" />
+			{/* ── Slide Backgrounds (Smooth Crossfade Slideshow - Vivid & Fully Visible) ── */}
+			<div className="hero-slides-container">
+				{HERO_SLIDES.map((slide, index) => {
+					const isActive = index === activeSlide;
+					return (
+						<div
+							key={slide.id}
+							className={`hero-slide-item ${isActive ? 'active' : ''}`}
+							aria-hidden={!isActive}
+						>
+							<Image
+								src={slide.image}
+								alt={`Hedge Chartered Accountants - ${slide.title}`}
+								fill
+								priority={index === 0}
+								sizes="100vw"
+								className="hero-slide-image"
+							/>
+						</div>
+					);
+				})}
 			</div>
 
-			{/* ── Center-Aligned Hero Content Stage ── */}
-			<div className="hero-content-stage">
-				<div className="container hero-center-container">
-					
-					{/* Floating Glassmorphic Editorial Card */}
-					<div className="hero-editorial-glass-card" key={`card-${activeSlide}`}>
-						
-						{/* Shimmer Specular Top Accent */}
-						<div className="card-specular-accent" />
+			{/* ── Subtle Natural Scrim (Zero Whitish Haze - Banner Image Crystal Clear) ── */}
+			<div className="hero-subtle-scrim" />
 
-						{/* Prestige Authority Eyebrow Badge */}
-						<div className="hero-eyebrow-pill animate-fade-down">
-							<span className="live-emerald-beacon">
-								<span className="beacon-core" />
-								<span className="beacon-ring" />
-							</span>
-							<span className="eyebrow-text">{current.badge}</span>
+			{/* ── Main Content (Single-Column Centered Composition) ── */}
+			<div className="container position-relative hero-content-container">
+				<div className="row justify-content-center text-center">
+					<div className="col-12 col-xl-10">
+
+						{/* 1. Authority Eyebrow Badge */}
+						<div className="d-inline-flex justify-content-center mb-3 mb-md-4">
+							<div className="hero-authority-pill">
+								<span className="live-pulse-container" aria-hidden="true">
+									<span className="pulse-dot"></span>
+									<span className="pulse-ring"></span>
+								</span>
+								<span className="pill-text">
+									FTA-APPROVED TAX AGENCY &bull; UAE &bull; BAHRAIN &bull; INDIA
+								</span>
+							</div>
 						</div>
 
-						{/* Centered Editorial Heading */}
-						<h1 className="hero-headline font-main-2 animate-fade-up">
-							{current.titleLead}{' '}
-							<span className="headline-gold-gradient">
-								{current.titleHighlight}
-							</span>{' '}
-							{current.titleEnd}
+						{/* 2. Main Headline (H1 - Solid Pure White) */}
+						<h1 className="hero-headline font-main-2 text-white" style={{ color: '#ffffff' }}>
+							Financial Clarity for Confident Business Decisions.
 						</h1>
 
-						{/* Centered Luxury Subtitle */}
-						<p className="hero-description font-main-2 animate-fade-up delay-1">
-							{current.subtitle}
+						{/* 3. Supporting Description */}
+						<p className="hero-description mx-auto font-main-2 text-white" style={{ color: '#f1f5f9' }}>
+							Senior Chartered Accountants and registered tax advisors delivering statutory audit, 
+							UAE Corporate Tax filing, VAT compliance, and corporate advisory with executive precision.
 						</p>
 
-						{/* Centered Call to Action Buttons */}
-						<div className="hero-cta-action-group animate-fade-up delay-2">
+						{/* 4. Side-by-Side Centered Action Buttons */}
+						<div className="hero-actions-group d-flex flex-wrap align-items-center justify-content-center gap-3">
 							<button
 								type="button"
-								onClick={scrollToConsultation}
-								className="hero-btn-primary-luxury"
+								onClick={() => setIsModalOpen(true)}
+								className="hero-btn-primary"
+								id="hero-request-consultation-btn"
 							>
-								<span className="btn-text">Schedule Executive Consultation</span>
-								<span className="btn-icon-wrapper">
-									<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-										<line x1="5" y1="12" x2="19" y2="12" />
-										<polyline points="12 5 19 12 12 19" />
-									</svg>
-								</span>
+								<span>Request Consultation</span>
+								<i className="icon-chevron-right ms-2" />
 							</button>
 
-							<Link href="/our-service" className="hero-btn-secondary-luxury">
-								<span>Explore Advisory Services</span>
+							<Link 
+								href="/our-service" 
+								className="hero-btn-secondary"
+								id="hero-explore-services-btn"
+							>
+								<span>Explore Services</span>
 								<i className="icon-angles-right ms-2 fs-12" />
 							</Link>
 						</div>
 
-						{/* Direct Helpline & Speed Reassurance */}
-						<div className="hero-reassurance-row animate-fade-up delay-3">
-							<div className="reassurance-item">
-								<i className="flaticon-phone-call text-gold" />
-								<span className="text-muted-dark">Direct Helpline:</span>
-								<Link href="tel:+971502253373" className="phone-link">
-									+971 50 225 3373
-								</Link>
-							</div>
-							<span className="reassurance-separator">•</span>
-							<div className="reassurance-item">
-								<span className="gold-sparkle">⚡</span>
-								<span className="text-muted-dark">Senior Partner Review within 2 Hours</span>
-							</div>
-							<span className="reassurance-separator">•</span>
-							<div className="reassurance-item">
-								<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#b8860b" strokeWidth="2.2">
-									<rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-									<path d="M7 11V7a5 5 0 0 1 10 0v4" />
+						{/* 5. Centered Google Rating & Trust Credentials (Clean Translucent Glass) */}
+						<div className="hero-trust-wrapper d-inline-flex flex-wrap align-items-center justify-content-center gap-3 mt-4">
+							{/* Google Rating Box */}
+							<div className="trust-badge-item d-flex align-items-center gap-2">
+								<svg width="22" height="22" viewBox="0 0 24 24" className="flex-shrink-0" aria-label="Google">
+									<path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+									<path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+									<path fill="#FBBC05" d="M5.84 14.1c-.22-.66-.35-1.36-.35-2.1s.13-1.44.35-2.1V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.62z" />
+									<path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" />
 								</svg>
-								<span className="text-muted-dark">100% Confidential Strategy Session</span>
-							</div>
-						</div>
-
-						{/* Centered Trust Credentials Matrix */}
-						<div className="hero-trust-credentials animate-fade-up delay-3">
-							{/* Google Verified Review */}
-							<div className="trust-pill-item">
-								<svg width="20" height="20" viewBox="0 0 24 24" className="flex-shrink-0">
-									<path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-									<path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-									<path fill="#FBBC05" d="M5.84 14.1c-.22-.66-.35-1.36-.35-2.1s.13-1.44.35-2.1V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.62z"/>
-									<path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
-								</svg>
-								<span className="stars-gold">★★★★★</span>
-								<span className="trust-bold">4.9 / 5.0</span>
-								<span className="trust-label">(500+ Corporate Clients)</span>
-							</div>
-
-							<div className="trust-pill-divider" />
-
-							{/* FTA Approved Agency */}
-							<div className="trust-pill-item">
-								<span className="check-emerald">✓</span>
-								<span className="trust-bold">FTA Registered Tax Agency</span>
-								<span className="trust-label">Pioneer Hedge (TAN 20042456)</span>
-							</div>
-
-							<div className="trust-pill-divider" />
-
-							{/* IFRS Global Compliance */}
-							<div className="trust-pill-item">
-								<span className="check-emerald">✓</span>
-								<span className="trust-bold">IFRS Global Audit Standards</span>
-								<span className="trust-label">Chartered Accountants & Advisors</span>
-							</div>
-						</div>
-
-					</div>
-
-					{/* ── Centered Carousel Navigation Controls ── */}
-					<div className="hero-carousel-controls-centered">
-						
-						{/* Prev Arrow */}
-						<button
-							type="button"
-							onClick={prevSlide}
-							className="carousel-arrow-btn"
-							aria-label="Previous banner slide"
-						>
-							<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
-								<polyline points="15 18 9 12 15 6" />
-							</svg>
-						</button>
-
-						{/* Numbered Progress Pills */}
-						<div className="carousel-nav-tabs">
-							{slides.map((s, idx) => (
-								<button
-									key={s.id}
-									type="button"
-									onClick={() => goToSlide(idx)}
-									className={`carousel-nav-tab ${idx === activeSlide ? 'active' : ''}`}
-									aria-label={`Slide ${idx + 1}: ${s.tag}`}
-								>
-									<span className="tab-number">0{idx + 1}</span>
-									<span className="tab-title">{s.tag}</span>
-									<div className="tab-progress-track">
-										<div className={`tab-progress-bar ${idx === activeSlide && !isPaused ? 'filling' : ''}`} />
+								<div className="text-start">
+									<div className="d-flex align-items-center gap-1 line-height-1">
+										<span className="stars-gold">★★★★★</span>
+										<span className="rating-score">4.9</span>
 									</div>
-								</button>
-							))}
-						</div>
-
-						{/* Next Arrow */}
-						<button
-							type="button"
-							onClick={nextSlide}
-							className="carousel-arrow-btn"
-							aria-label="Next banner slide"
-						>
-							<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
-								<polyline points="9 18 15 12 9 6" />
-							</svg>
-						</button>
-
-					</div>
-
-					{/* ── Executive Metrics Ticker (Centered & Integrated) ── */}
-					<div className="hero-metrics-strip-centered">
-						<div className="row g-3 g-md-4 text-center justify-content-center">
-							<div className="col-6 col-md-3">
-								<div className="metric-box-centered">
-									<div className="metric-number">10<span className="plus">+</span></div>
-									<div className="metric-headline">Years GCC Excellence</div>
-									<div className="metric-subline">UAE • Bahrain • India</div>
+									<span className="rating-label">Google Verified Rating</span>
 								</div>
 							</div>
-							<div className="col-6 col-md-3">
-								<div className="metric-box-centered">
-									<div className="metric-number">500<span className="plus">+</span></div>
-									<div className="metric-headline">Corporate Clients</div>
-									<div className="metric-subline">Regional Enterprises & Groups</div>
+
+							<div className="trust-sep d-none d-sm-block" />
+
+							{/* Corporate Clients Pill */}
+							<div className="trust-badge-item d-flex align-items-center gap-2">
+								<span className="trust-icon-circle bg-emerald-soft text-emerald">
+									✓
+								</span>
+								<div className="text-start">
+									<span className="trust-title-text">FTA Registered Tax Agency</span>
+									<span className="trust-sub-text">Pioneer Hedge (TAN 20042456)</span>
 								</div>
 							</div>
-							<div className="col-6 col-md-3">
-								<div className="metric-box-centered">
-									<div className="metric-number">100<span className="plus">%</span></div>
-									<div className="metric-headline">FTA Audit Compliance</div>
-									<div className="metric-subline">Zero-Penalty Track Record</div>
-								</div>
-							</div>
-							<div className="col-6 col-md-3">
-								<div className="metric-box-centered">
-									<div className="metric-number">3<span className="plus">+</span></div>
-									<div className="metric-headline">Global Practice Hubs</div>
-									<div className="metric-subline">Abu Dhabi, Dubai & Manama</div>
+
+							<div className="trust-sep d-none d-md-block" />
+
+							{/* IFRS Certification */}
+							<div className="trust-badge-item d-none d-md-flex align-items-center gap-2">
+								<span className="trust-icon-circle bg-blue-soft text-blue">
+									✓
+								</span>
+								<div className="text-start">
+									<span className="trust-title-text">IFRS Global Audit Standards</span>
+									<span className="trust-sub-text">Senior Chartered Accountants</span>
 								</div>
 							</div>
 						</div>
-					</div>
 
+					</div>
 				</div>
+
+				{/* 6. Executive Metrics Counter Strip (Clean Frosted Glass) */}
+				<div className="hero-metrics-strip mx-auto mt-4 mt-lg-5">
+					<div className="row g-2 g-md-0 text-center align-items-center">
+						<div className="col-6 col-md-3">
+							<div className="metric-box">
+								<span className="metric-num">10<span className="metric-plus">+</span></span>
+								<span className="metric-label">Years GCC Excellence</span>
+							</div>
+						</div>
+						<div className="col-6 col-md-3">
+							<div className="metric-box">
+								<span className="metric-num">2000<span className="metric-plus">+</span></span>
+								<span className="metric-label">Corporate Clients</span>
+							</div>
+						</div>
+						<div className="col-6 col-md-3">
+							<div className="metric-box">
+								<span className="metric-num">100<span className="metric-plus">%</span></span>
+								<span className="metric-label">FTA Compliance Rate</span>
+							</div>
+						</div>
+						<div className="col-6 col-md-3">
+							<div className="metric-box">
+								<span className="metric-num">3<span className="metric-plus">+</span></span>
+								<span className="metric-label">GCC & Global Hubs</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
 			</div>
 
-			{/* ── Full-Width Luxury Marquee Ribbon ── */}
-			<div className="hero-bottom-marquee-ribbon">
-				<div className="marquee-rail">
+			{/* 7. Luminous Marquee Ribbon (Original Brand Navy & Gold Palette) */}
+			<div className="tf-marquee hero-marquee-ribbon">
+				<div className="wrap-marquee">
 					{[...Array(6)].map((_, i) => (
-						<div key={i} className="marquee-block">
-							<span className="gold-sparkle-icon">✦</span>
-							<span className="brand-name">HEDGE CHARTERED ACCOUNTANTS GROUP</span>
-							<span className="dot-divider">•</span>
-							<span className="gold-term">FTA APPROVED TAX AGENCY (TAN 20042456)</span>
-							<span className="dot-divider">•</span>
-							<span>STATUTORY AUDIT & ASSURANCE</span>
-							<span className="dot-divider">•</span>
-							<span className="gold-term">UAE CORPORATE TAX (9%)</span>
-							<span className="dot-divider">•</span>
-							<span>VAT COMPLIANCE & ICV CERTIFICATION</span>
-							<span className="dot-divider">•</span>
-							<span className="gold-term">UAE E-INVOICING (PEPPOL)</span>
+						<div key={i} className="marquee-item px-3 px-md-4">
+							<p className="font-main-2 text-white fs-13 fw-7 tracking-wide mb-0 d-flex align-items-center gap-2">
+								<span className="gold-star">★</span>
+								<span>HEDGE CHARTERED ACCOUNTANTS GROUP</span>
+								<span className="bullet-sep">&bull;</span>
+								<span className="text-gold-light fw-8">FTA REGISTERED TAX AGENCY</span>
+								<span className="bullet-sep">&bull;</span>
+								<span>STATUTORY AUDIT & ASSURANCE</span>
+								<span className="bullet-sep">&bull;</span>
+								<span className="text-gold-light fw-8">UAE CORPORATE TAX EXPERTS</span>
+							</p>
 						</div>
 					))}
 				</div>
 			</div>
 
-			{/* ── Scoped Ultra-Luxury CSS ── */}
+			{/* ── CONSULTATION POPUP MODAL (Old Hero Form in Premium Popup) ── */}
+			{isModalOpen && (
+				<div
+					className="consultation-modal-overlay"
+					onClick={() => setIsModalOpen(false)}
+					role="dialog"
+					aria-modal="true"
+					aria-labelledby="modal-consultation-title"
+				>
+					<div 
+						className="consultation-modal-card"
+						onClick={(e) => e.stopPropagation()}
+					>
+						{/* Modal Header */}
+						<div className="consultation-modal-header">
+							<div>
+								<span className="modal-badge-tag">EXECUTIVE CONSULTATION</span>
+								<h3 id="modal-consultation-title" className="modal-title font-main-2">
+									Talk to Our Experts
+								</h3>
+								<p className="modal-subtitle">
+									Tell us what your business needs and our senior advisors will get in touch shortly.
+								</p>
+							</div>
+							<button
+								type="button"
+								className="modal-close-btn"
+								onClick={() => setIsModalOpen(false)}
+								aria-label="Close modal window"
+							>
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+									<line x1="18" y1="6" x2="6" y2="18"></line>
+									<line x1="6" y1="6" x2="18" y2="18"></line>
+								</svg>
+							</button>
+						</div>
+
+						{/* Modal Body */}
+						<div className="consultation-modal-body">
+							{status.submitted ? (
+								<div className="modal-success-box text-center py-4">
+									<div className="success-icon-wrap mx-auto mb-3">
+										<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16a34a" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+											<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+											<polyline points="22 4 12 14.01 9 11.01"></polyline>
+										</svg>
+									</div>
+									<h4 className="fw-7 text-navy mb-2 fs-18">Inquiry Submitted Successfully!</h4>
+									<p className="text-muted fs-14 mb-4">
+										Thank you. A senior Hedge Chartered Accountant will reach out to you shortly.
+									</p>
+									<button
+										type="button"
+										onClick={() => {
+											setIsModalOpen(false);
+											setStatus({ loading: false, submitted: false, error: null });
+										}}
+										className="btn-close-success"
+									>
+										Close Window
+									</button>
+								</div>
+							) : (
+								<form onSubmit={handleSubmit} className="modal-form">
+									{/* Honeypot field for spam prevention */}
+									<input
+										type="text"
+										name="websiteHp"
+										value={formData.websiteHp}
+										onChange={handleChange}
+										style={{ display: 'none' }}
+										tabIndex={-1}
+										autoComplete="off"
+									/>
+
+									{status.error && (
+										<div className="alert alert-danger py-2 px-3 fs-13 mb-3 rounded-3">
+											{status.error}
+										</div>
+									)}
+
+									<div className="row g-3">
+										<div className="col-12 col-md-6 text-start">
+											<label className="form-label-custom">Full Name <span className="text-danger">*</span></label>
+											<input
+												type="text"
+												name="fullName"
+												required
+												value={formData.fullName}
+												onChange={handleChange}
+												placeholder="Your Full Name"
+												className="form-control modal-input"
+											/>
+										</div>
+
+										<div className="col-12 col-md-6 text-start">
+											<label className="form-label-custom">Phone Number <span className="text-danger">*</span></label>
+											<PhoneInput
+												name="phone"
+												id="modal-phone"
+												required
+												value={formData.phone}
+												onChange={handleChange}
+												placeholder="Phone Number"
+												theme="light"
+											/>
+										</div>
+
+										<div className="col-12 col-md-6 text-start">
+											<label className="form-label-custom">Work Email <span className="text-danger">*</span></label>
+											<input
+												type="email"
+												name="email"
+												required
+												value={formData.email}
+												onChange={handleChange}
+												placeholder="name@company.com"
+												className="form-control modal-input"
+											/>
+										</div>
+
+										<div className="col-12 col-md-6 text-start">
+											<label className="form-label-custom">Service Required <span className="text-danger">*</span></label>
+											<select
+												name="service"
+												value={formData.service}
+												onChange={handleChange}
+												className="form-select modal-input"
+											>
+												<option value="Accounting & Bookkeeping">Accounting & Bookkeeping</option>
+												<option value="Audit & Assurance">Audit & Assurance (Pioneer Hedge)</option>
+												<option value="Corporate Tax">UAE Corporate Tax</option>
+												<option value="VAT UAE">VAT UAE</option>
+												<option value="VAT Bahrain">VAT Bahrain</option>
+												<option value="ICV Certification">ICV Certification</option>
+												<option value="E-Invoicing">UAE E-Invoicing</option>
+												<option value="Business Advisory">Business Advisory</option>
+											</select>
+										</div>
+
+										<div className="col-12 text-start">
+											<label className="form-label-custom">Brief Message / Requirement</label>
+											<textarea
+												name="message"
+												rows={3}
+												value={formData.message}
+												onChange={handleChange}
+												placeholder="Tell us about your business setup or financial requirement..."
+												className="form-control modal-input"
+											></textarea>
+										</div>
+
+										<div className="col-12 mt-3">
+											<button
+												type="submit"
+												disabled={status.loading}
+												className="modal-submit-btn w-100"
+											>
+												{status.loading ? 'Submitting Inquiry...' : 'Submit Consultation Request'}
+												{!status.loading && <i className="icon-chevron-right ms-2" />}
+											</button>
+										</div>
+
+										<div className="col-12 text-center mt-2">
+											<p className="privacy-note mb-0">
+												🔒 Your confidential business information is protected under strict NDA standards.
+											</p>
+										</div>
+									</div>
+								</form>
+							)}
+						</div>
+					</div>
+				</div>
+			)}
+
+			{/* ── Scoped Styling ── */}
 			<style jsx>{`
-				.hero-fullscreen-luxury {
+				.hero-section-wrapper {
 					position: relative;
-					overflow: hidden;
-					width: 100%;
-					min-height: 820px;
+					background-color: #071e3d;
+					padding-top: 60px;
+					padding-bottom: 30px;
+					min-height: 720px;
 					display: flex;
 					flex-direction: column;
 					justify-content: space-between;
-					background-color: #f8fafc;
-					color: #0f172a;
 				}
 
-				/* ── Full-Width Canvas & Slides ── */
-				.hero-carousel-canvas {
+				/* ── Slideshow Container (Full Vibrant Visual Presentation) ── */
+				.hero-slides-container {
 					position: absolute;
 					inset: 0;
+					z-index: 0;
 					overflow: hidden;
-					z-index: 1;
 				}
 
-				.carousel-slide-layer {
+				.hero-slide-item {
 					position: absolute;
 					inset: 0;
 					opacity: 0;
-					transform: scale(1.05);
-					transition: opacity 1.6s cubic-bezier(0.4, 0, 0.2, 1), transform 9s cubic-bezier(0.25, 1, 0.5, 1);
+					transform: scale(1.02);
+					transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1), transform 7s ease-out;
 					pointer-events: none;
 				}
 
-				.carousel-slide-layer.is-active {
+				.hero-slide-item.active {
 					opacity: 1;
-					transform: scale(1);
+					transform: scale(1.05);
+					pointer-events: auto;
 				}
 
-				:global(.carousel-bg-image) {
+				:global(.hero-slide-image) {
 					object-fit: cover !important;
 					object-position: center center !important;
+					filter: saturate(1.1) contrast(1.05);
 				}
 
-				/* Light Theme Vignette for High Readability */
-				.carousel-light-vignette {
+				/* ── Subtle Natural Scrim (NO Whitish Fog - Keeps Cityscape 100% Crisp) ── */
+				.hero-subtle-scrim {
 					position: absolute;
 					inset: 0;
-					background: radial-gradient(
-						circle at 50% 45%,
-						rgba(255, 255, 255, 0.88) 0%,
-						rgba(255, 255, 255, 0.93) 55%,
-						rgba(255, 255, 255, 0.97) 100%
+					background: linear-gradient(
+						180deg,
+						rgba(7, 26, 52, 0.42) 0%,
+						rgba(7, 26, 52, 0.16) 35%,
+						rgba(7, 26, 52, 0.35) 70%,
+						rgba(7, 30, 61, 0.85) 100%
 					);
-					z-index: 2;
-				}
-
-				.carousel-ambient-glow-center {
-					position: absolute;
-					top: 30%;
-					left: 50%;
-					transform: translate(-50%, -50%);
-					width: 900px;
-					height: 600px;
-					background: radial-gradient(circle, rgba(197, 155, 39, 0.12) 0%, rgba(3, 33, 78, 0.05) 50%, transparent 75%);
+					z-index: 1;
 					pointer-events: none;
+				}
+
+				.hero-content-container {
 					z-index: 2;
+					max-width: 1200px;
 				}
 
-				/* ── Center Content Stage ── */
-				.hero-content-stage {
-					position: relative;
-					z-index: 3;
-					padding-top: 50px;
-					padding-bottom: 25px;
-					display: flex;
-					align-items: center;
-					justify-content: center;
-					flex-grow: 1;
-				}
-
-				.hero-center-container {
-					max-width: 1180px;
-					margin: 0 auto;
-					text-align: center;
-				}
-
-				/* ── Floating Editorial Glass Card ── */
-				.hero-editorial-glass-card {
-					position: relative;
-					margin: 0 auto;
-					padding: 44px 38px 36px;
-					background: rgba(255, 255, 255, 0.92);
-					backdrop-filter: blur(24px);
-					-webkit-backdrop-filter: blur(24px);
-					border: 1px solid rgba(255, 255, 255, 0.95);
-					border-radius: 28px;
-					box-shadow: 0 30px 80px -20px rgba(10, 37, 64, 0.12), 0 0 0 1px rgba(197, 155, 39, 0.18);
-					text-align: center;
-					max-width: 1040px;
-				}
-
-				.card-specular-accent {
-					position: absolute;
-					top: 0;
-					left: 15%;
-					right: 15%;
-					height: 3px;
-					background: linear-gradient(90deg, transparent, #c59b27, #f59e0b, #c59b27, transparent);
-					border-radius: 0 0 4px 4px;
-				}
-
-				/* Eyebrow Pill */
-				.hero-eyebrow-pill {
+				/* ── 1. Authority Eyebrow Pill ── */
+				.hero-authority-pill {
 					display: inline-flex;
 					align-items: center;
 					gap: 9px;
-					padding: 7px 20px;
-					background: rgba(255, 255, 255, 0.95);
-					border: 1px solid rgba(197, 155, 39, 0.35);
-					border-radius: 999px;
-					box-shadow: 0 4px 15px rgba(10, 37, 64, 0.04);
-					margin-bottom: 22px;
+					padding: 8px 20px;
+					background: rgba(255, 255, 255, 0.16);
+					backdrop-filter: blur(14px);
+					-webkit-backdrop-filter: blur(14px);
+					border: 1px solid rgba(255, 255, 255, 0.32);
+					border-radius: 9999px;
+					box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
+					transition: all 0.25s ease;
 				}
 
-				.live-emerald-beacon {
+				.hero-authority-pill:hover {
+					border-color: rgba(255, 255, 255, 0.6);
+					background: rgba(255, 255, 255, 0.22);
+					transform: translateY(-1px);
+				}
+
+				.live-pulse-container {
 					position: relative;
-					width: 10px;
-					height: 10px;
-					display: inline-flex;
+					display: flex;
 					align-items: center;
 					justify-content: center;
+					width: 10px;
+					height: 10px;
 				}
 
-				.beacon-core {
+				.pulse-dot {
 					width: 8px;
 					height: 8px;
-					background-color: #10b981;
+					background-color: #22c55e;
 					border-radius: 50%;
-					z-index: 2;
+					box-shadow: 0 0 10px #22c55e;
 				}
 
-				.beacon-ring {
+				.pulse-ring {
 					position: absolute;
 					width: 16px;
 					height: 16px;
-					background-color: rgba(16, 185, 129, 0.45);
+					background-color: rgba(34, 197, 94, 0.45);
 					border-radius: 50%;
-					animation: ringRipple 2s infinite ease-out;
+					animation: ringPulse 2s infinite ease-out;
 				}
 
-				@keyframes ringRipple {
+				@keyframes ringPulse {
 					0% { transform: scale(0.6); opacity: 1; }
 					100% { transform: scale(1.6); opacity: 0; }
 				}
 
-				.eyebrow-text {
+				.pill-text {
+					color: #ffffff;
 					font-size: 11.5px;
-					font-weight: 800;
-					letter-spacing: 0.9px;
-					color: #03214e;
+					font-weight: 700;
+					letter-spacing: 0.08em;
 					text-transform: uppercase;
+					text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 				}
 
-				/* Headline */
+				/* ── 2. Headline (H1 - Solid Pure White) ── */
 				.hero-headline {
-					font-size: clamp(32px, 4.2vw, 54px);
+					color: #ffffff !important;
+					font-size: clamp(34px, 4.4vw, 56px);
 					font-weight: 800;
-					line-height: 1.18;
-					letter-spacing: -0.7px;
-					color: #0f172a;
-					margin-bottom: 18px;
-					max-width: 900px;
-					margin-left: auto;
-					margin-right: auto;
+					line-height: 1.16;
+					letter-spacing: -0.025em;
+					margin-bottom: 20px;
+					text-shadow: 0 2px 20px rgba(0, 0, 0, 0.65), 0 1px 4px rgba(0, 0, 0, 0.85);
 				}
 
-				.headline-gold-gradient {
-					background: linear-gradient(135deg, #03214e 0%, #b8860b 55%, #996515 100%);
-					-webkit-background-clip: text;
-					-webkit-text-fill-color: transparent;
-					display: inline;
-				}
-
-				/* Description */
+				/* ── 3. Supporting Description ── */
 				.hero-description {
-					font-size: 17px;
-					line-height: 1.7;
-					color: #334155;
-					max-width: 740px;
-					margin: 0 auto 30px;
-				}
-
-				/* CTA Button Group */
-				.hero-cta-action-group {
-					display: flex;
-					align-items: center;
-					justify-content: center;
-					flex-wrap: wrap;
-					gap: 16px;
-					margin-bottom: 24px;
-				}
-
-				.hero-btn-primary-luxury {
-					display: inline-flex;
-					align-items: center;
-					gap: 12px;
-					padding: 16px 34px;
-					background: linear-gradient(135deg, #03214e 0%, #0a2540 100%);
-					color: #ffffff;
-					font-size: 15.5px;
-					font-weight: 700;
-					border-radius: 12px;
-					border: 1px solid rgba(197, 155, 39, 0.45);
-					box-shadow: 0 12px 28px -6px rgba(3, 33, 78, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.2) inset;
-					transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-					cursor: pointer;
-				}
-
-				.hero-btn-primary-luxury:hover {
-					transform: translateY(-2px);
-					background: linear-gradient(135deg, #b8860b 0%, #03214e 100%);
-					box-shadow: 0 18px 36px -6px rgba(184, 134, 11, 0.4);
-					color: #ffffff;
-				}
-
-				.btn-icon-wrapper {
-					display: inline-flex;
-					align-items: center;
-					justify-content: center;
-					width: 28px;
-					height: 28px;
-					border-radius: 50%;
-					background: rgba(255, 255, 255, 0.16);
-					color: #ffffff;
-					transition: transform 0.3s ease;
-				}
-
-				.hero-btn-primary-luxury:hover .btn-icon-wrapper {
-					transform: translateX(4px);
-					background: rgba(255, 255, 255, 0.28);
-				}
-
-				.hero-btn-secondary-luxury {
-					display: inline-flex;
-					align-items: center;
-					padding: 16px 30px;
-					background: #ffffff;
-					color: #03214e;
-					font-size: 15.5px;
-					font-weight: 700;
-					border-radius: 12px;
-					border: 1px solid #cbd5e1;
-					box-shadow: 0 4px 15px rgba(15, 23, 42, 0.04);
-					transition: all 0.3s ease;
-				}
-
-				.hero-btn-secondary-luxury:hover {
-					background: #f8fafc;
-					border-color: #94a3b8;
-					color: #b8860b;
-					transform: translateY(-2px);
-				}
-
-				/* Reassurance Row */
-				.hero-reassurance-row {
-					display: flex;
-					align-items: center;
-					justify-content: center;
-					flex-wrap: wrap;
-					gap: 12px;
-					font-size: 13px;
-					color: #64748b;
-					margin-bottom: 22px;
-				}
-
-				.reassurance-item {
-					display: inline-flex;
-					align-items: center;
-					gap: 6px;
-				}
-
-				.text-muted-dark {
-					color: #475569;
+					color: #f1f5f9;
+					font-size: clamp(16px, 1.35vw, 19px);
 					font-weight: 500;
+					line-height: 1.68;
+					max-width: 760px;
+					margin-bottom: 32px;
+					text-shadow: 0 1px 12px rgba(0, 0, 0, 0.65);
 				}
 
-				.phone-link {
-					color: #03214e;
-					font-weight: 700;
-					text-decoration: underline;
-					text-decoration-color: rgba(197, 155, 39, 0.4);
-					transition: color 0.2s;
+				/* ── 4. CTA Buttons ── */
+				.hero-btn-primary,
+				:global(a.hero-btn-primary),
+				:global(button.hero-btn-primary) {
+					background: linear-gradient(135deg, #c8102e 0%, #9e0c24 100%) !important;
+					color: #ffffff !important;
+					padding: 14px 30px !important;
+					font-size: 15.5px !important;
+					font-weight: 700 !important;
+					border-radius: 12px !important;
+					border: 1px solid rgba(255, 255, 255, 0.25) !important;
+					box-shadow: 0 10px 25px -4px rgba(200, 16, 46, 0.45) !important;
+					cursor: pointer !important;
+					display: inline-flex !important;
+					align-items: center !important;
+					text-decoration: none !important;
+					transition: all 0.25s ease !important;
+					outline: none !important;
 				}
 
-				.phone-link:hover {
-					color: #b8860b;
+				.hero-btn-primary:hover,
+				:global(a.hero-btn-primary:hover),
+				:global(button.hero-btn-primary:hover) {
+					transform: translateY(-2px) !important;
+					box-shadow: 0 14px 30px -4px rgba(200, 16, 46, 0.6) !important;
+					background: linear-gradient(135deg, #db1436 0%, #b3102c 100%) !important;
+					color: #ffffff !important;
 				}
 
-				.reassurance-separator {
-					color: #cbd5e1;
+				.hero-btn-secondary,
+				:global(a.hero-btn-secondary) {
+					background: rgba(255, 255, 255, 0.16) !important;
+					color: #ffffff !important;
+					backdrop-filter: blur(14px) !important;
+					-webkit-backdrop-filter: blur(14px) !important;
+					border: 1px solid rgba(255, 255, 255, 0.35) !important;
+					padding: 14px 28px !important;
+					font-size: 15.5px !important;
+					font-weight: 600 !important;
+					border-radius: 12px !important;
+					box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+					display: inline-flex !important;
+					align-items: center !important;
+					text-decoration: none !important;
+					transition: all 0.25s ease !important;
 				}
 
-				.text-gold {
-					color: #c59b27;
+				.hero-btn-secondary:hover,
+				:global(a.hero-btn-secondary:hover) {
+					background: rgba(255, 255, 255, 0.28) !important;
+					border-color: #ffffff !important;
+					color: #ffffff !important;
+					transform: translateY(-2px) !important;
+					box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3) !important;
 				}
 
-				.gold-sparkle {
-					color: #f59e0b;
+				/* ── 5. Google Rating & Trust Credentials Strip ── */
+				.hero-trust-wrapper {
+					background: rgba(255, 255, 255, 0.14);
+					backdrop-filter: blur(16px);
+					-webkit-backdrop-filter: blur(16px);
+					border: 1px solid rgba(255, 255, 255, 0.26);
+					border-radius: 16px;
+					padding: 12px 24px;
+					box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
 				}
 
-				/* Trust Credentials Matrix */
-				.hero-trust-credentials {
-					display: flex;
-					align-items: center;
-					justify-content: center;
-					flex-wrap: wrap;
-					gap: 16px;
-					padding-top: 18px;
-					border-top: 1px solid #f1f5f9;
-				}
-
-				.trust-pill-item {
-					display: inline-flex;
-					align-items: center;
-					gap: 8px;
-					font-size: 12.5px;
+				.trust-badge-item {
+					color: #ffffff;
 				}
 
 				.stars-gold {
-					color: #f59e0b;
-					letter-spacing: 2px;
+					color: #fbbc05;
 					font-size: 13px;
+					letter-spacing: 1px;
 				}
 
-				.trust-bold {
-					font-weight: 700;
-					color: #0f172a;
-				}
-
-				.trust-label {
-					color: #64748b;
-				}
-
-				.check-emerald {
-					display: inline-flex;
-					align-items: center;
-					justify-content: center;
-					width: 17px;
-					height: 17px;
-					background: rgba(16, 185, 129, 0.15);
-					color: #059669;
-					font-size: 11px;
+				.rating-score {
 					font-weight: 800;
-					border-radius: 50%;
-				}
-
-				.trust-pill-divider {
-					width: 1px;
-					height: 24px;
-					background: #e2e8f0;
-				}
-
-				/* ── Centered Carousel Navigation Controls ── */
-				.hero-carousel-controls-centered {
-					display: flex;
-					align-items: center;
-					justify-content: center;
-					gap: 16px;
-					margin-top: 26px;
-				}
-
-				.carousel-arrow-btn {
-					width: 40px;
-					height: 40px;
-					border-radius: 12px;
-					background: rgba(255, 255, 255, 0.9);
-					border: 1px solid #e2e8f0;
-					color: #03214e;
-					display: inline-flex;
-					align-items: center;
-					justify-content: center;
-					cursor: pointer;
-					box-shadow: 0 4px 12px rgba(10, 37, 64, 0.05);
-					transition: all 0.25s ease;
-				}
-
-				.carousel-arrow-btn:hover {
-					background: #03214e;
+					font-size: 15px;
 					color: #ffffff;
-					border-color: #03214e;
-					transform: translateY(-2px);
-					box-shadow: 0 8px 18px rgba(3, 33, 78, 0.2);
 				}
 
-				.carousel-nav-tabs {
-					display: flex;
+				.rating-label {
+					font-size: 11px;
+					font-weight: 600;
+					color: rgba(255, 255, 255, 0.85);
+					display: block;
+				}
+
+				.trust-sep {
+					width: 1px;
+					height: 32px;
+					background: rgba(255, 255, 255, 0.22);
+				}
+
+				.trust-icon-circle {
+					width: 22px;
+					height: 22px;
+					border-radius: 50%;
+					display: inline-flex;
 					align-items: center;
-					gap: 10px;
-					flex-wrap: wrap;
 					justify-content: center;
-				}
-
-				.carousel-nav-tab {
-					display: flex;
-					flex-direction: column;
-					align-items: flex-start;
-					gap: 4px;
-					padding: 8px 16px;
-					background: rgba(255, 255, 255, 0.85);
-					border: 1px solid #e2e8f0;
-					border-radius: 12px;
-					cursor: pointer;
-					transition: all 0.25s ease;
-					text-align: left;
-					min-width: 160px;
-				}
-
-				.carousel-nav-tab:hover {
-					background: #ffffff;
-					border-color: #cbd5e1;
-				}
-
-				.carousel-nav-tab.active {
-					background: #ffffff;
-					border-color: #c59b27;
-					box-shadow: 0 6px 20px rgba(197, 155, 39, 0.16);
-				}
-
-				.tab-number {
 					font-size: 11px;
 					font-weight: 800;
-					color: #94a3b8;
+					flex-shrink: 0;
 				}
 
-				.carousel-nav-tab.active .tab-number {
-					color: #c59b27;
-				}
+				.bg-emerald-soft { background: rgba(34, 197, 94, 0.25); }
+				.text-emerald { color: #4ade80; }
+				.bg-blue-soft { background: rgba(56, 189, 248, 0.25); }
+				.text-blue { color: #38bdf8; }
 
-				.tab-title {
+				.trust-title-text {
 					font-size: 12px;
-					font-weight: 600;
-					color: #475569;
-					line-height: 1.2;
-				}
-
-				.carousel-nav-tab.active .tab-title {
-					color: #0f172a;
 					font-weight: 700;
+					color: #ffffff;
+					display: block;
+					line-height: 1.25;
 				}
 
-				.tab-progress-track {
-					width: 100%;
-					height: 2px;
-					background: #f1f5f9;
-					border-radius: 2px;
-					overflow: hidden;
-					margin-top: 2px;
+				.trust-sub-text {
+					font-size: 10.5px;
+					font-weight: 500;
+					color: rgba(255, 255, 255, 0.75);
+					display: block;
 				}
 
-				.tab-progress-bar {
-					width: 0%;
-					height: 100%;
-					background: #c59b27;
-				}
-
-				.tab-progress-bar.filling {
-					animation: fillProgress 6.5s linear forwards;
-				}
-
-				@keyframes fillProgress {
-					0% { width: 0%; }
-					100% { width: 100%; }
-				}
-
-				/* ── Executive Metrics Ticker Centered ── */
-				.hero-metrics-strip-centered {
-					margin-top: 24px;
-					padding: 20px 24px;
-					background: rgba(255, 255, 255, 0.9);
-					backdrop-filter: blur(14px);
-					border: 1px solid #e2e8f0;
+				/* ── 6. Executive Metrics Counter Bar ── */
+				.hero-metrics-strip {
+					background: rgba(255, 255, 255, 0.14);
+					backdrop-filter: blur(16px);
+					-webkit-backdrop-filter: blur(16px);
+					border: 1px solid rgba(255, 255, 255, 0.26);
 					border-radius: 18px;
-					box-shadow: 0 8px 30px rgba(10, 37, 64, 0.04);
+					padding: 20px 24px;
+					box-shadow: 0 12px 36px rgba(0, 0, 0, 0.28);
+					max-width: 960px;
 				}
 
-				.metric-box-centered {
-					padding: 4px;
+				.metric-box {
+					padding: 6px 12px;
 				}
 
-				.metric-number {
-					font-size: 28px;
+				.metric-num {
+					display: block;
+					font-size: clamp(24px, 2.5vw, 32px);
 					font-weight: 800;
-					color: #03214e;
+					color: #ffffff;
 					line-height: 1;
-					margin-bottom: 4px;
+					letter-spacing: -0.02em;
 				}
 
-				.plus {
-					color: #c59b27;
-					font-weight: 700;
+				.metric-plus {
+					color: #ffd166;
 					margin-left: 2px;
 				}
 
-				.metric-headline {
+				.metric-label {
+					font-size: 11.5px;
+					font-weight: 700;
+					color: rgba(255, 255, 255, 0.85);
+					text-transform: uppercase;
+					letter-spacing: 0.05em;
+					margin-top: 6px;
+					display: block;
+				}
+
+				/* ── 7. Marquee Ribbon (Original Brand Navy & Gold Palette) ── */
+				.hero-marquee-ribbon {
+					margin-top: 36px;
+					padding: 12px 0;
+					background: linear-gradient(90deg, #071e3d 0%, #0d3b6f 50%, #071e3d 100%);
+					border-top: 1px solid rgba(255, 255, 255, 0.16);
+					border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+					overflow: hidden;
+					width: 100%;
+					position: relative;
+					z-index: 2;
+				}
+
+				.hero-marquee-ribbon :global(.wrap-marquee) {
+					display: flex !important;
+					flex-direction: row !important;
+					white-space: nowrap !important;
+					width: max-content !important;
+				}
+
+				.hero-marquee-ribbon :global(.marquee-item) {
+					flex-shrink: 0 !important;
+					white-space: nowrap !important;
+					display: inline-flex !important;
+					align-items: center !important;
+				}
+
+				.hero-marquee-ribbon :global(p) {
+					white-space: nowrap !important;
+					margin-bottom: 0 !important;
+				}
+
+				.gold-star {
+					color: #ffd166;
+					font-size: 14px;
+				}
+
+				.bullet-sep {
+					color: rgba(255, 255, 255, 0.4);
+					margin: 0 6px;
+				}
+
+				.text-gold-light {
+					color: #ffd166 !important;
+				}
+
+				/* ── Executive Consultation Modal Popup ── */
+				.consultation-modal-overlay {
+					position: fixed;
+					top: 0;
+					left: 0;
+					right: 0;
+					bottom: 0;
+					background: rgba(3, 21, 46, 0.78);
+					backdrop-filter: blur(8px);
+					-webkit-backdrop-filter: blur(8px);
+					z-index: 999999;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					padding: 20px;
+					animation: modalFadeIn 0.25s ease-out;
+				}
+
+				@keyframes modalFadeIn {
+					from { opacity: 0; }
+					to { opacity: 1; }
+				}
+
+				.consultation-modal-card {
+					background: #ffffff;
+					border-radius: 20px;
+					max-width: 640px;
+					width: 100%;
+					max-height: 92vh;
+					overflow-y: auto;
+					box-shadow: 0 25px 60px -10px rgba(7, 30, 61, 0.4), 0 0 0 1px rgba(0, 0, 0, 0.06);
+					position: relative;
+					animation: modalPopUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+				}
+
+				@keyframes modalPopUp {
+					from { opacity: 0; transform: scale(0.94) translateY(12px); }
+					to { opacity: 1; transform: scale(1) translateY(0); }
+				}
+
+				.consultation-modal-header {
+					padding: 26px 30px 18px;
+					border-bottom: 1px solid #f1f5f9;
+					display: flex;
+					align-items: flex-start;
+					justify-content: space-between;
+					gap: 16px;
+					background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+					border-top-left-radius: 20px;
+					border-top-right-radius: 20px;
+					text-align: left;
+				}
+
+				.modal-badge-tag {
+					display: inline-block;
+					font-size: 11px;
+					font-weight: 800;
+					letter-spacing: 0.08em;
+					color: #c8102e;
+					background: rgba(200, 16, 46, 0.08);
+					padding: 4px 10px;
+					border-radius: 6px;
+					margin-bottom: 6px;
+				}
+
+				.modal-title {
+					font-size: 24px;
+					font-weight: 800;
+					color: #071e3d;
+					line-height: 1.2;
+					margin: 0 0 6px 0;
+				}
+
+				.modal-subtitle {
+					font-size: 13.5px;
+					color: #64748b;
+					margin: 0;
+					line-height: 1.5;
+				}
+
+				.modal-close-btn {
+					width: 36px;
+					height: 36px;
+					border-radius: 50%;
+					border: 1px solid #e2e8f0;
+					background: #ffffff;
+					color: #64748b;
+					display: inline-flex;
+					align-items: center;
+					justify-content: center;
+					cursor: pointer;
+					flex-shrink: 0;
+					transition: all 0.2s ease;
+				}
+
+				.modal-close-btn:hover {
+					background: #f1f5f9;
+					color: #071e3d;
+					transform: rotate(90deg);
+				}
+
+				.consultation-modal-body {
+					padding: 24px 30px 28px;
+				}
+
+				.form-label-custom {
+					display: block;
 					font-size: 13px;
 					font-weight: 700;
 					color: #0f172a;
-					margin-bottom: 2px;
+					margin-bottom: 6px;
 				}
 
-				.metric-subline {
-					font-size: 11.5px;
+				.modal-input {
+					background: #f8fafc !important;
+					border: 1px solid #e2e8f0 !important;
+					border-radius: 10px !important;
+					padding: 11px 14px !important;
+					font-size: 14px !important;
+					color: #0f172a !important;
+					transition: all 0.2s ease !important;
+				}
+
+				.modal-input:focus {
+					background: #ffffff !important;
+					border-color: #071e3d !important;
+					box-shadow: 0 0 0 3px rgba(7, 30, 61, 0.1) !important;
+					outline: none !important;
+				}
+
+				.modal-submit-btn {
+					background: linear-gradient(135deg, #c8102e 0%, #a00d24 100%) !important;
+					color: #ffffff !important;
+					border: none !important;
+					border-radius: 12px !important;
+					padding: 14px 24px !important;
+					font-size: 15.5px !important;
+					font-weight: 700 !important;
+					cursor: pointer !important;
+					transition: all 0.25s ease !important;
+					box-shadow: 0 8px 20px -2px rgba(200, 16, 46, 0.4) !important;
+					display: inline-flex !important;
+					align-items: center !important;
+					justify-content: center !important;
+				}
+
+				.modal-submit-btn:hover:not(:disabled) {
+					transform: translateY(-1px) !important;
+					box-shadow: 0 12px 26px -2px rgba(200, 16, 46, 0.55) !important;
+					background: linear-gradient(135deg, #db1436 0%, #b3102c 100%) !important;
+				}
+
+				.modal-submit-btn:disabled {
+					opacity: 0.7 !important;
+					cursor: not-allowed !important;
+				}
+
+				.privacy-note {
+					font-size: 12px;
 					color: #64748b;
 				}
 
-				/* ── Bottom Marquee Ribbon ── */
-				.hero-bottom-marquee-ribbon {
-					position: relative;
-					z-index: 3;
-					margin-top: 20px;
-					padding: 12px 0;
-					background: #ffffff;
-					border-top: 1px solid #f1f5f9;
-					border-bottom: 1px solid #e2e8f0;
-					overflow: hidden;
-					white-space: nowrap;
-				}
-
-				.marquee-rail {
-					display: inline-flex;
-					animation: luxuryMarqueeScroll 38s linear infinite;
-				}
-
-				.marquee-rail:hover {
-					animation-play-state: paused;
-				}
-
-				@keyframes luxuryMarqueeScroll {
-					0% { transform: translateX(0); }
-					100% { transform: translateX(-50%); }
-				}
-
-				.marquee-block {
-					display: inline-flex;
+				.success-icon-wrap {
+					width: 64px;
+					height: 64px;
+					background: rgba(34, 197, 94, 0.12);
+					border-radius: 50%;
+					display: flex;
 					align-items: center;
-					gap: 14px;
-					padding: 0 25px;
-					font-size: 12px;
-					font-weight: 700;
-					letter-spacing: 0.6px;
-					color: #475569;
+					justify-content: center;
 				}
 
-				.gold-sparkle-icon {
-					color: #c59b27;
-					font-size: 12px;
+				.text-navy {
+					color: #071e3d !important;
 				}
 
-				.brand-name {
-					color: #03214e;
-					font-weight: 800;
+				.btn-close-success {
+					background: #071e3d;
+					color: #ffffff;
+					border: none;
+					border-radius: 10px;
+					padding: 11px 24px;
+					font-size: 14px;
+					font-weight: 600;
+					cursor: pointer;
+					transition: all 0.2s ease;
 				}
 
-				.gold-term {
-					color: #b8860b;
+				.btn-close-success:hover {
+					background: #0d3b6f;
 				}
 
-				.dot-divider {
-					color: #cbd5e1;
+				/* ── Reduced Motion Accessibility ── */
+				@media (prefers-reduced-motion: reduce) {
+					.hero-slide-item,
+					.pulse-ring,
+					.hero-btn-primary,
+					.hero-btn-secondary {
+						transition: none !important;
+						animation: none !important;
+						transform: none !important;
+					}
 				}
 
-				/* Smooth Animations */
-				.animate-fade-up {
-					animation: fadeSlideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
-				}
-
-				.animate-fade-down {
-					animation: fadeSlideDown 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
-				}
-
-				.delay-1 { animation-delay: 0.1s; }
-				.delay-2 { animation-delay: 0.2s; }
-				.delay-3 { animation-delay: 0.3s; }
-
-				@keyframes fadeSlideUp {
-					0% { opacity: 0; transform: translateY(14px); }
-					100% { opacity: 1; transform: translateY(0); }
-				}
-
-				@keyframes fadeSlideDown {
-					0% { opacity: 0; transform: translateY(-10px); }
-					100% { opacity: 1; transform: translateY(0); }
-				}
-
-				/* Responsive Breakpoints */
+				/* ── Mobile & Tablet Responsiveness ── */
 				@media (max-width: 991px) {
-					.hero-editorial-glass-card {
-						padding: 34px 22px 28px;
-						border-radius: 20px;
+					.hero-section-wrapper {
+						padding-top: 100px;
+						padding-bottom: 20px;
+						min-height: auto;
 					}
+
 					.hero-headline {
-						font-size: 32px;
+						font-size: clamp(26px, 6.8vw, 38px);
+						line-height: 1.2;
+						margin-bottom: 14px;
 					}
+
 					.hero-description {
-						font-size: 15px;
+						font-size: 14.5px;
+						line-height: 1.6;
+						margin-bottom: 22px;
 					}
-					.carousel-nav-tab {
-						min-width: 140px;
-						padding: 6px 12px;
-					}
-					.trust-pill-divider {
-						display: none;
-					}
-					.hero-trust-credentials {
+
+					.hero-actions-group {
 						flex-direction: column;
+						width: 100%;
 						gap: 10px;
 					}
+
+					.hero-btn-primary,
+					:global(a.hero-btn-primary),
+					:global(button.hero-btn-primary),
+					.hero-btn-secondary,
+					:global(a.hero-btn-secondary) {
+						width: 100% !important;
+						justify-content: center !important;
+						padding: 13px 18px !important;
+					}
+
+					.hero-trust-wrapper {
+						flex-direction: column;
+						padding: 14px 16px;
+						gap: 10px;
+						width: 100%;
+					}
+
+					.trust-sep {
+						display: none !important;
+					}
+
+					.hero-metrics-strip {
+						padding: 16px 12px;
+						margin-top: 24px;
+					}
+
+					.metric-num {
+						font-size: 22px;
+					}
+
+					.metric-label {
+						font-size: 10px;
+					}
+
+					.hero-marquee-ribbon {
+						margin-top: 24px;
+						padding: 9px 0;
+					}
 				}
 
-				@media (max-width: 575px) {
-					.hero-btn-primary-luxury,
-					.hero-btn-secondary-luxury {
-						width: 100%;
-						justify-content: center;
+				@media (max-width: 576px) {
+					.consultation-modal-header {
+						padding: 20px 20px 16px;
 					}
-					.carousel-nav-tabs {
-						display: none;
+					.modal-title {
+						font-size: 20px;
+					}
+					.consultation-modal-body {
+						padding: 18px 20px 24px;
 					}
 				}
 			`}</style>
