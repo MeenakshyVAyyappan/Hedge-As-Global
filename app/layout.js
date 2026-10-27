@@ -90,7 +90,7 @@ const jsonLd = {
 	'priceRange': '$$$',
 	'address': {
 		'@type': 'PostalAddress',
-		'streetAddress': 'P-2337, Building No:30, Al Qurashi Buildings, Corniche',
+		'streetAddress': 'P-2337, Building No:30, Sultan Qubasi Tower, Corniche',
 		'addressLocality': 'Abu Dhabi',
 		'addressRegion': 'Abu Dhabi',
 		'addressCountry': 'AE'

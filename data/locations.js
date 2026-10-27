@@ -4,16 +4,18 @@ export const locationsData = [
 		city: "Abu Dhabi",
 		title: "Abu Dhabi - Head Office",
 		isHeadOffice: true,
-		address: "P-2337, Building No:30, Al Qurashi Buildings, Corniche, Abu Dhabi, UAE",
+		address: "P-2337, Building No:30, Sultan Qubasi Tower, Corniche, Abu Dhabi, UAE",
 		addressLines: [
 			"P-2337, Building No:30",
-			"Al Qurashi Buildings",
+			"Sultan Qubasi Tower",
 			"Corniche, Abu Dhabi, UAE"
 		],
-		phone: "+971 2 57 55580",
-		mobile: "+971 52 443 3904",
-		phones: ["+971 2 57 55580", "+971 52 443 3904", "+971 50 225 3373"],
+		phone: "+971 2 575 5580",
+		mobile: "+971 50 225 3373",
+		whatsapp: "+971 55 539 0406",
+		phones: ["+971 2 575 5580", "+971 50 225 3373", "+971 55 539 0406"],
 		email: "info@hedgeasglobal.com",
+		emails: ["hedgeuae@gmail.com", "info@hedgeasglobal.com"],
 		workingHours: "Mon - Sat: 09:00 AM - 06:00 PM (Sunday: Closed)",
 		badge: "Headquarters"
 	},

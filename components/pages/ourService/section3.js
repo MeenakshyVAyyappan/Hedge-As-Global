@@ -43,7 +43,7 @@ export default function Section3() {
 			title: "In-Country Value (ICV) Certificate UAE",
 			slug: "/services/icv-certification",
 			desc: "Official ICV score optimization, financial supplier template preparation, and audit certification for UAE government tenders.",
-			image: "/images/section/icv.png"
+			image: "/images/section/icv-card-banner.jpg"
 		}
 	];
 
@@ -69,11 +69,16 @@ export default function Section3() {
 						<div className="grid-layout-3">
 							{services.map((service, index) => (
 								<div key={index} className="card-service-2 tf-hover" style={{ borderRadius: "12px", overflow: "hidden", boxShadow: "0 10px 30px rgba(0,0,0,0.06)", border: "1px solid #eef2f6", display: "flex", flexDirection: "column", height: "100%" }}>
-									<div className="image hover-1 hover-14" style={{ height: "210px", width: "100%", overflow: "hidden", position: "relative" }}>
+									<div className="image hover-1 hover-14" style={{ height: "210px", width: "100%", overflow: "hidden", position: "relative", backgroundColor: '#f8fafc' }}>
 										<Image
 											width={400}
 											height={250}
-											style={{ width: "100%", height: "100%", objectFit: "cover" }}
+											style={{ 
+												width: "100%", 
+												height: "100%", 
+												objectFit: "cover",
+												padding: "0"
+											}}
 											src={service.image}
 											alt={service.title}
 											className="lazyload" 

@@ -237,7 +237,7 @@ export default function Hero1() {
 									✓
 								</span>
 								<div className="text-start">
-									<span className="trust-title-text">IFRS Global Audit Standards</span>
+									<span className="trust-title-text">IFRS Financial Reporting Standards</span>
 									<span className="trust-sub-text">Senior Chartered Accountants</span>
 								</div>
 							</div>

@@ -29,7 +29,7 @@ export default function Section5() {
 										Pioneer Hedge Auditing & Tax Consulting
 									</h2>
 									<p className="text-white-80 fs-15 leading-relaxed mb-4">
-										Pioneer Hedge operates as the registered auditing and tax consulting division of Hedge Chartered Accountants Group. Licensed by the Federal Tax Authority (FTA), Pioneer Hedge performs statutory audits, internal financial reviews, and official representation before UAE tax authorities.
+										Pioneer Hedge operates as the registered auditing and tax consulting division of Hedge Chartered Accountants Group. Registered as a Tax Agent with the Federal Tax Authority (FTA), Pioneer Hedge provides statutory audits, internal financial reviews, and official representation before UAE tax authorities.
 									</p>
 									<Link href="/services/audit-assurance" className="tf-btn style-10">
 										Explore Audit & Tax Services

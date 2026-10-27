@@ -60,7 +60,7 @@ export default function Section5() {
 										<li className="wow fadeInUp" data-wow-delay="0s">
 											<p className="cap">Address Business</p>
 											<p className="infor">
-												P-2337, Building No:30, Al Qurashi Buildings, Corniche, Abu Dhabi, UAE
+												P-2337, Building No:30, Sultan Qubasi Tower, Corniche, Abu Dhabi, UAE
 											</p>
 										</li>
 										<li className="wow fadeInUp" data-wow-delay="0.1s">

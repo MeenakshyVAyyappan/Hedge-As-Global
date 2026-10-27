@@ -44,10 +44,9 @@ export default function Section4() {
 													Discovery &amp; Assessment
 												</p>
 												<p className="text mb-25 tf-fade-item fade-1">
-													This initial phase involves understanding the client’s
-													needs,
+													We evaluate your current financial records, tax position, and accounting
 													<br />
-													challenges, and goals. Consultants conduct in-depth.
+													systems to pinpoint compliance gaps, operational risks, and growth opportunities.
 												</p>
 												<ul className="benefit-list">
 													<li className="tf-fade-item fade-2">
@@ -55,7 +54,7 @@ export default function Section4() {
 															<i className="flaticon-check-mark" />
 														</div>
 														<p>
-															Stakeholder Interviews &amp; Data Gathering
+															Financial Health &amp; Tax Exposure Review
 														</p>
 													</li>
 													<li className="tf-fade-item fade-3">
@@ -63,7 +62,7 @@ export default function Section4() {
 															<i className="flaticon-check-mark" />
 														</div>
 														<p>
-															Comprehensive Business Analysis
+															Operational Workflow &amp; Gap Analysis
 														</p>
 													</li>
 												</ul>
@@ -97,10 +96,9 @@ export default function Section4() {
 													Strategy Development
 												</p>
 												<p className="text mb-25 tf-fade-item fade-1">
-													This initial phase involves understanding the client’s
-													needs,
+													Our chartered accountants develop tailored financial models, tax plans,
 													<br />
-													challenges, and goals. Consultants conduct in-depth.
+													and internal controls aligned with UAE FTA, Bahrain NBR, and IFRS standards.
 												</p>
 												<ul className="benefit-list">
 													<li className="tf-fade-item fade-2">
@@ -108,7 +106,7 @@ export default function Section4() {
 															<i className="flaticon-check-mark" />
 														</div>
 														<p>
-															Stakeholder Interviews &amp; Data Gathering
+															Tailored Tax &amp; Accounting Frameworks
 														</p>
 													</li>
 													<li className="tf-fade-item fade-3">
@@ -116,7 +114,7 @@ export default function Section4() {
 															<i className="flaticon-check-mark" />
 														</div>
 														<p>
-															Comprehensive Business Analysis
+															Risk Mitigation &amp; Compliance Roadmaps
 														</p>
 													</li>
 												</ul>
@@ -150,10 +148,9 @@ export default function Section4() {
 													Implementation &amp; Execution
 												</p>
 												<p className="text mb-25 tf-fade-item fade-1">
-													This initial phase involves understanding the client’s
-													needs,
+													We implement compliant accounting processes, execute statutory audits,
 													<br />
-													challenges, and goals. Consultants conduct in-depth.
+													and file accurate tax returns with direct liaison to relevant regulatory authorities.
 												</p>
 												<ul className="benefit-list">
 													<li className="tf-fade-item fade-2">
@@ -161,7 +158,7 @@ export default function Section4() {
 															<i className="flaticon-check-mark" />
 														</div>
 														<p>
-															Stakeholder Interviews &amp; Data Gathering
+															Statutory Audit &amp; Timely Return Filings
 														</p>
 													</li>
 													<li className="tf-fade-item fade-3">
@@ -169,7 +166,7 @@ export default function Section4() {
 															<i className="flaticon-check-mark" />
 														</div>
 														<p>
-															Comprehensive Business Analysis
+															Accounting Systems &amp; E-Invoicing Setup
 														</p>
 													</li>
 												</ul>
@@ -203,10 +200,9 @@ export default function Section4() {
 													Monitoring &amp; Continuous Improvement
 												</p>
 												<p className="text mb-25 tf-fade-item fade-1">
-													This initial phase involves understanding the client’s
-													needs,
+													We deliver continuous financial oversight, quarterly management reports,
 													<br />
-													challenges, and goals. Consultants conduct in-depth.
+													and proactive regulatory advisories to keep your business resilient and compliant.
 												</p>
 												<ul className="benefit-list">
 													<li className="tf-fade-item fade-2">
@@ -214,7 +210,7 @@ export default function Section4() {
 															<i className="flaticon-check-mark" />
 														</div>
 														<p>
-															Stakeholder Interviews &amp; Data Gathering
+															Periodic Management &amp; Tax Health Checks
 														</p>
 													</li>
 													<li className="tf-fade-item fade-3">
@@ -222,7 +218,7 @@ export default function Section4() {
 															<i className="flaticon-check-mark" />
 														</div>
 														<p>
-															Comprehensive Business Analysis
+															Ongoing Advisory &amp; Regulatory Updates
 														</p>
 													</li>
 												</ul>

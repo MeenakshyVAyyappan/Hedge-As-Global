@@ -44,7 +44,7 @@ export default function BoxWelcome({ handleWelcomeBox, isWelcomeBox }) {
 							<li className="mb-2">
 								<p className="mb-0 contact-detail-row">
 									<strong>Address:</strong>{" "}
-									<span>P-2337, Building No:30, Al Qurashi Buildings, Corniche, Abu Dhabi, UAE</span>
+									<span>P-2337, Building No:30, Sultan Qubasi Tower, Corniche, Abu Dhabi, UAE</span>
 								</p>
 							</li>
 							<li className="mb-2">

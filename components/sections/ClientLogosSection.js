@@ -1,21 +1,34 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
 
 const clientLogos = [
-  { id: 1, name: "Khalifa Industrial Zone (KIZAD)", src: "/images/clients/client01.png", alt: "rakez-logo",link:"", },
-  { id: 2, name: "Abu Dhabi Airport Free Zone (ADAFZ)", src: "/images/clients/client02.png", alt: "adafz-logo" },
-  { id: 3, name: "Meydan Free Zone (Meydan FZ)", src: "/images/clients/client03.png", alt: "meydan-logo" },
-  { id: 4, name: "Dubai World Trade Centre (DWTC)", src: "/images/clients/client04.png", alt: "kizad-logo" },
-  { id: 5, name: "Jebel Ali Free Zone (Jafza)", src: "/images/clients/client05.png", alt: "jazsa-logo" },
-  { id: 6, name: "Jebel Ali Free Zone (Jafza)", src: "/images/clients/client06.png", alt: "dwtc-logo" },
+  { id: 1, name: "Pullman Hotels & Resorts", src: "/images/clients/pullman.png", alt: "Pullman Hotels and Resorts", sector: "Hospitality" },
+  { id: 2, name: "Boom Boom Energy Drink", src: "/images/clients/boomboom.png", alt: "Boom Boom Energy Drink", sector: "FMCG & Beverages" },
+  { id: 3, name: "DF Closets (كاف للخزائن)", src: "/images/clients/df-closets.png", alt: "DF Closets", sector: "Interior & Woodwork" },
+  { id: 4, name: "Petro Gas Agencies (بتروغاز للوكالات)", src: "/images/clients/petro-gas.png", alt: "Petro Gas Agencies", sector: "Energy & Oil Services" },
+  { id: 5, name: "Beauty & Perfume Int'l (BPI)", src: "/images/clients/bpi-perfumes.png", alt: "Beauty & Perfume International Factory L.L.C.", sector: "Perfume & Cosmetics" },
+  { id: 6, name: "Novotel & ibis Abu Dhabi Gate", src: "/images/clients/novotel-ibis.png", alt: "Novotel & ibis Abu Dhabi Gate Hotels", sector: "Hospitality" },
+  { id: 7, name: "EMPER Perfumes", src: "/images/clients/emper-perfumes.png", alt: "EMPER Perfumes", sector: "Fragrances & Retail" },
+  { id: 8, name: "Al Bassam Int'l Factories", src: "/images/clients/al-bassam.png", alt: "Al Bassam International Factories L.L.C.", sector: "Manufacturing & Industrial" },
+  { id: 9, name: "Arabian Gulf Electro-Mechanical", src: "/images/clients/age-electromechanical.png", alt: "Arabian Gulf Electro-Mechanical (AGE)", sector: "Engineering & MEP" },
+  { id: 10, name: "Vallo Auto", src: "/images/clients/vallo-auto.png", alt: "Vallo Auto", sector: "Automotive" },
+  { id: 11, name: "Emirates Gallery (إمارات غاليري)", src: "/images/clients/emirates-gallery.png", alt: "Emirates Gallery", sector: "Retail & Trading" },
+  { id: 12, name: "ibis Hotels", src: "/images/clients/ibis-hotels.png", alt: "ibis Hotels", sector: "Hospitality" },
+  { id: 13, name: "Marassi Aquarium & Underwater Zoo", src: "/images/clients/marassi-aquarium.png", alt: "Marassi Aquarium & Underwater Zoo", sector: "Entertainment & Leisure" },
+  { id: 14, name: "Oryx Grand Hotel Jebel Hafeet", src: "/images/clients/oryx-grand.png", alt: "Oryx Grand Hotel Jebel Hafeet", sector: "Hospitality & Tourism" },
+  { id: 15, name: "Karaz Restaurant (كرز)", src: "/images/clients/karaz-restaurant.png", alt: "Karaz Restaurant", sector: "F&B / Hospitality" },
+  { id: 16, name: "Alberni Hotel & Resort (البرني)", src: "/images/clients/alberni-hotel.png", alt: "Alberni Hotel & Resort Jebel Hafeet (فندق ومنتجع البرني جبل حفيت)", sector: "Luxury Resorts" },
 ];
 
-// Repeat logos array 3 times for a seamless, continuous infinite loop without empty gaps
-const repeatedLogos = [...clientLogos, ...clientLogos, ...clientLogos];
+// Repeat logos twice for a seamless 50% infinite marquee animation
+const repeatedLogos = [...clientLogos, ...clientLogos];
 
-export default function ClientLogosSection({ bg = "#ffffff", title = "Trusted by Leading Brands & Free Zones", subtitle = "We partner with premier free zone authorities, trade hubs, and prominent corporate entities across the UAE and GCC." }) {
+export default function ClientLogosSection({ 
+  bg = "#ffffff", 
+  title = "Trusted by Leading Corporate & Industry Brands", 
+  subtitle = "We proudly deliver statutory audit, tax consulting, accounting, and advisory services to premier enterprises across hospitality, retail, manufacturing, energy, and corporate sectors in the UAE & GCC." 
+}) {
   return (
     <section className="s-our-clients py-5 position-relative" style={{ backgroundColor: bg, borderTop: '1px solid #e2e8f0', borderBottom: '1px solid #e2e8f0', overflow: 'hidden' }}>
       
@@ -25,7 +38,7 @@ export default function ClientLogosSection({ bg = "#ffffff", title = "Trusted by
           <div className="col-lg-8">
             <p className="s-sub-title text-red mb-2 justify-center" style={{ textTransform: 'uppercase', letterSpacing: '1px', fontWeight: 600, fontSize: '13px' }}>
               <i className="icon-angles-right moveLeftToRight me-2" />
-              OUR CLIENTS &amp; PARTNERS
+              OUR VALUED CLIENTS
             </p>
             <h2 className="s-title font-main-2 text-dark fs-32 fw-7 mb-2" style={{ color: '#03214e' }}>
               {title}
@@ -40,7 +53,7 @@ export default function ClientLogosSection({ bg = "#ffffff", title = "Trusted by
       </div>
 
       {/* Infinite Logo Carousel Wrapper */}
-      <div className="client-carousel-wrapper position-relative w-100 mt-3" style={{ overflow: 'hidden', padding: '20px 0' }}>
+      <div className="client-carousel-wrapper position-relative w-100 mt-3" style={{ overflow: 'hidden', padding: '16px 0' }}>
         
         {/* Left & Right Edge Soft Gradient Overlays */}
         <div className="carousel-fade-left d-none d-md-block" style={{
@@ -48,7 +61,7 @@ export default function ClientLogosSection({ bg = "#ffffff", title = "Trusted by
           left: 0,
           top: 0,
           bottom: 0,
-          width: '160px',
+          width: '140px',
           background: `linear-gradient(to right, ${bg} 0%, rgba(255,255,255,0) 100%)`,
           zIndex: 3,
           pointerEvents: 'none'
@@ -58,7 +71,7 @@ export default function ClientLogosSection({ bg = "#ffffff", title = "Trusted by
           right: 0,
           top: 0,
           bottom: 0,
-          width: '160px',
+          width: '140px',
           background: `linear-gradient(to left, ${bg} 0%, rgba(255,255,255,0) 100%)`,
           zIndex: 3,
           pointerEvents: 'none'
@@ -70,29 +83,35 @@ export default function ClientLogosSection({ bg = "#ffffff", title = "Trusted by
             <div 
               key={`${client.id}-${index}`} 
               className="client-logo-card"
-              title={client.name}
-              style={{
-                width: '200px',
-                height: '200px',
-                flexShrink: 0
-              }}
+              title={`${client.name} - ${client.sector}`}
             >
-              <div className="client-logo-img-wrap d-flex align-items-center justify-content-center w-100 h-100 p-2">
-                <Image
-                  src={client.src}
-                  alt={client.alt}
-                  width={300}
-                  height={300}
-                  style={{
-                    maxHeight: '135px',
-                    maxWidth: '170px',
-                    width: 'auto',
-                    height: 'auto',
-                    objectFit: 'contain'
-                  }}
-                  className="client-logo-img"
-                  priority={index < 5}
-                />
+              <div className="client-logo-img-wrap d-flex flex-column align-items-center justify-content-center w-100 h-100">
+                <div className="client-img-holder d-flex align-items-center justify-content-center w-100" style={{ height: '90px' }}>
+                  <Image
+                    src={client.src}
+                    alt={client.alt}
+                    width={200}
+                    height={90}
+                    style={{
+                      maxHeight: '75px',
+                      maxWidth: '150px',
+                      width: 'auto',
+                      height: 'auto',
+                      objectFit: 'contain',
+                      borderRadius: '8px'
+                    }}
+                    className="client-logo-img"
+                    priority={index < 8}
+                  />
+                </div>
+                <div className="client-info text-center mt-2 w-100 px-1">
+                  <span className="client-name-label d-block text-dark fw-7 text-truncate" style={{ fontSize: '12px', lineHeight: 1.25 }}>
+                    {client.name}
+                  </span>
+                  <span className="client-sector-label d-block text-muted text-truncate" style={{ fontSize: '10.5px', marginTop: '2px' }}>
+                    {client.sector}
+                  </span>
+                </div>
               </div>
             </div>
           ))}
@@ -104,9 +123,9 @@ export default function ClientLogosSection({ bg = "#ffffff", title = "Trusted by
         .client-carousel-track {
           display: flex;
           align-items: center;
-          gap: 32px;
+          gap: 24px;
           width: max-content;
-          animation: clientMarquee 32s linear infinite;
+          animation: clientMarquee 42s linear infinite;
           will-change: transform;
         }
 
@@ -116,35 +135,33 @@ export default function ClientLogosSection({ bg = "#ffffff", title = "Trusted by
 
         .client-logo-card {
           flex: 0 0 auto;
-          width: 210px;
-          height: 210px;
+          width: 200px;
+          height: 170px;
           background-color: #ffffff;
           border: 1px solid #e2e8f0;
-          border-radius: 20px;
-          padding: 20px;
+          border-radius: 16px;
+          padding: 16px 14px;
           display: flex;
           align-items: center;
           justify-content: center;
-          box-shadow: 0 10px 30px rgba(3, 33, 78, 0.05), 0 2px 6px rgba(0, 0, 0, 0.02);
-          transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+          box-shadow: 0 4px 18px rgba(3, 33, 78, 0.05);
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           cursor: pointer;
           position: relative;
         }
 
         .client-logo-card:hover {
-          transform: translateY(-8px);
-          box-shadow: 0 20px 45px rgba(3, 33, 78, 0.12), 0 0 0 1.5px #c8102e;
+          transform: translateY(-6px);
+          box-shadow: 0 16px 36px rgba(3, 33, 78, 0.12), 0 0 0 1.5px #c8102e;
           border-color: #c8102e;
         }
 
         .client-logo-img {
-          filter: none !important;
-          opacity: 1 !important;
-          transition: transform 0.35s ease;
+          transition: transform 0.3s ease;
         }
 
         .client-logo-card:hover .client-logo-img {
-          transform: scale(1.08);
+          transform: scale(1.06);
         }
 
         @keyframes clientMarquee {
@@ -152,31 +169,33 @@ export default function ClientLogosSection({ bg = "#ffffff", title = "Trusted by
             transform: translateX(0);
           }
           100% {
-            transform: translateX(-33.33333%);
+            transform: translateX(-50%);
           }
         }
 
         @media (max-width: 768px) {
           .client-carousel-track {
-            gap: 20px;
-            animation-duration: 24s;
+            gap: 16px;
+            animation-duration: 32s;
           }
 
           .client-logo-card {
-            width: 150px;
-            height: 150px;
-            padding: 14px;
-            border-radius: 16px;
+            width: 160px;
+            height: 145px;
+            padding: 12px 10px;
+            border-radius: 14px;
           }
 
           .client-logo-img {
-            max-height: 95px !important;
-            max-width: 125px !important;
+            max-height: 55px !important;
+            max-width: 120px !important;
+          }
+          
+          .client-name-label {
+            font-size: 11px !important;
           }
         }
       `}</style>
     </section>
   );
 }
-
-

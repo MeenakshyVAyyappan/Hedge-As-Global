@@ -1,5 +1,34 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+	images: {
+		remotePatterns: [
+			{
+				protocol: 'https',
+				hostname: 'hedgeasglobal.ezyplus.in',
+				pathname: '/**',
+			},
+			{
+				protocol: 'http',
+				hostname: 'hedgeasglobal.ezyplus.in',
+				pathname: '/**',
+			},
+			{
+				protocol: 'https',
+				hostname: '**.ezyplus.in',
+				pathname: '/**',
+			},
+			{
+				protocol: 'http',
+				hostname: 'localhost',
+				pathname: '/**',
+			},
+			{
+				protocol: 'http',
+				hostname: '127.0.0.1',
+				pathname: '/**',
+			},
+		],
+	},
 	async redirects() {
 		return [
 			{ source: '/our-service', destination: '/services', permanent: true },

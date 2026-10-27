@@ -230,7 +230,7 @@ export default function PrivacyPolicy() {
 										Hedge Chartered Accountants Group — Data Compliance Officer
 									</p>
 									<p style={{ marginBottom: '6px', fontSize: '14px', color: '#475569' }}>
-										<strong style={{ color: '#03214e' }}>Address:</strong> P-2337, Building No:30, Al Qurashi Buildings, Corniche, Abu Dhabi, UAE
+										<strong style={{ color: '#03214e' }}>Address:</strong> P-2337, Building No:30, Sultan Qubasi Tower, Corniche, Abu Dhabi, UAE
 									</p>
 									<p style={{ marginBottom: '6px', fontSize: '14px', color: '#475569' }}>
 										<strong style={{ color: '#03214e' }}>Email:</strong> <Link href="mailto:info@hedgeasglobal.com" style={{ color: '#c8102e', fontWeight: '600', textDecoration: 'none' }}>info@hedgeasglobal.com</Link>

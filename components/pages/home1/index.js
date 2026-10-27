@@ -1,5 +1,6 @@
 import Section1 from "./section1"
 import ClientLogosSection from "@/components/sections/ClientLogosSection"
+import FreeZonesSection from "@/components/sections/FreeZonesSection"
 import Section10 from "./section10"
 import Section11 from "./section11"
 import Section12 from "./section12"
@@ -25,6 +26,7 @@ export default function Home1() {
 			<Section8 />
 			<Section9 />
 			<Section10 />
+			<FreeZonesSection bg="#ffffff" />
 			<ClientLogosSection bg="#f8fafc" />
 			<Section11 />
 			<Section12 />
