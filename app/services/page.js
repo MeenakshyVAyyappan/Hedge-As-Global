@@ -2,7 +2,7 @@ import Layout from "@/components/layout/Layout";
 import OurService from "@/components/pages/ourService";
 
 export const metadata = {
-	title: "Professional Accounting, Audit & Tax Services UAE | Hedge Group",
+	title: "Professional Accounting, Audit & Tax Services UAE | Hedge Chartered Accountants Group",
 	description: "Explore Hedge Chartered Accountants Group's services including Accounting, Bookkeeping, Statutory Audit, UAE Corporate Tax, VAT, ICV Certification, and E-Invoicing.",
 	alternates: {
 		canonical: "https://hedgeasglobal.com/services"

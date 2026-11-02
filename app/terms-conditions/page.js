@@ -134,7 +134,7 @@ export default function TermsConditions() {
 								<ul style={{ listStyle: 'none', paddingLeft: '0', margin: '0 0 20px 0' }}>
 									<li style={{ position: 'relative', paddingLeft: '24px', marginBottom: '12px' }}>
 										<span style={{ position: 'absolute', left: '6px', top: '10px', width: '6px', height: '6px', backgroundColor: '#03214e', borderRadius: '50%' }}></span>
-										Management retains primary responsibility for the accuracy, completeness, and authenticity of all financial statements, invoices, receipts, trade licenses, and supporting records provided to Hedge Group.
+										Management retains primary responsibility for the accuracy, completeness, and authenticity of all financial statements, invoices, receipts, trade licenses, and supporting records provided to Hedge Chartered Accountants Group.
 									</li>
 									<li style={{ position: 'relative', paddingLeft: '24px', marginBottom: '12px' }}>
 										<span style={{ position: 'absolute', left: '6px', top: '10px', width: '6px', height: '6px', backgroundColor: '#03214e', borderRadius: '50%' }}></span>

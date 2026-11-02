@@ -71,13 +71,16 @@ export default function AboutUs() {
 								</div>
 							</div>
 						</div>
-						<div className="col-lg-6">
-							<div className="position-relative h-100 w-100 rounded-4 overflow-hidden" style={{ minHeight: '320px' }}>
+						<div className="col-lg-6 d-flex align-items-center">
+							<div className="position-relative w-100 rounded-4 overflow-hidden">
 								<Image
-									src="/images/section/firmoverview.png"
-									alt="Hedge Group Mission and Vision"
-									fill
-									style={{ objectFit: 'cover' }}
+									src="/images/team/hedge-team-leadership.jpg"
+									alt="Hedge Chartered Accountants Group leadership team"
+									width={2000}
+									height={1259}
+									quality={90}
+									sizes="(max-width: 992px) 100vw, 50vw"
+									style={{ width: '100%', height: 'auto', display: 'block' }}
 								/>
 							</div>
 						</div>
@@ -149,7 +152,7 @@ export default function AboutUs() {
 								Regional Expertise. Local Support.
 							</h2>
 							<p className="text-muted fs-16 max-w-650 mx-auto">
-								Hedge operates dedicated practice offices across key commercial hubs in the UAE, Bahrain, and India to support your regional expansion, audit, and tax compliance needs.
+								Hedge Chartered Accountants Group operates dedicated practice offices across key commercial hubs in the UAE, Bahrain, and India to support your regional expansion, audit, and tax compliance needs.
 							</p>
 						</div>
 					</div>
@@ -286,7 +289,7 @@ export default function AboutUs() {
 				<div className="tf-container">
 					<div className="row align-items-center">
 						<div className="col-lg-5 mb-4 mb-lg-0">
-							<h2 className="text-white font-main-2 fs-32 fw-7 mb-3">Partner With Hedge Advisory</h2>
+							<h2 className="text-white font-main-2 fs-32 fw-7 mb-3">Partner With Hedge Chartered Accountants Group</h2>
 							<p className="text-white-70 fs-15 leading-relaxed">
 								Contact our senior partner team for an initial assessment of your company&apos;s accounting, tax, or audit requirements.
 							</p>

@@ -78,9 +78,9 @@ export async function POST(req) {
       },
     });
 
-    // Email Body for Hedge Advisory Team
+    // Email Body for Hedge Chartered Accountants Group Team
     const adminMailOptions = {
-      from: `"Hedge Website Forms" <${smtpUser}>`,
+      from: `"Hedge Chartered Accountants Group Website Forms" <${smtpUser}>`,
       to: adminEmail,
       replyTo: leadEmail !== 'Not provided' ? leadEmail : smtpUser,
       subject: `[New Lead] ${leadSubject} - ${leadName}`,
@@ -128,7 +128,7 @@ export async function POST(req) {
           </div>
 
           <div style="background-color: #f1f5f9; padding: 15px; text-align: center; font-size: 12px; color: #64748b;">
-            Sent automatically via Hedge Website Form System • <a href="https://hedgeasglobal.com" style="color: #03214e;">hedgeasglobal.com</a>
+            Sent automatically via Hedge Chartered Accountants Group Website Form System • <a href="https://hedgeasglobal.com" style="color: #03214e;">hedgeasglobal.com</a>
           </div>
         </div>
       `,

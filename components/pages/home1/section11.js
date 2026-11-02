@@ -15,7 +15,7 @@ export default function Section11() {
 							Regional Expertise. Local Support.
 						</h2>
 						<p className="text-muted fs-16 max-w-650 mx-auto">
-							Hedge operates dedicated practice offices across key commercial hubs in the UAE, Bahrain, and India to support your regional expansion, audit, and tax compliance needs.
+							Hedge Chartered Accountants Group operates dedicated practice offices across key commercial hubs in the UAE, Bahrain, and India to support your regional expansion, audit, and tax compliance needs.
 						</p>
 					</div>
 				</div>

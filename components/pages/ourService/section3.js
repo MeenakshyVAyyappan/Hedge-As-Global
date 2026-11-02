@@ -44,6 +44,12 @@ export default function Section3() {
 			slug: "/services/icv-certification",
 			desc: "Official ICV score optimization, financial supplier template preparation, and audit certification for UAE government tenders.",
 			image: "/images/section/icv-card-banner.jpg"
+		},
+		{
+			title: "UAE E-Invoicing",
+			slug: "/services/e-invoicing",
+			desc: "End-to-end e-invoicing readiness: ERP integration, ASP onboarding, PINT AE (Peppol) invoices, real-time FTA reporting and 7-year archiving.",
+			image: "/images/section/e-invoicing.png"
 		}
 	];
 

@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 
 const SYSTEM_PROMPT = `You are Hedge AI, the official AI Advisory Consultant for Hedge Chartered Accountants Group (and its registered FTA Tax Agency practice, Pioneer Hedge Auditing & Tax Consulting).
-You represent Hedge Group directly. NEVER break character, and NEVER claim to be OpenAI, ChatGPT, or any external AI model. Always speak as "we", "our chartered accountants", or "Hedge Group".
+You represent Hedge Chartered Accountants Group directly. NEVER break character, and NEVER claim to be OpenAI, ChatGPT, or any external AI model. Always speak as "we", "our chartered accountants", or "Hedge Chartered Accountants Group".
 
 Firm Details & Credentials:
 - Firm Name: Hedge Chartered Accountants Group
@@ -89,7 +89,7 @@ function generateSmartFallback(messages) {
 
   // 3. Pricing, Cost, Fees & Quotations
   if (cleanMsg.includes('cost') || cleanMsg.includes('price') || cleanMsg.includes('fee') || cleanMsg.includes('how much') || cleanMsg.includes('quote') || cleanMsg.includes('rate') || cleanMsg.includes('charge')) {
-    return `**Pricing & Quotations at Hedge Group:**\n\nOur professional fees are tailored based on your company's specific scope:\n- **Entity Type & Jurisdiction:** (Mainland LLC vs Free Zone entity)\n- **Transaction Volume:** (Number of invoices and monthly bank reconciliations)\n- **Service Scope:** (Statutory Audit under IFRS, Corporate Tax return filing, or Bookkeeping)\n\n### How to Get an Instant Tailored Quote:\nShare your entity type and approximate annual turnover with us, or contact our team directly:\n📞 **Phone / WhatsApp:** +971 50 225 3373\n✉️ **Email:** info@hedgeasglobal.com\n\nWe provide detailed, transparent fee proposals within 24 hours!`;
+    return `**Pricing & Quotations at Hedge Chartered Accountants Group:**\n\nOur professional fees are tailored based on your company's specific scope:\n- **Entity Type & Jurisdiction:** (Mainland LLC vs Free Zone entity)\n- **Transaction Volume:** (Number of invoices and monthly bank reconciliations)\n- **Service Scope:** (Statutory Audit under IFRS, Corporate Tax return filing, or Bookkeeping)\n\n### How to Get an Instant Tailored Quote:\nShare your entity type and approximate annual turnover with us, or contact our team directly:\n📞 **Phone / WhatsApp:** +971 50 225 3373\n✉️ **Email:** info@hedgeasglobal.com\n\nWe provide detailed, transparent fee proposals within 24 hours!`;
   }
 
   // 4. UAE Corporate Tax
@@ -109,7 +109,7 @@ function generateSmartFallback(messages) {
 
   // 7. ICV (In-Country Value) Certification
   if (cleanMsg.includes('icv') || cleanMsg.includes('in-country value') || cleanMsg.includes('in country value') || cleanMsg.includes('adnoc') || cleanMsg.includes('tender') || cleanMsg.includes('moiat')) {
-    return `**In-Country Value (ICV) Certification:**\n\nThe ICV program by the Ministry of Industry and Advanced Technology (MoIAT) and ADNOC is crucial for winning government and energy sector tenders.\n\n**How Hedge Optimizes Your ICV Score:**\n- **Data Review & Benchmarking:** Analysis of local procurement, manufacturing, investments, and Emirati workforce.\n- **Score Maximization Strategy:** Guidance on structuring vendor contracts and internal costs to boost your score.\n- **Audit & Certification:** Independent verification against the standardized MoIAT formula.\n\nWould you like a preliminary assessment to calculate your potential ICV score?`;
+    return `**In-Country Value (ICV) Certification:**\n\nThe ICV program by the Ministry of Industry and Advanced Technology (MoIAT) and ADNOC is crucial for winning government and energy sector tenders.\n\n**How Hedge Chartered Accountants Group Optimizes Your ICV Score:**\n- **Data Review & Benchmarking:** Analysis of local procurement, manufacturing, investments, and Emirati workforce.\n- **Score Maximization Strategy:** Guidance on structuring vendor contracts and internal costs to boost your score.\n- **Audit & Certification:** Independent verification against the standardized MoIAT formula.\n\nWould you like a preliminary assessment to calculate your potential ICV score?`;
   }
 
   // 8. Accounting & Bookkeeping
@@ -134,7 +134,7 @@ function generateSmartFallback(messages) {
 
   // 12. Dynamic Context-Aware Default Response
   const preview = lastUserMsg.length > 60 ? lastUserMsg.slice(0, 57) + '...' : lastUserMsg;
-  return `Thank you for your message regarding **"${preview}"**.\n\nOur team of Chartered Accountants and FTA Tax Advisors at Hedge Group can provide exact, personalized solutions for your business.\n\nTo assist you immediately:\n- Call or WhatsApp our senior advisors at **+971 50 225 3373**.\n- Email your requirements to **info@hedgeasglobal.com**.\n- Or reply here with a few more details about your company activity, and I will be glad to assist!`;
+  return `Thank you for your message regarding **"${preview}"**.\n\nOur team of Chartered Accountants and FTA Tax Advisors at Hedge Chartered Accountants Group can provide exact, personalized solutions for your business.\n\nTo assist you immediately:\n- Call or WhatsApp our senior advisors at **+971 50 225 3373**.\n- Email your requirements to **info@hedgeasglobal.com**.\n- Or reply here with a few more details about your company activity, and I will be glad to assist!`;
 }
 
 export async function POST(req) {

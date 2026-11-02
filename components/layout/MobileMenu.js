@@ -76,6 +76,9 @@ export default function MobileMenu({ handleMobileMenu }) {
 
 					<li className="fw-7 text-white mt-2 ps-2">ICV Certificate</li>
 					<li><Link href="/services/icv-certification" onClick={handleLinkClick}>ICV Certificate UAE</Link></li>
+
+					<li className="fw-7 text-white mt-2 ps-2">E-Invoicing</li>
+					<li><Link href="/services/e-invoicing" onClick={handleLinkClick}>UAE E-Invoicing</Link></li>
 				</ul>
 			</li>
 

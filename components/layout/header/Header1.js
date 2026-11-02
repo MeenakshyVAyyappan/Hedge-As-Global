@@ -216,8 +216,27 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, handle
 					color: #c8102e !important;
 				}
 
-				.header-inner .nav-list .item>a::before {
-					background-color: #c8102e !important;
+				/* No underline on menu items — colour only for hover/active */
+				.header-inner .nav-list .item>a::before,
+				.header-inner .nav-list .item:hover>a::before,
+				.header-inner .nav-list .item.current>a::before {
+					display: none !important;
+					content: none !important;
+				}
+
+				.header-inner .nav-list a,
+				.header-inner .nav-list a span {
+					text-decoration: none !important;
+				}
+
+				/* No underline on submenu / flyout items either */
+				.header-inner .sub-nav a span::after,
+				.header-inner .sub-nav a:hover span::after,
+				.header-inner .sub-nav li.current span::after,
+				.hedge-services-dropdown a span::after,
+				.hedge-flyout-menu a span::after {
+					display: none !important;
+					content: none !important;
 				}
 
 				/* Menu dropdown toggle icon (dark blue) */

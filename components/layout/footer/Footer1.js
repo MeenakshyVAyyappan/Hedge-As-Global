@@ -99,7 +99,7 @@ export default function Footer1() {
 								</p>
 								<ul className="list tf-collapse-content list-unstyled" style={{ display: getDisplayStyle2(1) }}>
 									{[
-										{ name: 'About Hedge Group', path: '/about-us' },
+										{ name: 'About Hedge Chartered Accountants Group', path: '/about-us' },
 										{ name: 'All Services', path: '/services' },
 										{ name: 'Insights & Tax Updates', path: '/blog' },
 										{ name: 'Frequently Asked Questions', path: '/faqs' },

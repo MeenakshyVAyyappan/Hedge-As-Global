@@ -5,7 +5,7 @@ export const blogsData = [
 		title: "UAE Corporate Tax Compliance: Key Milestones & Audit Readiness",
 		category: "Corporate Tax",
 		date: "August 28, 2026",
-		author: "Hedge Tax Advisory Team",
+		author: "Tax Advisory Team, Hedge Chartered Accountants Group",
 		image: "/images/blog/blog1.png",
 		excerpt: "Essential steps every UAE business must take to ensure Corporate Tax compliance, avoid late filing penalties, and structure internal accounting records.",
 		content: `
@@ -45,7 +45,7 @@ export const blogsData = [
 		title: "Navigating the UAE Mandatory E-Invoicing System: ERP & Data Schema",
 		category: "E-Invoicing",
 		date: "August 15, 2026",
-		author: "Hedge Technology Practice",
+		author: "Technology Practice, Hedge Chartered Accountants Group",
 		image: "/images/blog/blog2.png",
 		excerpt: "An actionable framework for CFOs and Finance Directors preparing for the UAE Peppol e-invoicing model and automated tax reporting.",
 		content: `
@@ -70,7 +70,7 @@ export const blogsData = [
 		title: "Maximizing Your ICV Score: A Strategic Guide for UAE Contractors",
 		category: "ICV",
 		date: "July 22, 2026",
-		author: "Hedge Audit & Advisory",
+		author: "Hedge Chartered Accountants Group",
 		image: "/images/blog/blog3.png",
 		excerpt: "How to structure local procurement, employee investment, and manufacturing costs to achieve a competitive In-Country Value score.",
 		content: `
@@ -90,7 +90,7 @@ export const blogsData = [
 				<p class="mb-0 fs-16 fst-italic text-dark">"A low ICV score doesn't just mean a missed contract; it means losing ground to competitors who have actively optimized their local supply chains. ICV is a board-level strategic imperative."</p>
 			</blockquote>
 
-			<p>Hedge provides pre-audit assessments, supplier mapping strategies, and complete liaison with certifying bodies to help you systematically elevate your ICV score year over year.</p>
+			<p>Hedge Chartered Accountants Group provides pre-audit assessments, supplier mapping strategies, and complete liaison with certifying bodies to help you systematically elevate your ICV score year over year.</p>
 		`
 	},
 	{

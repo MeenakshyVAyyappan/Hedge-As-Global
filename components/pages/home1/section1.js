@@ -10,7 +10,7 @@ export default function Section1() {
     {
       title: "UAE • Bahrain • India",
       desc: "Regional leadership across Abu Dhabi, Dubai, Al Ain, Manama (Bahrain), and India providing local compliance with international scale.",
-      image: "/images/section/uaeindia_clean.png"
+      image: "/images/section/uaeindia_flags.png"
     },
     {
       title: "Chartered Accountants",

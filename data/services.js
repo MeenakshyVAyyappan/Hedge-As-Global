@@ -8,7 +8,7 @@ export const servicesData = [
 		icon: "flaticon-accounting",
 		tagline: "Accurate financial records, robust reporting, and professional accounting support tailored for GCC markets.",
 		description: "Hedge Chartered Accountants Group delivers comprehensive accounting and bookkeeping solutions tailored to UAE, Bahrain, and regional business requirements. We help corporate entities, SMEs, and family businesses maintain immaculate financial records compliant with International Financial Reporting Standards (IFRS) and local regulatory frameworks (FTA/NBR).",
-		extendedDescription: "In the rapidly evolving business landscapes of the UAE and Bahrain, maintaining robust financial records is not just about compliance—it is about strategic advantage. Our outsourced accounting services are designed to alleviate the administrative burden of in-house finance functions, providing you with a dedicated team of certified professionals. Whether you operate in a UAE Free Zone, Mainland UAE, or navigate the regulatory environment of Bahrain, Hedge provides a reliable, scalable, and secure financial backbone for your enterprise. We ensure you have real-time visibility into your financial position, enabling informed decision-making and sustainable growth.",
+		extendedDescription: "In the rapidly evolving business landscapes of the UAE and Bahrain, maintaining robust financial records is not just about compliance—it is about strategic advantage. Our outsourced accounting services are designed to alleviate the administrative burden of in-house finance functions, providing you with a dedicated team of certified professionals. Whether you operate in a UAE Free Zone, Mainland UAE, or navigate the regulatory environment of Bahrain, Hedge Chartered Accountants Group provides a reliable, scalable, and secure financial backbone for your enterprise. We ensure you have real-time visibility into your financial position, enabling informed decision-making and sustainable growth.",
 		features: [
 			"Comprehensive General Ledger Maintenance",
 			"Accounts Payable & Receivable Management",
@@ -356,18 +356,83 @@ export const servicesData = [
 		id: "e-invoicing",
 		slug: "e-invoicing",
 		category: "Compliance",
-		title: "UAE E-Invoicing Readiness & Integration",
+		title: "UAE E-Invoicing Readiness & Implementation",
 		shortTitle: "E-Invoicing",
 		icon: "flaticon-digital-marketing",
-		tagline: "Readiness, ERP system review, data mapping, and implementation support.",
-		description: "Prepare your enterprise for the mandatory UAE E-Invoicing mandate (Peppol framework). We audit accounting workflows, structure XML data formatting, and integrate your ERP with approved service providers.",
+		tagline: "E-invoicing in the UAE, ready before the deadline. End-to-end readiness, ERP integration, ASP onboarding and ongoing FTA compliance.",
+		description: "The UAE e-invoicing mandate is rolling out in phases. Large businesses go first and the rest follow, and each phase has its own ASP appointment and go-live deadline. Our specialists handle the full implementation for you: readiness assessment, ERP integration, ASP onboarding, invoice testing, go-live and ongoing FTA compliance, so your invoices stay compliant with FTA and Peppol standards.",
+		extendedDescription: "As an Authorized Tally & Zoho Partner in the UAE, Hedge Chartered Accountants Group operates as Corner 2 and Corner 3 of the UAE Five-Corner Model. We validate your invoice data, convert it to the UAE PINT AE format, exchange invoices securely over the Peppol network and report tax data to Corner 5 (the UAE Ministry of Finance & FTA) in real time. Your books are handled by ICAI-qualified Chartered Accountants, not just software installers, and most clients go live in about 45 days.",
 		features: [
-			"ERP & Accounting System Audit",
-			"Peppol Data Schema Mapping",
-			"E-Invoicing Workflow Automation",
-			"Vendor & Customer Integration Guidance"
+			"Readiness Assessment & ASP Onboarding",
+			"ERP Integration to the Peppol Network",
+			"PINT AE (Peppol) Structured Invoices",
+			"Real-Time Reporting to the FTA",
+			"Compliant 7-Year Invoice Archiving",
+			"Staff Training & Ongoing Support",
+			"TallyPrime Setup, Migration & UAE VAT Configuration",
+			"Zoho Books Setup, Bank Feeds & FTA VAT Compliance"
 		],
-		heroImage: "/images/section/e-invoicing-hero.jpg"
+		benefits: [
+			{
+				title: "Validate & Convert",
+				desc: "Your ASP validates the invoice generated in your ERP (Tally, Zoho, SAP, Oracle) and converts it to the UAE PINT AE format."
+			},
+			{
+				title: "Exchange via Peppol",
+				desc: "Structured e-invoices are exchanged securely between supplier and buyer ASPs over the decentralized Peppol network."
+			},
+			{
+				title: "Report & Archive",
+				desc: "Tax data is reported to the FTA in real time and every invoice is archived for 7 years, keeping you audit-ready."
+			},
+			{
+				title: "Compliant by Design",
+				desc: "Every setup meets FTA and UAE VAT requirements, with a dedicated senior consultant, weekly manager reviews and MD oversight."
+			}
+		],
+		faqs: [
+			{
+				id: 1,
+				question: "Does E-Invoicing apply to businesses not registered for VAT?",
+				answer: "Yes. E-Invoicing applies to persons doing business in the UAE regardless of their VAT registration status, unless specifically excluded. Not being registered for VAT does not exempt a business."
+			},
+			{
+				id: 2,
+				question: "How do non-VAT-registered businesses obtain a TIN?",
+				answer: "If you are already registered with the FTA for another tax, such as Corporate Tax, you already have a TIN: it is the first 10 digits of your TRN. If no tax registration is required but E-Invoicing applies to you, you must register directly with the FTA to obtain a TIN."
+			},
+			{
+				id: 3,
+				question: "Can you get us ready for the mandate?",
+				answer: "Yes. We cover readiness assessment, ERP integration, ASP onboarding, PINT AE invoice testing, go-live and ongoing FTA compliance. Most clients go live in about 45 days."
+			},
+			{
+				id: 4,
+				question: "What happens if we're not compliant in time?",
+				answer: "Non-compliance can lead to administrative penalties and to invoices that your buyers' systems will not accept. Starting early leaves time for proper testing, so your go-live is never rushed."
+			},
+			{
+				id: 5,
+				question: "Are you really authorized Tally and Zoho partners?",
+				answer: "Yes. Hedge is an Authorized Tally and Zoho Partner in the UAE, so licensing, setup and support all come from one team."
+			},
+			{
+				id: 6,
+				question: "Tally or Zoho Books, which is right for us?",
+				answer: "Tally suits businesses that want desktop control, deep inventory and on-premise data. Zoho Books suits businesses that want cloud access, bank feeds and automation. We recommend based on your workflows, not commissions."
+			},
+			{
+				id: 7,
+				question: "Do you handle UAE VAT and FTA filing?",
+				answer: "Yes. Our ICAI-qualified Chartered Accountants configure UAE VAT in your system and can prepare and file your FTA returns on an ongoing basis."
+			},
+			{
+				id: 8,
+				question: "How does the engagement work?",
+				answer: "Three steps: book your call (free, no obligation, under a minute), we assess your needs and send a fixed-scope proposal with honest pricing, then we implement and support you with setup, migration, training and ongoing support."
+			}
+		],
+		heroImage: "/images/section/e-invoicing.png"
 	},
 	{
 		id: "business-advisory",
@@ -377,7 +442,7 @@ export const servicesData = [
 		shortTitle: "Business Advisory",
 		icon: "flaticon-growth",
 		tagline: "Strategic financial advisory to accelerate growth and protect business capital.",
-		description: "Hedge offers executive-level financial insight, corporate restructuring, feasibility studies, and working capital optimization to help businesses make confident long-term investments.",
+		description: "Hedge Chartered Accountants Group offers executive-level financial insight, corporate restructuring, feasibility studies, and working capital optimization to help businesses make confident long-term investments.",
 		features: [
 			"Feasibility Studies & Business Plans",
 			"Financial Due Diligence",

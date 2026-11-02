@@ -11,8 +11,8 @@ export default function FloatingWhatsApp() {
 			target="_blank"
 			rel="noopener noreferrer"
 			className="floating-whatsapp-btn"
-			aria-label="Contact Hedge Chartered Accountants on WhatsApp"
-			title="Chat with Hedge Advisory on WhatsApp"
+			aria-label="Contact Hedge Chartered Accountants Group on WhatsApp"
+			title="Chat with Hedge Chartered Accountants Group on WhatsApp"
 		>
 			<div className="whatsapp-icon-inner">
 				<svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

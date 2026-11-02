@@ -98,6 +98,19 @@ export default function Menu() {
 						</ul>
 					</li>
 
+					{/* Level 1: E-Invoicing */}
+					<li className="hedge-has-flyout">
+						<Link href="/services/e-invoicing" className="d-flex align-items-center justify-content-between px-3 py-2">
+							<span>E-Invoicing</span>
+							<i className="icon-chevron-right fs-11 ms-2" />
+						</Link>
+						<ul className="hedge-flyout-menu">
+							<li>
+								<Link href="/services/e-invoicing"><span>UAE E-Invoicing</span></Link>
+							</li>
+						</ul>
+					</li>
+
 				</ul>
 			</li>
 

@@ -118,7 +118,7 @@ export default function Hero1() {
 	return (
 		<section 
 			className="hero-section-wrapper position-relative overflow-hidden"
-			aria-label="Hedge Chartered Accountants Global Hero Section"
+			aria-label="Hedge Chartered Accountants Group Global Hero Section"
 		>
 			{/* ── Slide Backgrounds (Smooth Crossfade Slideshow - Vivid & Fully Visible) ── */}
 			<div className="hero-slides-container">
@@ -132,7 +132,7 @@ export default function Hero1() {
 						>
 							<Image
 								src={slide.image}
-								alt={`Hedge Chartered Accountants - ${slide.title}`}
+								alt={`Hedge Chartered Accountants Group - ${slide.title}`}
 								fill
 								priority={index === 0}
 								sizes="100vw"
@@ -347,7 +347,7 @@ export default function Hero1() {
 									</div>
 									<h4 className="fw-7 text-navy mb-2 fs-18">Inquiry Submitted Successfully!</h4>
 									<p className="text-muted fs-14 mb-4">
-										Thank you. A senior Hedge Chartered Accountant will reach out to you shortly.
+										Thank you. A senior chartered accountant from Hedge Chartered Accountants Group will reach out to you shortly.
 									</p>
 									<button
 										type="button"

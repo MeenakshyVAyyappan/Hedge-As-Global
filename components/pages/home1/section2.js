@@ -13,7 +13,7 @@ export default function Section2() {
             {/* Eyebrow */}
             <p className="s-sub-title text-red mb-18">
               <i className="icon-angles-right moveLeftToRight" />
-              Hedge Chartered Accountants
+              Hedge Chartered Accountants Group
             </p>
 
             {/* Heading */}
@@ -85,7 +85,7 @@ export default function Section2() {
               href="/about-us"
               className="about-cta-btn"
             >
-              Discover Hedge Group
+              Discover Hedge Chartered Accountants Group
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
               </svg>
@@ -98,11 +98,13 @@ export default function Section2() {
             <div className="position-relative">
               <div className="rounded-4 overflow-hidden position-relative z-1" style={{ boxShadow: "0 20px 60px rgba(0,0,0,0.12)", border: "6px solid #ffffff" }}>
                 <Image
-                  width={600}
-                  height={700}
-                  style={{ width: "100%", height: "auto", objectFit: "cover", display: "block" }}
-                  src="/images/section/homeabout.jpg"
-                  alt="Hedge Chartered Accountants Head Office"
+                  width={1400}
+                  height={2173}
+                  style={{ width: "100%", height: "auto", display: "block" }}
+                  src="/images/team/hedge-partner-portrait.jpg"
+                  alt="Hedge Chartered Accountants Group partner at the Abu Dhabi office"
+                  quality={90}
+                  sizes="(max-width: 992px) 100vw, 40vw"
                 />
                 <div className="position-absolute top-0 start-0 w-100 h-100" style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0) 55%, rgba(3,33,78,0.45) 100%)" }}></div>
               </div>

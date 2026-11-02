@@ -54,13 +54,16 @@ export default function Section9() {
         <div className="row g-4 align-items-stretch">
           
           {/* Left Hero Image */}
-          <div className="col-lg-5">
-            <div style={{ position: "relative", width: "100%", height: "100%", minHeight: "380px", borderRadius: "24px", overflow: "hidden", boxShadow: "0 12px 30px rgba(15,23,42,0.08)" }}>
+          <div className="col-lg-5 d-flex align-items-center">
+            <div style={{ position: "relative", width: "100%", borderRadius: "24px", overflow: "hidden", boxShadow: "0 12px 30px rgba(15,23,42,0.08)" }}>
               <Image
-                src="/images/section/corporatetaxcompilence.png"
-                alt="UAE Corporate Tax Compliance"
-                fill
-                style={{ objectFit: "cover", objectPosition: "center" }}
+                src="/images/team/hedge-team-signing.jpg"
+                alt="Hedge Chartered Accountants Group tax advisors reviewing a corporate tax filing"
+                width={2000}
+                height={1333}
+                quality={90}
+                sizes="(max-width: 992px) 100vw, 42vw"
+                style={{ width: "100%", height: "auto", display: "block" }}
               />
             </div>
           </div>

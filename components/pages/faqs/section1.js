@@ -42,7 +42,7 @@ export default function Section1() {
 								</p>
 								<span className="line" />
 								<p className="title text-anime-style-2">
-									Hedge AS Global Official FAQs
+									Hedge Chartered Accountants Group Official FAQs
 								</p>
 								<div className="tf-accordion style-4 style-2 accordion mb-70" id="accordionExample">
 									{faqs.map((faq, index) => {

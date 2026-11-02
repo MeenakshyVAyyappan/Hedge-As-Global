@@ -87,8 +87,8 @@ export default function SocialLinks({ className = '', style = {}, itemStyle = {}
               href={item.url}
               target="_blank"
               rel="noopener noreferrer"
-              title={`Follow Hedge Group on ${item.name}`}
-              aria-label={`Hedge Group ${item.name}`}
+              title={`Follow Hedge Chartered Accountants Group on ${item.name}`}
+              aria-label={`Hedge Chartered Accountants Group ${item.name}`}
               className={`social-icon-btn social-icon-${item.name.toLowerCase()} d-inline-flex align-items-center justify-content-center text-decoration-none`}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}

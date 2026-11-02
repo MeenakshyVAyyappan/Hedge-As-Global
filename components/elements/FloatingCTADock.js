@@ -370,7 +370,7 @@ export default function FloatingCTADock() {
             transition: 'all 0.3s ease',
             pointerEvents: 'auto'
           }}
-          title="Call Hedge Group: +971 50 225 3373"
+          title="Call Hedge Chartered Accountants Group: +971 50 225 3373"
         >
           <div className="d-flex align-items-center justify-content-center">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">

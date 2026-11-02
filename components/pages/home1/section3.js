@@ -62,12 +62,15 @@ export default function Section3() {
               </h2>
 
               {/* Hero Banner Image */}
-              <div style={{ position: "relative", width: "100%", height: "300px", borderRadius: "20px", overflow: "hidden", marginBottom: "24px", boxShadow: "0 12px 30px rgba(15,23,42,0.08)" }}>
+              <div style={{ position: "relative", width: "100%", borderRadius: "20px", overflow: "hidden", marginBottom: "24px", boxShadow: "0 12px 30px rgba(15,23,42,0.08)" }}>
                 <Image
-                  src="/images/section/thequalityconsultant.png"
-                  alt="Quality Consulting Services - Hedge Chartered Accountants"
-                  fill
-                  style={{ objectFit: "cover", objectPosition: "center" }}
+                  src="/images/team/hedge-team-at-work.jpg"
+                  alt="Hedge Chartered Accountants Group accountants working at the office"
+                  width={2000}
+                  height={1273}
+                  quality={90}
+                  sizes="(max-width: 992px) 100vw, 50vw"
+                  style={{ width: "100%", height: "auto", display: "block" }}
                 />
               </div>
 

@@ -1,7 +1,7 @@
 export const faqsData = [
 	{
 		id: 1,
-		question: "What accounting and bookkeeping services does Hedge provide?",
+		question: "What accounting and bookkeeping services does Hedge Chartered Accountants Group provide?",
 		answer: "Hedge Chartered Accountants Group provides end-to-end accounting services including daily transaction recording, general ledger management, financial statement preparation in accordance with IFRS, management accounts (MIS), bank reconciliations, and payroll processing."
 	},
 	{
@@ -36,8 +36,8 @@ export const faqsData = [
 	},
 	{
 		id: 8,
-		question: "Does Hedge support client organizations outside Abu Dhabi?",
-		answer: "Yes, Hedge operates branch offices in Dubai, Al Ain, Bahrain, and India, serving corporate clients, commercial groups, and SMEs across the GCC and internationally."
+		question: "Does Hedge Chartered Accountants Group support client organizations outside Abu Dhabi?",
+		answer: "Yes, Hedge Chartered Accountants Group operates branch offices in Dubai, Al Ain, Bahrain, and India, serving corporate clients, commercial groups, and SMEs across the GCC and internationally."
 	}
 ];
 

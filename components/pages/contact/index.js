@@ -245,7 +245,7 @@ export default function Contact() {
 							{/* Social Media Links & WhatsApp CTA */}
 							<div className="px-4 px-md-5 pb-4 pb-md-5">
 								<div className="mb-4 pt-3 border-top border-secondary border-opacity-10">
-									<span style={{ display: "block", fontSize: "11px", fontWeight: 700, color: "#c8102e", letterSpacing: "1px", textTransform: "uppercase", marginBottom: "10px" }}>Follow Hedge Group</span>
+									<span style={{ display: "block", fontSize: "11px", fontWeight: 700, color: "#c8102e", letterSpacing: "1px", textTransform: "uppercase", marginBottom: "10px" }}>Follow Hedge Chartered Accountants Group</span>
 									<SocialLinks itemStyle={{ backgroundColor: "#f1f5f9", color: "#03214e" }} />
 								</div>
 								<a
@@ -420,7 +420,7 @@ export default function Contact() {
 					allowFullScreen
 					loading="lazy"
 					referrerPolicy="no-referrer-when-downgrade"
-					title="Hedge Accounting Solution - Abu Dhabi Head Office"
+					title="Hedge Chartered Accountants Group - Abu Dhabi Head Office"
 				/>
 			</section>
 		</>

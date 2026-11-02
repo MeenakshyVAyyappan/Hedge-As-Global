@@ -9,7 +9,7 @@ export async function generateMetadata({ params }) {
 	if (!article) return { title: "Article Not Found" };
 
 	return {
-		title: `${article.title} | Hedge Insights`,
+		title: `${article.title} | Hedge Chartered Accountants Group Insights`,
 		description: article.excerpt,
 		alternates: {
 			canonical: `https://hedgeasglobal.com/blog/${article.slug}`
@@ -93,7 +93,7 @@ export default async function BlogDetailPage({ params }) {
 									<div className="position-absolute top-0 start-0 w-100 h-100 bg-red opacity-10" style={{ zIndex: 0 }}></div>
 									<div className="position-relative" style={{ zIndex: 1 }}>
 										<i className="flaticon-email fs-40 text-red mb-3 d-inline-block" />
-										<h4 className="text-white fs-20 fw-7 mb-2">Subscribe to Hedge Tax Updates</h4>
+										<h4 className="text-white fs-20 fw-7 mb-2">Subscribe to Hedge Chartered Accountants Group Tax Updates</h4>
 										<p className="text-white-70 fs-14 mb-4 leading-relaxed">Get official UAE FTA &amp; Corporate Tax insights delivered directly.</p>
 										<Link href="/contact" className="tf-btn secondary w-100 justify-content-center">
 											Get Regulatory Newsletters
