@@ -3,20 +3,28 @@
 import Image from 'next/image';
 
 const clientLogos = [
-  { id: 1, name: "Pullman Hotels & Resorts", src: "/images/clients/pullman.png", alt: "Pullman Hotels and Resorts", sector: "Hospitality" },
+  { id: 1, name: "Pullman JLT Hotel", src: "/images/clients/pullman-jlt.png", alt: "Pullman Jumeirah Lakes Towers Hotel, Dubai", sector: "Hospitality", maxW: "170px" },
   { id: 2, name: "Boom Boom Energy Drink", src: "/images/clients/boomboom.png", alt: "Boom Boom Energy Drink", sector: "FMCG & Beverages" },
-  { id: 3, name: "DF Closets (كاف للخزائن)", src: "/images/clients/df-closets.png", alt: "DF Closets", sector: "Interior & Woodwork" },
-  { id: 17, name: "Rotana Jet (روتانا جت)", src: "/images/clients/rotana-jet.png", alt: "Rotana Jet", sector: "Aviation" },
-  { id: 4, name: "Petro Gas Agencies (بتروغاز للوكالات)", src: "/images/clients/petro-gas.png", alt: "Petro Gas Agencies", sector: "Energy & Oil Services" },
+  { id: 3, name: "Qaf Closets", src: "/images/clients/qaf-closets.png", alt: "Qaf Closets", sector: "Interior & Woodwork", maxH: "88px", maxW: "160px" },
+  { id: 17, name: "Rotana Jet", src: "/images/clients/rotana-jet.png", alt: "Rotana Jet", sector: "Aviation" },
+  { id: 4, name: "Petro Gas Agencies", src: "/images/clients/petro-gas.png", alt: "Petro Gas Agencies", sector: "Energy & Oil Services" },
   { id: 5, name: "Beauty & Perfume Int'l (BPI)", src: "/images/clients/bpi-perfumes.png", alt: "Beauty & Perfume International Factory L.L.C.", sector: "Perfume & Cosmetics" },
   { id: 6, name: "Novotel & ibis Abu Dhabi Gate", src: "/images/clients/novotel-ibis.png", alt: "Novotel & ibis Abu Dhabi Gate Hotels", sector: "Hospitality" },
   { id: 7, name: "EMPER Perfumes", src: "/images/clients/emper-perfumes.png", alt: "EMPER Perfumes", sector: "Fragrances & Retail" },
   { id: 8, name: "Al Bassam Int'l Factories", src: "/images/clients/al-bassam.png", alt: "Al Bassam International Factories L.L.C.", sector: "Manufacturing & Industrial" },
   { id: 10, name: "Vallo Auto", src: "/images/clients/vallo-auto.png", alt: "Vallo Auto", sector: "Automotive" },
-  { id: 11, name: "Emirates Gallery (إمارات غاليري)", src: "/images/clients/emirates-gallery.png", alt: "Emirates Gallery", sector: "Retail & Trading" },
-  { id: 15, name: "Karaz Restaurant (كرز)", src: "/images/clients/karaz-restaurant.png", alt: "Karaz Restaurant", sector: "F&B / Hospitality" },
+  { id: 11, name: "Emirates Gallery", src: "/images/clients/emirates-gallery.png", alt: "Emirates Gallery", sector: "Retail & Trading" },
+  { id: 15, name: "Karaz Restaurant", src: "/images/clients/karaz-restaurant.png", alt: "Karaz Restaurant", sector: "F&B / Hospitality" },
   { id: 18, name: "Geo Offshore Middle East RMC FZE", src: "/images/clients/geo-offshore.png", alt: "Geo Offshore Middle East RMC FZE (GOM)", sector: "Offshore & Marine" },
-  { id: 19, name: "German Steel (جرمان ستيل)", src: "/images/clients/german-steel.png", alt: "German Steel", sector: "Steel & Manufacturing" },
+  { id: 19, name: "German Steel", src: "/images/clients/german-steel.png", alt: "German Steel", sector: "Construction" },
+  { id: 20, name: "Jaipur National University", src: "/images/clients/jaipur-national-university.png", alt: "Jaipur National University, Ras Al Khaimah Campus", sector: "Education", maxW: "170px" },
+  { id: 21, name: "Delta Medical", src: "/images/clients/delta-medical-hd.png", alt: "Delta Medical L.L.C-O.P.C", sector: "Healthcare", maxW: "170px" },
+  { id: 22, name: "Kidoos Entertainment", src: "/images/clients/kidoos.png", alt: "Kidoos Entertainment", sector: "Entertainment & Leisure", maxW: "170px" },
+  { id: 23, name: "Al Fakhama Doors", src: "/images/clients/alfakhama-doors.png", alt: "Al Fakhama Doors", sector: "Doors & Interiors", maxH: "88px" },
+  { id: 24, name: "GIPA", src: "/images/clients/gulf-international-private-academy-hd.png", alt: "The Gulf International Private Academy (GIPA)", sector: "Education", maxH: "85px", maxW: "170px" },
+  { id: 25, name: "East Point School", src: "/images/clients/east-point-school.png", alt: "East Point Indian International School", sector: "Education", maxW: "170px" },
+  { id: 26, name: "Hameem Investment", src: "/images/clients/hameem-investment.png", alt: "Hameem Investment", sector: "Real Estate", maxH: "88px" },
+  { id: 27, name: "Lala Hypermarket", src: "/images/clients/lala-hypermarket.png", alt: "Lala Hypermarket", sector: "Retail & Hypermarket", maxH: "85px" },
 ];
 
 // Repeat logos twice for a seamless 50% infinite marquee animation
@@ -91,8 +99,8 @@ export default function ClientLogosSection({
                     width={200}
                     height={90}
                     style={{
-                      maxHeight: '75px',
-                      maxWidth: '150px',
+                      maxHeight: client.maxH || '75px',
+                      maxWidth: client.maxW || '150px',
                       width: 'auto',
                       height: 'auto',
                       objectFit: 'contain',
