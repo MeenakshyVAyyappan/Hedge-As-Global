@@ -7,7 +7,8 @@ const credentials = [
   { label: "CIMA, United Kingdom", logo: "/images/memberships/cima-logo.png", w: 1000, h: 389, size: "wide" },
   { label: "Accountants & Auditors Association", logo: "/images/memberships/eaaa-logo.png", w: 1000, h: 286, size: "wide" },
   { label: "IPA Fellow, Australia", logo: "/images/memberships/ipa-logo.png", w: 1000, h: 543, size: "wide" },
-  { label: "IFA Fellow, United Kingdom", logo: "/images/memberships/ifa-logo.png", w: 1000, h: 529, size: "wide" }
+  { label: "IFA Fellow, United Kingdom", logo: "/images/memberships/ifa-logo.png", w: 1000, h: 529, size: "wide" },
+  { label: "ICAI, India", logo: "/images/memberships/icai.png", w: 1100, h: 1005, size: "sq" }
 ];
 
 const cards = [
@@ -33,8 +34,9 @@ const cards = [
   },
   {
     title: "ISO Certified",
-    desc: "Our accounting, audit, and tax processes follow internationally recognised ISO standards, ensuring consistent, documented, and reliable service delivery.",
-    image: "/images/section/iso-9001-round.png"
+    desc: "Certified to ISO 9001:2015, ISO 14001:2015 and ISO 45001:2018, ensuring consistent, documented, and reliable service delivery.",
+    image: "/images/section/iso-9001-2015-round.png",
+    iso: ["9001:2015", "14001:2015", "45001:2018"]
   }
 ];
 
@@ -60,7 +62,7 @@ function TiltTile({ item, index }) {
   };
 
   return (
-    <div className="hc-tile-wrap" style={{ "--i": index, "--c": index % 5, "--r": Math.floor(index / 5) }}>
+    <div className="hc-tile-wrap" style={{ "--i": index, "--c": index % 6, "--r": Math.floor(index / 6) }}>
       <div ref={ref} className="hc-tile" onMouseMove={onMove} onMouseLeave={onLeave}>
         <span className="hc-shine" aria-hidden="true" />
         <div className={`hc-logo ${item.size}`}>
@@ -106,9 +108,22 @@ export default function Section1() {
               <div className="saylo-home2-card">
                 <h3 className="saylo-home2-title">{card.title}</h3>
                 <p className="saylo-home2-desc">{card.desc}</p>
-                <div className="saylo-home2-img-wrap">
-                  <Image src={card.image} alt={card.title} fill className="saylo-home2-img" sizes="150px" />
-                </div>
+                {card.iso ? (
+                  <div className="iso-trio">
+                    {card.iso.map((std, k) => (
+                      <div key={std} className="iso-trio-item" style={{ animationDelay: `${k * -1.2}s` }}>
+                        <div className="iso-trio-logo">
+                          <Image src="/images/section/iso-emblem.png" alt={`ISO ${std} certified`} fill sizes="(max-width: 991px) 110px, 70px" style={{ objectFit: "contain" }} />
+                        </div>
+                        <span className="iso-trio-std">{std}</span>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="saylo-home2-img-wrap">
+                    <Image src={card.image} alt={card.title} fill className="saylo-home2-img" sizes="150px" />
+                  </div>
+                )}
               </div>
             </div>
           ))}
@@ -155,6 +170,50 @@ export default function Section1() {
       </div>
 
       <style jsx global>{`
+        .iso-trio {
+          display: flex;
+          justify-content: center;
+          align-items: flex-end;
+          gap: 4px;
+          width: calc(100% + 24px);
+          margin: auto -12px 24px;
+          padding: 16px 8px 14px;
+          background: #ffffff;
+          border: 4px solid #f8fafc;
+          border-radius: 20px;
+          box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+          transition: transform 0.4s ease, border-color 0.4s ease;
+        }
+        .saylo-home2-card:hover .iso-trio { transform: scale(1.04); border-color: rgba(200, 16, 46, 0.2); }
+        .iso-trio-item {
+          flex: 1 1 0;
+          min-width: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 8px;
+          animation: isoBob 3.6s ease-in-out infinite;
+        }
+        .iso-trio-logo { position: relative; width: 100%; max-width: 110px; aspect-ratio: 818 / 748; }
+        .iso-trio-std {
+          font-size: 10.5px;
+          font-weight: 800;
+          color: #0553a0;
+          letter-spacing: -0.1px;
+          white-space: nowrap;
+          line-height: 1;
+        }
+        @keyframes isoBob {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-4px); }
+        }
+        @media (max-width: 1199px) {
+          .iso-trio { gap: 14px; padding: 20px 16px 16px; width: 100%; margin-left: 0; margin-right: 0; }
+          .iso-trio-std { font-size: 12.5px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .iso-trio-item { animation: none; }
+        }
         .hc-section *, .hc-section *::before, .hc-section *::after { box-sizing: border-box; }
         .hc-section {
           position: relative;
@@ -291,7 +350,7 @@ export default function Section1() {
         /* Tiles */
         .hc-grid {
           display: grid;
-          grid-template-columns: repeat(5, 1fr);
+          grid-template-columns: repeat(6, 1fr);
           grid-auto-rows: 150px;
           gap: 22px;
         }
@@ -487,7 +546,7 @@ export default function Section1() {
           .hc-n-r1 { left: var(--edge); top: 100%; }
           .hc-n-r2 { left: calc(100% - var(--edge)); top: 100%; }
           .hc-grid { padding-top: 6px; }
-          .hc-grid { grid-template-columns: repeat(5, 1fr); grid-auto-rows: 140px; gap: 16px; }
+          .hc-grid { grid-template-columns: repeat(3, 1fr); grid-auto-rows: 140px; gap: 16px; }
         }
         @media (max-width: 991px) {
           .hc-grid { grid-template-columns: repeat(3, 1fr); gap: 18px; }
