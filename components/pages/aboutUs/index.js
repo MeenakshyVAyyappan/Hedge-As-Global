@@ -5,7 +5,6 @@ import Link from 'next/link';
 import Section1 from './section1';
 import DirectorMessage from './DirectorMessage';
 import ClientLogosSection from '@/components/sections/ClientLogosSection';
-import FreeZonesSection from '@/components/sections/FreeZonesSection';
 import AccountingInfrastructure from '@/components/pages/home1/section6';
 import WorkingProcess from '@/components/pages/home1/section8';
 import ConsultationForm from '@/components/forms/ConsultationForm';
@@ -90,9 +89,6 @@ export default function AboutUs() {
 					</div>
 				</div>
 			</section>
-
-			{/* Free Zone Partners & Authorities */}
-			<FreeZonesSection bg="#ffffff" />
 
 			{/* Valued Corporate Clients */}
 			<ClientLogosSection bg="#f8fafc" />
