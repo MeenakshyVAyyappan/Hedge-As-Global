@@ -3,16 +3,39 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 const credentials = [
-  { label: "FTA Approved Tax Agency", logo: "/images/certifications/fta.png", w: 517, h: 508, size: "sq" },
-  { label: "UAE • Bahrain • India", logo: "/images/certifications/uae-bahrain-india.png", w: 700, h: 700, size: "sq" },
-  { label: "Chartered Accountants", logo: "/images/certifications/ca.png", w: 679, h: 405, size: "wide" },
-  { label: "IFRS Compliance", logo: "/images/certifications/ifrs.png", w: 700, h: 700, size: "sq" },
-  { label: "ISO Certified", logo: "/images/certifications/iso-9001-certified.png", w: 844, h: 321, size: "wide" },
   { label: "CPA Australia", logo: "/images/memberships/cpa-australia-logo.png", w: 1000, h: 460, size: "wide" },
   { label: "CIMA, United Kingdom", logo: "/images/memberships/cima-logo.png", w: 1000, h: 389, size: "wide" },
   { label: "Accountants & Auditors Association", logo: "/images/memberships/eaaa-logo.png", w: 1000, h: 286, size: "wide" },
   { label: "IPA Fellow, Australia", logo: "/images/memberships/ipa-logo.png", w: 1000, h: 543, size: "wide" },
   { label: "IFA Fellow, United Kingdom", logo: "/images/memberships/ifa-logo.png", w: 1000, h: 529, size: "wide" }
+];
+
+const cards = [
+  {
+    title: "FTA-Approved Tax Agency",
+    desc: "Pioneer Hedge Auditing & Tax Consulting is a registered FTA Tax Agency authorized to manage returns, audits, and tax representation.",
+    image: "/images/section/fta_official.png"
+  },
+  {
+    title: "UAE • Bahrain • India",
+    desc: "Regional leadership across Abu Dhabi, Dubai, Al Ain, Manama (Bahrain), and India providing local compliance with international scale.",
+    image: "/images/section/uaeindia_flags.png"
+  },
+  {
+    title: "Chartered Accountants",
+    desc: "Senior team of qualified auditors, financial analysts, and corporate tax specialists dedicated to precision and governance.",
+    image: "/images/section/ca_new.png"
+  },
+  {
+    title: "IFRS Global Compliance",
+    desc: "Financial reporting and statutory audits conducted in strict compliance with International Financial Reporting Standards.",
+    image: "/images/section/ifrs_clean.png"
+  },
+  {
+    title: "ISO Certified",
+    desc: "Our accounting, audit, and tax processes follow internationally recognised ISO standards, ensuring consistent, documented, and reliable service delivery.",
+    image: "/images/section/iso-9001-round.png"
+  }
 ];
 
 function TiltTile({ item, index }) {
@@ -74,6 +97,25 @@ export default function Section1() {
   }, []);
 
   return (
+    <>
+    <section style={{ backgroundColor: "#ffffff", paddingTop: "48px", paddingBottom: "48px" }}>
+      <div className="tf-container">
+        <div className="row g-4 justify-content-center row-cols-xl-5">
+          {cards.map((card, index) => (
+            <div key={index} className="col-12 col-md-6 col-lg-4">
+              <div className="saylo-home2-card">
+                <h3 className="saylo-home2-title">{card.title}</h3>
+                <p className="saylo-home2-desc">{card.desc}</p>
+                <div className="saylo-home2-img-wrap">
+                  <Image src={card.image} alt={card.title} fill className="saylo-home2-img" sizes="150px" />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
     <section ref={sectionRef} className={`hc-section ${inView ? "is-in" : ""}`}>
       <span className="hc-orb hc-orb-1" aria-hidden="true" />
       <span className="hc-orb hc-orb-2" aria-hidden="true" />
@@ -104,26 +146,6 @@ export default function Section1() {
 
         {/* Diagram */}
         <div className="hc-diagram">
-          <div className="hc-brand-col">
-            <div className="hc-brand">
-              <span className="hc-ring" aria-hidden="true" />
-              <div className="hc-brand-logo">
-                <Image src="/images/logo/short-logo.png" alt="Hedge Chartered Accountants Group" width={1080} height={1080} quality={90} sizes="140px" style={{ width: "100%", height: "auto" }} />
-              </div>
-              <span className="hc-brand-name">Hedge Chartered Accountants Group</span>
-            </div>
-          </div>
-
-          <div className="hc-links" aria-hidden="true">
-            <span className="hc-line hc-l-main" />
-            <span className="hc-line hc-l-trunk" />
-            <span className="hc-line hc-l-r1" />
-            <span className="hc-line hc-l-r2" />
-            <span className="hc-node hc-n-mid" />
-            <span className="hc-node hc-n-r1" />
-            <span className="hc-node hc-n-r2" />
-          </div>
-
           <div className="hc-grid">
             {credentials.map((item, i) => (
               <TiltTile key={item.logo} item={item} index={i} />
@@ -136,7 +158,8 @@ export default function Section1() {
         .hc-section *, .hc-section *::before, .hc-section *::after { box-sizing: border-box; }
         .hc-section {
           position: relative;
-          overflow: hidden;
+          overflow: hidden !important;
+          overflow: clip !important;
           padding: 64px 0 72px;
           background:
             radial-gradient(1200px 400px at 50% 0%, rgba(3, 33, 78, 0.05), transparent 70%),
@@ -184,7 +207,7 @@ export default function Section1() {
         /* Diagram */
         .hc-diagram {
           display: grid;
-          grid-template-columns: 210px 70px 1fr;
+          grid-template-columns: minmax(0, 1fr);
           align-items: stretch;
           perspective: 1400px;
         }
@@ -467,8 +490,7 @@ export default function Section1() {
           .hc-grid { grid-template-columns: repeat(5, 1fr); grid-auto-rows: 140px; gap: 16px; }
         }
         @media (max-width: 991px) {
-          .hc-links { --edge: calc(25% - 4.5px); }
-          .hc-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+          .hc-grid { grid-template-columns: repeat(3, 1fr); gap: 18px; }
         }
         @media (max-width: 575px) {
           .hc-section { padding: 48px 0 56px; }
@@ -478,6 +500,7 @@ export default function Section1() {
           .hc-links { height: 52px; --edge: calc(25% - 3.5px); }
           .hc-brand-logo { width: 96px; }
           .hc-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 128px; gap: 14px; }
+          .hc-grid .hc-tile-wrap:last-child:nth-child(odd) { grid-column: 1 / -1; justify-self: center; width: calc(50% - 7px); }
           .hc-logo.sq { height: 58px; }
           .hc-logo.wide { height: 50px; }
           .hc-label { font-size: 11px; }
@@ -490,5 +513,6 @@ export default function Section1() {
         }
       `}</style>
     </section>
+    </>
   );
 }
