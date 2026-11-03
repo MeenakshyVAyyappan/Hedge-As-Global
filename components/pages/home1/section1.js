@@ -26,15 +26,40 @@ export default function Section1() {
       title: "ISO Certified",
       desc: "Our accounting, audit, and tax processes follow internationally recognised ISO standards, ensuring consistent, documented, and reliable service delivery.",
       image: "/images/section/iso-certified.png"
+    },
+    {
+      title: "CPA Australia",
+      desc: "Our leadership is admitted to full membership of CPA Australia, entitled to the Certified Practising Accountant (CPA) designation.",
+      image: "/images/memberships/cpa-australia-badge.png"
+    },
+    {
+      title: "CIMA, United Kingdom",
+      desc: "Chartered Management Accountant membership of the Chartered Institute of Management Accountants, strengthening our strategic and management advisory.",
+      image: "/images/memberships/cima-badge.png"
+    },
+    {
+      title: "UAE Accountants Fellowship",
+      desc: "Fellowship of the Emirates Association for Accountants & Auditors, the UAE's professional body for accountants and auditors.",
+      image: "/images/memberships/eaaa-badge.png"
+    },
+    {
+      title: "IPA Fellow, Australia",
+      desc: "Fellow membership of the Institute of Public Accountants, Australia, a full member of the International Federation of Accountants (IFAC).",
+      image: "/images/memberships/ipa-badge.png"
+    },
+    {
+      title: "IFA Fellow, United Kingdom",
+      desc: "Fellow membership of the Institute of Financial Accountants, London, a member of the IPA Group with global professional recognition.",
+      image: "/images/memberships/ifa-badge.png"
     }
   ];
 
   return (
     <section style={{ backgroundColor: "#ffffff", paddingTop: "48px", paddingBottom: "48px" }}>
       <div className="tf-container">
-        <div className="row g-4 justify-content-center">
+        <div className="row g-4 justify-content-center row-cols-xl-5">
           {cards.map((card, index) => (
-            <div key={index} className="col-12 col-md-6 col-lg-4 col-xl">
+            <div key={index} className="col-12 col-md-6 col-lg-4">
               <div className="saylo-home2-card">
                 
                 {/* Title */}

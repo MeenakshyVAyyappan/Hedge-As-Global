@@ -6,19 +6,17 @@ const clientLogos = [
   { id: 1, name: "Pullman Hotels & Resorts", src: "/images/clients/pullman.png", alt: "Pullman Hotels and Resorts", sector: "Hospitality" },
   { id: 2, name: "Boom Boom Energy Drink", src: "/images/clients/boomboom.png", alt: "Boom Boom Energy Drink", sector: "FMCG & Beverages" },
   { id: 3, name: "DF Closets (كاف للخزائن)", src: "/images/clients/df-closets.png", alt: "DF Closets", sector: "Interior & Woodwork" },
+  { id: 17, name: "Rotana Jet (روتانا جت)", src: "/images/clients/rotana-jet.png", alt: "Rotana Jet", sector: "Aviation" },
   { id: 4, name: "Petro Gas Agencies (بتروغاز للوكالات)", src: "/images/clients/petro-gas.png", alt: "Petro Gas Agencies", sector: "Energy & Oil Services" },
   { id: 5, name: "Beauty & Perfume Int'l (BPI)", src: "/images/clients/bpi-perfumes.png", alt: "Beauty & Perfume International Factory L.L.C.", sector: "Perfume & Cosmetics" },
   { id: 6, name: "Novotel & ibis Abu Dhabi Gate", src: "/images/clients/novotel-ibis.png", alt: "Novotel & ibis Abu Dhabi Gate Hotels", sector: "Hospitality" },
   { id: 7, name: "EMPER Perfumes", src: "/images/clients/emper-perfumes.png", alt: "EMPER Perfumes", sector: "Fragrances & Retail" },
   { id: 8, name: "Al Bassam Int'l Factories", src: "/images/clients/al-bassam.png", alt: "Al Bassam International Factories L.L.C.", sector: "Manufacturing & Industrial" },
-  { id: 9, name: "Arabian Gulf Electro-Mechanical", src: "/images/clients/age-electromechanical.png", alt: "Arabian Gulf Electro-Mechanical (AGE)", sector: "Engineering & MEP" },
   { id: 10, name: "Vallo Auto", src: "/images/clients/vallo-auto.png", alt: "Vallo Auto", sector: "Automotive" },
   { id: 11, name: "Emirates Gallery (إمارات غاليري)", src: "/images/clients/emirates-gallery.png", alt: "Emirates Gallery", sector: "Retail & Trading" },
-  { id: 12, name: "ibis Hotels", src: "/images/clients/ibis-hotels.png", alt: "ibis Hotels", sector: "Hospitality" },
-  { id: 13, name: "Marassi Aquarium & Underwater Zoo", src: "/images/clients/marassi-aquarium.png", alt: "Marassi Aquarium & Underwater Zoo", sector: "Entertainment & Leisure" },
-  { id: 14, name: "Oryx Grand Hotel Jebel Hafeet", src: "/images/clients/oryx-grand.png", alt: "Oryx Grand Hotel Jebel Hafeet", sector: "Hospitality & Tourism" },
   { id: 15, name: "Karaz Restaurant (كرز)", src: "/images/clients/karaz-restaurant.png", alt: "Karaz Restaurant", sector: "F&B / Hospitality" },
-  { id: 16, name: "Alberni Hotel & Resort (البرني)", src: "/images/clients/alberni-hotel.png", alt: "Alberni Hotel & Resort Jebel Hafeet (فندق ومنتجع البرني جبل حفيت)", sector: "Luxury Resorts" },
+  { id: 18, name: "Geo Offshore Middle East RMC FZE", src: "/images/clients/geo-offshore.png", alt: "Geo Offshore Middle East RMC FZE (GOM)", sector: "Offshore & Marine" },
+  { id: 19, name: "German Steel (جرمان ستيل)", src: "/images/clients/german-steel.png", alt: "German Steel", sector: "Steel & Manufacturing" },
 ];
 
 // Repeat logos twice for a seamless 50% infinite marquee animation

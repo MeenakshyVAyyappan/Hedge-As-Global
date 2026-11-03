@@ -16,7 +16,7 @@ const repeatedLogos = [...freeZoneLogos, ...freeZoneLogos, ...freeZoneLogos];
 
 export default function FreeZonesSection({ 
   bg = "#ffffff", 
-  title = "Kharz-Approved Auditors & Free Zone Partners", 
+  title = "Approved Auditors", 
   subtitle = "We partner with premier free zone authorities, trade hubs, and prominent corporate entities across the UAE and GCC." 
 }) {
   return (

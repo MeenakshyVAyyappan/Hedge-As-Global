@@ -3,10 +3,8 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Section1 from './section1';
-import Section3 from './section3';
 import ClientLogosSection from '@/components/sections/ClientLogosSection';
 import FreeZonesSection from '@/components/sections/FreeZonesSection';
-import CertificationsSection from '@/components/sections/CertificationsSection';
 import AccountingInfrastructure from '@/components/pages/home1/section6';
 import WorkingProcess from '@/components/pages/home1/section8';
 import ConsultationForm from '@/components/forms/ConsultationForm';
@@ -75,10 +73,10 @@ export default function AboutUs() {
 						<div className="col-lg-6 d-flex align-items-center">
 							<div className="position-relative w-100 rounded-4 overflow-hidden">
 								<Image
-									src="/images/team/hedge-team-leadership.jpg"
-									alt="Hedge Chartered Accountants Group leadership team"
+									src="/images/team/hedge-team-group.jpg"
+									alt="The Hedge Chartered Accountants Group team"
 									width={2000}
-									height={1259}
+									height={1266}
 									quality={90}
 									sizes="(max-width: 992px) 100vw, 50vw"
 									style={{ width: '100%', height: 'auto', display: 'block' }}
@@ -88,9 +86,6 @@ export default function AboutUs() {
 					</div>
 				</div>
 			</section>
-
-			{/* Professional Accreditations & Certificates */}
-			<CertificationsSection bg="#f8fafc" />
 
 			{/* Free Zone Partners & Authorities */}
 			<FreeZonesSection bg="#ffffff" />
@@ -136,9 +131,6 @@ export default function AboutUs() {
 					</div>
 				</div>
 			</section>
-
-			{/* 5. OUR EXPERT TEAM */}
-			<Section3 />
 
 			{/* 6. ACCOUNTING INFRASTRUCTURE */}
 			<AccountingInfrastructure />
