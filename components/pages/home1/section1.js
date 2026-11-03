@@ -21,6 +21,11 @@ export default function Section1() {
       title: "IFRS Global Compliance",
       desc: "Financial reporting and statutory audits conducted in strict compliance with International Financial Reporting Standards.",
       image: "/images/section/ifrs_clean.png"
+    },
+    {
+      title: "ISO Certified",
+      desc: "Our accounting, audit, and tax processes follow internationally recognised ISO standards, ensuring consistent, documented, and reliable service delivery.",
+      image: "/images/section/iso-certified.png"
     }
   ];
 
@@ -29,7 +34,7 @@ export default function Section1() {
       <div className="tf-container">
         <div className="row g-4 justify-content-center">
           {cards.map((card, index) => (
-            <div key={index} className="col-12 col-md-6 col-lg-3">
+            <div key={index} className="col-12 col-md-6 col-lg-4 col-xl">
               <div className="saylo-home2-card">
                 
                 {/* Title */}
