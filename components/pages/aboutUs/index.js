@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Section1 from './section1';
+import DirectorMessage from './DirectorMessage';
 import ClientLogosSection from '@/components/sections/ClientLogosSection';
 import FreeZonesSection from '@/components/sections/FreeZonesSection';
 import AccountingInfrastructure from '@/components/pages/home1/section6';
@@ -39,6 +40,9 @@ export default function AboutUs() {
 			{/* 1. Firm Overview Section */}
 			<Section1 />
 
+			{/* Director's Message */}
+			<DirectorMessage />
+
 			{/* 2. Mission & Vision */}
 			<section className="s-mission py-0" id="mission" style={{ paddingTop: '56px', paddingBottom: '56px' }}>
 				<div className="tf-container">
@@ -73,10 +77,10 @@ export default function AboutUs() {
 						<div className="col-lg-6 d-flex align-items-center">
 							<div className="position-relative w-100 rounded-4 overflow-hidden">
 								<Image
-									src="/images/team/hedge-team-group.jpg"
+									src="/images/team/hedge-team-mission.jpg"
 									alt="The Hedge Chartered Accountants Group team"
 									width={2000}
-									height={1266}
+									height={1299}
 									quality={90}
 									sizes="(max-width: 992px) 100vw, 50vw"
 									style={{ width: '100%', height: 'auto', display: 'block' }}

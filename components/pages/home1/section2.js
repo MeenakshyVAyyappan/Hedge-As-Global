@@ -98,13 +98,11 @@ export default function Section2() {
             <div className="position-relative">
               <div className="rounded-4 overflow-hidden position-relative z-1" style={{ boxShadow: "0 20px 60px rgba(0,0,0,0.12)", border: "6px solid #ffffff" }}>
                 <Image
-                  width={1400}
-                  height={2173}
-                  style={{ width: "100%", height: "auto", display: "block" }}
-                  src="/images/team/hedge-partner-portrait.jpg"
-                  alt="Hedge Chartered Accountants Group partner at the Abu Dhabi office"
-                  quality={90}
-                  sizes="(max-width: 992px) 100vw, 40vw"
+                  width={600}
+                  height={700}
+                  style={{ width: "100%", height: "auto", objectFit: "cover", display: "block" }}
+                  src="/images/section/homeabout.jpg"
+                  alt="Hedge Chartered Accountants Group Head Office"
                 />
                 <div className="position-absolute top-0 start-0 w-100 h-100" style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0) 55%, rgba(3,33,78,0.45) 100%)" }}></div>
               </div>

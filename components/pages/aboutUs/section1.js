@@ -100,13 +100,11 @@ export default function Section1() {
 							{/* Main Featured Office Image */}
 							<div className="rounded-4 overflow-hidden shadow-lg position-relative mb-4" style={{ border: '5px solid #ffffff', boxShadow: '0 20px 50px rgba(0,0,0,0.08)' }}>
 								<Image
-									width={2000}
-									height={1279}
-									style={{ width: '100%', height: 'auto', display: 'block' }}
-									src="/images/team/hedge-full-team.jpg"
-									alt="The Hedge Chartered Accountants Group team at our Abu Dhabi office"
-									quality={90}
-									sizes="(max-width: 992px) 100vw, 50vw"
+									width={600}
+									height={380}
+									style={{ width: '100%', height: '360px', objectFit: 'cover', display: 'block' }}
+									src="/images/section/homeabout.jpg"
+									alt="Hedge Chartered Accountants Group Head Office"
 								/>
 							</div>
 
