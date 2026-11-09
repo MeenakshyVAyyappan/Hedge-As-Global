@@ -10,10 +10,10 @@ import "swiper/css";
 export default function Section6() {
   const partnerLogos = [
     { id: "tally-1", name: "Tally Prime", logo: "/images/section/TallyPrime.png" },
-    { id: "odoo-1", name: "Odoo ERP", logo: "/images/section/odoo.png" },
+    { id: "odoo-1", name: "Odoo ERP", logo: "/images/section/odoo.webp" },
     { id: "zoho-1", name: "Zoho Books", logo: "/images/section/zohoo.png" },
     { id: "tally-2", name: "Tally Prime", logo: "/images/section/TallyPrime.png" },
-    { id: "odoo-2", name: "Odoo ERP", logo: "/images/section/odoo.png" },
+    { id: "odoo-2", name: "Odoo ERP", logo: "/images/section/odoo.webp" },
     { id: "zoho-2", name: "Zoho Books", logo: "/images/section/zohoo.png" }
   ];
 

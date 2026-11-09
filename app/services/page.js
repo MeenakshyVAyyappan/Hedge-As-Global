@@ -11,7 +11,7 @@ export const metadata = {
 
 export default function ServicesPage() {
 	return (
-		<Layout breadcrumbTitle="Our Services" mainCls="padding-0" breadcrumbBg="/images/bredcrumb/bredcrumb1.jpeg">
+		<Layout breadcrumbTitle="Our Services" mainCls="padding-0" breadcrumbBg="/images/bredcrumb/bredcrumb1.webp">
 			<OurService />
 		</Layout>
 	);

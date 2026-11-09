@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function TermsConditions() {
 	return (
-		<Layout breadcrumbTitle="Terms & Conditions" mainCls="padding-0" breadcrumbBg="/images/bredcrumb/bredcrumb1.jpeg">
+		<Layout breadcrumbTitle="Terms & Conditions" mainCls="padding-0" breadcrumbBg="/images/bredcrumb/bredcrumb1.webp">
 			<section style={{ backgroundColor: '#f8fafc', paddingTop: '60px', paddingBottom: '80px' }}>
 				<div className="container" style={{ maxWidth: '960px' }}>
 					<div 

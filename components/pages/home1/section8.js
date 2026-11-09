@@ -14,25 +14,25 @@ export default function Section8() {
       step: "STEP 01",
       title: "01. Understand",
       desc: "Understand the company's requirements, corporate setup, financial environment, and current operating challenges.",
-      image: "/images/section/understanding.png"
+      image: "/images/section/understanding.webp"
     },
     {
       step: "STEP 02",
       title: "02. Assess",
       desc: "Review current accounting workflows, tax exposure (VAT / Corporate Tax), audit requirements, or ICV score eligibility.",
-      image: "/images/section/asses.png"
+      image: "/images/section/asses.webp"
     },
     {
       step: "STEP 03",
       title: "03. Implement",
       desc: "Deliver structured professional solutions, ERP integration, tax registration, or statutory audit aligned with regional laws.",
-      image: "/images/section/implimentation.png"
+      image: "/images/section/implimentation.webp"
     },
     {
       step: "STEP 04",
       title: "04. Support",
       desc: "Provide ongoing monthly guidance, MIS reporting, quarterly tax filings, and continuous financial optimization.",
-      image: "/images/section/support.png"
+      image: "/images/section/support.webp"
     }
   ];
 

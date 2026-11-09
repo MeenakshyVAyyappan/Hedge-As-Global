@@ -16,7 +16,7 @@ export default function DirectorMessage() {
 					<div className="hd-photo-col">
 						<div className="hd-photo">
 							<Image
-								src="/images/team/director-anjith.jpg"
+								src="/images/team/director-anjith.webp"
 								alt="Anjith Reghukumar, Hedge Chartered Accountants Group"
 								width={1080}
 								height={1199}

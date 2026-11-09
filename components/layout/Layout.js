@@ -7,20 +7,18 @@ import { useCircularTextEffect } from "@/utils/applyCircularText "
 import { useEffect, useState } from "react"
 import { usePathname } from 'next/navigation'
 import AddClassBody from "../elements/AddClassBody"
+import dynamic from "next/dynamic"
 import Hero1 from "../pages/home1/hero1"
-import Hero2 from "../pages/home2/hero2"
-import Hero3 from "../pages/home3/hero3"
-import Hero4 from "../pages/home4/hero4"
 import BoxWelcome from "./BoxWelcome"
 import Breadcrumb from './Breadcrumb'
 import Footer1 from './footer/Footer1'
-import Footer2 from './footer/Footer2'
-import Footer3 from "./footer/Footer3"
-import Footer4 from "./footer/Footer4"
 import Header1 from "./header/Header1"
-import Header2 from './header/Header2'
-import Header3 from "./header/Header3"
-import Header4 from "./header/Header4"
+
+// Only the live homepage uses Hero1. The old template heroes are loaded on demand
+// so their code (and Swiper) is not shipped to every page.
+const Hero2 = dynamic(() => import("../pages/home2/hero2"))
+const Hero3 = dynamic(() => import("../pages/home3/hero3"))
+const Hero4 = dynamic(() => import("../pages/home4/hero4"))
 
 import FloatingCTADock from "../elements/FloatingCTADock"
 
@@ -55,11 +53,17 @@ export default function Layout({ headerStyle, footerStyle, breadcrumbTitle, chil
 		})
 		window.wow.init()
 
+		let ticking = false
 		const onScroll = () => {
-			setScroll(window.scrollY > 100)
+			if (ticking) return
+			ticking = true
+			window.requestAnimationFrame(() => {
+				setScroll(window.scrollY > 100)
+				ticking = false
+			})
 		}
 
-		window.addEventListener("scroll", onScroll)
+		window.addEventListener("scroll", onScroll, { passive: true })
 
 		// Handle hash-based anchor navigation (e.g. /#faq)
 		const handleHashScroll = () => {
@@ -77,9 +81,23 @@ export default function Layout({ headerStyle, footerStyle, breadcrumbTitle, chil
 		handleHashScroll()
 		window.addEventListener('hashchange', handleHashScroll)
 
+		// Performance: pause the looping CSS animations of sections that are off-screen.
+		// They resume automatically as soon as the section scrolls into view, so visitors
+		// still see every animation, but the phone/computer does not keep drawing hidden ones.
+		let pauseObserver
+		if ('IntersectionObserver' in window) {
+			pauseObserver = new IntersectionObserver((entries) => {
+				entries.forEach((entry) => {
+					entry.target.classList.toggle('anim-offscreen', !entry.isIntersecting)
+				})
+			}, { rootMargin: '200px 0px' })
+			document.querySelectorAll('#wrapper section, #wrapper footer').forEach((el) => pauseObserver.observe(el))
+		}
+
 		return () => {
 			window.removeEventListener("scroll", onScroll)
 			window.removeEventListener('hashchange', handleHashScroll)
+			if (pauseObserver) pauseObserver.disconnect()
 		}
 	}, [])
 

@@ -24,7 +24,7 @@ export default function Section3() {
 
 					<div className="hedge-team-photo">
 						<Image
-							src="/images/team/hedge-team-group.jpg"
+							src="/images/team/hedge-team-group.webp"
 							alt="The Hedge Chartered Accountants Group team"
 							width={2000}
 							height={1266}

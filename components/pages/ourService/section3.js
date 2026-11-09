@@ -7,7 +7,7 @@ export default function Section3() {
 			title: "Accounting Services",
 			slug: "/services/accounting-services",
 			desc: "Complete financial ledger maintenance, financial statements preparation, and management reporting aligned with IFRS standards.",
-			image: "/images/section/accounting.png"
+			image: "/images/section/accounting.webp"
 		},
 		{
 			title: "Book Keeping",
@@ -25,7 +25,7 @@ export default function Section3() {
 			title: "UAE Corporate Tax Advisory",
 			slug: "/services/uae-corporate-tax",
 			desc: "Corporate tax registration, tax group structuring, transfer pricing documentation, and annual return filings with the Federal Tax Authority.",
-			image: "/images/section/uaecorporatetx.png"
+			image: "/images/section/uaecorporatetx.webp"
 		},
 		{
 			title: "VAT Compliance & Advisory (UAE)",
@@ -43,13 +43,13 @@ export default function Section3() {
 			title: "In-Country Value (ICV) Certificate UAE",
 			slug: "/services/icv-certification",
 			desc: "Official ICV score optimization, financial supplier template preparation, and audit certification for UAE government tenders.",
-			image: "/images/section/icv-card-banner.jpg"
+			image: "/images/section/icv-card-banner.webp"
 		},
 		{
 			title: "UAE E-Invoicing",
 			slug: "/services/e-invoicing",
 			desc: "End-to-end e-invoicing readiness: ERP integration, ASP onboarding, PINT AE (Peppol) invoices, real-time FTA reporting and 7-year archiving.",
-			image: "/images/section/e-invoicing.png"
+			image: "/images/section/e-invoicing.webp"
 		}
 	];
 

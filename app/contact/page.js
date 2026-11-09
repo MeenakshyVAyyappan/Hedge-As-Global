@@ -11,7 +11,7 @@ export const metadata = {
 
 export default function ContactPage() {
 	return (
-		<Layout breadcrumbTitle="Contact Us" mainCls="padding-0" breadcrumbBg="/images/bredcrumb/bredcrumb1.jpeg">
+		<Layout breadcrumbTitle="Contact Us" mainCls="padding-0" breadcrumbBg="/images/bredcrumb/bredcrumb1.webp">
 			<Contact />
 		</Layout>
 	)

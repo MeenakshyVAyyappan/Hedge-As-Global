@@ -2,19 +2,20 @@
 
 import { useState, useEffect, useCallback, useRef } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import PhoneInput from '@/components/elements/PhoneInput';
 
 const HERO_SLIDES = [
 	{
 		id: 1,
-		image: '/images/banner/banner1.png',
+		image: '/images/banner/banner1.webp',
+		mobileImage: '/images/banner/banner1-mobile.webp',
 		title: 'Executive Advisory',
 		caption: 'Chartered Accountants & Tax Advisors'
 	},
 	{
 		id: 2,
-		image: '/images/banner/banner2.png',
+		image: '/images/banner/banner2.webp',
+		mobileImage: '/images/banner/banner2-mobile.webp',
 		title: 'Global Financial Hub',
 		caption: 'Corporate Advisory & Audit Standards'
 	}
@@ -25,6 +26,27 @@ const SLIDE_DURATION = 6000; // 6 seconds per slide
 export default function Hero1() {
 	const [activeSlide, setActiveSlide] = useState(0);
 	const timerRef = useRef(null);
+	// Only the first banner is downloaded up front. The second banner is fetched
+	// after the page has finished loading, so it never competes with the first paint.
+	const [loadAllSlides, setLoadAllSlides] = useState(false);
+
+	useEffect(() => {
+		let idleId;
+		const start = () => {
+			if ('requestIdleCallback' in window) {
+				idleId = window.requestIdleCallback(() => setLoadAllSlides(true), { timeout: 2500 });
+			} else {
+				idleId = window.setTimeout(() => setLoadAllSlides(true), 1500);
+			}
+		};
+		if (document.readyState === 'complete') start();
+		else window.addEventListener('load', start, { once: true });
+		return () => {
+			window.removeEventListener('load', start);
+			if ('cancelIdleCallback' in window) window.cancelIdleCallback(idleId);
+			window.clearTimeout(idleId);
+		};
+	}, []);
 
 	// Consultation Popup Modal States
 	const [isModalOpen, setIsModalOpen] = useState(false);
@@ -44,6 +66,7 @@ export default function Hero1() {
 
 	// Smooth Automatic Background Slideshow
 	useEffect(() => {
+		if (!loadAllSlides) return;
 		timerRef.current = setInterval(() => {
 			nextSlide();
 		}, SLIDE_DURATION);
@@ -51,7 +74,7 @@ export default function Hero1() {
 		return () => {
 			if (timerRef.current) clearInterval(timerRef.current);
 		};
-	}, [nextSlide]);
+	}, [nextSlide, loadAllSlides]);
 
 	// Modal keyboard & scroll lock handling
 	useEffect(() => {
@@ -130,14 +153,21 @@ export default function Hero1() {
 							className={`hero-slide-item ${isActive ? 'active' : ''}`}
 							aria-hidden={!isActive}
 						>
-							<Image
-								src={slide.image}
-								alt={`Hedge Chartered Accountants Group - ${slide.title}`}
-								fill
-								priority={index === 0}
-								sizes="100vw"
-								className="hero-slide-image"
-							/>
+							{(index === 0 || loadAllSlides) && (
+								<picture>
+									<source media="(max-width: 767px)" srcSet={slide.mobileImage} type="image/webp" />
+									<img
+										src={slide.image}
+										alt={`Hedge Chartered Accountants Group - ${slide.title}`}
+										width={1920}
+										height={1000}
+										className="hero-slide-image"
+										loading={index === 0 ? 'eager' : 'lazy'}
+										fetchPriority={index === 0 ? 'high' : 'low'}
+										decoding="async"
+									/>
+								</picture>
+							)}
 						</div>
 					);
 				})}
@@ -511,6 +541,10 @@ export default function Hero1() {
 				}
 
 				:global(.hero-slide-image) {
+					position: absolute;
+					inset: 0;
+					width: 100%;
+					height: 100%;
 					object-fit: cover !important;
 					object-position: center center !important;
 					filter: saturate(1.1) contrast(1.05);

@@ -33,7 +33,7 @@ export default function ServiceDetailPage({ params }) {
 	const relatedServices = servicesData.filter((s) => s.slug !== params.slug).slice(0, 6);
 
 	return (
-		<Layout breadcrumbTitle={service.title} mainCls="padding-0" breadcrumbBg="/images/bredcrumb/bredcrumb1.jpeg">
+		<Layout breadcrumbTitle={service.title} mainCls="padding-0" breadcrumbBg="/images/bredcrumb/bredcrumb1.webp">
 			{/* Service Overview & Features */}
 			<section className="py-5 bg-light-slate">
 				<div className="tf-container">

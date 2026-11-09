@@ -46,7 +46,7 @@ export const blogsData = [
 		category: "E-Invoicing",
 		date: "August 15, 2026",
 		author: "Technology Practice, Hedge Chartered Accountants Group",
-		image: "/images/blog/blog2.png",
+		image: "/images/blog/blog2.webp",
 		excerpt: "An actionable framework for CFOs and Finance Directors preparing for the UAE Peppol e-invoicing model and automated tax reporting.",
 		content: `
 			<p>The Ministry of Finance (MoF) and the Federal Tax Authority (FTA) are currently rolling out the advanced UAE E-Invoicing System, adopting the internationally recognized <strong>Peppol network framework</strong>. This monumental shift moves business-to-business (B2B) invoice processing from traditional PDF and paper exchanges to automated, real-time structured XML data validation.</p>
@@ -71,7 +71,7 @@ export const blogsData = [
 		category: "ICV",
 		date: "July 22, 2026",
 		author: "Hedge Chartered Accountants Group",
-		image: "/images/blog/blog3.png",
+		image: "/images/blog/blog3.webp",
 		excerpt: "How to structure local procurement, employee investment, and manufacturing costs to achieve a competitive In-Country Value score.",
 		content: `
 			<p>The National In-Country Value (ICV) program, spearheaded by the Ministry of Industry and Advanced Technology (MoIAT), plays a critical role in UAE government procurement. Achieving a high ICV score significantly enhances a supplier's bid evaluation weightage when competing for lucrative contracts with ADNOC, Aldar, Mubadala, and other participating government entities.</p>
@@ -100,7 +100,7 @@ export const blogsData = [
 		category: "VAT",
 		date: "June 10, 2026",
 		author: "Pioneer Hedge Tax Team",
-		image: "/images/blog/blog4.png",
+		image: "/images/blog/blog4.webp",
 		excerpt: "Common VAT return discrepancies, input tax recovery pitfalls, and how independent health checks protect your bottom line.",
 		content: `
 			<p>With the UAE Federal Tax Authority (FTA) intensifying its audit processes, even minor, unintentional errors in quarterly VAT filings can trigger comprehensive audit queries, severe administrative penalties, or severely delayed input tax refunds. Conducting periodic, independent health checks ensures unassailable compliance consistency across your sales ledger and tax invoices.</p>

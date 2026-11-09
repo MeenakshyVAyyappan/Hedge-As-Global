@@ -2,21 +2,44 @@ import "@/node_modules/react-modal-video/css/modal-video.css";
 import "@/public/css/bootstrap.css";
 import "@/public/css/swiper-bundle.min.css";
 import "@/public/css/odometer.min.css";
-import "@/public/css/magnific-popup.min.css";
 import "@/public/css/animate.min.css";
 import "@/public/css/animate2.min.css";
 import "@/public/css/textanimation.css";
-import "@/public/font/fonts.css";
 import "@/public/icons/icomoon/style.css";
 import "@/public/icons/flaticon/font/flaticon_saylo.css";
 import "@/public/css/styles.css";
-import { Public_Sans } from 'next/font/google';
+import localFont from 'next/font/local';
 import Script from 'next/script';
+import StyledJsxRegistry from './registry';
 
-const publicSans = Public_Sans({
-	weight: ['300', '400', '500', '600', '700'],
-	subsets: ['latin'],
+// Fonts are stored in app/fonts and served from this website (no render-blocking
+// requests to Google Fonts, and no internet needed at build time).
+// The CSS variables below are used in public/css/styles.css.
+const publicSans = localFont({
+	src: './fonts/public-sans-latin-wght-normal.woff2',
+	weight: '100 900',
 	display: 'swap',
+	variable: '--font-public-sans',
+});
+const manrope = localFont({
+	src: './fonts/manrope-latin-wght-normal.woff2',
+	weight: '200 800',
+	display: 'swap',
+	variable: '--font-manrope',
+});
+const inter = localFont({
+	src: './fonts/inter-latin-wght-normal.woff2',
+	weight: '100 900',
+	display: 'swap',
+	preload: false,
+	variable: '--font-inter',
+});
+const dmSans = localFont({
+	src: './fonts/dm-sans-latin-wght-normal.woff2',
+	weight: '100 1000',
+	display: 'swap',
+	preload: false,
+	variable: '--font-dm-sans',
 });
 
 export const metadata = {
@@ -66,8 +89,8 @@ export const metadata = {
 	},
 	icons: {
 		icon: [
-			{ url: '/favicon.ico' },
-			{ url: '/images/logo/logoclear21.png', type: 'image/png' },
+			{ url: '/favicon.ico', sizes: '48x48' },
+			{ url: '/images/logo/hedge-icon-192.png', sizes: '192x192', type: 'image/png' },
 		],
 		shortcut: '/favicon.ico',
 		apple: [
@@ -125,7 +148,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }) {
 	return (
-		<html lang="en">
+		<html lang="en" className={`${publicSans.variable} ${manrope.variable} ${inter.variable} ${dmSans.variable}`}>
 			<head>
 				<Script
 					id="json-ld-structured-data"
@@ -133,7 +156,7 @@ export default function RootLayout({ children }) {
 					dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
 				/>
 			</head>
-			<body className={`${publicSans.className}`}>{children}</body>
+			<body className={`${publicSans.className}`}><StyledJsxRegistry>{children}</StyledJsxRegistry></body>
 		</html>
 	);
 }

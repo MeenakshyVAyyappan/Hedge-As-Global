@@ -60,7 +60,7 @@ export default function Header2({ scroll, isMobileMenu, handleMobileMenu, handle
 												width="220"
 												height="65"
 												style={{ objectFit: "contain", height: "55px", width: "auto" }}
-												id="logo_header" src="/images/logo/logoclear21.png" alt="Hedge Chartered Accountants Group" />
+												id="logo_header" src="/images/logo/logoclear21.webp" alt="Hedge Chartered Accountants Group" />
 										</Link>
 									</div>
 								</div>
@@ -96,7 +96,7 @@ export default function Header2({ scroll, isMobileMenu, handleMobileMenu, handle
 													width="200"
 													height="55"
 													style={{ objectFit: "contain", height: "45px", width: "auto" }}
-													id="mobile-logo_header" alt="Hedge Chartered Accountants Group" src="/images/logo/logoclear21.png" />
+													id="mobile-logo_header" alt="Hedge Chartered Accountants Group" src="/images/logo/logoclear21.webp" />
 											</Link>
 											<div className="mobile-nav-close" onClick={handleMobileMenu}>
 												<i className="icon-xmark" />

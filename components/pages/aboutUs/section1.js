@@ -103,7 +103,7 @@ export default function Section1() {
 									width={600}
 									height={380}
 									style={{ width: '100%', height: '360px', objectFit: 'cover', display: 'block' }}
-									src="/images/section/homeabout.jpg"
+									src="/images/section/homeabout.webp"
 									alt="Hedge Chartered Accountants Group Head Office"
 								/>
 							</div>

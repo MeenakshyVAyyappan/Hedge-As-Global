@@ -29,7 +29,7 @@ export default function Section2() {
 												height="0"
 												sizes="100vw"
 												style={{ width: "100%", height: "auto" }}
-												src="/images/avatar/team-member-1.jpg" data-src="/images/avatar/team-member-1.jpg" alt="" className="lazyload" />
+												src="/images/avatar/team-member-1.webp" data-src="/images/avatar/team-member-1.webp" alt="" className="lazyload" />
 										</div>
 										<div className="content">
 											<Link href="/team-details" className="name"> Daniel L. Braddock </Link>
@@ -65,7 +65,7 @@ export default function Section2() {
 												height="0"
 												sizes="100vw"
 												style={{ width: "100%", height: "auto" }}
-												src="/images/avatar/team-member-2.jpg" data-src="/images/avatar/team-member-2.jpg" alt="" className="lazyload" />
+												src="/images/avatar/team-member-2.webp" data-src="/images/avatar/team-member-2.webp" alt="" className="lazyload" />
 										</div>
 										<div className="content">
 											<Link href="/team-details" className="name"> Michael B. Reader </Link>
@@ -101,7 +101,7 @@ export default function Section2() {
 												height="0"
 												sizes="100vw"
 												style={{ width: "100%", height: "auto" }}
-												src="/images/avatar/team-member-3.jpg" data-src="/images/avatar/team-member-3.jpg" alt="" className="lazyload" />
+												src="/images/avatar/team-member-3.webp" data-src="/images/avatar/team-member-3.webp" alt="" className="lazyload" />
 										</div>
 										<div className="content">
 											<Link href="/team-details" className="name"> Robert M. Carlson </Link>
@@ -137,7 +137,7 @@ export default function Section2() {
 												height="0"
 												sizes="100vw"
 												style={{ width: "100%", height: "auto" }}
-												src="/images/avatar/team-member-4.jpg" data-src="/images/avatar/team-member-4.jpg" alt="" className="lazyload" />
+												src="/images/avatar/team-member-4.webp" data-src="/images/avatar/team-member-4.webp" alt="" className="lazyload" />
 										</div>
 										<div className="content">
 											<Link href="/team-details" className="name"> William C. Bowens </Link>
@@ -173,7 +173,7 @@ export default function Section2() {
 												height="0"
 												sizes="100vw"
 												style={{ width: "100%", height: "auto" }}
-												src="/images/avatar/team-member-5.jpg" data-src="/images/avatar/team-member-5.jpg" alt="" className="lazyload" />
+												src="/images/avatar/team-member-5.webp" data-src="/images/avatar/team-member-5.webp" alt="" className="lazyload" />
 										</div>
 										<div className="content">
 											<Link href="/team-details" className="name"> Robert B. Thompson </Link>
@@ -209,7 +209,7 @@ export default function Section2() {
 												height="0"
 												sizes="100vw"
 												style={{ width: "100%", height: "auto" }}
-												src="/images/avatar/team-member-6.jpg" data-src="/images/avatar/team-member-6.jpg" alt="" className="lazyload" />
+												src="/images/avatar/team-member-6.webp" data-src="/images/avatar/team-member-6.webp" alt="" className="lazyload" />
 										</div>
 										<div className="content">
 											<Link href="/team-details" className="name"> Samuel D. Fletcher </Link>
@@ -248,7 +248,7 @@ export default function Section2() {
 													height="0"
 													sizes="100vw"
 													style={{ width: "100%", height: "auto" }}
-													src="/images/avatar/team-member-1.jpg" data-src="/images/avatar/team-member-1.jpg" alt="" className="lazyload" />
+													src="/images/avatar/team-member-1.webp" data-src="/images/avatar/team-member-1.webp" alt="" className="lazyload" />
 											</div>
 											<div className="content">
 												<Link href="/team-details" className="name"> Daniel L. Braddock </Link>
@@ -284,7 +284,7 @@ export default function Section2() {
 													height="0"
 													sizes="100vw"
 													style={{ width: "100%", height: "auto" }}
-													src="/images/avatar/team-member-2.jpg" data-src="/images/avatar/team-member-2.jpg" alt="" className="lazyload" />
+													src="/images/avatar/team-member-2.webp" data-src="/images/avatar/team-member-2.webp" alt="" className="lazyload" />
 											</div>
 											<div className="content">
 												<Link href="/team-details" className="name"> Michael B. Reader </Link>
@@ -320,7 +320,7 @@ export default function Section2() {
 													height="0"
 													sizes="100vw"
 													style={{ width: "100%", height: "auto" }}
-													src="/images/avatar/team-member-3.jpg" data-src="/images/avatar/team-member-3.jpg" alt="" className="lazyload" />
+													src="/images/avatar/team-member-3.webp" data-src="/images/avatar/team-member-3.webp" alt="" className="lazyload" />
 											</div>
 											<div className="content">
 												<Link href="/team-details" className="name"> Robert M. Carlson </Link>

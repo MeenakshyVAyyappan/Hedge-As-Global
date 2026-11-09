@@ -3,12 +3,12 @@
 import Image from 'next/image';
 
 const freeZoneLogos = [
-  { id: 1, name: "Meydan Free Zone (Meydan FZ)", src: "/images/clients/client03.png", alt: "meydan-logo" },
-  { id: 2, name: "Khalifa Industrial Zone (KIZAD)", src: "/images/clients/client01.png", alt: "kizad-logo" },
-  { id: 3, name: "Jebel Ali Free Zone (Jafza)", src: "/images/clients/client05.png", alt: "jafza-logo" },
-  { id: 4, name: "Dubai World Trade Centre (DWTC)", src: "/images/clients/client04.png", alt: "dwtc-logo" },
-  { id: 5, name: "Ras Al Khaimah Economic Zone (RAKEZ)", src: "/images/clients/client06.png", alt: "rakez-logo" },
-  { id: 6, name: "Abu Dhabi Airport Free Zone (ADAFZ)", src: "/images/clients/client02.png", alt: "adafz-logo" },
+  { id: 1, name: "Meydan Free Zone (Meydan FZ)", src: "/images/clients/client03.webp", alt: "meydan-logo" },
+  { id: 2, name: "Khalifa Industrial Zone (KIZAD)", src: "/images/clients/client01.webp", alt: "kizad-logo" },
+  { id: 3, name: "Jebel Ali Free Zone (Jafza)", src: "/images/clients/client05.webp", alt: "jafza-logo" },
+  { id: 4, name: "Dubai World Trade Centre (DWTC)", src: "/images/clients/client04.webp", alt: "dwtc-logo" },
+  { id: 5, name: "Ras Al Khaimah Economic Zone (RAKEZ)", src: "/images/clients/client06.webp", alt: "rakez-logo" },
+  { id: 6, name: "Abu Dhabi Airport Free Zone (ADAFZ)", src: "/images/clients/client02.webp", alt: "adafz-logo" },
 ];
 
 // Repeat logos 3 times for a seamless, continuous infinite loop marquee without empty gaps
@@ -94,7 +94,6 @@ export default function FreeZonesSection({
                     objectFit: 'contain'
                   }}
                   className="client-logo-img"
-                  priority={index < 5}
                 />
               </div>
             </div>

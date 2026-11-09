@@ -26,7 +26,7 @@ export default function BoxWelcome({ handleWelcomeBox, isWelcomeBox }) {
 								width="190"
 								height="55"
 								style={{ objectFit: "contain", height: "55px", width: "auto" }}
-								src="/images/logo/logoclear21.png"
+								src="/images/logo/logoclear21.webp"
 								alt="Hedge Chartered Accountants Group"
 							/>
 						</div>

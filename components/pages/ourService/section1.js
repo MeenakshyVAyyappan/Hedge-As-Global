@@ -51,7 +51,7 @@ export default function Section1() {
 												width={500}
 												height={500}
 												style={{ width: "100%", height: "100%", objectFit: "cover" }}
-												src="/images/section/homeabout.jpg" 
+												src="/images/section/homeabout.webp" 
 												alt="Accounting & Bookkeeping" 
 												className="lazyload" 
 											/>
@@ -77,7 +77,7 @@ export default function Section1() {
 												width={500}
 												height={500}
 												style={{ width: "100%", height: "100%", objectFit: "cover" }}
-												src="/images/section/firmoverview.png" 
+												src="/images/section/firmoverview.webp" 
 												alt="Statutory & Internal Audit" 
 												className="lazyload" 
 											/>
@@ -103,7 +103,7 @@ export default function Section1() {
 												width={500}
 												height={500}
 												style={{ width: "100%", height: "100%", objectFit: "cover" }}
-												src="/images/section/corporatetaxcompilence.png" 
+												src="/images/section/corporatetaxcompilence.webp" 
 												alt="Corporate Tax Advisory" 
 												className="lazyload" 
 											/>

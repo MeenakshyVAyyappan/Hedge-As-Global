@@ -101,7 +101,7 @@ export default function Section2() {
                   width={600}
                   height={700}
                   style={{ width: "100%", height: "auto", objectFit: "cover", display: "block" }}
-                  src="/images/section/homeabout.jpg"
+                  src="/images/section/homeabout.webp"
                   alt="Hedge Chartered Accountants Group Head Office"
                 />
                 <div className="position-absolute top-0 start-0 w-100 h-100" style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0) 55%, rgba(3,33,78,0.45) 100%)" }}></div>

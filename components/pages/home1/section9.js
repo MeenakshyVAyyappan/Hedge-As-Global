@@ -57,7 +57,7 @@ export default function Section9() {
           <div className="col-lg-5 d-flex align-items-center">
             <div style={{ position: "relative", width: "100%", borderRadius: "24px", overflow: "hidden", boxShadow: "0 12px 30px rgba(15,23,42,0.08)" }}>
               <Image
-                src="/images/team/hedge-team-signing.jpg"
+                src="/images/team/hedge-team-signing.webp"
                 alt="Hedge Chartered Accountants Group tax advisors reviewing a corporate tax filing"
                 width={2000}
                 height={1333}

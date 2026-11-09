@@ -64,7 +64,7 @@ export default function Section3() {
               {/* Hero Banner Image */}
               <div style={{ position: "relative", width: "100%", borderRadius: "20px", overflow: "hidden", marginBottom: "24px", boxShadow: "0 12px 30px rgba(15,23,42,0.08)" }}>
                 <Image
-                  src="/images/team/hedge-team-at-work.jpg"
+                  src="/images/team/hedge-team-at-work.webp"
                   alt="Hedge Chartered Accountants Group accountants working at the office"
                   width={2000}
                   height={1273}

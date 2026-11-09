@@ -1,0 +1,54 @@
+# ------------------------------------------------------------------
+# Hedge website - speed settings (browser caching + compression)
+# Paste these lines at the TOP of the .htaccess file in the website's
+# root folder (public_html) on the hosting server. Keep anything that
+# is already in that file below these lines.
+# ------------------------------------------------------------------
+
+# 1) Compress text files (HTML, CSS, JS, SVG, JSON)
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml application/javascript text/javascript application/json image/svg+xml application/xml font/ttf
+</IfModule>
+
+# 2) Make sure WebP / WOFF2 files get the right type
+<IfModule mod_mime.c>
+  AddType image/webp .webp
+  AddType font/woff2 .woff2
+  AddType font/woff .woff
+</IfModule>
+
+# 3) Let browsers keep files instead of downloading them on every visit
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 month"
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/x-component "access plus 0 seconds"
+  ExpiresByType application/json "access plus 0 seconds"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 month"
+  ExpiresByType image/vnd.microsoft.icon "access plus 1 month"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType font/woff "access plus 1 year"
+  ExpiresByType font/ttf "access plus 1 year"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType text/javascript "access plus 1 year"
+</IfModule>
+
+<IfModule mod_headers.c>
+  # Next.js build files have a unique name each build, so they can be cached "forever"
+  <If "%{REQUEST_URI} =~ m#^/_next/static/#">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </If>
+  # Pages and page data must always be fresh after a new upload
+  <FilesMatch "\.(html|txt)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+  # Images and fonts in /images, /icons, /_next/static/media
+  <FilesMatch "\.(webp|png|jpe?g|svg|woff2?|ttf)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+</IfModule>

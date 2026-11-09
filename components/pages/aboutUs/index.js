@@ -76,7 +76,7 @@ export default function AboutUs() {
 						<div className="col-lg-6 d-flex align-items-center">
 							<div className="position-relative w-100 rounded-4 overflow-hidden">
 								<Image
-									src="/images/team/hedge-team-mission.jpg"
+									src="/images/team/hedge-team-mission.webp"
 									alt="The Hedge Chartered Accountants Group team"
 									width={2000}
 									height={1299}
@@ -107,7 +107,7 @@ export default function AboutUs() {
 										width={280}
 										height={240}
 										style={{ objectFit: 'contain', height: 'auto', maxHeight: '200px', width: '100%', maxWidth: '260px' }}
-										src="/images/logo/pioneer_hedge_logo.png"
+										src="/images/logo/pioneer_hedge_logo.webp"
 										alt="Pioneer Hedge Auditing &amp; Tax Consulting Logo"
 									/>
 								</div>

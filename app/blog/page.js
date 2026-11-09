@@ -15,7 +15,7 @@ export default async function BlogPage() {
 	const articles = blogs && blogs.length > 0 ? blogs : blogsData;
 
 	return (
-		<Layout breadcrumbTitle="Insights & Updates" mainCls="padding-0" breadcrumbBg="/images/bredcrumb/bredcrumb1.jpeg">
+		<Layout breadcrumbTitle="Insights & Updates" mainCls="padding-0" breadcrumbBg="/images/bredcrumb/bredcrumb1.webp">
 			<section className="py-5 bg-light-slate">
 				<div className="tf-container">
 

@@ -72,7 +72,7 @@ export default function Section10() {
           <div className="col-lg-5">
             <div style={{ position: "relative", width: "100%", height: "100%", minHeight: "380px", borderRadius: "24px", overflow: "hidden", boxShadow: "0 12px 30px rgba(15,23,42,0.08)" }}>
               <Image
-                src="/images/section/e-invoicing.png"
+                src="/images/section/e-invoicing.webp"
                 alt="UAE E-Invoicing Readiness & Integration"
                 fill
                 style={{ objectFit: "cover", objectPosition: "center" }}

@@ -34,7 +34,7 @@ export default async function BlogDetailPage({ params }) {
 
 
 	return (
-		<Layout breadcrumbTitle={article.title} mainCls="padding-0" breadcrumbBg="/images/bredcrumb/bredcrumb1.jpeg">
+		<Layout breadcrumbTitle={article.title} mainCls="padding-0" breadcrumbBg="/images/bredcrumb/bredcrumb1.webp">
 			<section className="py-5 bg-light-slate">
 				<div className="tf-container">
 					<div className="row g-4">

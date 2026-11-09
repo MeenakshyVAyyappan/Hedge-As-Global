@@ -12,7 +12,7 @@ export const partnersData = [
 		name: "Odoo ERP",
 		subtitle: "Enterprise ERP Accounting",
 		logo: "/images/partner/partner-2.png",
-		image: "/images/section/OdooERP.png",
+		image: "/images/section/OdooERP.webp",
 		description: "Full chart-of-accounts and VAT module integration for Odoo business suites."
 	},
 	{
@@ -20,7 +20,7 @@ export const partnersData = [
 		name: "Zoho Books",
 		subtitle: "Cloud Accounting Integration",
 		logo: "/images/partner/partner-3.png",
-		image: "/images/section/ZohoBooks.png",
+		image: "/images/section/ZohoBooks.webp",
 		description: "Authorized cloud bookkeeping setup and automated compliance reporting."
 	}
 ];

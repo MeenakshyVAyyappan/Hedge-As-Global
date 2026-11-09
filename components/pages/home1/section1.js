@@ -3,39 +3,39 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 const credentials = [
-  { label: "CPA Australia", logo: "/images/memberships/cpa-australia-logo.png", w: 1000, h: 460, size: "wide" },
-  { label: "CIMA, United Kingdom", logo: "/images/memberships/cima-logo.png", w: 1000, h: 389, size: "wide" },
-  { label: "Accountants & Auditors Association", logo: "/images/memberships/eaaa-logo.png", w: 1000, h: 286, size: "wide" },
-  { label: "IPA Fellow, Australia", logo: "/images/memberships/ipa-logo.png", w: 1000, h: 543, size: "wide" },
-  { label: "IFA Fellow, United Kingdom", logo: "/images/memberships/ifa-logo.png", w: 1000, h: 529, size: "wide" },
-  { label: "ICAI, India", logo: "/images/memberships/icai.png", w: 1100, h: 1005, size: "sq" }
+  { label: "CPA Australia", logo: "/images/memberships/cpa-australia-logo.webp", w: 1000, h: 460, size: "wide" },
+  { label: "CIMA, United Kingdom", logo: "/images/memberships/cima-logo.webp", w: 1000, h: 389, size: "wide" },
+  { label: "Accountants & Auditors Association", logo: "/images/memberships/eaaa-logo.webp", w: 1000, h: 286, size: "wide" },
+  { label: "IPA Fellow, Australia", logo: "/images/memberships/ipa-logo.webp", w: 1000, h: 543, size: "wide" },
+  { label: "IFA Fellow, United Kingdom", logo: "/images/memberships/ifa-logo.webp", w: 1000, h: 529, size: "wide" },
+  { label: "ICAI, India", logo: "/images/memberships/icai.webp", w: 1100, h: 1005, size: "sq" }
 ];
 
 const cards = [
   {
     title: "FTA-Approved Tax Agency",
     desc: "Pioneer Hedge Auditing & Tax Consulting is a registered FTA Tax Agency authorized to manage returns, audits, and tax representation.",
-    image: "/images/section/fta_official.png"
+    image: "/images/section/fta_official.webp"
   },
   {
     title: "UAE • Bahrain • India",
     desc: "Regional leadership across Abu Dhabi, Dubai, Al Ain, Manama (Bahrain), and India providing local compliance with international scale.",
-    image: "/images/section/uaeindia_flags.png"
+    image: "/images/section/uaeindia_flags.webp"
   },
   {
     title: "Chartered Accountants",
     desc: "Senior team of qualified auditors, financial analysts, and corporate tax specialists dedicated to precision and governance.",
-    image: "/images/section/ca_new.png"
+    image: "/images/section/ca_new.webp"
   },
   {
     title: "IFRS Global Compliance",
     desc: "Financial reporting and statutory audits conducted in strict compliance with International Financial Reporting Standards.",
-    image: "/images/section/ifrs_clean.png"
+    image: "/images/section/ifrs_clean.webp"
   },
   {
     title: "ISO Certified",
     desc: "Certified to ISO 9001:2015, ISO 14001:2015 and ISO 45001:2018, ensuring consistent, documented, and reliable service delivery.",
-    image: "/images/section/iso-9001-2015-round.png",
+    image: "/images/section/iso-9001-2015-round.webp",
     iso: ["9001:2015", "14001:2015", "45001:2018"]
   }
 ];
@@ -113,7 +113,7 @@ export default function Section1() {
                     {card.iso.map((std, k) => (
                       <div key={std} className="iso-trio-item" style={{ animationDelay: `${k * -1.2}s` }}>
                         <div className="iso-trio-logo">
-                          <Image src="/images/section/iso-emblem.png" alt={`ISO ${std} certified`} fill sizes="(max-width: 991px) 110px, 70px" style={{ objectFit: "contain" }} />
+                          <Image src="/images/section/iso-emblem.webp" alt={`ISO ${std} certified`} fill sizes="(max-width: 991px) 110px, 70px" style={{ objectFit: "contain" }} />
                         </div>
                         <span className="iso-trio-std">{std}</span>
                       </div>
@@ -230,6 +230,7 @@ export default function Section1() {
           filter: blur(60px);
           opacity: 0.5;
           pointer-events: none;
+          will-change: transform;
           animation: hcDrift 14s ease-in-out infinite alternate;
         }
         .hc-orb-1 { width: 380px; height: 380px; left: -120px; top: 80px; background: rgba(200, 16, 46, 0.12); }
@@ -503,17 +504,18 @@ export default function Section1() {
           0%, 100% { rotate: y -16deg; }
           50% { rotate: y 16deg; }
         }
+        /* transform/opacity only, so the browser can run these on the GPU */
         @keyframes hcSweep {
-          0% { left: -60%; opacity: 0; }
+          0% { transform: translateX(0) skewX(-18deg); opacity: 0; }
           4% { opacity: 1; }
-          16% { left: 120%; opacity: 1; }
-          17%, 100% { left: 120%; opacity: 0; }
+          16% { transform: translateX(400%) skewX(-18deg); opacity: 1; }
+          17%, 100% { transform: translateX(400%) skewX(-18deg); opacity: 0; }
         }
         @keyframes hcBar {
-          0% { transform: scaleX(0); transform-origin: left center; }
-          10% { transform: scaleX(1); transform-origin: left center; }
-          22% { transform: scaleX(1); transform-origin: right center; }
-          32%, 100% { transform: scaleX(0); transform-origin: right center; }
+          0% { transform: translateX(0) scaleX(0); }
+          10% { transform: translateX(0) scaleX(1); }
+          22% { transform: translateX(0) scaleX(1); }
+          32%, 100% { transform: translateX(100%) scaleX(0); }
         }
         @keyframes hcDrift {
           0% { transform: translate(0, 0); }

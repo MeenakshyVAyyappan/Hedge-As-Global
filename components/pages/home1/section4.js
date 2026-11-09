@@ -75,7 +75,7 @@ export default function Section4() {
 													height={600}
 													sizes="(max-width: 768px) 100vw, 50vw"
 													style={{ width: "100%", height: "auto", objectFit: "cover" }}
-													src="/images/section/discovgerRassesment.png" alt="Discovery & Assessment" />
+													src="/images/section/discovgerRassesment.webp" alt="Discovery & Assessment" />
 											</div>
 										</div>
 									</div>
@@ -127,7 +127,7 @@ export default function Section4() {
 													height={600}
 													sizes="(max-width: 768px) 100vw, 50vw"
 													style={{ width: "100%", height: "auto", objectFit: "cover" }}
-													src="/images/section/stratergydevelopment.png" alt="Strategy Development" />
+													src="/images/section/stratergydevelopment.webp" alt="Strategy Development" />
 											</div>
 										</div>
 									</div>
@@ -179,7 +179,7 @@ export default function Section4() {
 													height={600}
 													sizes="(max-width: 768px) 100vw, 50vw"
 													style={{ width: "100%", height: "auto", objectFit: "cover" }}
-													src="/images/section/implementation&execution.png" alt="Implementation & Execution" />
+													src="/images/section/implementation&execution.webp" alt="Implementation & Execution" />
 											</div>
 										</div>
 									</div>
@@ -231,7 +231,7 @@ export default function Section4() {
 													height={600}
 													sizes="(max-width: 768px) 100vw, 50vw"
 													style={{ width: "100%", height: "auto", objectFit: "cover" }}
-													src="/images/section/monitoring&continuous.png" alt="Monitoring & Continuous Improvement" />
+													src="/images/section/monitoring&continuous.webp" alt="Monitoring & Continuous Improvement" />
 											</div>
 										</div>
 									</div>

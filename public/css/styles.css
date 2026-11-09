@@ -274,7 +274,7 @@ button,
 input,
 select,
 textarea {
-	font-family: "Public Sans", sans-serif;
+	font-family: var(--font-public-sans), "Public Sans", sans-serif;
 	font-size: 16px;
 	font-weight: 400;
 	color: var(--body-text);
@@ -606,7 +606,7 @@ h5,
 .h5,
 h6,
 .h6 {
-	font-family: "Manrope", sans-serif;
+	font-family: var(--font-manrope), "Manrope", sans-serif;
 	color: var(--Title);
 	font-weight: 700;
 	margin: 0;
@@ -701,7 +701,7 @@ a {
 	text-decoration: none;
 	color: var(--Title);
 	cursor: pointer;
-	font-family: "Manrope", sans-serif;
+	font-family: var(--font-manrope), "Manrope", sans-serif;
 	-webkit-transition: all 0.3s ease;
 	-moz-transition: all 0.3s ease;
 	-ms-transition: all 0.3s ease;
@@ -815,15 +815,15 @@ a.hover-text-main-golden:hover {
 }
 
 .font-main-3 {
-	font-family: "DM Sans", sans-serif;
+	font-family: var(--font-dm-sans), "DM Sans", sans-serif;
 }
 
 .font-main-2 {
-	font-family: "Manrope", sans-serif;
+	font-family: var(--font-manrope), "Manrope", sans-serif;
 }
 
 .font-main {
-	font-family: "Public Sans", sans-serif;
+	font-family: var(--font-public-sans), "Public Sans", sans-serif;
 }
 
 .mb-100 {
@@ -1190,7 +1190,7 @@ a.hover-text-main-golden:hover {
 
 .topbar-inner .infor-list a {
 	color: var(--Text-2);
-	font-family: "Public Sans", sans-serif;
+	font-family: var(--font-public-sans), "Public Sans", sans-serif;
 	font-size: 16px;
 	font-weight: 500;
 	line-height: 19px;
@@ -1485,7 +1485,7 @@ a.hover-text-main-golden:hover {
 	color: var(--Text-2);
 	font-size: 16px;
 	font-weight: 600;
-	font-family: "Manrope", sans-serif;
+	font-family: var(--font-manrope), "Manrope", sans-serif;
 	display: block;
 	position: relative;
 }
@@ -1832,7 +1832,7 @@ a.hover-text-main-golden:hover {
 	color: var(--Main-black);
 	font-size: 20px;
 	font-weight: 700;
-	font-family: "Manrope", sans-serif;
+	font-family: var(--font-manrope), "Manrope", sans-serif;
 	margin-bottom: 10px;
 	position: relative;
 }
@@ -2044,7 +2044,7 @@ a.hover-text-main-golden:hover {
 	font-size: 18px;
 	color: var(--Main-black);
 	font-weight: 600;
-	font-family: "Public Sans", sans-serif;
+	font-family: var(--font-public-sans), "Public Sans", sans-serif;
 }
 
 .mobile-nav-wrap .menu-item-has-children-mobile .item-menu-mobile:hover {
@@ -2078,7 +2078,7 @@ a.hover-text-main-golden:hover {
 	display: block;
 	line-height: 30px;
 	font-size: 16px;
-	font-family: "Public Sans", sans-serif;
+	font-family: var(--font-public-sans), "Public Sans", sans-serif;
 }
 
 .mobile-nav-wrap .menu-item-has-children-mobile .menu-item a::before {
@@ -2170,7 +2170,7 @@ a.hover-text-main-golden:hover {
 }
 
 .mobile-nav-wrap .bottom .title {
-	font-family: "Manrope", sans-serif;
+	font-family: var(--font-manrope), "Manrope", sans-serif;
 	color: var(--Main-black);
 	font-size: 20px;
 	font-weight: 700;
@@ -2255,7 +2255,7 @@ a.hover-text-main-golden:hover {
 }
 
 .tf-footer.style-2 .footer-inner .footer-title {
-	font-family: "Manrope", sans-serif;
+	font-family: var(--font-manrope), "Manrope", sans-serif;
 	font-size: 24px;
 	font-weight: 700;
 	line-height: 33px;
@@ -2341,7 +2341,7 @@ a.hover-text-main-golden:hover {
 }
 
 .tf-footer.style-2 .policy-list a {
-	font-family: "Public Sans", sans-serif;
+	font-family: var(--font-public-sans), "Public Sans", sans-serif;
 	font-size: 14px;
 	font-weight: 400;
 	line-height: 16px;
@@ -2556,7 +2556,7 @@ a.hover-text-main-golden:hover {
 
 .footer-inner .inner-top .title {
 	color: var(--White);
-	font-family: Manrope;
+	font-family: var(--font-manrope), "Manrope", sans-serif;
 	font-size: 24px;
 	line-height: 33px;
 	letter-spacing: -0.02em;
@@ -2613,7 +2613,7 @@ a.hover-text-main-golden:hover {
 
 .footer-inner .list a {
 	color: var(--Text-3);
-	font-family: "Public Sans", sans-serif;
+	font-family: var(--font-public-sans), "Public Sans", sans-serif;
 	line-height: 40px;
 	position: relative;
 }
@@ -2739,7 +2739,7 @@ a.hover-text-main-golden:hover {
 
 .footer-bottom a {
 	color: var(--White);
-	font-family: "Public Sans", sans-serif;
+	font-family: var(--font-public-sans), "Public Sans", sans-serif;
 	line-height: 40px;
 	position: relative;
 }
@@ -2951,7 +2951,7 @@ button {
 	line-height: 22px;
 	text-underline-position: from-font;
 	text-decoration-skip-ink: none;
-	font-family: "Manrope", sans-serif;
+	font-family: var(--font-manrope), "Manrope", sans-serif;
 	color: var(--Main-black);
 	background-color: var(--Main-yellow);
 	border-radius: 7px;
@@ -3598,7 +3598,7 @@ button {
 }
 
 .btn-case .tag {
-	font-family: "Public Sans", sans-serif;
+	font-family: var(--font-public-sans), "Public Sans", sans-serif;
 }
 
 .btn-case .name-case {
@@ -3783,7 +3783,7 @@ form.style-4 input {
 }
 
 form.style-4 input::placeholder {
-	font-family: Public Sans;
+	font-family: var(--font-public-sans), "Public Sans", sans-serif;
 	font-size: 14px;
 	font-weight: 400;
 	line-height: 16px;
@@ -3971,7 +3971,7 @@ fieldset {
 }
 
 .form-contact input::placeholder {
-	font-family: "Manrope", sans-serif;
+	font-family: var(--font-manrope), "Manrope", sans-serif;
 	font-size: 16px;
 	font-weight: 500;
 	line-height: 22px;
@@ -4258,7 +4258,7 @@ fieldset {
 }
 
 .tf-page-title .content .title {
-	font-family: "Manrope", sans-serif;
+	font-family: var(--font-manrope), "Manrope", sans-serif;
 	font-size: 70px;
 	font-weight: 700;
 	line-height: 95.62px;
@@ -4392,7 +4392,7 @@ fieldset {
 }
 
 .entry-meta .meta-list a {
-	font-family: "Public Sans", sans-serif;
+	font-family: var(--font-public-sans), "Public Sans", sans-serif;
 	color: var(--Text);
 }
 
@@ -4641,7 +4641,7 @@ fieldset {
 }
 
 .tag-popular-list a {
-	font-family: "Public Sans", sans-serif;
+	font-family: var(--font-public-sans), "Public Sans", sans-serif;
 	color: var(--Title);
 	display: flex;
 	padding: 12px 19px 11px 21px;
@@ -4762,7 +4762,7 @@ fieldset {
 }
 
 .tf-accordion .accordion-button {
-	font-family: "Manrope", sans-serif;
+	font-family: var(--font-manrope), "Manrope", sans-serif;
 	padding: 0px 0px 26px;
 	font-size: 18px;
 	font-weight: 700;
@@ -4919,7 +4919,7 @@ fieldset {
 }
 
 .tf-accordion-type-2 .accordion-button .title {
-	font-family: "Manrope", sans-serif;
+	font-family: var(--font-manrope), "Manrope", sans-serif;
 	font-size: 22px;
 	font-weight: 700;
 	line-height: 30px;
@@ -5027,7 +5027,7 @@ fieldset {
 }
 
 .tf-accordion-type-3 .accordion-button {
-	font-family: "Manrope", sans-serif;
+	font-family: var(--font-manrope), "Manrope", sans-serif;
 	font-size: 24px;
 	font-weight: 700;
 	line-height: 33px;
@@ -5161,7 +5161,7 @@ fieldset {
 }
 
 .tf-accordion-type-3 .accordion-body .title {
-	font-family: "Manrope", sans-serif;
+	font-family: var(--font-manrope), "Manrope", sans-serif;
 	font-size: 24px;
 	font-weight: 700;
 	line-height: 33px;
@@ -5739,7 +5739,7 @@ a.mapboxgl-ctrl-logo {
 }
 
 .wg-feature-item li p {
-	font-family: "Manrope", sans-serif;
+	font-family: var(--font-manrope), "Manrope", sans-serif;
 	font-size: 16px;
 	font-weight: 600;
 	line-height: 22px;
@@ -5859,11 +5859,11 @@ a.mapboxgl-ctrl-logo {
 }
 
 .card-case .sub-title {
-	font-family: "Public Sans", sans-serif;
+	font-family: var(--font-public-sans), "Public Sans", sans-serif;
 }
 
 .card-case .sub-title a {
-	font-family: "Public Sans", sans-serif;
+	font-family: var(--font-public-sans), "Public Sans", sans-serif;
 	color: var(--White);
 	line-height: 19px;
 }
@@ -6172,12 +6172,12 @@ a.mapboxgl-ctrl-logo {
 }
 
 .tag-text-wrap {
-	font-family: "Public Sans", sans-serif;
+	font-family: var(--font-public-sans), "Public Sans", sans-serif;
 	color: var(--White);
 }
 
 .tag-text-wrap a {
-	font-family: "Public Sans", sans-serif;
+	font-family: var(--font-public-sans), "Public Sans", sans-serif;
 	color: var(--White);
 	line-height: 19px;
 }
@@ -6600,7 +6600,7 @@ a.mapboxgl-ctrl-logo {
 }
 
 .odometer {
-	font-family: "Manrope", sans-serif !important;
+	font-family: var(--font-manrope), "Manrope", sans-serif !important;
 	font-size: 55px;
 	font-weight: 700;
 	line-height: 75px;
@@ -6622,7 +6622,7 @@ a.mapboxgl-ctrl-logo {
 }
 
 .sub-odo {
-	font-family: "Manrope", sans-serif;
+	font-family: var(--font-manrope), "Manrope", sans-serif;
 	font-size: 55px;
 	font-weight: 700;
 	line-height: 50px;
@@ -6765,7 +6765,7 @@ a.mapboxgl-ctrl-logo {
 }
 
 .counter-wrap.style-2 .sub-counter {
-	font-family: "Manrope", sans-serif;
+	font-family: var(--font-manrope), "Manrope", sans-serif;
 	font-size: 18px;
 	font-weight: 600;
 	line-height: 30px;
@@ -6789,7 +6789,7 @@ a.mapboxgl-ctrl-logo {
 
 .counter-wrap.style-3 .sub-counter {
 	color: var(--Main-green);
-	font-family: "Manrope", sans-serif;
+	font-family: var(--font-manrope), "Manrope", sans-serif;
 	font-size: 16px;
 	font-weight: 600;
 	line-height: 22px;
@@ -7192,7 +7192,7 @@ a.mapboxgl-ctrl-logo {
 }
 
 .card-blog-item.style-3 .entry-meta a {
-	font-family: "Public Sans", sans-serif;
+	font-family: var(--font-public-sans), "Public Sans", sans-serif;
 	font-size: 16px;
 	font-weight: 400;
 	line-height: 19px;
@@ -7224,7 +7224,7 @@ a.mapboxgl-ctrl-logo {
 	display: flex;
 	align-items: center;
 	gap: 7px;
-	font-family: "Public Sans", sans-serif;
+	font-family: var(--font-public-sans), "Public Sans", sans-serif;
 	font-size: 16px;
 	font-weight: 400;
 	line-height: 19px;
@@ -8229,7 +8229,7 @@ a.mapboxgl-ctrl-logo {
 }
 
 .text-rotate .text span {
-	font-family: "Manrope", sans-serif;
+	font-family: var(--font-manrope), "Manrope", sans-serif;
 	font-size: 22px;
 	font-weight: 700;
 	line-height: 30px;
@@ -8688,7 +8688,7 @@ a.mapboxgl-ctrl-logo {
 }
 
 .skill-name {
-	font-family: "Manrope", sans-serif;
+	font-family: var(--font-manrope), "Manrope", sans-serif;
 	font-size: 20px;
 	font-weight: 700;
 	line-height: 27px;
@@ -8839,7 +8839,7 @@ a.mapboxgl-ctrl-logo {
 }
 
 .wg-graph p {
-	font-family: "Inter", sans-serif;
+	font-family: var(--font-inter), "Inter", sans-serif;
 	text-align: center;
 	font-weight: 700;
 }
@@ -8848,7 +8848,7 @@ a.mapboxgl-ctrl-logo {
 	font-size: 30px;
 	line-height: 36px;
 	color: var(--Main-green);
-	font-family: "Inter", sans-serif;
+	font-family: var(--font-inter), "Inter", sans-serif;
 	font-size: 30px;
 	font-weight: 700;
 }
@@ -8937,7 +8937,7 @@ a.mapboxgl-ctrl-logo {
 }
 
 .item-customer.style-3 p {
-	font-family: "Manrope", sans-serif;
+	font-family: var(--font-manrope), "Manrope", sans-serif;
 	font-size: 18px;
 	font-weight: 400;
 	line-height: 30px;
@@ -9101,7 +9101,7 @@ a.mapboxgl-ctrl-logo {
 }
 
 .wg-skill .name p {
-	font-family: "Manrope", sans-serif;
+	font-family: var(--font-manrope), "Manrope", sans-serif;
 	font-size: 20px;
 	font-weight: 700;
 	line-height: 27px;
@@ -9248,7 +9248,7 @@ a.mapboxgl-ctrl-logo {
 }
 
 .contact-infor-list .caption {
-	font-family: "Manrope", sans-serif;
+	font-family: var(--font-manrope), "Manrope", sans-serif;
 	font-size: 18px;
 	font-weight: 600;
 	line-height: 26px;
@@ -9286,7 +9286,7 @@ a.mapboxgl-ctrl-logo {
 }
 
 .s-page-faq .title {
-	font-family: "Manrope", sans-serif;
+	font-family: var(--font-manrope), "Manrope", sans-serif;
 	font-size: 35px;
 	font-weight: 700;
 	line-height: 48px;
@@ -9389,7 +9389,7 @@ a.mapboxgl-ctrl-logo {
 }
 
 .wg-job .salary {
-	font-family: "Manrope", sans-serif;
+	font-family: var(--font-manrope), "Manrope", sans-serif;
 	font-size: 16px;
 	font-weight: 700;
 	line-height: 22px;
@@ -9599,7 +9599,7 @@ a.mapboxgl-ctrl-logo {
 }
 
 .s-title {
-	font-family: "Manrope", sans-serif;
+	font-family: var(--font-manrope), "Manrope", sans-serif;
 	font-size: 52px;
 	font-weight: 700;
 	line-height: 62px;
@@ -9736,7 +9736,7 @@ a.mapboxgl-ctrl-logo {
 	justify-content: center;
 	border-radius: 50%;
 	border: 1px solid var(--Border-2);
-	font-family: "Public Sans", sans-serif;
+	font-family: var(--font-public-sans), "Public Sans", sans-serif;
 	font-size: 18px;
 	font-weight: 600;
 	line-height: 21px;
@@ -10086,7 +10086,7 @@ a.mapboxgl-ctrl-logo {
 }
 
 .page-title-home-3 .image-item p {
-	font-family: "Inter", sans-serif;
+	font-family: var(--font-inter), "Inter", sans-serif;
 }
 
 .page-title-home-3 .image-item .caption {
@@ -10160,7 +10160,7 @@ a.mapboxgl-ctrl-logo {
 
 .page-title-home-3 .content-left .text {
 	color: var(--White);
-	font-family: "Manrope", sans-serif;
+	font-family: var(--font-manrope), "Manrope", sans-serif;
 	font-size: 18px;
 	font-weight: 600;
 	line-height: 30px;
@@ -10238,7 +10238,7 @@ a.mapboxgl-ctrl-logo {
 	font-weight: 700;
 	line-height: 91px;
 	letter-spacing: -0.02em;
-	font-family: "Manrope", sans-serif;
+	font-family: var(--font-manrope), "Manrope", sans-serif;
 }
 
 .page-title-home-4 .list {
@@ -10523,7 +10523,7 @@ a.mapboxgl-ctrl-logo {
 }
 
 .s-contact .list .cap {
-	font-family: "Manrope", sans-serif;
+	font-family: var(--font-manrope), "Manrope", sans-serif;
 	font-size: 18px;
 	font-weight: 700;
 	line-height: 24px;
@@ -11262,7 +11262,7 @@ a.mapboxgl-ctrl-logo {
 
 .s-break-page p {
 	color: var(--White);
-	font-family: "Manrope", sans-serif;
+	font-family: var(--font-manrope), "Manrope", sans-serif;
 	font-size: 16px;
 	font-weight: 500;
 	line-height: 22px;
@@ -11531,7 +11531,7 @@ a.mapboxgl-ctrl-logo {
 }
 
 .s-funfact .counter-list .sub {
-	font-family: "Manrope", sans-serif;
+	font-family: var(--font-manrope), "Manrope", sans-serif;
 	font-size: 24px;
 	font-weight: 700;
 	line-height: 32.78px;
@@ -11545,7 +11545,7 @@ a.mapboxgl-ctrl-logo {
 .s-funfact .counter-list .text {
 	font-weight: 500;
 	font-style: 20px;
-	font-family: "Manrope", sans-serif;
+	font-family: var(--font-manrope), "Manrope", sans-serif;
 	max-width: 300px;
 	width: 100%;
 }
@@ -11571,7 +11571,7 @@ a.mapboxgl-ctrl-logo {
 }
 
 .s-funfact .counter-list li .text {
-	font-family: "Manrope", sans-serif;
+	font-family: var(--font-manrope), "Manrope", sans-serif;
 	font-size: 20px;
 	font-weight: 500;
 	line-height: 30px;
@@ -12043,7 +12043,7 @@ a.mapboxgl-ctrl-logo {
 }
 
 .s-why-choose-4 .list .number p {
-	font-family: "Public Sans", sans-serif;
+	font-family: var(--font-public-sans), "Public Sans", sans-serif;
 	font-size: 24px;
 	font-weight: 600;
 	line-height: 28px;
@@ -12163,7 +12163,7 @@ a.mapboxgl-ctrl-logo {
 }
 
 .s-service-detail .content .title {
-	font-family: "Manrope", sans-serif;
+	font-family: var(--font-manrope), "Manrope", sans-serif;
 	font-size: 35px;
 	font-weight: 700;
 	line-height: 48px;
@@ -12347,7 +12347,7 @@ a.mapboxgl-ctrl-logo {
 }
 
 .s-case-detail .name-meta {
-	font-family: "Manrope", sans-serif;
+	font-family: var(--font-manrope), "Manrope", sans-serif;
 	font-size: 14px;
 	font-weight: 500;
 	line-height: 19px;
@@ -12363,7 +12363,7 @@ a.mapboxgl-ctrl-logo {
 }
 
 .s-case-detail .title-2 {
-	font-family: "Manrope", sans-serif;
+	font-family: var(--font-manrope), "Manrope", sans-serif;
 	font-size: 27px;
 	font-weight: 700;
 	line-height: 37px;
@@ -12468,7 +12468,7 @@ a.mapboxgl-ctrl-logo {
 }
 
 .s-team-detail .entry-name {
-	font-family: "Manrope", sans-serif;
+	font-family: var(--font-manrope), "Manrope", sans-serif;
 	font-size: 30px;
 	font-weight: 700;
 	line-height: 41px;
@@ -12758,7 +12758,7 @@ a.mapboxgl-ctrl-logo {
 }
 
 .s-mission .list .company {
-	font-family: "Manrope", sans-serif;
+	font-family: var(--font-manrope), "Manrope", sans-serif;
 	font-size: 27px;
 	font-weight: 700;
 	line-height: 37px;
@@ -12791,7 +12791,7 @@ a.mapboxgl-ctrl-logo {
 }
 
 .s-404 .not-found {
-	font-family: "Manrope", sans-serif;
+	font-family: var(--font-manrope), "Manrope", sans-serif;
 	font-size: 75px;
 	font-weight: 700;
 	line-height: 102px;
@@ -12846,7 +12846,7 @@ a.mapboxgl-ctrl-logo {
 
 .s-break p {
 	color: var(--White);
-	font-family: "Manrope", sans-serif;
+	font-family: var(--font-manrope), "Manrope", sans-serif;
 	font-size: 16px;
 	font-weight: 500;
 	line-height: 22px;
@@ -16468,7 +16468,7 @@ a.mapboxgl-ctrl-logo {
 
 /* Compact Premium Hero Section */
 .page-title-home-1.hero-compact {
-	background-image: linear-gradient(135deg, rgba(8, 30, 60, 0.78) 0%, rgba(13, 50, 96, 0.68) 50%, rgba(8, 30, 60, 0.82) 100%), url('/images/banner/uae_financial_hero.jpg');
+	background-image: linear-gradient(135deg, rgba(8, 30, 60, 0.78) 0%, rgba(13, 50, 96, 0.68) 50%, rgba(8, 30, 60, 0.82) 100%), url('/images/banner/uae_financial_hero.webp');
 	background-size: cover;
 	background-position: center center;
 	background-repeat: no-repeat;
@@ -18754,7 +18754,7 @@ a.mapboxgl-ctrl-logo {
 .hero-headline,
 h1.hero-headline {
   color: #ffffff !important;
-  font-family: "Manrope", sans-serif !important;
+  font-family: var(--font-manrope), "Manrope", sans-serif !important;
 }
 
 .hero-description,
@@ -18772,3 +18772,12 @@ p.hero-description {
 
 
 
+
+
+/* Performance: looping animations are paused while their section is off-screen
+   (class is added/removed by components/layout/Layout.js). */
+.anim-offscreen *,
+.anim-offscreen *::before,
+.anim-offscreen *::after {
+	animation-play-state: paused !important;
+}

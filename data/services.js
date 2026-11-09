@@ -432,7 +432,7 @@ export const servicesData = [
 				answer: "Three steps: book your call (free, no obligation, under a minute), we assess your needs and send a fixed-scope proposal with honest pricing, then we implement and support you with setup, migration, training and ongoing support."
 			}
 		],
-		heroImage: "/images/section/e-invoicing.png"
+		heroImage: "/images/section/e-invoicing.webp"
 	},
 	{
 		id: "business-advisory",

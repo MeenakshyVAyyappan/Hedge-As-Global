@@ -67,7 +67,7 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, handle
 												height="85"
 												style={{ objectFit: "contain", height: "85px", width: "auto", maxWidth: "280px" }}
 												id="logo_header" 
-												src="/images/logo/logoclear21.png" 
+												src="/images/logo/logoclear21.webp" 
 												alt="Hedge Chartered Accountants Group Logo" 
 											/>
 										</Link>
@@ -112,7 +112,7 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, handle
 									style={{ objectFit: "contain", height: "55px", width: "auto", maxWidth: "200px" }}
 									id="mobile-logo_header" 
 									alt="Hedge Chartered Accountants Group" 
-									src="/images/logo/logoclear21.png" 
+									src="/images/logo/logoclear21.webp" 
 								/>
 							</Link>
 							<div className="mobile-nav-close" onClick={handleMobileMenu}>

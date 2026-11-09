@@ -27,11 +27,21 @@ const animateBoxVideo = () => {
 			})
 		}
 
-		window.addEventListener('scroll', handleScroll)
+		// Run the checks at most once per animation frame (avoids layout thrashing while scrolling)
+		let ticking = false
+		const onScroll = () => {
+			if (ticking) return
+			ticking = true
+			window.requestAnimationFrame(() => {
+				handleScroll()
+				ticking = false
+			})
+		}
+		window.addEventListener('scroll', onScroll, { passive: true })
 
 		// Cleanup the event listener on component unmount
 		return () => {
-			window.removeEventListener('scroll', handleScroll)
+			window.removeEventListener('scroll', onScroll)
 		}
 	}, [])
 }

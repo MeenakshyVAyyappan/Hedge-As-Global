@@ -116,7 +116,7 @@ export default function Footer4() {
 													height={75}
 													style={{ objectFit: 'contain', height: '75px', width: 'auto', maxWidth: '220px' }}
 													id="logo_footer"
-													src="/images/logo/logoclear21.png"
+													src="/images/logo/logoclear21.webp"
 													alt="Hedge Chartered Accountants Group Logo"
 												/>
 											</Link>

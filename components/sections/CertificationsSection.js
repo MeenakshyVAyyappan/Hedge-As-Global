@@ -9,7 +9,7 @@ const certificates = [
 		credential: "Certified Practising Accountant (CPA)",
 		holder: "Obaid Mohammed Alameri",
 		detail: "Admitted 6 September 2024",
-		image: "/images/certificates/cpa-australia.jpg",
+		image: "/images/certificates/cpa-australia.webp",
 		width: 1177,
 		height: 1800
 	},
@@ -18,7 +18,7 @@ const certificates = [
 		credential: "Chartered Management Accountant",
 		holder: "Obaid Alameri",
 		detail: "Admitted 26 June 2024",
-		image: "/images/certificates/cima.jpg",
+		image: "/images/certificates/cima.webp",
 		width: 1237,
 		height: 1800
 	},
@@ -27,7 +27,7 @@ const certificates = [
 		credential: "UAE Professional Fellowship",
 		holder: "Anjith Reghukumar",
 		detail: "Valid until 15 January 2027",
-		image: "/images/certificates/eaaa-fellowship.jpg",
+		image: "/images/certificates/eaaa-fellowship.webp",
 		width: 1273,
 		height: 1800
 	},
@@ -36,7 +36,7 @@ const certificates = [
 		credential: "Fellow (FIPA)",
 		holder: "Anjith Reghu Kumar",
 		detail: "Admitted 2 March 2022",
-		image: "/images/certificates/ipa-fellow.jpg",
+		image: "/images/certificates/ipa-fellow.webp",
 		width: 1274,
 		height: 1800
 	},
@@ -45,7 +45,7 @@ const certificates = [
 		credential: "Fellow (FFA)",
 		holder: "Anjith Reghu Kumar",
 		detail: "Admitted 2 March 2022",
-		image: "/images/certificates/ifa-fellow.jpg",
+		image: "/images/certificates/ifa-fellow.webp",
 		width: 1274,
 		height: 1800
 	}

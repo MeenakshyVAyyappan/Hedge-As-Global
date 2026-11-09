@@ -12,10 +12,8 @@
 @font-face {
     font-family: "flaticon_saylo";
     src: url("./flaticon_saylo.woff2?7961919b0c3d939467c4923493613ab4") format("woff2"),
-url("./flaticon_saylo.woff?7961919b0c3d939467c4923493613ab4") format("woff"),
-url("./flaticon_saylo.eot?7961919b0c3d939467c4923493613ab4#iefix") format("embedded-opentype"),
-url("./flaticon_saylo.ttf?7961919b0c3d939467c4923493613ab4") format("truetype"),
-url("./flaticon_saylo.svg?7961919b0c3d939467c4923493613ab4#flaticon_saylo") format("svg")
+url("./flaticon_saylo.woff?7961919b0c3d939467c4923493613ab4") format("woff");
+    font-display: fallback;
 }
 
 i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {

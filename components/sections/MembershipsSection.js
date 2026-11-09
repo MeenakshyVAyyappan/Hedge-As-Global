@@ -6,7 +6,7 @@ const memberships = [
 		body: "CPA Australia",
 		credential: "Certified Practising Accountant",
 		region: "Australia",
-		logo: "/images/memberships/cpa-australia-logo.png",
+		logo: "/images/memberships/cpa-australia-logo.webp",
 		width: 1000,
 		height: 460
 	},
@@ -14,7 +14,7 @@ const memberships = [
 		body: "Chartered Institute of Management Accountants",
 		credential: "Chartered Management Accountant",
 		region: "United Kingdom",
-		logo: "/images/memberships/cima-logo.png",
+		logo: "/images/memberships/cima-logo.webp",
 		width: 1000,
 		height: 389
 	},
@@ -22,7 +22,7 @@ const memberships = [
 		body: "Emirates Association for Accountants & Auditors",
 		credential: "Professional Fellowship",
 		region: "United Arab Emirates",
-		logo: "/images/memberships/eaaa-logo.png",
+		logo: "/images/memberships/eaaa-logo.webp",
 		wide: true,
 		width: 1000,
 		height: 286
@@ -31,7 +31,7 @@ const memberships = [
 		body: "Institute of Public Accountants",
 		credential: "Fellow Member (FIPA)",
 		region: "Australia",
-		logo: "/images/memberships/ipa-logo.png",
+		logo: "/images/memberships/ipa-logo.webp",
 		width: 1000,
 		height: 543
 	},
@@ -39,7 +39,7 @@ const memberships = [
 		body: "Institute of Financial Accountants",
 		credential: "Fellow Member (FFA)",
 		region: "United Kingdom",
-		logo: "/images/memberships/ifa-logo.png",
+		logo: "/images/memberships/ifa-logo.webp",
 		width: 1000,
 		height: 529
 	}
